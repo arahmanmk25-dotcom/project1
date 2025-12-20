@@ -14,6 +14,7 @@ const Header = () => {
     { href: '/', label: t('nav.home') },
     { href: '/about', label: t('nav.about') },
     { href: '/services', label: t('nav.services') },
+    { href: '/fleet', label: t('nav.fleet') },
     { href: '/work', label: t('nav.work') },
     { href: '/contact', label: t('nav.contact') },
   ];
@@ -40,7 +41,7 @@ const Header = () => {
                 {language === 'ar' ? 'هافكو' : 'HAFCO'}
               </h1>
               <p className="text-xs text-muted-foreground">
-                {language === 'ar' ? 'النقل الثقيل' : 'Heavy Transport'}
+                {language === 'ar' ? 'النقليات الكبيرة' : 'Big Movers'}
               </p>
             </div>
           </Link>

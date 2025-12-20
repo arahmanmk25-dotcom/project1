@@ -7,7 +7,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 
 const Contact = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
 
@@ -88,6 +88,40 @@ const Contact = () => {
                 </Button>
               </form>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Map Section */}
+      <section className="py-16 bg-secondary">
+        <div className="container mx-auto px-4">
+          <h2 className="text-2xl font-bold text-primary mb-6 text-center">{t('contact.location')}</h2>
+          <div className="rounded-xl overflow-hidden shadow-lg">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3573.6882459044!2d50.0908!3d26.4207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e49e6db00000001%3A0x1234567890abcdef!2sEQGA2837%2C%20Dammam!5e0!3m2!1sen!2ssa!4v1703036400000!5m2!1sen!2ssa"
+              width="100%"
+              height="450"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title={language === 'ar' ? 'موقع هافكو' : 'HAFCO Location'}
+              className="w-full"
+            />
+          </div>
+          <div className="mt-4 text-center">
+            <p className="text-muted-foreground mb-2">
+              {language === 'ar' ? 'العنوان المختصر:' : 'Short Address:'} <span className="font-bold text-primary">EQGA2837</span>
+            </p>
+            <a 
+              href="https://maps.google.com/?q=EQGA2837+Dammam+Saudi+Arabia" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-gold hover:text-gold-light transition-colors"
+            >
+              <MapPin className="h-4 w-4" />
+              {language === 'ar' ? 'افتح في خرائط جوجل' : 'Open in Google Maps'}
+            </a>
           </div>
         </div>
       </section>
