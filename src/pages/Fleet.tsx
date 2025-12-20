@@ -6,6 +6,16 @@ import truck4 from '@/assets/trucks/truck-4.jpeg';
 import truck5 from '@/assets/trucks/truck-5.jpeg';
 import truck6 from '@/assets/trucks/truck-6.jpeg';
 import truck7 from '@/assets/trucks/truck-7.jpeg';
+import truck8 from '@/assets/trucks/truck-8.jpeg';
+import truck9 from '@/assets/trucks/truck-9.jpeg';
+import truck10 from '@/assets/trucks/truck-10.jpeg';
+import truck11 from '@/assets/trucks/truck-11.jpeg';
+import truck12 from '@/assets/trucks/truck-12.jpeg';
+import truck13 from '@/assets/trucks/truck-13.jpeg';
+import truck14 from '@/assets/trucks/truck-14.jpeg';
+import truck15 from '@/assets/trucks/truck-15.jpeg';
+import truck16 from '@/assets/trucks/truck-16.jpeg';
+import truck17 from '@/assets/trucks/truck-17.jpeg';
 
 const Fleet = () => {
   const { t, language } = useLanguage();
@@ -14,37 +24,70 @@ const Fleet = () => {
     { 
       src: truck5, 
       title: language === 'ar' ? 'نقل خزان ضخم' : 'Massive Tank Transport',
-      desc: language === 'ar' ? 'نقل معدات صناعية ضخمة عبر الطرق السريعة' : 'Transporting massive industrial equipment across highways'
     },
     { 
       src: truck6, 
       title: language === 'ar' ? 'نقل الأسطوانات الصناعية' : 'Industrial Cylinder Transport',
-      desc: language === 'ar' ? 'نقل متخصص للأسطوانات الصناعية الكبيرة' : 'Specialized transport of large industrial cylinders'
     },
     { 
       src: truck7, 
       title: language === 'ar' ? 'نقل المعدات الكبيرة' : 'Big Equipment Moving',
-      desc: language === 'ar' ? 'نقل معدات المصانع والمنشآت الصناعية' : 'Moving factory and industrial facility equipment'
     },
     { 
       src: truck1, 
       title: language === 'ar' ? 'نقل الأنابيب الطويلة' : 'Long Pipe Transport',
-      desc: language === 'ar' ? 'نقل أنابيب البترول والمعادن حتى 30 متر' : 'Transporting petroleum and metal pipes up to 30m'
     },
     { 
       src: truck2, 
       title: language === 'ar' ? 'شاحنة مرسيدس أكتروس' : 'Mercedes Actros Truck',
-      desc: language === 'ar' ? 'أسطول من شاحنات مرسيدس الحديثة' : 'Fleet of modern Mercedes trucks'
     },
     { 
       src: truck3, 
       title: language === 'ar' ? 'تحميل البضائع' : 'Cargo Loading',
-      desc: language === 'ar' ? 'تحميل وتفريغ احترافي للمعدات الثقيلة' : 'Professional loading and unloading of heavy equipment'
     },
     { 
       src: truck4, 
       title: language === 'ar' ? 'نقل الهياكل المعدنية' : 'Steel Structure Transport',
-      desc: language === 'ar' ? 'نقل الهياكل والجسور المعدنية الكبيرة' : 'Transporting large metal structures and bridges'
+    },
+    { 
+      src: truck8, 
+      title: language === 'ar' ? 'شاحنة فولفو' : 'Volvo Truck',
+    },
+    { 
+      src: truck9, 
+      title: language === 'ar' ? 'شاحنة مرسيدس صفراء' : 'Yellow Mercedes Truck',
+    },
+    { 
+      src: truck10, 
+      title: language === 'ar' ? 'فريق العمل' : 'Our Team at Work',
+    },
+    { 
+      src: truck11, 
+      title: language === 'ar' ? 'عمليات التحميل' : 'Loading Operations',
+    },
+    { 
+      src: truck12, 
+      title: language === 'ar' ? 'خدمات الرافعات' : 'Crane Services',
+    },
+    { 
+      src: truck13, 
+      title: language === 'ar' ? 'نقل الأنابيب الكبيرة' : 'Large Pipe Transport',
+    },
+    { 
+      src: truck14, 
+      title: language === 'ar' ? 'نقل الجسور' : 'Bridge Transport',
+    },
+    { 
+      src: truck15, 
+      title: language === 'ar' ? 'نقل أنابيب البترول' : 'Petroleum Pipe Transport',
+    },
+    { 
+      src: truck16, 
+      title: language === 'ar' ? 'نقل الأنابيب المزدوجة' : 'Double Pipe Transport',
+    },
+    { 
+      src: truck17, 
+      title: language === 'ar' ? 'شاحنة MAN الحمراء' : 'Red MAN Truck',
     },
   ];
 
@@ -68,7 +111,7 @@ const Fleet = () => {
       {/* Fleet Gallery */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {fleetImages.map((item, i) => (
               <div key={i} className="group relative overflow-hidden rounded-xl hover-lift">
                 <div className="aspect-[4/3] overflow-hidden">
@@ -79,13 +122,12 @@ const Fleet = () => {
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                    <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                    <p className="text-sm text-white/80">{item.desc}</p>
+                  <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+                    <h3 className="text-lg font-bold">{item.title}</h3>
                   </div>
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent group-hover:opacity-0 transition-opacity duration-300">
-                  <h3 className="text-white font-bold">{item.title}</h3>
+                  <h3 className="text-white font-bold text-sm">{item.title}</h3>
                 </div>
               </div>
             ))}
