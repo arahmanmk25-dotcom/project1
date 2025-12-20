@@ -1,14 +1,18 @@
 import { Truck, Cylinder, Construction, Package } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import truck5 from '@/assets/trucks/truck-5.jpeg';
+import truck13 from '@/assets/trucks/truck-13.jpeg';
+import truck12 from '@/assets/trucks/truck-12.jpeg';
+import truck9 from '@/assets/trucks/truck-9.jpeg';
 
 const Services = () => {
   const { t } = useLanguage();
 
   const services = [
-    { icon: Truck, title: t('services.heavy.title'), desc: t('services.heavy.description'), image: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600' },
-    { icon: Cylinder, title: t('services.petroleum.title'), desc: t('services.petroleum.description'), image: 'https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?w=600' },
-    { icon: Construction, title: t('services.crane.title'), desc: t('services.crane.description'), image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600' },
-    { icon: Package, title: t('services.logistics.title'), desc: t('services.logistics.description'), image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600' },
+    { icon: Truck, title: t('services.heavy.title'), desc: t('services.heavy.description'), image: truck5 },
+    { icon: Cylinder, title: t('services.petroleum.title'), desc: t('services.petroleum.description'), image: truck13 },
+    { icon: Construction, title: t('services.crane.title'), desc: t('services.crane.description'), image: truck12 },
+    { icon: Package, title: t('services.logistics.title'), desc: t('services.logistics.description'), image: truck9 },
   ];
 
   return (

@@ -117,7 +117,27 @@ const About = () => {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-primary mb-4">{t('about.companyProfile')}</h2>
+              
+              {/* Company Name Highlight */}
+              <div className="bg-primary/5 border-l-4 border-primary p-6 rounded-r-xl mb-8 text-start">
+                <h3 className="text-xl font-bold text-primary mb-2">
+                  {language === 'ar' ? 'شركة هادي وسعيد فزعان القحطاني' : 'Hadi & Saeed Fazaan Al-Qahtani Company'}
+                </h3>
+                <p className="text-muted-foreground text-sm">
+                  {language === 'ar' 
+                    ? 'المعروفة تجارياً باسم "هافكو" - HAFCO Big Movers'
+                    : 'Trading as "HAFCO" - HAFCO Big Movers'}
+                </p>
+              </div>
+
               <p className="text-lg text-muted-foreground leading-relaxed">{t('about.description')}</p>
+              
+              {/* Additional Company Info */}
+              <p className="text-muted-foreground mt-4 leading-relaxed">
+                {language === 'ar'
+                  ? 'الشركة مسجلة تحت رقم السجل التجاري 2050042846 ومرخصة للعمل في مجال نقل البضائع بالطرق، وتقدم خدمات نقل ولوجستية احترافية وفقاً للمعايير التنظيمية المعتمدة. نحن فخورون بتاريخنا العريق في خدمة كبرى الشركات في المملكة العربية السعودية منذ أكثر من 40 عاماً.'
+                  : 'The company is registered under Commercial Registration No. 2050042846 and is licensed to operate in the field of Road Freight Transportation, providing professional transportation and logistics services in accordance with approved regulatory standards. We are proud of our rich history serving major companies in Saudi Arabia for over 40 years.'}
+              </p>
             </div>
 
             {/* Registration Info Cards */}
