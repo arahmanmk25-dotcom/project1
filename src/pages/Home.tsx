@@ -3,6 +3,7 @@ import { ArrowRight, Truck, Shield, Clock, Users } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import hafcoLogo from '@/assets/hafco-logo.png';
+import heroImage from '@/assets/trucks/truck-5.jpeg';
 
 const Home = () => {
   const { t, language } = useLanguage();
@@ -27,8 +28,11 @@ const Home = () => {
     <div>
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 gradient-primary" />
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1920')] bg-cover bg-center opacity-20" />
+        <div className="absolute inset-0 bg-primary/90" />
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-30"
+          style={{ backgroundImage: `url(${heroImage})` }}
+        />
         
         <div className="container mx-auto px-4 relative z-10 text-center">
           <img 
@@ -53,7 +57,7 @@ const Home = () => {
               </Button>
             </Link>
             <Link to="/about">
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+              <Button size="lg" variant="outline" className="border-gold text-gold hover:bg-gold hover:text-primary">
                 {t('hero.learnMore')}
               </Button>
             </Link>

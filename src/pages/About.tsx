@@ -1,8 +1,8 @@
-import { Users, Target, Eye, Award, Truck, Shield, Clock } from 'lucide-react';
+import { Users, Target, Eye, Award, Truck, Shield, Clock, Building, FileCheck, Phone, Mail, Scale, Briefcase } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const About = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const stats = [
     { value: '40+', label: t('about.yearsExperience') },
@@ -18,6 +18,89 @@ const About = () => {
     { icon: Clock, title: t('about.reason4'), desc: t('about.reason4Text') },
   ];
 
+  const registrationInfo = [
+    { 
+      label: language === 'ar' ? 'الاسم القانوني' : 'Legal Name', 
+      value: language === 'ar' ? 'شركة هادي وسعيد فزعان القحطاني' : 'Hadi & Saeed Fazaan Al-Qahtani Company' 
+    },
+    { 
+      label: language === 'ar' ? 'السجل التجاري' : 'Commercial Registration (CR)', 
+      value: '2050042846' 
+    },
+    { 
+      label: language === 'ar' ? 'رقم الشركة' : 'Company Number', 
+      value: '7001464457' 
+    },
+    { 
+      label: language === 'ar' ? 'النشاط التجاري' : 'Business Activity', 
+      value: language === 'ar' ? 'نقل البضائع بالطرق' : 'Road Freight Transportation' 
+    },
+    { 
+      label: language === 'ar' ? 'المنطقة' : 'Region', 
+      value: language === 'ar' ? 'المنطقة الشرقية' : 'Eastern Province' 
+    },
+    { 
+      label: language === 'ar' ? 'المدينة' : 'City', 
+      value: language === 'ar' ? 'الدمام' : 'Dammam' 
+    },
+  ];
+
+  const teamMembers = [
+    { 
+      role: language === 'ar' ? 'مدير العمليات' : 'Operation Manager', 
+      name: 'Mohamed Hamed Mohamed',
+      phone: '0535557874'
+    },
+    { 
+      role: language === 'ar' ? 'التواصل المؤسسي' : 'Corporate Communications', 
+      name: 'Fasel Saed El Qahtani',
+      phone: '0560676302'
+    },
+    { 
+      role: language === 'ar' ? 'مسؤول الشؤون القانونية' : 'Legal Affairs Officer', 
+      name: 'Essa El Hamoudy',
+      phone: '0507679998'
+    },
+  ];
+
+  const licenses = [
+    {
+      icon: Building,
+      title: language === 'ar' ? 'وزارة التجارة' : 'Ministry of Commerce',
+      desc: language === 'ar' 
+        ? 'مرخصة لممارسة نشاط نقل البضائع بالطرق (الفرع الرئيسي)'
+        : 'Licensed to practice Road Freight Transportation (Main Branch)'
+    },
+    {
+      icon: Users,
+      title: language === 'ar' ? 'وزارة الموارد البشرية والتنمية الاجتماعية' : 'Ministry of Human Resources',
+      desc: language === 'ar'
+        ? 'معتمدة لاستيفاء نسب السعودة (نطاقات)'
+        : 'Certified for meeting Saudization (Nitaqat) ratios'
+    },
+    {
+      icon: FileCheck,
+      title: language === 'ar' ? 'هيئة الزكاة والضريبة والجمارك' : 'ZATCA',
+      desc: language === 'ar'
+        ? 'مسجلة كدافع ضرائب مع شهادات إخلاء طرف رسمية'
+        : 'Registered taxpayer with official clearance certificates'
+    },
+    {
+      icon: Scale,
+      title: language === 'ar' ? 'ضريبة القيمة المضافة' : 'Value Added Tax (VAT)',
+      desc: language === 'ar'
+        ? 'مسجلة رسمياً في نظام ضريبة القيمة المضافة'
+        : 'Officially registered in the VAT system'
+    },
+    {
+      icon: Shield,
+      title: language === 'ar' ? 'المؤسسة العامة للتأمينات الاجتماعية' : 'GOSI',
+      desc: language === 'ar'
+        ? 'مسجلة بالكامل مع موظفين مؤمن عليهم'
+        : 'Fully registered with insured employees'
+    },
+  ];
+
   return (
     <div>
       {/* Hero */}
@@ -28,15 +111,28 @@ const About = () => {
         </div>
       </section>
 
-      {/* About Content */}
+      {/* Company Profile */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <p className="text-lg text-muted-foreground leading-relaxed">{t('about.description')}</p>
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-primary mb-4">{t('about.companyProfile')}</h2>
+              <p className="text-lg text-muted-foreground leading-relaxed">{t('about.description')}</p>
+            </div>
+
+            {/* Registration Info Cards */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-16">
+              {registrationInfo.map((info, i) => (
+                <div key={i} className="bg-card p-4 rounded-xl border border-border">
+                  <p className="text-sm text-muted-foreground mb-1">{info.label}</p>
+                  <p className="font-bold text-primary">{info.value}</p>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Mission & Vision */}
-          <div className="grid md:grid-cols-2 gap-8 mb-16">
+          <div className="grid md:grid-cols-2 gap-8 mb-16 max-w-4xl mx-auto">
             <div className="bg-card p-8 rounded-xl border border-border hover-lift">
               <Target className="h-12 w-12 text-primary mb-4" />
               <h3 className="text-2xl font-bold text-primary mb-4">{t('about.mission')}</h3>
@@ -57,6 +153,43 @@ const About = () => {
                 <div className="text-muted-foreground text-sm">{stat.label}</div>
               </div>
             ))}
+          </div>
+
+          {/* Legal Status & Compliance */}
+          <div className="mb-16">
+            <h2 className="text-3xl font-bold text-center text-primary mb-8">{t('about.legalStatus')}</h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {licenses.map((license, i) => (
+                <div key={i} className="bg-card p-6 rounded-xl border border-border hover-lift">
+                  <license.icon className="h-10 w-10 text-gold mb-4" />
+                  <h4 className="font-bold text-primary mb-2">{license.title}</h4>
+                  <p className="text-sm text-muted-foreground">{license.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Team */}
+          <div className="mb-16">
+            <h2 className="text-3xl font-bold text-center text-primary mb-8">{t('about.teamTitle')}</h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              {teamMembers.map((member, i) => (
+                <div key={i} className="bg-card p-6 rounded-xl border border-border text-center hover-lift">
+                  <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Briefcase className="h-10 w-10 text-primary" />
+                  </div>
+                  <h4 className="font-bold text-lg mb-1">{member.name}</h4>
+                  <p className="text-gold text-sm mb-3">{member.role}</p>
+                  <a 
+                    href={`tel:${member.phone}`} 
+                    className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    <Phone className="h-4 w-4" />
+                    {member.phone}
+                  </a>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Why Choose Us */}
