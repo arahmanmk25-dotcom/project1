@@ -1,5 +1,6 @@
 import { Users, Target, Eye, Award, Truck, Shield, Clock, Building, FileCheck, Phone, Mail, Scale, Briefcase } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import heroImage from '@/assets/trucks/truck-10.jpeg';
 
 const About = () => {
   const { t, language } = useLanguage();
@@ -48,17 +49,17 @@ const About = () => {
   const teamMembers = [
     { 
       role: language === 'ar' ? 'مدير العمليات' : 'Operation Manager', 
-      name: 'Mohamed Hamed Mohamed',
+      name: language === 'ar' ? 'محمد حامد محمد' : 'Mohamed Hamed Mohamed',
       phone: '0535557874'
     },
     { 
       role: language === 'ar' ? 'التواصل المؤسسي' : 'Corporate Communications', 
-      name: 'Fasel Saed El Qahtani',
+      name: language === 'ar' ? 'فيصل سعيد القحطاني' : 'Faisal Saeed Al-Qahtani',
       phone: '0560676302'
     },
     { 
       role: language === 'ar' ? 'مسؤول الشؤون القانونية' : 'Legal Affairs Officer', 
-      name: 'Essa El Hamoudy',
+      name: language === 'ar' ? 'عيسى الحمودي' : 'Essa Al-Hamoudi',
       phone: '0507679998'
     },
   ];
@@ -104,8 +105,13 @@ const About = () => {
   return (
     <div>
       {/* Hero */}
-      <section className="py-20 gradient-primary">
-        <div className="container mx-auto px-4 text-center">
+      <section className="relative py-32 overflow-hidden">
+        <div className="absolute inset-0 bg-primary/90" />
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-30"
+          style={{ backgroundImage: `url(${heroImage})` }}
+        />
+        <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{t('about.title')}</h1>
           <p className="text-xl text-gold">{t('about.subtitle')}</p>
         </div>

@@ -17,6 +17,8 @@ import truck15 from '@/assets/trucks/truck-15.jpeg';
 import truck16 from '@/assets/trucks/truck-16.jpeg';
 import truck17 from '@/assets/trucks/truck-17.jpeg';
 
+const heroImage = truck7;
+
 const Fleet = () => {
   const { t, language } = useLanguage();
 
@@ -94,8 +96,13 @@ const Fleet = () => {
   return (
     <div>
       {/* Hero */}
-      <section className="py-20 gradient-primary">
-        <div className="container mx-auto px-4 text-center">
+      <section className="relative py-32 overflow-hidden">
+        <div className="absolute inset-0 bg-primary/90" />
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-30"
+          style={{ backgroundImage: `url(${heroImage})` }}
+        />
+        <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{t('fleet.title')}</h1>
           <p className="text-xl text-gold">{t('fleet.subtitle')}</p>
         </div>
