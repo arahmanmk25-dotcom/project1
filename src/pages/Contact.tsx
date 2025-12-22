@@ -51,21 +51,21 @@ const Contact = () => {
                 </div>
                 <div className="flex items-start gap-4">
                   <Mail className="h-6 w-6 text-primary shrink-0" />
-                  <a href="mailto:hafcobigmovers@gmail.com" className="text-muted-foreground hover:text-primary">{t('contact.info.email')}</a>
+                  <a href="mailto:info@hafcobigmovers.com" className="text-muted-foreground hover:text-primary">info@hafcobigmovers.com</a>
                 </div>
                 <div className="flex items-start gap-4">
                   <Phone className="h-6 w-6 text-primary shrink-0" />
                   <div className="space-y-1">
-                    <a href="tel:0535557874" className="block text-muted-foreground hover:text-primary">0535557874</a>
-                    <a href="tel:0560676302" className="block text-muted-foreground hover:text-primary">0560676302</a>
-                    <a href="tel:0504826306" className="block text-muted-foreground hover:text-primary">0504826306</a>
+                    <a href="tel:+966535557874" className="block text-muted-foreground hover:text-primary">+966 535557874</a>
+                    <a href="tel:+966560676302" className="block text-muted-foreground hover:text-primary">+966 560676302</a>
+                    <a href="tel:+966504826306" className="block text-muted-foreground hover:text-primary">+966 504826306</a>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <Headphones className="h-6 w-6 text-gold shrink-0" />
                   <div>
-                    <p className="font-medium text-gold">{language === 'ar' ? 'رقم التشغيل (24/7)' : 'Work Line (24/7)'}</p>
-                    <a href="tel:0535557874" className="text-muted-foreground hover:text-primary">0535557874</a>
+                    <p className="font-medium text-gold">{language === 'ar' ? 'لا تنسى جوال التشغيل على مدار الساعه' : 'Work Line (24/7)'}</p>
+                    <a href="tel:+966599990239" className="text-muted-foreground hover:text-primary">+966 599990239</a>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">

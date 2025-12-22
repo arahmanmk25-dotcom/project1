@@ -98,23 +98,23 @@ const Footer = () => {
               <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-gold shrink-0" />
                 <a
-                  href="mailto:hafcobigmovers@gmail.com"
+                  href="mailto:info@hafcobigmovers.com"
                   className="text-primary-foreground/80 hover:text-gold transition-colors text-sm"
                 >
-                  {t('contact.info.email')}
+                  info@hafcobigmovers.com
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-5 w-5 text-gold shrink-0" />
                 <div className="flex flex-col text-sm">
-                  <a href="tel:0535557874" className="text-primary-foreground/80 hover:text-gold transition-colors">
-                    0535557874
+                  <a href="tel:+966535557874" className="text-primary-foreground/80 hover:text-gold transition-colors">
+                    +966 535557874
                   </a>
-                  <a href="tel:0560676302" className="text-primary-foreground/80 hover:text-gold transition-colors">
-                    0560676302
+                  <a href="tel:+966560676302" className="text-primary-foreground/80 hover:text-gold transition-colors">
+                    +966 560676302
                   </a>
-                  <a href="tel:0504826306" className="text-primary-foreground/80 hover:text-gold transition-colors">
-                    0504826306
+                  <a href="tel:+966504826306" className="text-primary-foreground/80 hover:text-gold transition-colors">
+                    +966 504826306
                   </a>
                 </div>
               </li>
@@ -122,10 +122,10 @@ const Footer = () => {
                 <Headphones className="h-5 w-5 text-gold shrink-0" />
                 <div className="flex flex-col text-sm">
                   <span className="text-gold font-medium">
-                    {language === 'ar' ? 'رقم التشغيل (24/7)' : 'Work Line (24/7)'}
+                    {language === 'ar' ? 'لا تنسى جوال التشغيل على مدار الساعه' : 'Work Line (24/7)'}
                   </span>
-                  <a href="tel:0535557874" className="text-primary-foreground/80 hover:text-gold transition-colors">
-                    0535557874
+                  <a href="tel:+966599990239" className="text-primary-foreground/80 hover:text-gold transition-colors">
+                    +966 599990239
                   </a>
                 </div>
               </li>
