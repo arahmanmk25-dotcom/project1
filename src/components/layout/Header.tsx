@@ -40,8 +40,8 @@ const Header = () => {
               <h1 className="text-xl font-bold text-primary leading-tight">
                 {language === 'ar' ? 'هافكو' : 'HAFCO'}
               </h1>
-              <p className="text-xs text-muted-foreground">
-                {language === 'ar' ? 'النقليات الكبيرة' : 'Big Movers'}
+              <p className="text-xs text-muted-foreground uppercase tracking-wide">
+                {language === 'ar' ? 'النقليات الكبيرة' : 'BIG MOVERS'}
               </p>
             </div>
           </Link>

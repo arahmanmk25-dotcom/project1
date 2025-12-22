@@ -22,7 +22,19 @@ const Home = () => {
     { icon: Users, title: t('services.logistics.title'), desc: t('services.logistics.description') },
   ];
 
-  const clients = ['Aramco', 'DB-Schenker', 'Agility', 'DHL', 'Maersk'];
+  const clients = [
+    'Aramco', 
+    'DB-Schenker', 
+    'Agility', 
+    'DHL', 
+    'Maersk',
+    'Nesma & Partners',
+    'SICIM',
+    'WD Logistics',
+    'Eastern Pipes Co.',
+    'ALQahtani PCK',
+    'NPC'
+  ];
 
   return (
     <div>

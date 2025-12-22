@@ -1,10 +1,12 @@
 import { useState } from 'react';
-import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Headphones } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
+import { FaXTwitter, FaInstagram, FaFacebook, FaLinkedin } from 'react-icons/fa6';
+import heroImage from '@/assets/trucks/truck-6.jpeg';
 
 const Contact = () => {
   const { t, language } = useLanguage();
@@ -23,8 +25,13 @@ const Contact = () => {
   return (
     <div>
       {/* Hero */}
-      <section className="py-20 gradient-primary">
-        <div className="container mx-auto px-4 text-center">
+      <section className="relative py-32 overflow-hidden">
+        <div className="absolute inset-0 bg-primary/90" />
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-30"
+          style={{ backgroundImage: `url(${heroImage})` }}
+        />
+        <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{t('contact.title')}</h1>
           <p className="text-xl text-gold">{t('contact.subtitle')}</p>
         </div>
@@ -55,10 +62,35 @@ const Contact = () => {
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
+                  <Headphones className="h-6 w-6 text-gold shrink-0" />
+                  <div>
+                    <p className="font-medium text-gold">{language === 'ar' ? 'رقم التشغيل (24/7)' : 'Work Line (24/7)'}</p>
+                    <a href="tel:0535557874" className="text-muted-foreground hover:text-primary">0535557874</a>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
                   <Clock className="h-6 w-6 text-primary shrink-0" />
                   <div>
                     <p className="font-medium">{t('contact.info.hours')}</p>
                     <p className="text-muted-foreground">{t('contact.info.hoursText')}</p>
+                  </div>
+                </div>
+                {/* Social Media */}
+                <div className="pt-4 border-t border-border">
+                  <p className="font-medium mb-3">{language === 'ar' ? 'تابعنا على' : 'Follow Us'}</p>
+                  <div className="flex items-center gap-4">
+                    <a href="https://x.com/HafcoBigMovers" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="X">
+                      <FaXTwitter className="h-5 w-5" />
+                    </a>
+                    <a href="https://www.instagram.com/hafcobm/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Instagram">
+                      <FaInstagram className="h-5 w-5" />
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61585652240180" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Facebook">
+                      <FaFacebook className="h-5 w-5" />
+                    </a>
+                    <a href="https://www.linkedin.com/in/hafco-big-movers-company-17029439b/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="LinkedIn">
+                      <FaLinkedin className="h-5 w-5" />
+                    </a>
                   </div>
                 </div>
               </div>
