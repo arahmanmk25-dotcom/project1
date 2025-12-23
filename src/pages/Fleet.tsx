@@ -1,95 +1,124 @@
 import { useLanguage } from '@/contexts/LanguageContext';
-import truck1 from '@/assets/trucks/truck-1.jpeg';
-import truck2 from '@/assets/trucks/truck-2.jpeg';
-import truck3 from '@/assets/trucks/truck-3.jpeg';
-import truck4 from '@/assets/trucks/truck-4.jpeg';
-import truck5 from '@/assets/trucks/truck-5.jpeg';
-import truck6 from '@/assets/trucks/truck-6.jpeg';
-import truck7 from '@/assets/trucks/truck-7.jpeg';
-import truck8 from '@/assets/trucks/truck-8.jpeg';
-import truck9 from '@/assets/trucks/truck-9.jpeg';
-import truck10 from '@/assets/trucks/truck-10.jpeg';
-import truck11 from '@/assets/trucks/truck-11.jpeg';
-import truck12 from '@/assets/trucks/truck-12.jpeg';
-import truck13 from '@/assets/trucks/truck-13.jpeg';
-import truck14 from '@/assets/trucks/truck-14.jpeg';
-import truck15 from '@/assets/trucks/truck-15.jpeg';
-import truck16 from '@/assets/trucks/truck-16.jpeg';
-import truck17 from '@/assets/trucks/truck-17.jpeg';
 
-const heroImage = truck7;
+// Fleet trucks - showing clear truck images with model details
+import truck41 from '@/assets/trucks/new-truck-41.jpg';
+import truck42 from '@/assets/trucks/new-truck-42.jpg';
+import truck43 from '@/assets/trucks/new-truck-43.jpg';
+import truck44 from '@/assets/trucks/new-truck-44.jpg';
+import truck45 from '@/assets/trucks/new-truck-45.jpg';
+import truck46 from '@/assets/trucks/new-truck-46.jpg';
+import truck47 from '@/assets/trucks/new-truck-47.jpg';
+import truck48 from '@/assets/trucks/new-truck-48.jpg';
+import truck52 from '@/assets/trucks/new-truck-52.jpg';
+import truck53 from '@/assets/trucks/new-truck-53.jpg';
+import truck56 from '@/assets/trucks/new-truck-56.jpg';
+import truck57 from '@/assets/trucks/new-truck-57.jpg';
+import truck58 from '@/assets/trucks/new-truck-58.jpg';
+import truck60 from '@/assets/trucks/new-truck-60.jpg';
+
+const heroImage = truck52;
 
 const Fleet = () => {
   const { t, language } = useLanguage();
 
   const fleetImages = [
     { 
-      src: truck5, 
-      title: language === 'ar' ? 'نقل خزان ضخم' : 'Massive Tank Transport',
+      src: truck41, 
+      nameEn: 'MAN TGX',
+      nameAr: 'مان TGX',
+      model: '18.460',
+      year: '2020'
     },
     { 
-      src: truck6, 
-      title: language === 'ar' ? 'نقل الأسطوانات الصناعية' : 'Industrial Cylinder Transport',
+      src: truck42, 
+      nameEn: 'MAN TGS',
+      nameAr: 'مان TGS',
+      model: 'TGS 18.460',
+      year: '2019'
     },
     { 
-      src: truck7, 
-      title: language === 'ar' ? 'نقل المعدات الكبيرة' : 'Big Equipment Moving',
+      src: truck43, 
+      nameEn: 'MAN TGA',
+      nameAr: 'مان TGA',
+      model: 'TGA 18.360',
+      year: '2018'
     },
     { 
-      src: truck1, 
-      title: language === 'ar' ? 'نقل الأنابيب الطويلة' : 'Long Pipe Transport',
+      src: truck44, 
+      nameEn: 'Mercedes-Benz Actros',
+      nameAr: 'مرسيدس أكتروس',
+      model: '1844',
+      year: '2017'
     },
     { 
-      src: truck2, 
-      title: language === 'ar' ? 'شاحنة مرسيدس أكتروس' : 'Mercedes Actros Truck',
+      src: truck45, 
+      nameEn: 'Mercedes-Benz Actros',
+      nameAr: 'مرسيدس أكتروس',
+      model: '1844',
+      year: '2016'
     },
     { 
-      src: truck3, 
-      title: language === 'ar' ? 'تحميل البضائع' : 'Cargo Loading',
+      src: truck46, 
+      nameEn: 'Mercedes-Benz Actros V8',
+      nameAr: 'مرسيدس أكتروس V8',
+      model: '3354',
+      year: '2015'
     },
     { 
-      src: truck4, 
-      title: language === 'ar' ? 'نقل الهياكل المعدنية' : 'Steel Structure Transport',
+      src: truck47, 
+      nameEn: 'Mercedes-Benz Actros',
+      nameAr: 'مرسيدس أكتروس',
+      model: '2655',
+      year: '2016'
     },
     { 
-      src: truck8, 
-      title: language === 'ar' ? 'شاحنة فولفو' : 'Volvo Truck',
+      src: truck48, 
+      nameEn: 'Mercedes-Benz Actros V8',
+      nameAr: 'مرسيدس أكتروس V8',
+      model: '2658',
+      year: '2014'
     },
     { 
-      src: truck9, 
-      title: language === 'ar' ? 'شاحنة مرسيدس صفراء' : 'Yellow Mercedes Truck',
+      src: truck52, 
+      nameEn: 'Mercedes-Benz Actros V8',
+      nameAr: 'مرسيدس أكتروس V8',
+      model: '2658',
+      year: '2015'
     },
     { 
-      src: truck10, 
-      title: language === 'ar' ? 'فريق العمل' : 'Our Team at Work',
+      src: truck53, 
+      nameEn: 'Mercedes-Benz Actros',
+      nameAr: 'مرسيدس أكتروس',
+      model: '4157',
+      year: '2018'
     },
     { 
-      src: truck11, 
-      title: language === 'ar' ? 'عمليات التحميل' : 'Loading Operations',
+      src: truck56, 
+      nameEn: 'MAN TGS EfficientLine',
+      nameAr: 'مان TGS إفيشنت لاين',
+      model: 'TGS 18.460',
+      year: '2021'
     },
     { 
-      src: truck12, 
-      title: language === 'ar' ? 'خدمات الرافعات' : 'Crane Services',
+      src: truck57, 
+      nameEn: 'MAN TGX',
+      nameAr: 'مان TGX',
+      model: 'TGX 18.500',
+      year: '2020'
     },
     { 
-      src: truck13, 
-      title: language === 'ar' ? 'نقل الأنابيب الكبيرة' : 'Large Pipe Transport',
+      src: truck58, 
+      nameEn: 'Mercedes-Benz Actros',
+      nameAr: 'مرسيدس أكتروس',
+      model: '1844',
+      year: '2017'
     },
     { 
-      src: truck14, 
-      title: language === 'ar' ? 'نقل الجسور' : 'Bridge Transport',
-    },
-    { 
-      src: truck15, 
-      title: language === 'ar' ? 'نقل أنابيب البترول' : 'Petroleum Pipe Transport',
-    },
-    { 
-      src: truck16, 
-      title: language === 'ar' ? 'نقل الأنابيب المزدوجة' : 'Double Pipe Transport',
-    },
-    { 
-      src: truck17, 
-      title: language === 'ar' ? 'شاحنة MAN الحمراء' : 'Red MAN Truck',
+      src: truck60, 
+      nameEn: 'Mercedes-Benz Actros',
+      nameAr: 'مرسيدس أكتروس',
+      model: '1844',
+      year: '2016'
     },
   ];
 
@@ -120,21 +149,22 @@ const Fleet = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {fleetImages.map((item, i) => (
-              <div key={i} className="group relative overflow-hidden rounded-xl hover-lift">
+              <div key={i} className="group relative overflow-hidden rounded-xl hover-lift bg-card shadow-lg">
                 <div className="aspect-[4/3] overflow-hidden">
                   <img 
                     src={item.src} 
-                    alt={item.title}
+                    alt={language === 'ar' ? item.nameAr : item.nameEn}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                    <h3 className="text-lg font-bold">{item.title}</h3>
+                <div className="p-4 bg-card">
+                  <h3 className="text-lg font-bold text-primary">
+                    {language === 'ar' ? item.nameAr : item.nameEn}
+                  </h3>
+                  <div className="flex justify-between text-sm text-muted-foreground mt-2">
+                    <span>{language === 'ar' ? 'الموديل:' : 'Model:'} {item.model}</span>
+                    <span>{language === 'ar' ? 'السنة:' : 'Year:'} {item.year}</span>
                   </div>
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent group-hover:opacity-0 transition-opacity duration-300">
-                  <h3 className="text-white font-bold text-sm">{item.title}</h3>
                 </div>
               </div>
             ))}
