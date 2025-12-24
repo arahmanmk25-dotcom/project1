@@ -4,7 +4,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import truck21 from '@/assets/trucks/new-truck-21.jpeg';
 import truck22 from '@/assets/trucks/new-truck-22.jpeg';
 import truck23 from '@/assets/trucks/new-truck-23.jpeg';
-import truck24 from '@/assets/trucks/new-truck-24.jpg';
+import truck24 from '@/assets/trucks/new-truck-24.jpeg';
 import truck25 from '@/assets/trucks/new-truck-25.jpeg';
 import truck26 from '@/assets/trucks/new-truck-26.jpeg';
 import truck27 from '@/assets/trucks/new-truck-27.jpeg';
