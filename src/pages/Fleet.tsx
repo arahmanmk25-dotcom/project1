@@ -1,27 +1,36 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 
 // Fleet trucks - showing clear truck images with model details
+import fleet1 from '@/assets/trucks/fleet-1.jpg';
+import fleet2 from '@/assets/trucks/fleet-2.jpg';
 import truck41 from '@/assets/trucks/new-truck-41.jpg';
 import truck42 from '@/assets/trucks/new-truck-42.jpg';
 import truck43 from '@/assets/trucks/new-truck-43.jpg';
 import truck44 from '@/assets/trucks/new-truck-44.jpg';
 import truck45 from '@/assets/trucks/new-truck-45.jpg';
 import truck46 from '@/assets/trucks/new-truck-46.jpg';
-import truck47 from '@/assets/trucks/new-truck-47.jpg';
-import truck48 from '@/assets/trucks/new-truck-48.jpg';
-import truck52 from '@/assets/trucks/new-truck-52.jpg';
-import truck53 from '@/assets/trucks/new-truck-53.jpg';
 import truck56 from '@/assets/trucks/new-truck-56.jpg';
-import truck57 from '@/assets/trucks/new-truck-57.jpg';
-import truck58 from '@/assets/trucks/new-truck-58.jpg';
-import truck60 from '@/assets/trucks/new-truck-60.jpg';
 
-const heroImage = truck52;
+const heroImage = fleet1;
 
 const Fleet = () => {
   const { t, language } = useLanguage();
 
   const fleetImages = [
+    { 
+      src: fleet1, 
+      nameEn: 'MAN TGS',
+      nameAr: 'مان TGS',
+      model: 'TGS 18.460',
+      year: '2021'
+    },
+    { 
+      src: fleet2, 
+      nameEn: 'Mercedes-Benz Actros',
+      nameAr: 'مرسيدس أكتروس',
+      model: '1844',
+      year: '2018'
+    },
     { 
       src: truck41, 
       nameEn: 'MAN TGX',
@@ -65,60 +74,11 @@ const Fleet = () => {
       year: '2015'
     },
     { 
-      src: truck47, 
-      nameEn: 'Mercedes-Benz Actros',
-      nameAr: 'مرسيدس أكتروس',
-      model: '2655',
-      year: '2016'
-    },
-    { 
-      src: truck48, 
-      nameEn: 'Mercedes-Benz Actros V8',
-      nameAr: 'مرسيدس أكتروس V8',
-      model: '2658',
-      year: '2014'
-    },
-    { 
-      src: truck52, 
-      nameEn: 'Mercedes-Benz Actros V8',
-      nameAr: 'مرسيدس أكتروس V8',
-      model: '2658',
-      year: '2015'
-    },
-    { 
-      src: truck53, 
-      nameEn: 'Mercedes-Benz Actros',
-      nameAr: 'مرسيدس أكتروس',
-      model: '4157',
-      year: '2018'
-    },
-    { 
       src: truck56, 
       nameEn: 'MAN TGS EfficientLine',
       nameAr: 'مان TGS إفيشنت لاين',
       model: 'TGS 18.460',
       year: '2021'
-    },
-    { 
-      src: truck57, 
-      nameEn: 'MAN TGX',
-      nameAr: 'مان TGX',
-      model: 'TGX 18.500',
-      year: '2020'
-    },
-    { 
-      src: truck58, 
-      nameEn: 'Mercedes-Benz Actros',
-      nameAr: 'مرسيدس أكتروس',
-      model: '1844',
-      year: '2017'
-    },
-    { 
-      src: truck60, 
-      nameEn: 'Mercedes-Benz Actros',
-      nameAr: 'مرسيدس أكتروس',
-      model: '1844',
-      year: '2016'
     },
   ];
 

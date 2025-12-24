@@ -23,17 +23,18 @@ const Home = () => {
   ];
 
   const clients = [
-    'Aramco', 
-    'DB-Schenker', 
-    'Agility', 
-    'DHL', 
-    'Maersk',
-    'Nesma & Partners',
-    'SICIM',
-    'WD Logistics',
-    'Eastern Pipes Co.',
-    'ALQahtani PCK',
-    'NPC'
+    { en: 'Aramco', ar: 'أرامكو' },
+    { en: 'Saipem', ar: 'سايبم' },
+    { en: 'DB-Schenker', ar: 'دي بي شينكر' },
+    { en: 'Agility', ar: 'أجيليتي' },
+    { en: 'DHL', ar: 'دي إتش إل' },
+    { en: 'Maersk', ar: 'ميرسك' },
+    { en: 'Nesma & Partners', ar: 'نسما وشركاؤها' },
+    { en: 'SICIM', ar: 'سيسيم' },
+    { en: 'WD Logistics', ar: 'دبليو دي لوجستكس' },
+    { en: 'Eastern Pipes Co.', ar: 'شركة أنابيب الشرق' },
+    { en: 'Alqahtani Pipe Coating Industries', ar: 'شركة القحطاني لصناعات طلاء الأنابيب' },
+    { en: 'NPC', ar: 'إن بي سي' },
   ];
 
   return (
@@ -120,9 +121,9 @@ const Home = () => {
         <div className="container mx-auto px-4">
           <h2 className="text-2xl font-bold text-center text-white mb-8">{t('work.clientsTitle')}</h2>
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
-            {clients.map((client) => (
-              <span key={client} className="text-2xl font-bold text-white/60 hover:text-gold transition-colors">
-                {client}
+            {clients.map((client, i) => (
+              <span key={i} className="text-2xl font-bold text-white/60 hover:text-gold transition-colors">
+                {language === 'ar' ? client.ar : client.en}
               </span>
             ))}
           </div>

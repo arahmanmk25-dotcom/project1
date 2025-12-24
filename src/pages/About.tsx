@@ -1,4 +1,4 @@
-import { Users, Target, Eye, Award, Truck, Shield, Clock, Building, FileCheck, Phone, Mail, Scale, Briefcase } from 'lucide-react';
+import { Users, Target, Eye, Award, Truck, Shield, Clock, Building, FileCheck, Phone, Mail, Scale, Briefcase, Crown } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import heroImage from '@/assets/trucks/truck-10.jpeg';
 
@@ -46,6 +46,17 @@ const About = () => {
     },
   ];
 
+  const owners = [
+    { 
+      role: language === 'ar' ? 'مالك' : 'Owner', 
+      name: language === 'ar' ? 'سعيد القحطاني' : 'Saeed Al-Qahtani',
+    },
+    { 
+      role: language === 'ar' ? 'مالك' : 'Owner', 
+      name: language === 'ar' ? 'هادي القحطاني' : 'Hadi Al-Qahtani',
+    },
+  ];
+
   const teamMembers = [
     { 
       role: language === 'ar' ? 'مدير العمليات' : 'Operation Manager', 
@@ -53,13 +64,13 @@ const About = () => {
       phone: '0535557874'
     },
     { 
-      role: language === 'ar' ? 'التواصل المؤسسي' : 'Corporate Communications', 
+      role: language === 'ar' ? 'مدير التطوير' : 'Development Manager', 
       name: language === 'ar' ? 'فيصل سعيد القحطاني' : 'Faisal Saeed Al-Qahtani',
       phone: '0560676302'
     },
     { 
-      role: language === 'ar' ? 'مسؤول الشؤون القانونية' : 'Legal Affairs Officer', 
-      name: language === 'ar' ? 'عيسى الحمودي' : 'Essa Al-Hamoudi',
+      role: language === 'ar' ? 'الموارد البشرية' : 'Human Resources', 
+      name: language === 'ar' ? 'عيسى الريشدي' : 'Essa El-Rishady',
       phone: '0507679998'
     },
   ];
@@ -198,6 +209,21 @@ const About = () => {
           {/* Team */}
           <div className="mb-16">
             <h2 className="text-3xl font-bold text-center text-primary mb-8">{t('about.teamTitle')}</h2>
+            
+            {/* Owners */}
+            <div className="grid md:grid-cols-2 gap-6 mb-8 max-w-2xl mx-auto">
+              {owners.map((owner, i) => (
+                <div key={i} className="bg-card p-6 rounded-xl border-2 border-gold text-center hover-lift">
+                  <div className="w-20 h-20 bg-gold/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Crown className="h-10 w-10 text-gold" />
+                  </div>
+                  <h4 className="font-bold text-lg mb-1">{owner.name}</h4>
+                  <p className="text-gold text-sm font-semibold">{owner.role}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Team Members */}
             <div className="grid md:grid-cols-3 gap-6">
               {teamMembers.map((member, i) => (
                 <div key={i} className="bg-card p-6 rounded-xl border border-border text-center hover-lift">
