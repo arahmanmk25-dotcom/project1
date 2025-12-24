@@ -90,10 +90,17 @@ const Footer = () => {
             </h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
-                <MapPin className="h-5 w-5 text-gold shrink-0 mt-0.5" />
-                <span className="text-primary-foreground/80 text-sm">
-                  {t('contact.info.address')}
-                </span>
+                <a 
+                  href="https://maps.app.goo.gl/5j8xUKXF6DrfnAyM7" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-3 text-primary-foreground/80 hover:text-gold transition-colors"
+                >
+                  <MapPin className="h-5 w-5 text-gold shrink-0 mt-0.5" />
+                  <span className="text-sm">
+                    {t('contact.info.address')}
+                  </span>
+                </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-gold shrink-0" />
@@ -144,7 +151,7 @@ const Footer = () => {
                   <FaXTwitter className="h-5 w-5" />
                 </a>
                 <a 
-                  href="https://www.instagram.com/hafcobm/" 
+                  href="https://www.instagram.com/hafcobm/?utm_source=ig_web_button_share_sheet" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-primary-foreground/70 hover:text-gold transition-colors"
@@ -162,7 +169,7 @@ const Footer = () => {
                   <FaFacebook className="h-5 w-5" />
                 </a>
                 <a 
-                  href="https://www.linkedin.com/in/hafco-big-movers-company-17029439b/" 
+                  href="https://www.linkedin.com/company/hafco-big-movers/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-primary-foreground/70 hover:text-gold transition-colors"
