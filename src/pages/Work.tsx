@@ -1,64 +1,63 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 
-// Work/Projects - images focusing on cargo and projects
-import work1 from '@/assets/trucks/work-1.jpg';
-import work2 from '@/assets/trucks/work-2.jpg';
-import work3 from '@/assets/trucks/work-3.jpg';
-import work4 from '@/assets/trucks/work-4.jpg';
-import work5 from '@/assets/trucks/work-5.jpg';
-import work6 from '@/assets/trucks/work-6.jpg';
-import work7 from '@/assets/trucks/work-7.jpg';
-import work8 from '@/assets/trucks/work-8.jpg';
+// Work/Projects - unique images focusing on cargo and projects
+import truck61 from '@/assets/trucks/new-truck-61.jpg';
+import truck62 from '@/assets/trucks/new-truck-62.jpg';
+import truck63 from '@/assets/trucks/new-truck-63.jpg';
+import truck64 from '@/assets/trucks/new-truck-64.jpg';
+import truck65 from '@/assets/trucks/new-truck-65.jpg';
+import truck66 from '@/assets/trucks/new-truck-66.jpg';
+import truck67 from '@/assets/trucks/new-truck-67.jpg';
 import truck21 from '@/assets/trucks/new-truck-21.jpeg';
 import truck26 from '@/assets/trucks/new-truck-26.jpeg';
 import truck28 from '@/assets/trucks/new-truck-28.jpeg';
 import truck30 from '@/assets/trucks/new-truck-30.jpeg';
+import truck24 from '@/assets/trucks/new-truck-24.jpeg';
+import truck27 from '@/assets/trucks/new-truck-27.jpeg';
+import truck29 from '@/assets/trucks/new-truck-29.jpeg';
+import truck31 from '@/assets/trucks/new-truck-31.jpeg';
+import truck32 from '@/assets/trucks/new-truck-32.jpeg';
 
-const heroImage = work1;
+const heroImage = truck61;
 
 const Work = () => {
   const { t, language } = useLanguage();
 
   const projects = [
     { 
-      titleEn: 'Steel Frames Transport',
-      titleAr: 'نقل هياكل فولاذية',
-      image: work1 
+      titleEn: 'Blue Tank Transport',
+      titleAr: 'نقل خزان أزرق',
+      image: truck61 
     },
     { 
-      titleEn: 'Industrial Equipment Loading',
-      titleAr: 'تحميل معدات صناعية',
-      image: work2 
+      titleEn: 'Steel Frames Transport',
+      titleAr: 'نقل هياكل فولاذية',
+      image: truck62 
+    },
+    { 
+      titleEn: 'Steel Beams Delivery',
+      titleAr: 'توصيل عوارض فولاذية',
+      image: truck63 
     },
     { 
       titleEn: 'Large Diameter Pipes',
       titleAr: 'نقل أنابيب قطر كبير',
-      image: work3 
+      image: truck64 
     },
     { 
-      titleEn: 'Giant Pipeline Sections',
-      titleAr: 'نقل أقسام أنابيب عملاقة',
-      image: work4 
+      titleEn: 'Heavy Beams Loading',
+      titleAr: 'تحميل عوارض ثقيلة',
+      image: truck65 
     },
     { 
-      titleEn: 'Coated Pipes Transport',
-      titleAr: 'نقل أنابيب مغلفة',
-      image: work5 
+      titleEn: 'Panel Loading Operation',
+      titleAr: 'عملية تحميل ألواح',
+      image: truck66 
     },
     { 
-      titleEn: 'GRP Pipes Transport',
-      titleAr: 'نقل أنابيب GRP',
-      image: work6 
-    },
-    { 
-      titleEn: 'Steel Beams Loading',
-      titleAr: 'تحميل عوارض فولاذية',
-      image: work7 
-    },
-    { 
-      titleEn: 'Steel Beams Transport',
-      titleAr: 'نقل عوارض فولاذية',
-      image: work8 
+      titleEn: 'Industrial Beams Transport',
+      titleAr: 'نقل عوارض صناعية',
+      image: truck67 
     },
     { 
       titleEn: 'Industrial Tank Transport',
@@ -79,6 +78,31 @@ const Work = () => {
       titleEn: 'GRP Pipes Transport',
       titleAr: 'نقل أنابيب GRP',
       image: truck30 
+    },
+    { 
+      titleEn: 'Coated Pipes Delivery',
+      titleAr: 'توصيل أنابيب مغلفة',
+      image: truck24 
+    },
+    { 
+      titleEn: 'Pipeline Transport',
+      titleAr: 'نقل خطوط الأنابيب',
+      image: truck27 
+    },
+    { 
+      titleEn: 'Steel Pipes Loading',
+      titleAr: 'تحميل أنابيب فولاذية',
+      image: truck29 
+    },
+    { 
+      titleEn: 'Industrial Cargo',
+      titleAr: 'حمولة صناعية',
+      image: truck31 
+    },
+    { 
+      titleEn: 'Heavy Equipment Transport',
+      titleAr: 'نقل معدات ثقيلة',
+      image: truck32 
     },
   ];
 
