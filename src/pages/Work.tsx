@@ -1,108 +1,90 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 
-// Work/Projects - unique images focusing on cargo and projects
-import truck61 from '@/assets/trucks/new-truck-61.jpg';
-import truck62 from '@/assets/trucks/new-truck-62.jpg';
-import truck63 from '@/assets/trucks/new-truck-63.jpg';
-import truck64 from '@/assets/trucks/new-truck-64.jpg';
-import truck65 from '@/assets/trucks/new-truck-65.jpg';
-import truck66 from '@/assets/trucks/new-truck-66.jpg';
-import truck67 from '@/assets/trucks/new-truck-67.jpg';
-import truck21 from '@/assets/trucks/new-truck-21.jpeg';
-import truck26 from '@/assets/trucks/new-truck-26.jpeg';
-import truck28 from '@/assets/trucks/new-truck-28.jpeg';
-import truck30 from '@/assets/trucks/new-truck-30.jpeg';
-import truck24 from '@/assets/trucks/new-truck-24.jpeg';
-import truck27 from '@/assets/trucks/new-truck-27.jpeg';
-import truck29 from '@/assets/trucks/new-truck-29.jpeg';
-import truck31 from '@/assets/trucks/new-truck-31.jpeg';
-import truck32 from '@/assets/trucks/new-truck-32.jpeg';
-
-const heroImage = truck61;
+// Work/Projects - new images
+import work1 from '@/assets/trucks/work-new-1.jpg';
+import work2 from '@/assets/trucks/work-new-2.jpg';
+import work3 from '@/assets/trucks/work-new-3.jpg';
+import work4 from '@/assets/trucks/work-new-4.jpg';
+import work5 from '@/assets/trucks/work-new-5.jpg';
+import work6 from '@/assets/trucks/work-new-6.jpg';
+import work7 from '@/assets/trucks/work-new-7.jpg';
+import work8 from '@/assets/trucks/work-new-8.jpg';
+import work9 from '@/assets/trucks/work-new-9.jpg';
+import work10 from '@/assets/trucks/work-new-10.jpg';
 
 const Work = () => {
   const { t, language } = useLanguage();
 
   const projects = [
     { 
-      titleEn: 'Blue Tank Transport',
-      titleAr: 'نقل خزان أزرق',
-      image: truck61 
-    },
-    { 
-      titleEn: 'Steel Frames Transport',
-      titleAr: 'نقل هياكل فولاذية',
-      image: truck62 
+      titleEn: 'Large Diameter Pipe Transport',
+      titleAr: 'نقل أنابيب قطر كبير',
+      descEn: 'Transporting large blue-coated industrial pipes for oil and gas projects.',
+      descAr: 'نقل أنابيب صناعية كبيرة مغلفة باللون الأزرق لمشاريع النفط والغاز.',
+      image: work1 
     },
     { 
       titleEn: 'Steel Beams Delivery',
       titleAr: 'توصيل عوارض فولاذية',
-      image: truck63 
+      descEn: 'Heavy steel beam transport for construction site with professional crew.',
+      descAr: 'نقل عوارض فولاذية ثقيلة لموقع البناء مع طاقم محترف.',
+      image: work2 
     },
     { 
-      titleEn: 'Large Diameter Pipes',
-      titleAr: 'نقل أنابيب قطر كبير',
-      image: truck64 
+      titleEn: 'Red Coated Pipeline',
+      titleAr: 'نقل أنابيب حمراء',
+      descEn: 'Oversized red-coated pipeline sections for industrial projects.',
+      descAr: 'أقسام أنابيب حمراء كبيرة الحجم للمشاريع الصناعية.',
+      image: work3 
     },
     { 
-      titleEn: 'Heavy Beams Loading',
-      titleAr: 'تحميل عوارض ثقيلة',
-      image: truck65 
+      titleEn: 'Green Industrial Pipes',
+      titleAr: 'أنابيب صناعية خضراء',
+      descEn: 'Green coated GRP pipes transport for water treatment facilities.',
+      descAr: 'نقل أنابيب GRP خضراء لمرافق معالجة المياه.',
+      image: work4 
     },
     { 
-      titleEn: 'Panel Loading Operation',
-      titleAr: 'عملية تحميل ألواح',
-      image: truck66 
+      titleEn: 'Fleet Operations',
+      titleAr: 'عمليات الأسطول',
+      descEn: 'Multiple trucks coordinating heavy cargo transport operations.',
+      descAr: 'تنسيق عدة شاحنات لعمليات نقل البضائع الثقيلة.',
+      image: work5 
     },
     { 
-      titleEn: 'Industrial Beams Transport',
-      titleAr: 'نقل عوارض صناعية',
-      image: truck67 
+      titleEn: 'Giant Green Pipes',
+      titleAr: 'أنابيب خضراء عملاقة',
+      descEn: 'Massive green pipeline sections for major infrastructure projects.',
+      descAr: 'أقسام أنابيب خضراء ضخمة لمشاريع البنية التحتية الكبرى.',
+      image: work6 
     },
     { 
-      titleEn: 'Industrial Tank Transport',
-      titleAr: 'نقل خزان صناعي ضخم',
-      image: truck21 
+      titleEn: 'Cable Drum Transport',
+      titleAr: 'نقل بكرات الكابلات',
+      descEn: 'Heavy cable drums delivery for electrical infrastructure projects.',
+      descAr: 'توصيل بكرات كابلات ثقيلة لمشاريع البنية التحتية الكهربائية.',
+      image: work7 
     },
     { 
-      titleEn: 'Giant Pipeline Sections',
-      titleAr: 'نقل أقسام أنابيب عملاقة',
-      image: truck26 
+      titleEn: 'Tanker Transport',
+      titleAr: 'نقل الصهاريج',
+      descEn: 'Large capacity tanker transport for industrial liquid storage.',
+      descAr: 'نقل صهاريج كبيرة السعة لتخزين السوائل الصناعية.',
+      image: work8 
     },
     { 
-      titleEn: 'Green Coated Pipes',
-      titleAr: 'نقل أنابيب مغلفة خضراء',
-      image: truck28 
+      titleEn: 'Multi-Pipe Loading',
+      titleAr: 'تحميل أنابيب متعددة',
+      descEn: 'Loading multiple steel pipes for pipeline construction projects.',
+      descAr: 'تحميل أنابيب فولاذية متعددة لمشاريع إنشاء خطوط الأنابيب.',
+      image: work9 
     },
     { 
-      titleEn: 'GRP Pipes Transport',
-      titleAr: 'نقل أنابيب GRP',
-      image: truck30 
-    },
-    { 
-      titleEn: 'Coated Pipes Delivery',
-      titleAr: 'توصيل أنابيب مغلفة',
-      image: truck24 
-    },
-    { 
-      titleEn: 'Pipeline Transport',
-      titleAr: 'نقل خطوط الأنابيب',
-      image: truck27 
-    },
-    { 
-      titleEn: 'Steel Pipes Loading',
-      titleAr: 'تحميل أنابيب فولاذية',
-      image: truck29 
-    },
-    { 
-      titleEn: 'Industrial Cargo',
-      titleAr: 'حمولة صناعية',
-      image: truck31 
-    },
-    { 
-      titleEn: 'Heavy Equipment Transport',
-      titleAr: 'نقل معدات ثقيلة',
-      image: truck32 
+      titleEn: 'Blue Tank Delivery',
+      titleAr: 'توصيل خزان أزرق',
+      descEn: 'Oversized blue industrial tank transport with specialized equipment.',
+      descAr: 'نقل خزان صناعي أزرق كبير الحجم بمعدات متخصصة.',
+      image: work10 
     },
   ];
 
@@ -130,7 +112,7 @@ const Work = () => {
         <div className="absolute inset-0 bg-primary/90" />
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-30"
-          style={{ backgroundImage: `url(${heroImage})` }}
+          style={{ backgroundImage: `url(${work1})` }}
         />
         <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{t('work.title')}</h1>
@@ -151,7 +133,7 @@ const Work = () => {
           <h2 className="text-3xl font-bold text-center text-primary mb-12">{t('work.projectsTitle')}</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {projects.map((project, i) => (
-              <div key={i} className="relative group overflow-hidden rounded-xl hover-lift">
+              <div key={i} className="relative group overflow-hidden rounded-xl hover-lift cursor-pointer">
                 <div className="aspect-[4/3]">
                   <img 
                     src={project.image} 
@@ -159,14 +141,17 @@ const Work = () => {
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
                   />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-0 left-0 right-0 p-4">
-                    <h3 className="text-lg font-bold text-white">
-                      {language === 'ar' ? project.titleAr : project.titleEn}
-                    </h3>
-                  </div>
+                {/* Hover overlay with description */}
+                <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-primary/40 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-4">
+                  <h3 className="text-lg font-bold text-white mb-2">
+                    {language === 'ar' ? project.titleAr : project.titleEn}
+                  </h3>
+                  <p className="text-sm text-white/90 leading-relaxed">
+                    {language === 'ar' ? project.descAr : project.descEn}
+                  </p>
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent group-hover:opacity-0 transition-opacity duration-300">
+                {/* Default title at bottom */}
+                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent group-hover:opacity-0 transition-opacity duration-300">
                   <h3 className="text-white font-bold">
                     {language === 'ar' ? project.titleAr : project.titleEn}
                   </h3>
