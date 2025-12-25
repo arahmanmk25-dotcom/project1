@@ -1,84 +1,74 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 
-// Fleet trucks - showing clear truck images with model details
-import fleet1 from '@/assets/trucks/fleet-1.jpg';
-import fleet2 from '@/assets/trucks/fleet-2.jpg';
-import truck41 from '@/assets/trucks/new-truck-41.jpg';
-import truck42 from '@/assets/trucks/new-truck-42.jpg';
-import truck43 from '@/assets/trucks/new-truck-43.jpg';
-import truck44 from '@/assets/trucks/new-truck-44.jpg';
-import truck45 from '@/assets/trucks/new-truck-45.jpg';
-import truck46 from '@/assets/trucks/new-truck-46.jpg';
-import truck56 from '@/assets/trucks/new-truck-56.jpg';
-
-const heroImage = fleet1;
+// Fleet trucks - new images
+import fleetHero from '@/assets/trucks/fleet-hero.jpeg';
+import fleet3 from '@/assets/trucks/fleet-3.jpg';
+import fleet4 from '@/assets/trucks/fleet-4.jpg';
+import fleet5 from '@/assets/trucks/fleet-5.jpg';
+import fleet6 from '@/assets/trucks/fleet-6.jpg';
+import fleet7 from '@/assets/trucks/fleet-7.jpg';
+import fleet8 from '@/assets/trucks/fleet-8.jpg';
+import fleet9 from '@/assets/trucks/fleet-9.jpg';
 
 const Fleet = () => {
   const { t, language } = useLanguage();
 
   const fleetImages = [
     { 
-      src: fleet1, 
-      nameEn: 'MAN TGS',
-      nameAr: 'مان TGS',
-      model: 'TGS 18.460',
-      year: '2021'
+      src: fleetHero, 
+      nameEn: 'SITRAK Fleet',
+      nameAr: 'أسطول سيتراك',
+      model: 'C7H',
+      year: '2024'
     },
     { 
-      src: fleet2, 
-      nameEn: 'Mercedes-Benz Actros',
-      nameAr: 'مرسيدس أكتروس',
-      model: '1844',
-      year: '2018'
-    },
-    { 
-      src: truck41, 
-      nameEn: 'MAN TGX',
-      nameAr: 'مان TGX',
-      model: '18.460',
-      year: '2020'
-    },
-    { 
-      src: truck42, 
-      nameEn: 'MAN TGS',
-      nameAr: 'مان TGS',
-      model: 'TGS 18.460',
-      year: '2019'
-    },
-    { 
-      src: truck43, 
-      nameEn: 'MAN TGA',
-      nameAr: 'مان TGA',
-      model: 'TGA 18.360',
-      year: '2018'
-    },
-    { 
-      src: truck44, 
-      nameEn: 'Mercedes-Benz Actros',
-      nameAr: 'مرسيدس أكتروس',
-      model: '1844',
-      year: '2017'
-    },
-    { 
-      src: truck45, 
-      nameEn: 'Mercedes-Benz Actros',
-      nameAr: 'مرسيدس أكتروس',
-      model: '1844',
-      year: '2016'
-    },
-    { 
-      src: truck46, 
-      nameEn: 'Mercedes-Benz Actros V8',
-      nameAr: 'مرسيدس أكتروس V8',
-      model: '3354',
-      year: '2015'
-    },
-    { 
-      src: truck56, 
+      src: fleet3, 
       nameEn: 'MAN TGS EfficientLine',
       nameAr: 'مان TGS إفيشنت لاين',
       model: 'TGS 18.460',
+      year: '2023'
+    },
+    { 
+      src: fleet4, 
+      nameEn: 'MAN TGX',
+      nameAr: 'مان TGX',
+      model: 'TGX 18.500',
+      year: '2022'
+    },
+    { 
+      src: fleet5, 
+      nameEn: 'Mercedes-Benz Actros',
+      nameAr: 'مرسيدس أكتروس',
+      model: '1844',
       year: '2021'
+    },
+    { 
+      src: fleet6, 
+      nameEn: 'MAN TGS',
+      nameAr: 'مان TGS',
+      model: 'TGS 18.460',
+      year: '2023'
+    },
+    { 
+      src: fleet7, 
+      nameEn: 'Mercedes-Benz Actros',
+      nameAr: 'مرسيدس أكتروس',
+      model: '2040',
+      year: '2022'
+    },
+    { 
+      src: fleet8, 
+      nameEn: 'MAN TGX',
+      nameAr: 'مان TGX',
+      model: 'TGX 18.500',
+      year: '2023'
+    },
+    { 
+      src: fleet9, 
+      nameEn: 'MAN TGA',
+      nameAr: 'مان TGA',
+      model: 'TGA 18.360',
+      year: '2020'
     },
   ];
 
@@ -89,7 +79,7 @@ const Fleet = () => {
         <div className="absolute inset-0 bg-primary/90" />
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-30"
-          style={{ backgroundImage: `url(${heroImage})` }}
+          style={{ backgroundImage: `url(${fleetHero})` }}
         />
         <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{t('fleet.title')}</h1>
