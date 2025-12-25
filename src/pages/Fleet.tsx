@@ -1,6 +1,6 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 
-// Fleet trucks - new images
+// Fleet trucks - all images
 import fleetHero from '@/assets/trucks/fleet-hero.jpeg';
 import fleet3 from '@/assets/trucks/fleet-3.jpg';
 import fleet4 from '@/assets/trucks/fleet-4.jpg';
@@ -9,6 +9,15 @@ import fleet6 from '@/assets/trucks/fleet-6.jpg';
 import fleet7 from '@/assets/trucks/fleet-7.jpg';
 import fleet8 from '@/assets/trucks/fleet-8.jpg';
 import fleet9 from '@/assets/trucks/fleet-9.jpg';
+import fleet10 from '@/assets/trucks/fleet-10.jpeg';
+import fleet11 from '@/assets/trucks/fleet-11.jpg';
+import fleet12 from '@/assets/trucks/fleet-12.jpg';
+import fleet13 from '@/assets/trucks/fleet-13.jpg';
+import fleet14 from '@/assets/trucks/fleet-14.jpg';
+import fleet15 from '@/assets/trucks/fleet-15.jpg';
+import fleet16 from '@/assets/trucks/fleet-16.jpg';
+import fleet17 from '@/assets/trucks/fleet-17.jpg';
+import fleet18 from '@/assets/trucks/fleet-18.jpg';
 
 const Fleet = () => {
   const { t, language } = useLanguage();
@@ -16,6 +25,13 @@ const Fleet = () => {
   const fleetImages = [
     { 
       src: fleetHero, 
+      nameEn: 'SITRAK Fleet',
+      nameAr: 'أسطول سيتراك',
+      model: 'C7H',
+      year: '2024'
+    },
+    { 
+      src: fleet10, 
       nameEn: 'SITRAK Fleet',
       nameAr: 'أسطول سيتراك',
       model: 'C7H',
@@ -69,6 +85,62 @@ const Fleet = () => {
       nameAr: 'مان TGA',
       model: 'TGA 18.360',
       year: '2020'
+    },
+    { 
+      src: fleet11, 
+      nameEn: 'MAN TGS',
+      nameAr: 'مان TGS',
+      model: 'TGS 18.460',
+      year: '2022'
+    },
+    { 
+      src: fleet12, 
+      nameEn: 'Mercedes-Benz Actros V8',
+      nameAr: 'مرسيدس أكتروس V8',
+      model: '3354',
+      year: '2021'
+    },
+    { 
+      src: fleet13, 
+      nameEn: 'Mercedes-Benz Actros',
+      nameAr: 'مرسيدس أكتروس',
+      model: '2655',
+      year: '2020'
+    },
+    { 
+      src: fleet14, 
+      nameEn: 'Mercedes-Benz Actros',
+      nameAr: 'مرسيدس أكتروس',
+      model: '1844',
+      year: '2021'
+    },
+    { 
+      src: fleet15, 
+      nameEn: 'Mercedes-Benz Actros',
+      nameAr: 'مرسيدس أكتروس',
+      model: '1844',
+      year: '2020'
+    },
+    { 
+      src: fleet16, 
+      nameEn: 'Mixed Fleet',
+      nameAr: 'أسطول متنوع',
+      model: 'MAN & Mercedes',
+      year: '2022'
+    },
+    { 
+      src: fleet17, 
+      nameEn: 'DAEWOO Maximus',
+      nameAr: 'دايو ماكسيموس',
+      model: '4542',
+      year: '2023'
+    },
+    { 
+      src: fleet18, 
+      nameEn: 'Mercedes-Benz Actros',
+      nameAr: 'مرسيدس أكتروس',
+      model: '2040',
+      year: '2022'
     },
   ];
 
