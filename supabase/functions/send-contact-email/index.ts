@@ -2,6 +2,7 @@ import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { z } from "https://deno.land/x/zod@v3.22.4/mod.ts";
 
 const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
+const HCAPTCHA_SECRET_KEY = Deno.env.get("HCAPTCHA_SECRET_KEY");
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -16,8 +17,26 @@ const ContactSchema = z.object({
   phone: z.string().regex(/^[\+]?[0-9\s\-\(\)]{7,20}$/, "Invalid phone number").trim(),
   message: z.string().min(10, "Message must be at least 10 characters").max(2000, "Message too long").trim(),
   honeypot: z.string().optional(),
-  timestamp: z.number().optional()
+  timestamp: z.number().optional(),
+  captchaToken: z.string().min(1, "CAPTCHA token required")
 });
+
+// Verify hCaptcha token
+async function verifyCaptcha(token: string): Promise<boolean> {
+  try {
+    const response = await fetch('https://api.hcaptcha.com/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: `response=${token}&secret=${HCAPTCHA_SECRET_KEY}`
+    });
+    const data = await response.json();
+    console.log("hCaptcha verification result:", data.success);
+    return data.success === true;
+  } catch (error) {
+    console.error("hCaptcha verification error:", error);
+    return false;
+  }
+}
 
 // Simple in-memory rate limiting (resets on function cold start)
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
@@ -114,7 +133,19 @@ const handler = async (req: Request): Promise<Response> => {
       );
     }
 
-    const { name, email, phone, message } = validation.data;
+    const { name, email, phone, message, captchaToken } = validation.data;
+    
+    // Verify hCaptcha
+    const captchaValid = await verifyCaptcha(captchaToken);
+    if (!captchaValid) {
+      console.warn("hCaptcha verification failed");
+      return new Response(
+        JSON.stringify({ error: "CAPTCHA verification failed. Please try again." }),
+        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+    
+    console.log("hCaptcha verification passed");
     
     // Escape all user inputs for HTML
     const safeName = escapeHtml(name);
