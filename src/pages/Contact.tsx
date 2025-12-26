@@ -6,20 +6,52 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { FaXTwitter, FaInstagram, FaFacebook, FaLinkedin } from 'react-icons/fa6';
+import { supabase } from '@/integrations/supabase/client';
 import heroImage from '@/assets/trucks/truck-6.jpeg';
 
 const Contact = () => {
   const { t, language } = useLanguage();
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
+
+    try {
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+        body: formData
+      });
+
+      if (error) throw error;
+
+      toast({ 
+        title: t('common.success'), 
+        description: language === 'ar' 
+          ? 'تم إرسال رسالتك بنجاح!' 
+          : 'Your message has been sent successfully!' 
+      });
+      
+      // Reset form
+      setFormData({ name: '', email: '', phone: '', message: '' });
+    } catch (error: any) {
+      console.error('Error sending message:', error);
+      toast({ 
+        title: language === 'ar' ? 'خطأ' : 'Error', 
+        description: language === 'ar' 
+          ? 'فشل في إرسال الرسالة. يرجى المحاولة مرة أخرى.' 
+          : 'Failed to send message. Please try again.',
+        variant: 'destructive'
+      });
+    } finally {
       setLoading(false);
-      toast({ title: t('common.success'), description: 'Your message has been sent!' });
-    }, 1000);
+    }
   };
 
   return (
@@ -51,7 +83,10 @@ const Contact = () => {
                 </div>
                 <div className="flex items-start gap-4">
                   <Mail className="h-6 w-6 text-primary shrink-0" />
-                  <a href="mailto:info@hafcobigmovers.com" className="text-muted-foreground hover:text-primary">info@hafcobigmovers.com</a>
+                  <div className="space-y-1">
+                    <a href="mailto:hafcobigmovers@gmail.com" className="block text-muted-foreground hover:text-primary">hafcobigmovers@gmail.com</a>
+                    <a href="mailto:hafco.bigmovers@yahoo.com" className="block text-muted-foreground hover:text-primary">hafco.bigmovers@yahoo.com</a>
+                  </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <Phone className="h-6 w-6 text-primary shrink-0" />
@@ -101,19 +136,42 @@ const Contact = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label className="block text-sm font-medium mb-2">{t('contact.form.name')}</label>
-                  <Input required placeholder={t('contact.form.name')} />
+                  <Input 
+                    required 
+                    placeholder={t('contact.form.name')}
+                    value={formData.name}
+                    onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
+                  />
                 </div>
                 <div>
                   <label className="block text-sm font-medium mb-2">{t('contact.form.email')}</label>
-                  <Input type="email" required placeholder={t('contact.form.email')} />
+                  <Input 
+                    type="email" 
+                    required 
+                    placeholder={t('contact.form.email')}
+                    value={formData.email}
+                    onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
+                  />
                 </div>
                 <div>
                   <label className="block text-sm font-medium mb-2">{t('contact.form.phone')}</label>
-                  <Input type="tel" required placeholder={t('contact.form.phone')} />
+                  <Input 
+                    type="tel" 
+                    required 
+                    placeholder={t('contact.form.phone')}
+                    value={formData.phone}
+                    onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
+                  />
                 </div>
                 <div>
                   <label className="block text-sm font-medium mb-2">{t('contact.form.message')}</label>
-                  <Textarea required placeholder={t('contact.form.message')} rows={4} />
+                  <Textarea 
+                    required 
+                    placeholder={t('contact.form.message')} 
+                    rows={4}
+                    value={formData.message}
+                    onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))}
+                  />
                 </div>
                 <Button type="submit" className="w-full gradient-primary" disabled={loading}>
                   {loading ? t('common.loading') : t('contact.form.submit')}
