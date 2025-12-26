@@ -13,11 +13,13 @@ const Contact = () => {
   const { t, language } = useLanguage();
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
+  const [formLoadTime] = useState(Date.now());
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    message: ''
+    message: '',
+    honeypot: '' // Hidden field for bot detection
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -26,7 +28,10 @@ const Contact = () => {
 
     try {
       const { data, error } = await supabase.functions.invoke('send-contact-email', {
-        body: formData
+        body: {
+          ...formData,
+          timestamp: formLoadTime // Send form load time for time-based validation
+        }
       });
 
       if (error) throw error;
@@ -39,7 +44,7 @@ const Contact = () => {
       });
       
       // Reset form
-      setFormData({ name: '', email: '', phone: '', message: '' });
+      setFormData({ name: '', email: '', phone: '', message: '', honeypot: '' });
     } catch (error: any) {
       console.error('Error sending message:', error);
       toast({ 
@@ -134,6 +139,19 @@ const Contact = () => {
             {/* Contact Form */}
             <div className="bg-card p-8 rounded-xl border border-border">
               <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Honeypot field - hidden from users, visible to bots */}
+                <div className="absolute opacity-0 pointer-events-none" aria-hidden="true" style={{ position: 'absolute', left: '-9999px' }}>
+                  <label htmlFor="honeypot">Leave this field empty</label>
+                  <Input 
+                    id="honeypot"
+                    name="honeypot"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={formData.honeypot}
+                    onChange={(e) => setFormData(prev => ({ ...prev, honeypot: e.target.value }))}
+                  />
+                </div>
+                
                 <div>
                   <label className="block text-sm font-medium mb-2">{t('contact.form.name')}</label>
                   <Input 
@@ -141,6 +159,8 @@ const Contact = () => {
                     placeholder={t('contact.form.name')}
                     value={formData.name}
                     onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
+                    minLength={2}
+                    maxLength={100}
                   />
                 </div>
                 <div>
@@ -151,6 +171,7 @@ const Contact = () => {
                     placeholder={t('contact.form.email')}
                     value={formData.email}
                     onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
+                    maxLength={254}
                   />
                 </div>
                 <div>
@@ -161,6 +182,7 @@ const Contact = () => {
                     placeholder={t('contact.form.phone')}
                     value={formData.phone}
                     onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
+                    pattern="[\+]?[0-9\s\-\(\)]{7,20}"
                   />
                 </div>
                 <div>
@@ -171,6 +193,8 @@ const Contact = () => {
                     rows={4}
                     value={formData.message}
                     onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))}
+                    minLength={10}
+                    maxLength={2000}
                   />
                 </div>
                 <Button type="submit" className="w-full gradient-primary" disabled={loading}>
