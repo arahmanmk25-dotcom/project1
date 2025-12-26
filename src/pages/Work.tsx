@@ -23,7 +23,15 @@ import workImg18 from '@/assets/trucks/work-img-18.jpg';
 import workImg19 from '@/assets/trucks/work-img-19.jpg';
 import workImg20 from '@/assets/trucks/work-img-20.jpg';
 import workImg21 from '@/assets/trucks/work-img-21.jpg';
-
+import workNew11 from '@/assets/trucks/work-new-11.jpg';
+import workNew12 from '@/assets/trucks/work-new-12.jpg';
+import workNew13 from '@/assets/trucks/work-new-13.jpg';
+import workNew14 from '@/assets/trucks/work-new-14.jpg';
+import workNew15 from '@/assets/trucks/work-new-15.jpg';
+import workNew16 from '@/assets/trucks/work-new-16.jpg';
+import workNew17 from '@/assets/trucks/work-new-17.jpg';
+import workNew18 from '@/assets/trucks/work-new-18.jpg';
+import workNew19 from '@/assets/trucks/work-new-19.jpg';
 const Work = () => {
   const { t, language } = useLanguage();
   const { isOpen, currentIndex, openLightbox, closeLightbox, navigate } = useLightbox();
@@ -175,6 +183,69 @@ const Work = () => {
       descEn: 'Delivering excellence in heavy transport services.',
       descAr: 'تقديم التميز في خدمات النقل الثقيل.',
       image: workImg21 
+    },
+    { 
+      titleEn: 'Large Vessel Transport',
+      titleAr: 'نقل الأوعية الكبيرة',
+      descEn: 'Specialized transport of large industrial vessels and tanks.',
+      descAr: 'نقل متخصص للأوعية والخزانات الصناعية الكبيرة.',
+      image: workNew11 
+    },
+    { 
+      titleEn: 'Industrial Tank Delivery',
+      titleAr: 'توصيل الخزانات الصناعية',
+      descEn: 'Professional delivery of industrial storage tanks.',
+      descAr: 'توصيل احترافي لخزانات التخزين الصناعية.',
+      image: workNew12 
+    },
+    { 
+      titleEn: 'Green Pipeline Transport',
+      titleAr: 'نقل الأنابيب الخضراء',
+      descEn: 'Transport of coated pipeline sections for infrastructure projects.',
+      descAr: 'نقل أقسام الأنابيب المطلية لمشاريع البنية التحتية.',
+      image: workNew13 
+    },
+    { 
+      titleEn: 'Beam Loading Operations',
+      titleAr: 'عمليات تحميل العوارض',
+      descEn: 'Safe loading and transport of structural beams.',
+      descAr: 'تحميل ونقل آمن للعوارض الإنشائية.',
+      image: workNew14 
+    },
+    { 
+      titleEn: 'Large Pipe Handling',
+      titleAr: 'مناولة الأنابيب الكبيرة',
+      descEn: 'Expert handling of large diameter pipes.',
+      descAr: 'مناولة خبيرة للأنابيب ذات القطر الكبير.',
+      image: workNew15 
+    },
+    { 
+      titleEn: 'Steel Pipe Transport',
+      titleAr: 'نقل الأنابيب الفولاذية',
+      descEn: 'Transport of steel pipes for oil and gas projects.',
+      descAr: 'نقل الأنابيب الفولاذية لمشاريع النفط والغاز.',
+      image: workNew16 
+    },
+    { 
+      titleEn: 'Fleet Convoy Operations',
+      titleAr: 'عمليات قوافل الأسطول',
+      descEn: 'Coordinated convoy operations for large-scale deliveries.',
+      descAr: 'عمليات قوافل منسقة للتوصيلات واسعة النطاق.',
+      image: workNew17 
+    },
+    { 
+      titleEn: 'Girder Transport',
+      titleAr: 'نقل الجسور',
+      descEn: 'Specialized transport of bridge girders and structural elements.',
+      descAr: 'نقل متخصص لعوارض الجسور والعناصر الإنشائية.',
+      image: workNew18 
+    },
+    { 
+      titleEn: 'Concrete Beam Delivery',
+      titleAr: 'توصيل العوارض الخرسانية',
+      descEn: 'Safe delivery of precast concrete beams.',
+      descAr: 'توصيل آمن للعوارض الخرسانية مسبقة الصب.',
+      image: workNew19 
     },
   ];
 
