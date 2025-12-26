@@ -1,4 +1,5 @@
 import { useLanguage } from '@/contexts/LanguageContext';
+import { Lightbox, useLightbox } from '@/components/ui/lightbox';
 
 // Work/Projects - new images
 import workImg1 from '@/assets/trucks/work-img-1.jpeg';
@@ -25,6 +26,7 @@ import workImg21 from '@/assets/trucks/work-img-21.jpg';
 
 const Work = () => {
   const { t, language } = useLanguage();
+  const { isOpen, currentIndex, openLightbox, closeLightbox, navigate } = useLightbox();
 
   const projects = [
     { 
@@ -193,6 +195,11 @@ const Work = () => {
     { en: 'NPC', ar: 'إن بي سي' },
   ];
 
+  const lightboxImages = projects.map(project => ({
+    src: project.image,
+    title: language === 'ar' ? project.titleAr : project.titleEn
+  }));
+
   return (
     <div>
       {/* Hero */}
@@ -221,7 +228,11 @@ const Work = () => {
           <h2 className="text-3xl font-bold text-center text-primary mb-12">{t('work.projectsTitle')}</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {projects.map((project, i) => (
-              <div key={i} className="relative group overflow-hidden rounded-xl hover-lift cursor-pointer">
+              <div 
+                key={i} 
+                className="relative group overflow-hidden rounded-xl hover-lift cursor-pointer"
+                onClick={() => openLightbox(i)}
+              >
                 <div className="aspect-[4/3]">
                   <img 
                     src={project.image} 
@@ -263,6 +274,15 @@ const Work = () => {
           </div>
         </div>
       </section>
+
+      {/* Lightbox */}
+      <Lightbox
+        images={lightboxImages}
+        isOpen={isOpen}
+        currentIndex={currentIndex}
+        onClose={closeLightbox}
+        onNavigate={navigate}
+      />
     </div>
   );
 };

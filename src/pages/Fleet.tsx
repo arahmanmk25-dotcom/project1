@@ -1,4 +1,5 @@
 import { useLanguage } from '@/contexts/LanguageContext';
+import { Lightbox, useLightbox } from '@/components/ui/lightbox';
 
 // Fleet trucks - all images
 import fleetHero from '@/assets/trucks/fleet-hero.jpeg';
@@ -9,7 +10,6 @@ import fleet6 from '@/assets/trucks/fleet-6.jpg';
 import fleet7 from '@/assets/trucks/fleet-7.jpg';
 import fleet8 from '@/assets/trucks/fleet-8.jpg';
 import fleet9 from '@/assets/trucks/fleet-9.jpg';
-import fleet10 from '@/assets/trucks/fleet-10.jpeg';
 import fleet11 from '@/assets/trucks/fleet-11.jpg';
 import fleet12 from '@/assets/trucks/fleet-12.jpg';
 import fleet13 from '@/assets/trucks/fleet-13.jpg';
@@ -21,17 +21,11 @@ import fleet18 from '@/assets/trucks/fleet-18.jpg';
 
 const Fleet = () => {
   const { t, language } = useLanguage();
+  const { isOpen, currentIndex, openLightbox, closeLightbox, navigate } = useLightbox();
 
   const fleetImages = [
     { 
       src: fleetHero, 
-      nameEn: 'SITRAK Fleet',
-      nameAr: 'أسطول سيتراك',
-      model: 'C7H',
-      year: '2024'
-    },
-    { 
-      src: fleet10, 
       nameEn: 'SITRAK Fleet',
       nameAr: 'أسطول سيتراك',
       model: 'C7H',
@@ -144,6 +138,11 @@ const Fleet = () => {
     },
   ];
 
+  const lightboxImages = fleetImages.map(item => ({
+    src: item.src,
+    title: `${language === 'ar' ? item.nameAr : item.nameEn} - ${item.model} (${item.year})`
+  }));
+
   return (
     <div>
       {/* Hero */}
@@ -171,7 +170,11 @@ const Fleet = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {fleetImages.map((item, i) => (
-              <div key={i} className="group relative overflow-hidden rounded-xl hover-lift bg-card shadow-lg">
+              <div 
+                key={i} 
+                className="group relative overflow-hidden rounded-xl hover-lift cursor-pointer"
+                onClick={() => openLightbox(i)}
+              >
                 <div className="aspect-[4/3] overflow-hidden">
                   <img 
                     src={item.src} 
@@ -179,14 +182,21 @@ const Fleet = () => {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
-                <div className="p-4 bg-card">
-                  <h3 className="text-lg font-bold text-primary">
+                {/* Hover overlay with details */}
+                <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-primary/40 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-4">
+                  <h3 className="text-lg font-bold text-white mb-1">
                     {language === 'ar' ? item.nameAr : item.nameEn}
                   </h3>
-                  <div className="flex justify-between text-sm text-muted-foreground mt-2">
+                  <div className="flex justify-between text-sm text-white/90">
                     <span>{language === 'ar' ? 'الموديل:' : 'Model:'} {item.model}</span>
                     <span>{language === 'ar' ? 'السنة:' : 'Year:'} {item.year}</span>
                   </div>
+                </div>
+                {/* Default title at bottom */}
+                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent group-hover:opacity-0 transition-opacity duration-300">
+                  <h3 className="text-white font-bold">
+                    {language === 'ar' ? item.nameAr : item.nameEn}
+                  </h3>
                 </div>
               </div>
             ))}
@@ -217,6 +227,15 @@ const Fleet = () => {
           </div>
         </div>
       </section>
+
+      {/* Lightbox */}
+      <Lightbox
+        images={lightboxImages}
+        isOpen={isOpen}
+        currentIndex={currentIndex}
+        onClose={closeLightbox}
+        onNavigate={navigate}
+      />
     </div>
   );
 };
