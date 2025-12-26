@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Phone, Mail, MapPin, Clock, Headphones } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
@@ -9,28 +9,79 @@ import { FaXTwitter, FaInstagram, FaFacebook, FaLinkedin } from 'react-icons/fa6
 import { supabase } from '@/integrations/supabase/client';
 import heroImage from '@/assets/trucks/truck-6.jpeg';
 
+declare global {
+  interface Window {
+    hcaptcha: {
+      render: (container: string | HTMLElement, params: { sitekey: string; callback: (token: string) => void; 'expired-callback': () => void }) => string;
+      reset: (widgetId: string) => void;
+      getResponse: (widgetId: string) => string;
+    };
+  }
+}
+
+const HCAPTCHA_SITE_KEY = '3cf229fc-439e-463e-ad04-8d041f6a6eec';
+
 const Contact = () => {
   const { t, language } = useLanguage();
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
   const [formLoadTime] = useState(Date.now());
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+  const captchaRef = useRef<HTMLDivElement>(null);
+  const widgetIdRef = useRef<string | null>(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
     message: '',
-    honeypot: '' // Hidden field for bot detection
+    honeypot: ''
   });
+
+  // Load hCaptcha script
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://js.hcaptcha.com/1/api.js?render=explicit';
+    script.async = true;
+    script.defer = true;
+    
+    script.onload = () => {
+      if (captchaRef.current && window.hcaptcha) {
+        widgetIdRef.current = window.hcaptcha.render(captchaRef.current, {
+          sitekey: HCAPTCHA_SITE_KEY,
+          callback: (token: string) => setCaptchaToken(token),
+          'expired-callback': () => setCaptchaToken(null)
+        });
+      }
+    };
+    
+    document.head.appendChild(script);
+    
+    return () => {
+      const existingScript = document.querySelector('script[src*="hcaptcha"]');
+      if (existingScript) existingScript.remove();
+    };
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (!captchaToken) {
+      toast({
+        title: language === 'ar' ? 'خطأ' : 'Error',
+        description: language === 'ar' ? 'يرجى إكمال التحقق من الكابتشا' : 'Please complete the CAPTCHA verification',
+        variant: 'destructive'
+      });
+      return;
+    }
+    
     setLoading(true);
 
     try {
       const { data, error } = await supabase.functions.invoke('send-contact-email', {
         body: {
           ...formData,
-          timestamp: formLoadTime // Send form load time for time-based validation
+          captchaToken,
+          timestamp: formLoadTime
         }
       });
 
@@ -43,8 +94,12 @@ const Contact = () => {
           : 'Your message has been sent successfully!' 
       });
       
-      // Reset form
+      // Reset form and captcha
       setFormData({ name: '', email: '', phone: '', message: '', honeypot: '' });
+      setCaptchaToken(null);
+      if (widgetIdRef.current && window.hcaptcha) {
+        window.hcaptcha.reset(widgetIdRef.current);
+      }
     } catch (error: any) {
       console.error('Error sending message:', error);
       toast({ 
@@ -54,6 +109,11 @@ const Contact = () => {
           : 'Failed to send message. Please try again.',
         variant: 'destructive'
       });
+      // Reset captcha on error
+      if (widgetIdRef.current && window.hcaptcha) {
+        window.hcaptcha.reset(widgetIdRef.current);
+      }
+      setCaptchaToken(null);
     } finally {
       setLoading(false);
     }
@@ -193,11 +253,13 @@ const Contact = () => {
                     rows={4}
                     value={formData.message}
                     onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))}
-                    minLength={10}
+                  minLength={10}
                     maxLength={2000}
                   />
                 </div>
-                <Button type="submit" className="w-full gradient-primary" disabled={loading}>
+                {/* hCaptcha widget */}
+                <div ref={captchaRef} className="flex justify-center"></div>
+                <Button type="submit" className="w-full gradient-primary" disabled={loading || !captchaToken}>
                   {loading ? t('common.loading') : t('contact.form.submit')}
                 </Button>
               </form>
