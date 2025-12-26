@@ -1,90 +1,178 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 
 // Work/Projects - new images
-import work1 from '@/assets/trucks/work-new-1.jpg';
-import work2 from '@/assets/trucks/work-new-2.jpg';
-import work3 from '@/assets/trucks/work-new-3.jpg';
-import work4 from '@/assets/trucks/work-new-4.jpg';
-import work5 from '@/assets/trucks/work-new-5.jpg';
-import work6 from '@/assets/trucks/work-new-6.jpg';
-import work7 from '@/assets/trucks/work-new-7.jpg';
-import work8 from '@/assets/trucks/work-new-8.jpg';
-import work9 from '@/assets/trucks/work-new-9.jpg';
-import work10 from '@/assets/trucks/work-new-10.jpg';
+import workImg1 from '@/assets/trucks/work-img-1.jpeg';
+import workImg2 from '@/assets/trucks/work-img-2.jpeg';
+import workImg3 from '@/assets/trucks/work-img-3.jpeg';
+import workImg4 from '@/assets/trucks/work-img-4.jpeg';
+import workImg5 from '@/assets/trucks/work-img-5.jpg';
+import workImg6 from '@/assets/trucks/work-img-6.jpg';
+import workImg7 from '@/assets/trucks/work-img-7.jpg';
+import workImg8 from '@/assets/trucks/work-img-8.jpg';
+import workImg9 from '@/assets/trucks/work-img-9.jpg';
+import workImg10 from '@/assets/trucks/work-img-10.jpg';
+import workImg11 from '@/assets/trucks/work-img-11.jpg';
+import workImg12 from '@/assets/trucks/work-img-12.jpg';
+import workImg13 from '@/assets/trucks/work-img-13.jpg';
+import workImg14 from '@/assets/trucks/work-img-14.jpg';
+import workImg15 from '@/assets/trucks/work-img-15.jpg';
+import workImg16 from '@/assets/trucks/work-img-16.jpg';
+import workImg17 from '@/assets/trucks/work-img-17.jpg';
+import workImg18 from '@/assets/trucks/work-img-18.jpg';
+import workImg19 from '@/assets/trucks/work-img-19.jpg';
+import workImg20 from '@/assets/trucks/work-img-20.jpg';
+import workImg21 from '@/assets/trucks/work-img-21.jpg';
 
 const Work = () => {
   const { t, language } = useLanguage();
 
   const projects = [
     { 
-      titleEn: 'Large Diameter Pipe Transport',
-      titleAr: 'نقل أنابيب قطر كبير',
-      descEn: 'Transporting large blue-coated industrial pipes for oil and gas projects.',
-      descAr: 'نقل أنابيب صناعية كبيرة مغلفة باللون الأزرق لمشاريع النفط والغاز.',
-      image: work1 
+      titleEn: 'Heavy Equipment Transport',
+      titleAr: 'نقل المعدات الثقيلة',
+      descEn: 'Professional transport of heavy industrial equipment and machinery.',
+      descAr: 'نقل احترافي للمعدات والآلات الصناعية الثقيلة.',
+      image: workImg1 
     },
     { 
-      titleEn: 'Steel Beams Delivery',
-      titleAr: 'توصيل عوارض فولاذية',
-      descEn: 'Heavy steel beam transport for construction site with professional crew.',
-      descAr: 'نقل عوارض فولاذية ثقيلة لموقع البناء مع طاقم محترف.',
-      image: work2 
+      titleEn: 'Industrial Cargo Delivery',
+      titleAr: 'توصيل البضائع الصناعية',
+      descEn: 'Safe and efficient delivery of industrial cargo across Saudi Arabia.',
+      descAr: 'توصيل آمن وفعال للبضائع الصناعية في جميع أنحاء المملكة.',
+      image: workImg2 
     },
     { 
-      titleEn: 'Red Coated Pipeline',
-      titleAr: 'نقل أنابيب حمراء',
-      descEn: 'Oversized red-coated pipeline sections for industrial projects.',
-      descAr: 'أقسام أنابيب حمراء كبيرة الحجم للمشاريع الصناعية.',
-      image: work3 
+      titleEn: 'Pipeline Transport',
+      titleAr: 'نقل خطوط الأنابيب',
+      descEn: 'Specialized transport of pipeline sections for oil and gas projects.',
+      descAr: 'نقل متخصص لأقسام خطوط الأنابيب لمشاريع النفط والغاز.',
+      image: workImg3 
     },
     { 
-      titleEn: 'Green Industrial Pipes',
-      titleAr: 'أنابيب صناعية خضراء',
-      descEn: 'Green coated GRP pipes transport for water treatment facilities.',
-      descAr: 'نقل أنابيب GRP خضراء لمرافق معالجة المياه.',
-      image: work4 
+      titleEn: 'Oversized Load Transport',
+      titleAr: 'نقل الأحمال كبيرة الحجم',
+      descEn: 'Expert handling of oversized and heavy loads with specialized equipment.',
+      descAr: 'تعامل خبير مع الأحمال كبيرة الحجم والثقيلة بمعدات متخصصة.',
+      image: workImg4 
+    },
+    { 
+      titleEn: 'Construction Materials',
+      titleAr: 'مواد البناء',
+      descEn: 'Reliable transport of construction materials to project sites.',
+      descAr: 'نقل موثوق لمواد البناء إلى مواقع المشاريع.',
+      image: workImg5 
+    },
+    { 
+      titleEn: 'Steel Structure Delivery',
+      titleAr: 'توصيل الهياكل الفولاذية',
+      descEn: 'Professional delivery of steel structures and beams.',
+      descAr: 'توصيل احترافي للهياكل والعوارض الفولاذية.',
+      image: workImg6 
+    },
+    { 
+      titleEn: 'Heavy Machinery Moving',
+      titleAr: 'نقل الآلات الثقيلة',
+      descEn: 'Safe relocation of heavy industrial machinery.',
+      descAr: 'نقل آمن للآلات الصناعية الثقيلة.',
+      image: workImg7 
+    },
+    { 
+      titleEn: 'Industrial Equipment',
+      titleAr: 'المعدات الصناعية',
+      descEn: 'Transport of various industrial equipment and components.',
+      descAr: 'نقل مختلف المعدات والمكونات الصناعية.',
+      image: workImg8 
+    },
+    { 
+      titleEn: 'Project Logistics',
+      titleAr: 'لوجستيات المشاريع',
+      descEn: 'Comprehensive logistics solutions for major projects.',
+      descAr: 'حلول لوجستية شاملة للمشاريع الكبرى.',
+      image: workImg9 
+    },
+    { 
+      titleEn: 'Heavy Load Operations',
+      titleAr: 'عمليات الأحمال الثقيلة',
+      descEn: 'Coordinated heavy load transport operations.',
+      descAr: 'عمليات نقل الأحمال الثقيلة المنسقة.',
+      image: workImg10 
+    },
+    { 
+      titleEn: 'Specialized Transport',
+      titleAr: 'النقل المتخصص',
+      descEn: 'Specialized transport services for unique cargo requirements.',
+      descAr: 'خدمات نقل متخصصة لمتطلبات الشحن الفريدة.',
+      image: workImg11 
+    },
+    { 
+      titleEn: 'Infrastructure Projects',
+      titleAr: 'مشاريع البنية التحتية',
+      descEn: 'Supporting major infrastructure development projects.',
+      descAr: 'دعم مشاريع تطوير البنية التحتية الكبرى.',
+      image: workImg12 
+    },
+    { 
+      titleEn: 'Energy Sector Transport',
+      titleAr: 'نقل قطاع الطاقة',
+      descEn: 'Dedicated transport services for the energy sector.',
+      descAr: 'خدمات نقل مخصصة لقطاع الطاقة.',
+      image: workImg13 
+    },
+    { 
+      titleEn: 'Oil & Gas Logistics',
+      titleAr: 'لوجستيات النفط والغاز',
+      descEn: 'Complete logistics solutions for oil and gas industry.',
+      descAr: 'حلول لوجستية كاملة لصناعة النفط والغاز.',
+      image: workImg14 
+    },
+    { 
+      titleEn: 'Heavy Cargo Solutions',
+      titleAr: 'حلول البضائع الثقيلة',
+      descEn: 'Comprehensive heavy cargo transport solutions.',
+      descAr: 'حلول شاملة لنقل البضائع الثقيلة.',
+      image: workImg15 
     },
     { 
       titleEn: 'Fleet Operations',
       titleAr: 'عمليات الأسطول',
-      descEn: 'Multiple trucks coordinating heavy cargo transport operations.',
-      descAr: 'تنسيق عدة شاحنات لعمليات نقل البضائع الثقيلة.',
-      image: work5 
+      descEn: 'Coordinated fleet operations for large-scale projects.',
+      descAr: 'عمليات أسطول منسقة للمشاريع واسعة النطاق.',
+      image: workImg16 
     },
     { 
-      titleEn: 'Giant Green Pipes',
-      titleAr: 'أنابيب خضراء عملاقة',
-      descEn: 'Massive green pipeline sections for major infrastructure projects.',
-      descAr: 'أقسام أنابيب خضراء ضخمة لمشاريع البنية التحتية الكبرى.',
-      image: work6 
+      titleEn: 'Industrial Delivery',
+      titleAr: 'التوصيل الصناعي',
+      descEn: 'Timely delivery of industrial materials and equipment.',
+      descAr: 'توصيل المواد والمعدات الصناعية في الوقت المحدد.',
+      image: workImg17 
     },
     { 
-      titleEn: 'Cable Drum Transport',
-      titleAr: 'نقل بكرات الكابلات',
-      descEn: 'Heavy cable drums delivery for electrical infrastructure projects.',
-      descAr: 'توصيل بكرات كابلات ثقيلة لمشاريع البنية التحتية الكهربائية.',
-      image: work7 
+      titleEn: 'Project Transport',
+      titleAr: 'نقل المشاريع',
+      descEn: 'End-to-end transport solutions for project requirements.',
+      descAr: 'حلول نقل شاملة لمتطلبات المشاريع.',
+      image: workImg18 
     },
     { 
-      titleEn: 'Tanker Transport',
-      titleAr: 'نقل الصهاريج',
-      descEn: 'Large capacity tanker transport for industrial liquid storage.',
-      descAr: 'نقل صهاريج كبيرة السعة لتخزين السوائل الصناعية.',
-      image: work8 
+      titleEn: 'Heavy Equipment Handling',
+      titleAr: 'مناولة المعدات الثقيلة',
+      descEn: 'Expert handling and transport of heavy equipment.',
+      descAr: 'مناولة ونقل خبير للمعدات الثقيلة.',
+      image: workImg19 
     },
     { 
-      titleEn: 'Multi-Pipe Loading',
-      titleAr: 'تحميل أنابيب متعددة',
-      descEn: 'Loading multiple steel pipes for pipeline construction projects.',
-      descAr: 'تحميل أنابيب فولاذية متعددة لمشاريع إنشاء خطوط الأنابيب.',
-      image: work9 
+      titleEn: 'Cargo Management',
+      titleAr: 'إدارة البضائع',
+      descEn: 'Professional cargo management and transport services.',
+      descAr: 'خدمات إدارة ونقل البضائع الاحترافية.',
+      image: workImg20 
     },
     { 
-      titleEn: 'Blue Tank Delivery',
-      titleAr: 'توصيل خزان أزرق',
-      descEn: 'Oversized blue industrial tank transport with specialized equipment.',
-      descAr: 'نقل خزان صناعي أزرق كبير الحجم بمعدات متخصصة.',
-      image: work10 
+      titleEn: 'Transport Excellence',
+      titleAr: 'التميز في النقل',
+      descEn: 'Delivering excellence in heavy transport services.',
+      descAr: 'تقديم التميز في خدمات النقل الثقيل.',
+      image: workImg21 
     },
   ];
 
@@ -112,7 +200,7 @@ const Work = () => {
         <div className="absolute inset-0 bg-primary/90" />
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-30"
-          style={{ backgroundImage: `url(${work1})` }}
+          style={{ backgroundImage: `url(${workImg1})` }}
         />
         <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{t('work.title')}</h1>
