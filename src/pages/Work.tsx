@@ -32,11 +32,21 @@ import workNew16 from '@/assets/trucks/work-new-16.jpg';
 import workNew17 from '@/assets/trucks/work-new-17.jpg';
 import workNew18 from '@/assets/trucks/work-new-18.jpg';
 import workNew19 from '@/assets/trucks/work-new-19.jpg';
+import workNew20 from '@/assets/trucks/work-new-20.jpg';
+
 const Work = () => {
   const { t, language } = useLanguage();
   const { isOpen, currentIndex, openLightbox, closeLightbox, navigate } = useLightbox();
 
   const projects = [
+    { 
+      titleEn: '🆕 Our Latest Project - 29m Crane Arm Transport',
+      titleAr: '🆕 أحدث مشاريعنا - نقل ذراع كرين ٢٩ متر',
+      descEn: 'Specialized night transport of a 29-meter crane arm using our flagship HAFCO MAN truck with extended lowbed trailer. This challenging operation required expert coordination, secure fastening with heavy-duty chains, and careful route planning for safe oversized load delivery.',
+      descAr: 'نقل متخصص ليلي لذراع كرين بطول ٢٩ متر باستخدام شاحنة HAFCO MAN مع مقطورة لوبيد ممتدة. هذه العملية الصعبة تطلبت تنسيق خبراء، تثبيت آمن بسلاسل شديدة التحمل، وتخطيط دقيق للمسار لتوصيل الحمولة كبيرة الحجم بأمان.',
+      image: workNew20,
+      isLatest: true
+    },
     { 
       titleEn: 'Heavy Equipment Transport',
       titleAr: 'نقل المعدات الثقيلة',
