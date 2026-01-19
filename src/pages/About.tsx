@@ -70,7 +70,7 @@ const About = () => {
     },
     { 
       role: language === 'ar' ? 'الموارد البشرية' : 'Human Resources', 
-      name: language === 'ar' ? 'عيسى الريشدي' : 'Essa El-Rishady',
+      name: language === 'ar' ? 'عيسى الراشدي' : 'Essa Al-Rashidy',
       phone: '0507679998'
     },
   ];
