@@ -38,223 +38,224 @@ const Work = () => {
   const { t, language } = useLanguage();
   const { isOpen, currentIndex, openLightbox, closeLightbox, navigate } = useLightbox();
 
+  // Latest/Featured Project
+  const latestProject = { 
+    titleEn: '29m Crane Arm Transport',
+    titleAr: 'نقل ذراع كرين ٢٩ متر',
+    descEn: 'Specialized night transport of a 29-meter crane arm using our flagship HAFCO MAN truck with extended lowbed trailer. This challenging operation required expert coordination, secure fastening with heavy-duty chains, and careful route planning for safe oversized load delivery.',
+    descAr: 'نقل متخصص ليلي لذراع كرين بطول ٢٩ متر باستخدام شاحنة HAFCO MAN مع مقطورة لوبيد ممتدة. هذه العملية الصعبة تطلبت تنسيق خبراء، تثبيت آمن بسلاسل شديدة التحمل، وتخطيط دقيق للمسار لتوصيل الحمولة كبيرة الحجم بأمان.',
+    image: workNew20
+  };
+
   const projects = [
     { 
-      titleEn: '🆕 Our Latest Project - 29m Crane Arm Transport',
-      titleAr: '🆕 أحدث مشاريعنا - نقل ذراع كرين ٢٩ متر',
-      descEn: 'Specialized night transport of a 29-meter crane arm using our flagship HAFCO MAN truck with extended lowbed trailer. This challenging operation required expert coordination, secure fastening with heavy-duty chains, and careful route planning for safe oversized load delivery.',
-      descAr: 'نقل متخصص ليلي لذراع كرين بطول ٢٩ متر باستخدام شاحنة HAFCO MAN مع مقطورة لوبيد ممتدة. هذه العملية الصعبة تطلبت تنسيق خبراء، تثبيت آمن بسلاسل شديدة التحمل، وتخطيط دقيق للمسار لتوصيل الحمولة كبيرة الحجم بأمان.',
-      image: workNew20,
-      isLatest: true
-    },
-    { 
-      titleEn: 'Heavy Equipment Transport',
-      titleAr: 'نقل المعدات الثقيلة',
-      descEn: 'Professional transport of heavy industrial equipment and machinery.',
-      descAr: 'نقل احترافي للمعدات والآلات الصناعية الثقيلة.',
+      titleEn: 'Aramco Excavator Relocation',
+      titleAr: 'نقل حفارة أرامكو',
+      descEn: 'Heavy excavator transport for Aramco oil field operations. Secured with industrial chains on our specialized lowbed trailer.',
+      descAr: 'نقل حفارة ثقيلة لعمليات حقول نفط أرامكو. مثبتة بسلاسل صناعية على مقطورة لوبيد متخصصة.',
       image: workImg1 
     },
     { 
-      titleEn: 'Industrial Cargo Delivery',
-      titleAr: 'توصيل البضائع الصناعية',
-      descEn: 'Safe and efficient delivery of industrial cargo across Saudi Arabia.',
-      descAr: 'توصيل آمن وفعال للبضائع الصناعية في جميع أنحاء المملكة.',
+      titleEn: 'SABIC Industrial Machinery',
+      titleAr: 'آلات سابك الصناعية',
+      descEn: 'Delivery of petrochemical processing equipment to SABIC facility in Jubail Industrial City.',
+      descAr: 'توصيل معدات معالجة بتروكيماوية إلى منشأة سابك في مدينة الجبيل الصناعية.',
       image: workImg2 
     },
     { 
-      titleEn: 'Pipeline Transport',
-      titleAr: 'نقل خطوط الأنابيب',
-      descEn: 'Specialized transport of pipeline sections for oil and gas projects.',
-      descAr: 'نقل متخصص لأقسام خطوط الأنابيب لمشاريع النفط والغاز.',
+      titleEn: '30m Petroleum Pipes - Eastern Province',
+      titleAr: 'أنابيب بترولية ٣٠م - المنطقة الشرقية',
+      descEn: 'Transport of 30-meter coated petroleum pipeline sections from Dammam port to Ras Tanura refinery.',
+      descAr: 'نقل أقسام أنابيب بترولية مطلية بطول ٣٠ متر من ميناء الدمام إلى مصفاة رأس تنورة.',
       image: workImg3 
     },
     { 
-      titleEn: 'Oversized Load Transport',
-      titleAr: 'نقل الأحمال كبيرة الحجم',
-      descEn: 'Expert handling of oversized and heavy loads with specialized equipment.',
-      descAr: 'تعامل خبير مع الأحمال كبيرة الحجم والثقيلة بمعدات متخصصة.',
+      titleEn: 'Oversized Generator - Riyadh Power Plant',
+      titleAr: 'مولد ضخم - محطة طاقة الرياض',
+      descEn: '150-ton industrial generator transported with police escort from Jeddah port to Riyadh power station.',
+      descAr: 'نقل مولد صناعي وزنه ١٥٠ طن مع مرافقة شرطية من ميناء جدة إلى محطة طاقة الرياض.',
       image: workImg4 
     },
     { 
-      titleEn: 'Construction Materials',
-      titleAr: 'مواد البناء',
-      descEn: 'Reliable transport of construction materials to project sites.',
-      descAr: 'نقل موثوق لمواد البناء إلى مواقع المشاريع.',
+      titleEn: 'Steel Rebar Bundles - NEOM Project',
+      titleAr: 'حزم حديد التسليح - مشروع نيوم',
+      descEn: 'Multiple truck convoy delivering reinforcement steel for NEOM mega-construction project.',
+      descAr: 'قافلة شاحنات متعددة لتوصيل حديد التسليح لمشروع نيوم الضخم.',
       image: workImg5 
     },
     { 
-      titleEn: 'Steel Structure Delivery',
-      titleAr: 'توصيل الهياكل الفولاذية',
-      descEn: 'Professional delivery of steel structures and beams.',
-      descAr: 'توصيل احترافي للهياكل والعوارض الفولاذية.',
+      titleEn: 'Bridge Steel Frames - King Fahd Causeway',
+      titleAr: 'إطارات جسور فولاذية - جسر الملك فهد',
+      descEn: 'Precision delivery of prefabricated steel bridge sections for infrastructure expansion.',
+      descAr: 'توصيل دقيق لأقسام جسور فولاذية مسبقة الصنع لتوسيع البنية التحتية.',
       image: workImg6 
     },
     { 
-      titleEn: 'Heavy Machinery Moving',
-      titleAr: 'نقل الآلات الثقيلة',
-      descEn: 'Safe relocation of heavy industrial machinery.',
-      descAr: 'نقل آمن للآلات الصناعية الثقيلة.',
+      titleEn: 'Cement Plant Crusher - Yanbu',
+      titleAr: 'كسارة مصنع أسمنت - ينبع',
+      descEn: '80-ton rock crusher safely relocated to Yanbu cement manufacturing facility.',
+      descAr: 'نقل آمن لكسارة صخور وزنها ٨٠ طن إلى منشأة تصنيع الأسمنت في ينبع.',
       image: workImg7 
     },
     { 
-      titleEn: 'Industrial Equipment',
-      titleAr: 'المعدات الصناعية',
-      descEn: 'Transport of various industrial equipment and components.',
-      descAr: 'نقل مختلف المعدات والمكونات الصناعية.',
+      titleEn: 'Desalination Pumps - Jubail',
+      titleAr: 'مضخات تحلية - الجبيل',
+      descEn: 'Large-scale water pumping units delivered to Jubail desalination plant.',
+      descAr: 'توصيل وحدات ضخ مياه كبيرة إلى محطة تحلية الجبيل.',
       image: workImg8 
     },
     { 
-      titleEn: 'Project Logistics',
-      titleAr: 'لوجستيات المشاريع',
-      descEn: 'Comprehensive logistics solutions for major projects.',
-      descAr: 'حلول لوجستية شاملة للمشاريع الكبرى.',
+      titleEn: 'Modular Refinery Units - Ras Tanura',
+      titleAr: 'وحدات مصفاة معيارية - رأس تنورة',
+      descEn: 'Complete logistics for modular refinery equipment installation project.',
+      descAr: 'خدمات لوجستية كاملة لمشروع تركيب معدات مصفاة معيارية.',
       image: workImg9 
     },
     { 
-      titleEn: 'Heavy Load Operations',
-      titleAr: 'عمليات الأحمال الثقيلة',
-      descEn: 'Coordinated heavy load transport operations.',
-      descAr: 'عمليات نقل الأحمال الثقيلة المنسقة.',
+      titleEn: 'Transformer Transport - SEC Project',
+      titleAr: 'نقل محولات - مشروع الكهرباء',
+      descEn: 'High-voltage electrical transformers delivered to Saudi Electricity Company substations.',
+      descAr: 'توصيل محولات كهربائية عالية الجهد إلى محطات شركة الكهرباء السعودية.',
       image: workImg10 
     },
     { 
-      titleEn: 'Specialized Transport',
-      titleAr: 'النقل المتخصص',
-      descEn: 'Specialized transport services for unique cargo requirements.',
-      descAr: 'خدمات نقل متخصصة لمتطلبات الشحن الفريدة.',
+      titleEn: 'Mining Dump Truck Body',
+      titleAr: 'هيكل شاحنة تعدين',
+      descEn: 'Oversized mining truck body transported to Maaden gold mining operations.',
+      descAr: 'نقل هيكل شاحنة تعدين ضخم إلى عمليات تعدين الذهب التابعة لمعادن.',
       image: workImg11 
     },
     { 
-      titleEn: 'Infrastructure Projects',
-      titleAr: 'مشاريع البنية التحتية',
-      descEn: 'Supporting major infrastructure development projects.',
-      descAr: 'دعم مشاريع تطوير البنية التحتية الكبرى.',
+      titleEn: 'Highway Expansion Beams - Dammam',
+      titleAr: 'عوارض توسعة الطريق السريع - الدمام',
+      descEn: 'Precast concrete beams for Dammam-Riyadh highway expansion project.',
+      descAr: 'عوارض خرسانية مسبقة الصب لمشروع توسعة طريق الدمام-الرياض السريع.',
       image: workImg12 
     },
     { 
-      titleEn: 'Energy Sector Transport',
-      titleAr: 'نقل قطاع الطاقة',
-      descEn: 'Dedicated transport services for the energy sector.',
-      descAr: 'خدمات نقل مخصصة لقطاع الطاقة.',
+      titleEn: 'Solar Panel Frames - Sakaka',
+      titleAr: 'إطارات ألواح شمسية - سكاكا',
+      descEn: 'Steel mounting structures for Saudi Arabia largest solar power plant.',
+      descAr: 'هياكل تركيب فولاذية لأكبر محطة طاقة شمسية في السعودية.',
       image: workImg13 
     },
     { 
-      titleEn: 'Oil & Gas Logistics',
-      titleAr: 'لوجستيات النفط والغاز',
-      descEn: 'Complete logistics solutions for oil and gas industry.',
-      descAr: 'حلول لوجستية كاملة لصناعة النفط والغاز.',
+      titleEn: 'LNG Tank Sections - Yanbu Port',
+      titleAr: 'أقسام خزان غاز مسال - ميناء ينبع',
+      descEn: 'Massive LNG storage tank components delivered for port expansion.',
+      descAr: 'توصيل مكونات خزان غاز طبيعي مسال ضخم لتوسيع الميناء.',
       image: workImg14 
     },
     { 
-      titleEn: 'Heavy Cargo Solutions',
-      titleAr: 'حلول البضائع الثقيلة',
-      descEn: 'Comprehensive heavy cargo transport solutions.',
-      descAr: 'حلول شاملة لنقل البضائع الثقيلة.',
+      titleEn: 'Crane Boom - Jeddah Construction',
+      titleAr: 'ذراع رافعة - بناء جدة',
+      descEn: '45-meter tower crane boom safely transported through urban areas to high-rise construction site.',
+      descAr: 'نقل آمن لذراع رافعة برجية بطول ٤٥ متر عبر المناطق الحضرية إلى موقع بناء ناطحة سحاب.',
       image: workImg15 
     },
     { 
-      titleEn: 'Fleet Operations',
-      titleAr: 'عمليات الأسطول',
-      descEn: 'Coordinated fleet operations for large-scale projects.',
-      descAr: 'عمليات أسطول منسقة للمشاريع واسعة النطاق.',
+      titleEn: 'Multi-Truck Pipe Convoy',
+      titleAr: 'قافلة أنابيب متعددة الشاحنات',
+      descEn: '12-truck coordinated convoy delivering water pipeline for irrigation project.',
+      descAr: 'قافلة منسقة من ١٢ شاحنة لتوصيل خطوط مياه لمشروع ري.',
       image: workImg16 
     },
     { 
-      titleEn: 'Industrial Delivery',
-      titleAr: 'التوصيل الصناعي',
-      descEn: 'Timely delivery of industrial materials and equipment.',
-      descAr: 'توصيل المواد والمعدات الصناعية في الوقت المحدد.',
+      titleEn: 'Factory Equipment - Sudair Industrial',
+      titleAr: 'معدات مصنع - سدير الصناعية',
+      descEn: 'Complete production line machinery delivered to new manufacturing facility.',
+      descAr: 'توصيل آلات خط إنتاج كامل إلى منشأة تصنيع جديدة.',
       image: workImg17 
     },
     { 
-      titleEn: 'Project Transport',
-      titleAr: 'نقل المشاريع',
-      descEn: 'End-to-end transport solutions for project requirements.',
-      descAr: 'حلول نقل شاملة لمتطلبات المشاريع.',
+      titleEn: 'Wind Turbine Blade - Red Sea',
+      titleAr: 'شفرة توربين رياح - البحر الأحمر',
+      descEn: '65-meter wind turbine blade transported for Red Sea renewable energy project.',
+      descAr: 'نقل شفرة توربين رياح بطول ٦٥ متر لمشروع الطاقة المتجددة في البحر الأحمر.',
       image: workImg18 
     },
     { 
-      titleEn: 'Heavy Equipment Handling',
-      titleAr: 'مناولة المعدات الثقيلة',
-      descEn: 'Expert handling and transport of heavy equipment.',
-      descAr: 'مناولة ونقل خبير للمعدات الثقيلة.',
+      titleEn: 'Bulldozer Fleet Relocation',
+      titleAr: 'نقل أسطول جرافات',
+      descEn: 'Multiple heavy bulldozers relocated from completed project to new site.',
+      descAr: 'نقل جرافات ثقيلة متعددة من مشروع مكتمل إلى موقع جديد.',
       image: workImg19 
     },
     { 
-      titleEn: 'Cargo Management',
-      titleAr: 'إدارة البضائع',
-      descEn: 'Professional cargo management and transport services.',
-      descAr: 'خدمات إدارة ونقل البضائع الاحترافية.',
+      titleEn: 'Container Crane Components',
+      titleAr: 'مكونات رافعة حاويات',
+      descEn: 'Port crane assembly parts delivered for King Abdullah Port expansion.',
+      descAr: 'توصيل أجزاء تجميع رافعة ميناء لتوسعة ميناء الملك عبدالله.',
       image: workImg20 
     },
     { 
-      titleEn: 'Transport Excellence',
-      titleAr: 'التميز في النقل',
-      descEn: 'Delivering excellence in heavy transport services.',
-      descAr: 'تقديم التميز في خدمات النقل الثقيل.',
+      titleEn: 'Offshore Platform Modules',
+      titleAr: 'وحدات منصة بحرية',
+      descEn: 'Fabricated offshore platform sections transported from yard to port for installation.',
+      descAr: 'نقل أقسام منصة بحرية مصنعة من الورشة إلى الميناء للتركيب.',
       image: workImg21 
     },
     { 
-      titleEn: 'Large Vessel Transport',
-      titleAr: 'نقل الأوعية الكبيرة',
-      descEn: 'Specialized transport of large industrial vessels and tanks.',
-      descAr: 'نقل متخصص للأوعية والخزانات الصناعية الكبيرة.',
+      titleEn: 'Pressure Vessel - Petrochemical',
+      titleAr: 'وعاء ضغط - بتروكيماويات',
+      descEn: '120-ton pressure vessel delivered to petrochemical complex in Jubail.',
+      descAr: 'توصيل وعاء ضغط وزنه ١٢٠ طن إلى مجمع بتروكيماويات الجبيل.',
       image: workNew11 
     },
     { 
-      titleEn: 'Industrial Tank Delivery',
-      titleAr: 'توصيل الخزانات الصناعية',
-      descEn: 'Professional delivery of industrial storage tanks.',
-      descAr: 'توصيل احترافي لخزانات التخزين الصناعية.',
+      titleEn: 'Storage Tank - Water Authority',
+      titleAr: 'خزان تخزين - هيئة المياه',
+      descEn: 'Large water storage tank installed for municipal water supply project.',
+      descAr: 'تركيب خزان مياه كبير لمشروع إمداد المياه البلدية.',
       image: workNew12 
     },
     { 
-      titleEn: 'Green Pipeline Transport',
-      titleAr: 'نقل الأنابيب الخضراء',
-      descEn: 'Transport of coated pipeline sections for infrastructure projects.',
-      descAr: 'نقل أقسام الأنابيب المطلية لمشاريع البنية التحتية.',
+      titleEn: 'Coated Pipeline - Gas Network',
+      titleAr: 'أنابيب مطلية - شبكة الغاز',
+      descEn: 'Anti-corrosion coated pipes for national gas distribution network expansion.',
+      descAr: 'أنابيب مطلية ضد التآكل لتوسيع شبكة توزيع الغاز الوطنية.',
       image: workNew13 
     },
     { 
-      titleEn: 'Beam Loading Operations',
-      titleAr: 'عمليات تحميل العوارض',
-      descEn: 'Safe loading and transport of structural beams.',
-      descAr: 'تحميل ونقل آمن للعوارض الإنشائية.',
+      titleEn: 'I-Beam Loading - Steel Factory',
+      titleAr: 'تحميل عوارض حديدية - مصنع فولاذ',
+      descEn: 'Structural I-beams loaded for delivery to major construction project.',
+      descAr: 'تحميل عوارض إنشائية للتوصيل إلى مشروع بناء كبير.',
       image: workNew14 
     },
     { 
-      titleEn: 'Large Pipe Handling',
-      titleAr: 'مناولة الأنابيب الكبيرة',
-      descEn: 'Expert handling of large diameter pipes.',
-      descAr: 'مناولة خبيرة للأنابيب ذات القطر الكبير.',
+      titleEn: 'Large Diameter Pipe - Oil Field',
+      titleAr: 'أنابيب قطر كبير - حقل نفط',
+      descEn: '48-inch diameter pipeline sections for oil field infrastructure.',
+      descAr: 'أقسام أنابيب بقطر ٤٨ بوصة للبنية التحتية لحقول النفط.',
       image: workNew15 
     },
     { 
-      titleEn: 'Steel Pipe Transport',
-      titleAr: 'نقل الأنابيب الفولاذية',
-      descEn: 'Transport of steel pipes for oil and gas projects.',
-      descAr: 'نقل الأنابيب الفولاذية لمشاريع النفط والغاز.',
+      titleEn: 'API Steel Pipes - Aramco Contract',
+      titleAr: 'أنابيب فولاذية API - عقد أرامكو',
+      descEn: 'API-certified steel pipes delivered under Aramco long-term supply contract.',
+      descAr: 'توصيل أنابيب فولاذية معتمدة API ضمن عقد توريد طويل الأجل مع أرامكو.',
       image: workNew16 
     },
     { 
-      titleEn: 'Fleet Convoy Operations',
-      titleAr: 'عمليات قوافل الأسطول',
-      descEn: 'Coordinated convoy operations for large-scale deliveries.',
-      descAr: 'عمليات قوافل منسقة للتوصيلات واسعة النطاق.',
+      titleEn: 'Night Convoy - Urgent Delivery',
+      titleAr: 'قافلة ليلية - توصيل عاجل',
+      descEn: 'Emergency overnight convoy for time-critical project materials.',
+      descAr: 'قافلة طوارئ ليلية لمواد مشروع حرجة الوقت.',
       image: workNew17 
     },
     { 
-      titleEn: 'Girder Transport',
-      titleAr: 'نقل الجسور',
-      descEn: 'Specialized transport of bridge girders and structural elements.',
-      descAr: 'نقل متخصص لعوارض الجسور والعناصر الإنشائية.',
+      titleEn: 'Bridge Girder - Metro Project',
+      titleAr: 'عارضة جسر - مشروع مترو',
+      descEn: 'Precast bridge girder for Riyadh Metro infrastructure development.',
+      descAr: 'عارضة جسر مسبقة الصب لتطوير البنية التحتية لمترو الرياض.',
       image: workNew18 
     },
     { 
-      titleEn: 'Concrete Beam Delivery',
-      titleAr: 'توصيل العوارض الخرسانية',
-      descEn: 'Safe delivery of precast concrete beams.',
-      descAr: 'توصيل آمن للعوارض الخرسانية مسبقة الصب.',
+      titleEn: 'Prestressed Concrete Beam',
+      titleAr: 'عارضة خرسانية مسبقة الإجهاد',
+      descEn: 'Heavy prestressed concrete beam for flyover bridge construction.',
+      descAr: 'عارضة خرسانية ثقيلة مسبقة الإجهاد لبناء جسر علوي.',
       image: workNew19 
     },
   ];
@@ -276,7 +277,9 @@ const Work = () => {
     { en: 'NPC', ar: 'إن بي سي' },
   ];
 
-  const lightboxImages = projects.map(project => ({
+  const allProjectsForLightbox = [latestProject, ...projects];
+  
+  const lightboxImages = allProjectsForLightbox.map(project => ({
     src: project.image,
     title: language === 'ar' ? project.titleAr : project.titleEn,
     description: language === 'ar' ? project.descAr : project.descEn
@@ -304,56 +307,84 @@ const Work = () => {
         </div>
       </section>
 
-      {/* Projects */}
+      {/* Latest Project Featured Section */}
+      <section className="py-12 bg-gradient-to-b from-gold/10 to-background">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-center gap-3 mb-8">
+            <span className="relative flex h-4 w-4">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-4 w-4 bg-gold"></span>
+            </span>
+            <h2 className="text-2xl md:text-3xl font-bold text-primary">
+              {language === 'ar' ? 'أحدث مشاريعنا' : 'Our Latest Project'}
+            </h2>
+          </div>
+          
+          <div 
+            className="relative group overflow-hidden rounded-xl cursor-pointer ring-2 ring-gold shadow-lg shadow-gold/20 max-w-4xl mx-auto"
+            onClick={() => openLightbox(0)}
+          >
+            <div className="aspect-video">
+              <img 
+                src={latestProject.image} 
+                alt={language === 'ar' ? latestProject.titleAr : latestProject.titleEn} 
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+              />
+            </div>
+            {/* Hover overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-6">
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-2">
+                {language === 'ar' ? latestProject.titleAr : latestProject.titleEn}
+              </h3>
+              <p className="text-white/90 leading-relaxed">
+                {language === 'ar' ? latestProject.descAr : latestProject.descEn}
+              </p>
+            </div>
+            {/* Default title */}
+            <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent group-hover:opacity-0 transition-opacity duration-300">
+              <h3 className="text-xl md:text-2xl text-white font-bold">
+                {language === 'ar' ? latestProject.titleAr : latestProject.titleEn}
+              </h3>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* All Projects */}
       <section className="py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center text-primary mb-12">{t('work.projectsTitle')}</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {projects.map((project, i) => {
-              const isLatest = 'isLatest' in project && project.isLatest;
-              return (
-                <div 
-                  key={i} 
-                  className={`relative group overflow-hidden rounded-xl hover-lift cursor-pointer ${
-                    isLatest ? 'md:col-span-2 lg:col-span-2 ring-4 ring-gold shadow-2xl shadow-gold/20' : ''
-                  }`}
-                  onClick={() => openLightbox(i)}
-                >
-                  {/* Latest Project Badge */}
-                  {isLatest && (
-                    <div className="absolute top-4 left-4 z-20 bg-gold text-primary px-4 py-2 rounded-full font-bold text-sm flex items-center gap-2 animate-pulse">
-                      <span className="relative flex h-3 w-3">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
-                      </span>
-                      {language === 'ar' ? 'أحدث مشروع' : 'Latest Project'}
-                    </div>
-                  )}
-                  <div className={isLatest ? 'aspect-[16/9]' : 'aspect-[4/3]'}>
-                    <img 
-                      src={project.image} 
-                      alt={language === 'ar' ? project.titleAr : project.titleEn} 
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
-                    />
-                  </div>
-                  {/* Hover overlay with description */}
-                  <div className={`absolute inset-0 bg-gradient-to-t ${isLatest ? 'from-gold via-gold/80 to-gold/40' : 'from-primary via-primary/80 to-primary/40'} opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-4`}>
-                    <h3 className={`${isLatest ? 'text-xl' : 'text-lg'} font-bold ${isLatest ? 'text-primary' : 'text-white'} mb-2`}>
-                      {language === 'ar' ? project.titleAr : project.titleEn}
-                    </h3>
-                    <p className={`text-sm ${isLatest ? 'text-primary/90' : 'text-white/90'} leading-relaxed`}>
-                      {language === 'ar' ? project.descAr : project.descEn}
-                    </p>
-                  </div>
-                  {/* Default title at bottom */}
-                  <div className={`absolute bottom-0 left-0 right-0 p-4 ${isLatest ? 'bg-gradient-to-t from-gold to-transparent' : 'bg-gradient-to-t from-black/80 to-transparent'} group-hover:opacity-0 transition-opacity duration-300`}>
-                    <h3 className={`${isLatest ? 'text-primary text-xl' : 'text-white'} font-bold`}>
-                      {language === 'ar' ? project.titleAr : project.titleEn}
-                    </h3>
-                  </div>
+            {projects.map((project, i) => (
+              <div 
+                key={i} 
+                className="relative group overflow-hidden rounded-xl hover-lift cursor-pointer"
+                onClick={() => openLightbox(i + 1)}
+              >
+                <div className="aspect-[4/3]">
+                  <img 
+                    src={project.image} 
+                    alt={language === 'ar' ? project.titleAr : project.titleEn} 
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
+                  />
                 </div>
-              );
-            })}
+                {/* Hover overlay with description */}
+                <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-primary/40 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-4">
+                  <h3 className="text-lg font-bold text-white mb-2">
+                    {language === 'ar' ? project.titleAr : project.titleEn}
+                  </h3>
+                  <p className="text-sm text-white/90 leading-relaxed">
+                    {language === 'ar' ? project.descAr : project.descEn}
+                  </p>
+                </div>
+                {/* Default title at bottom */}
+                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent group-hover:opacity-0 transition-opacity duration-300">
+                  <h3 className="text-white font-bold">
+                    {language === 'ar' ? project.titleAr : project.titleEn}
+                  </h3>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
