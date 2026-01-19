@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { X, ChevronLeft, ChevronRight, ZoomIn, ZoomOut, RotateCcw } from 'lucide-react';
 
 interface LightboxProps {
-  images: { src: string; title?: string }[];
+  images: { src: string; title?: string; description?: string }[];
   isOpen: boolean;
   currentIndex: number;
   onClose: () => void;
@@ -210,9 +210,16 @@ export const Lightbox = ({ images, isOpen, currentIndex, onClose, onNavigate }: 
           />
         </div>
         {currentImage.title && zoom === 1 && (
-          <p className="mt-4 text-white text-lg font-medium text-center">
-            {currentImage.title}
-          </p>
+          <div className="mt-4 text-center max-w-2xl">
+            <p className="text-white text-lg font-medium">
+              {currentImage.title}
+            </p>
+            {currentImage.description && (
+              <p className="mt-2 text-white/80 text-sm leading-relaxed">
+                {currentImage.description}
+              </p>
+            )}
+          </div>
         )}
         <p className="mt-2 text-white/60 text-sm">
           {currentIndex + 1} / {images.length} {zoom > 1 && '• Click image or press 0 to reset zoom'}

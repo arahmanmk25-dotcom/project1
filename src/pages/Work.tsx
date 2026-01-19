@@ -278,7 +278,8 @@ const Work = () => {
 
   const lightboxImages = projects.map(project => ({
     src: project.image,
-    title: language === 'ar' ? project.titleAr : project.titleEn
+    title: language === 'ar' ? project.titleAr : project.titleEn,
+    description: language === 'ar' ? project.descAr : project.descEn
   }));
 
   return (
@@ -308,36 +309,51 @@ const Work = () => {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center text-primary mb-12">{t('work.projectsTitle')}</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {projects.map((project, i) => (
-              <div 
-                key={i} 
-                className="relative group overflow-hidden rounded-xl hover-lift cursor-pointer"
-                onClick={() => openLightbox(i)}
-              >
-                <div className="aspect-[4/3]">
-                  <img 
-                    src={project.image} 
-                    alt={language === 'ar' ? project.titleAr : project.titleEn} 
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
-                  />
+            {projects.map((project, i) => {
+              const isLatest = 'isLatest' in project && project.isLatest;
+              return (
+                <div 
+                  key={i} 
+                  className={`relative group overflow-hidden rounded-xl hover-lift cursor-pointer ${
+                    isLatest ? 'md:col-span-2 lg:col-span-2 ring-4 ring-gold shadow-2xl shadow-gold/20' : ''
+                  }`}
+                  onClick={() => openLightbox(i)}
+                >
+                  {/* Latest Project Badge */}
+                  {isLatest && (
+                    <div className="absolute top-4 left-4 z-20 bg-gold text-primary px-4 py-2 rounded-full font-bold text-sm flex items-center gap-2 animate-pulse">
+                      <span className="relative flex h-3 w-3">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+                      </span>
+                      {language === 'ar' ? 'أحدث مشروع' : 'Latest Project'}
+                    </div>
+                  )}
+                  <div className={isLatest ? 'aspect-[16/9]' : 'aspect-[4/3]'}>
+                    <img 
+                      src={project.image} 
+                      alt={language === 'ar' ? project.titleAr : project.titleEn} 
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
+                    />
+                  </div>
+                  {/* Hover overlay with description */}
+                  <div className={`absolute inset-0 bg-gradient-to-t ${isLatest ? 'from-gold via-gold/80 to-gold/40' : 'from-primary via-primary/80 to-primary/40'} opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-4`}>
+                    <h3 className={`${isLatest ? 'text-xl' : 'text-lg'} font-bold ${isLatest ? 'text-primary' : 'text-white'} mb-2`}>
+                      {language === 'ar' ? project.titleAr : project.titleEn}
+                    </h3>
+                    <p className={`text-sm ${isLatest ? 'text-primary/90' : 'text-white/90'} leading-relaxed`}>
+                      {language === 'ar' ? project.descAr : project.descEn}
+                    </p>
+                  </div>
+                  {/* Default title at bottom */}
+                  <div className={`absolute bottom-0 left-0 right-0 p-4 ${isLatest ? 'bg-gradient-to-t from-gold to-transparent' : 'bg-gradient-to-t from-black/80 to-transparent'} group-hover:opacity-0 transition-opacity duration-300`}>
+                    <h3 className={`${isLatest ? 'text-primary text-xl' : 'text-white'} font-bold`}>
+                      {language === 'ar' ? project.titleAr : project.titleEn}
+                    </h3>
+                  </div>
                 </div>
-                {/* Hover overlay with description */}
-                <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-primary/40 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-4">
-                  <h3 className="text-lg font-bold text-white mb-2">
-                    {language === 'ar' ? project.titleAr : project.titleEn}
-                  </h3>
-                  <p className="text-sm text-white/90 leading-relaxed">
-                    {language === 'ar' ? project.descAr : project.descEn}
-                  </p>
-                </div>
-                {/* Default title at bottom */}
-                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent group-hover:opacity-0 transition-opacity duration-300">
-                  <h3 className="text-white font-bold">
-                    {language === 'ar' ? project.titleAr : project.titleEn}
-                  </h3>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
