@@ -60,7 +60,7 @@ const About = () => {
   // Top row managers (Mohamed & Moustafa)
   const topManagers = [
     { 
-      role: language === 'ar' ? 'مدير العمليات' : 'Operation Manager', 
+      role: language === 'ar' ? 'مدير التشغيل' : 'Operation Manager', 
       name: language === 'ar' ? 'محمد حامد محمد' : 'Mohamed Hamed Mohamed',
       phone: '0535557874'
     },
