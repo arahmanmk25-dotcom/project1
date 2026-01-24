@@ -57,12 +57,22 @@ const About = () => {
     },
   ];
 
-  const teamMembers = [
+  // Top row managers (Mohamed & Moustafa)
+  const topManagers = [
     { 
       role: language === 'ar' ? 'مدير العمليات' : 'Operation Manager', 
       name: language === 'ar' ? 'محمد حامد محمد' : 'Mohamed Hamed Mohamed',
       phone: '0535557874'
     },
+    { 
+      role: language === 'ar' ? 'مدير المالي و الاداري' : 'Financial & Administrative Manager', 
+      name: language === 'ar' ? 'مصطفى السيد حنطور' : 'Moustafa El Sayed Hantour',
+      phone: '0580859588'
+    },
+  ];
+
+  // Bottom row team members (Faisal & Essa)
+  const bottomMembers = [
     { 
       role: language === 'ar' ? 'مدير التطوير' : 'Development Manager', 
       name: language === 'ar' ? 'فيصل سعيد القحطاني' : 'Faisal Saeed Al-Qahtani',
@@ -223,9 +233,29 @@ const About = () => {
               ))}
             </div>
 
-            {/* Team Members */}
-            <div className="grid md:grid-cols-3 gap-6">
-              {teamMembers.map((member, i) => (
+            {/* Top Managers Row (Mohamed & Moustafa) */}
+            <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto mb-6">
+              {topManagers.map((member, i) => (
+                <div key={i} className="bg-card p-6 rounded-xl border border-border text-center hover-lift">
+                  <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Briefcase className="h-10 w-10 text-primary" />
+                  </div>
+                  <h4 className="font-bold text-lg mb-1">{member.name}</h4>
+                  <p className="text-gold text-sm mb-3">{member.role}</p>
+                  <a 
+                    href={`tel:${member.phone}`} 
+                    className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    <Phone className="h-4 w-4" />
+                    {member.phone}
+                  </a>
+                </div>
+              ))}
+            </div>
+
+            {/* Bottom Members Row (Faisal & Essa) */}
+            <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+              {bottomMembers.map((member, i) => (
                 <div key={i} className="bg-card p-6 rounded-xl border border-border text-center hover-lift">
                   <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Briefcase className="h-10 w-10 text-primary" />
