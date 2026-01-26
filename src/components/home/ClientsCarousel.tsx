@@ -1,4 +1,4 @@
-import aramcoLogo from '@/assets/clients/aramco.png';
+import aramcoLogo from '@/assets/clients/aramco.jpg';
 import saipemLogo from '@/assets/clients/saipem.png';
 import dbSchenkerLogo from '@/assets/clients/db-schenker.svg';
 import agilityLogo from '@/assets/clients/agility.png';
