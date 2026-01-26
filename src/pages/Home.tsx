@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Truck, Shield, Clock, Users } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
+import ClientsCarousel from '@/components/home/ClientsCarousel';
 import hafcoLogo from '@/assets/hafco-logo.png';
 import heroImage from '@/assets/trucks/truck-5.jpeg';
 
@@ -20,21 +21,6 @@ const Home = () => {
     { icon: Shield, title: t('services.petroleum.title'), desc: t('services.petroleum.description') },
     { icon: Clock, title: t('services.crane.title'), desc: t('services.crane.description') },
     { icon: Users, title: t('services.logistics.title'), desc: t('services.logistics.description') },
-  ];
-
-  const clients = [
-    { en: 'Aramco', ar: 'أرامكو' },
-    { en: 'Saipem', ar: 'سايبم' },
-    { en: 'DB-Schenker', ar: 'دي بي شينكر' },
-    { en: 'Agility', ar: 'أجيليتي' },
-    { en: 'DHL', ar: 'دي إتش إل' },
-    { en: 'Maersk', ar: 'ميرسك' },
-    { en: 'Nesma & Partners', ar: 'نسما وشركاؤها' },
-    { en: 'SICIM', ar: 'سيسيم' },
-    { en: 'WD Logistics', ar: 'دبليو دي لوجستكس' },
-    { en: 'Eastern Pipes Co.', ar: 'شركة أنابيب الشرق' },
-    { en: 'Alqahtani Pipe Coating Industries', ar: 'شركة القحطاني لصناعات طلاء الأنابيب' },
-    { en: 'NPC', ar: 'إن بي سي' },
   ];
 
   return (
@@ -117,17 +103,17 @@ const Home = () => {
       </section>
 
       {/* Clients */}
-      <section className="py-16 bg-primary">
+      <section className="py-16 bg-primary overflow-hidden">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-bold text-center text-white mb-8">{t('work.clientsTitle')}</h2>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
-            {clients.map((client, i) => (
-              <span key={i} className="text-2xl font-bold text-white/60 hover:text-gold transition-colors">
-                {language === 'ar' ? client.ar : client.en}
-              </span>
-            ))}
-          </div>
+          <h2 className="text-2xl font-bold text-center text-white mb-4">{t('work.clientsTitle')}</h2>
+          <p className="text-white/60 text-center mb-8 max-w-xl mx-auto">
+            {language === 'ar' 
+              ? 'نفخر بخدمة أكبر الشركات في المملكة العربية السعودية والمنطقة'
+              : 'Proud to serve the largest companies in Saudi Arabia and the region'
+            }
+          </p>
         </div>
+        <ClientsCarousel />
       </section>
 
       {/* CTA */}
