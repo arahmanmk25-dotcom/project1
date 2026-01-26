@@ -43,11 +43,11 @@ const ClientsCarousel = () => {
             key={`${client.name}-${index}`}
             className="flex-shrink-0 px-4 md:px-6"
           >
-            <div className="flex items-center justify-center w-[160px] h-[100px] md:w-[200px] md:h-[120px] px-5 py-4 bg-white/95 backdrop-blur-md rounded-2xl border border-white/30 hover:bg-white hover:border-gold/40 hover:scale-105 transition-all duration-300 group shadow-lg shadow-black/10">
+            <div className="flex items-center justify-center w-[160px] h-[100px] md:w-[200px] md:h-[120px] px-5 py-4 bg-transparent rounded-2xl border border-white/30 hover:border-gold/50 hover:scale-105 transition-all duration-300 group">
               <img 
                 src={client.logo} 
                 alt={client.name}
-                className="h-10 md:h-12 w-auto max-w-[130px] md:max-w-[160px] object-contain opacity-90 group-hover:opacity-100 transition-all duration-300"
+                className="h-10 md:h-12 w-auto max-w-[130px] md:max-w-[160px] object-contain brightness-0 invert opacity-70 group-hover:opacity-100 transition-all duration-300"
               />
             </div>
           </div>
