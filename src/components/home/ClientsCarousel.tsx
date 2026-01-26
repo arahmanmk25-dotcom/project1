@@ -31,7 +31,7 @@ const ClientsCarousel = () => {
   const duplicatedClients = [...clients, ...clients];
 
   return (
-    <div className="w-full overflow-hidden py-8">
+    <div className="w-full overflow-hidden py-10">
       <div 
         className="flex animate-scroll"
         style={{
@@ -41,13 +41,13 @@ const ClientsCarousel = () => {
         {duplicatedClients.map((client, index) => (
           <div
             key={`${client.name}-${index}`}
-            className="flex-shrink-0 px-6 md:px-10"
+            className="flex-shrink-0 px-4 md:px-6"
           >
-            <div className="flex items-center justify-center h-20 md:h-24 px-6 py-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 group">
+            <div className="flex items-center justify-center w-[160px] h-[100px] md:w-[200px] md:h-[120px] px-6 py-5 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 hover:bg-white/20 hover:border-gold/40 hover:scale-105 transition-all duration-300 group shadow-lg shadow-black/10">
               <img 
                 src={client.logo} 
                 alt={client.name}
-                className="h-12 md:h-16 w-auto max-w-[140px] md:max-w-[180px] object-contain filter grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                className="h-10 md:h-14 w-auto max-w-[120px] md:max-w-[160px] object-contain brightness-0 invert opacity-80 group-hover:opacity-100 transition-all duration-300"
               />
             </div>
           </div>
