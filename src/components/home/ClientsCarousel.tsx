@@ -13,7 +13,7 @@ import npcLogo from '@/assets/clients/npc.png';
 
 const ClientsCarousel = () => {
   const clients = [
-    { name: 'Aramco', logo: aramcoLogo },
+    { name: 'Aramco', logo: aramcoLogo, size: 'large' },
     { name: 'Saipem', logo: saipemLogo },
     { name: 'DB-Schenker', logo: dbSchenkerLogo },
     { name: 'Agility', logo: agilityLogo },
@@ -26,6 +26,13 @@ const ClientsCarousel = () => {
     { name: 'Alqahtani Pipe Coating', logo: alqahtaniLogo },
     { name: 'NPC', logo: npcLogo },
   ];
+
+  const getLogoClass = (size?: string) => {
+    if (size === 'large') {
+      return "h-16 md:h-20 w-auto max-w-[130px] md:max-w-[160px] object-contain opacity-90 group-hover:opacity-100 transition-all duration-300";
+    }
+    return "h-12 md:h-16 w-auto max-w-[110px] md:max-w-[140px] object-contain opacity-90 group-hover:opacity-100 transition-all duration-300";
+  };
 
   // Duplicate the clients array for seamless infinite scroll
   const duplicatedClients = [...clients, ...clients];
@@ -47,7 +54,7 @@ const ClientsCarousel = () => {
               <img 
                 src={client.logo} 
                 alt={client.name}
-                className="h-12 md:h-16 w-auto max-w-[110px] md:max-w-[140px] object-contain opacity-90 group-hover:opacity-100 transition-all duration-300"
+                className={getLogoClass(client.size)}
               />
             </div>
           </div>
