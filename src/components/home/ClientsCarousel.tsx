@@ -1,15 +1,15 @@
-import aramcoLogo from '@/assets/clients/aramco.jpg';
+import aramcoLogo from '@/assets/clients/aramco.png';
 import saipemLogo from '@/assets/clients/saipem.png';
 import dbSchenkerLogo from '@/assets/clients/db-schenker.svg';
 import agilityLogo from '@/assets/clients/agility.png';
-import dhlLogo from '@/assets/clients/dhl.png';
+import dhlLogo from '@/assets/clients/dhl.svg';
 import maerskLogo from '@/assets/clients/maersk.png';
 import nesmaLogo from '@/assets/clients/nesma.png';
 import sicimLogo from '@/assets/clients/sicim.png';
 import wdLogisticsLogo from '@/assets/clients/wd-logistics.png';
 import eastPipesLogo from '@/assets/clients/east-pipes.png';
-import alqahtaniLogo from '@/assets/clients/alqahtani.jpg';
-import npcLogo from '@/assets/clients/npc.jpg';
+import alqahtaniLogo from '@/assets/clients/alqahtani.png';
+import npcLogo from '@/assets/clients/npc.png';
 
 const ClientsCarousel = () => {
   const clients = [
@@ -47,7 +47,7 @@ const ClientsCarousel = () => {
               <img 
                 src={client.logo} 
                 alt={client.name}
-                className="h-10 md:h-12 w-auto max-w-[130px] md:max-w-[160px] object-contain brightness-0 invert opacity-70 group-hover:opacity-100 transition-all duration-300"
+                className="h-10 md:h-12 w-auto max-w-[130px] md:max-w-[160px] object-contain opacity-90 group-hover:opacity-100 transition-all duration-300"
               />
             </div>
           </div>
