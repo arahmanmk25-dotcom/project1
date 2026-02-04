@@ -8,6 +8,7 @@ import { useToast } from '@/hooks/use-toast';
 import { FaXTwitter, FaInstagram, FaFacebook, FaLinkedin } from 'react-icons/fa6';
 import { supabase } from '@/integrations/supabase/client';
 import heroImage from '@/assets/trucks/truck-6.jpeg';
+import FloatingTrucksBackground from '@/components/shared/FloatingTrucksBackground';
 
 declare global {
   interface Window {
@@ -128,6 +129,7 @@ const Contact = () => {
           className="absolute inset-0 bg-cover bg-center opacity-30"
           style={{ backgroundImage: `url(${heroImage})` }}
         />
+        <FloatingTrucksBackground truckCount={25} particleCount={20} />
         <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{t('contact.title')}</h1>
           <p className="text-xl text-gold">{t('contact.subtitle')}</p>

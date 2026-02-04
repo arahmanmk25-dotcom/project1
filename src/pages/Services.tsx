@@ -4,6 +4,7 @@ import truck5 from '@/assets/trucks/truck-5.jpeg';
 import truck13 from '@/assets/trucks/truck-13.jpeg';
 import truck12 from '@/assets/trucks/truck-12.jpeg';
 import truck9 from '@/assets/trucks/truck-9.jpeg';
+import FloatingTrucksBackground from '@/components/shared/FloatingTrucksBackground';
 
 const heroImage = truck13;
 
@@ -26,6 +27,7 @@ const Services = () => {
           className="absolute inset-0 bg-cover bg-center opacity-30"
           style={{ backgroundImage: `url(${heroImage})` }}
         />
+        <FloatingTrucksBackground truckCount={25} particleCount={20} />
         <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{t('services.title')}</h1>
           <p className="text-xl text-gold">{t('services.subtitle')}</p>

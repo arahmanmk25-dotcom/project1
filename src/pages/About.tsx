@@ -1,6 +1,7 @@
 import { Users, Target, Eye, Award, Truck, Shield, Clock, Building, FileCheck, Phone, Mail, Scale, Briefcase, Crown } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import heroImage from '@/assets/trucks/truck-10.jpeg';
+import FloatingTrucksBackground from '@/components/shared/FloatingTrucksBackground';
 
 const About = () => {
   const { t, language } = useLanguage();
@@ -57,7 +58,6 @@ const About = () => {
     },
   ];
 
-  // Top row managers (Mohamed & Moustafa)
   const topManagers = [
     { 
       role: language === 'ar' ? 'مدير التشغيل' : 'Operation Manager', 
@@ -71,7 +71,6 @@ const About = () => {
     },
   ];
 
-  // Bottom row team members (Faisal & Essa)
   const bottomMembers = [
     { 
       role: language === 'ar' ? 'مدير التطوير' : 'Development Manager', 
@@ -132,6 +131,7 @@ const About = () => {
           className="absolute inset-0 bg-cover bg-center opacity-30"
           style={{ backgroundImage: `url(${heroImage})` }}
         />
+        <FloatingTrucksBackground truckCount={25} particleCount={20} />
         <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{t('about.title')}</h1>
           <p className="text-xl text-gold">{t('about.subtitle')}</p>
@@ -145,7 +145,6 @@ const About = () => {
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-primary mb-4">{t('about.companyProfile')}</h2>
               
-              {/* Company Name Highlight */}
               <div className="bg-primary/5 border-l-4 border-primary p-6 rounded-r-xl mb-8 text-start">
                 <h3 className="text-xl font-bold text-primary mb-2">
                   {language === 'ar' ? 'شركة هادي وسعيد فزعان القحطاني' : 'Hadi & Saeed Fazaan Al-Qahtani Company'}
@@ -159,7 +158,6 @@ const About = () => {
 
               <p className="text-lg text-muted-foreground leading-relaxed">{t('about.description')}</p>
               
-              {/* Additional Company Info */}
               <p className="text-muted-foreground mt-4 leading-relaxed">
                 {language === 'ar'
                   ? 'الشركة مسجلة تحت رقم السجل التجاري 2050042846 ومرخصة للعمل في مجال نقل البضائع بالطرق، وتقدم خدمات نقل ولوجستية احترافية وفقاً للمعايير التنظيمية المعتمدة. نحن فخورون بتاريخنا العريق في خدمة كبرى الشركات في المملكة العربية السعودية منذ أكثر من 40 عاماً.'
@@ -167,7 +165,6 @@ const About = () => {
               </p>
             </div>
 
-            {/* Registration Info Cards */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-16">
               {registrationInfo.map((info, i) => (
                 <div key={i} className="bg-card p-4 rounded-xl border border-border">
@@ -233,7 +230,7 @@ const About = () => {
               ))}
             </div>
 
-            {/* Top Managers Row (Mohamed & Moustafa) */}
+            {/* Top Managers Row */}
             <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto mb-6">
               {topManagers.map((member, i) => (
                 <div key={i} className="bg-card p-6 rounded-xl border border-border text-center hover-lift">
@@ -253,7 +250,7 @@ const About = () => {
               ))}
             </div>
 
-            {/* Bottom Members Row (Faisal & Essa) */}
+            {/* Bottom Members Row */}
             <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
               {bottomMembers.map((member, i) => (
                 <div key={i} className="bg-card p-6 rounded-xl border border-border text-center hover-lift">

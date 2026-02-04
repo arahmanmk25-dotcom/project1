@@ -1,5 +1,6 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Lightbox, useLightbox } from '@/components/ui/lightbox';
+import FloatingTrucksBackground from '@/components/shared/FloatingTrucksBackground';
 
 // Fleet trucks - all images
 import fleetHero from '@/assets/trucks/fleet-hero.jpeg';
@@ -152,6 +153,7 @@ const Fleet = () => {
           className="absolute inset-0 bg-cover bg-center opacity-30"
           style={{ backgroundImage: `url(${fleetHero})` }}
         />
+        <FloatingTrucksBackground truckCount={25} particleCount={20} />
         <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{t('fleet.title')}</h1>
           <p className="text-xl text-gold">{t('fleet.subtitle')}</p>
