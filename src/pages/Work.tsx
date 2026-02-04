@@ -1,6 +1,8 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Lightbox, useLightbox } from '@/components/ui/lightbox';
 import FloatingTrucksBackground from '@/components/shared/FloatingTrucksBackground';
+import ClientsCarousel from '@/components/home/ClientsCarousel';
+import ClientsBackgroundAnimation from '@/components/home/ClientsBackgroundAnimation';
 
 // Work/Projects - new images
 import workImg1 from '@/assets/trucks/work-img-1.jpeg';
@@ -261,22 +263,6 @@ const Work = () => {
     },
   ];
 
-  const clients = [
-    { en: 'Aramco', ar: 'أرامكو' },
-    { en: 'Saipem', ar: 'سايبم' },
-    { en: 'DB-Schenker', ar: 'دي بي شينكر' },
-    { en: 'Agility', ar: 'أجيليتي' },
-    { en: 'DHL', ar: 'دي إتش إل' },
-    { en: 'Maersk', ar: 'ميرسك' },
-    { en: 'SABIC', ar: 'سابك' },
-    { en: 'Nesma & Partners', ar: 'نسما وشركاؤها' },
-    { en: 'SICIM', ar: 'سيسيم' },
-    { en: 'WD Logistics', ar: 'دبليو دي لوجستكس' },
-    { en: 'Eastern Integrated Pipes', ar: 'شركة أنابيب الشرق المتكاملة الصناعية' },
-    { en: 'Eastern Pipes Co.', ar: 'شركة أنابيب الشرق' },
-    { en: 'Alqahtani Pipe Coating Industries', ar: 'شركة القحطاني لصناعات طلاء الأنابيب' },
-    { en: 'NPC', ar: 'إن بي سي' },
-  ];
 
   const allProjectsForLightbox = [latestProject, ...projects];
   
@@ -392,18 +378,18 @@ const Work = () => {
       </section>
 
       {/* Clients */}
-      <section className="py-16 bg-primary relative overflow-hidden">
-        <FloatingTrucksBackground truckCount={20} particleCount={25} />
+      <section className="py-16 bg-primary overflow-hidden relative">
+        <ClientsBackgroundAnimation />
         <div className="container mx-auto px-4 relative z-10">
-          <h2 className="text-3xl font-bold text-center text-white mb-12">{t('work.clientsTitle')}</h2>
-          <div className="flex flex-wrap justify-center gap-8 md:gap-16">
-            {clients.map((client, i) => (
-              <span key={i} className="text-2xl font-bold text-white/60 hover:text-gold transition-colors">
-                {language === 'ar' ? client.ar : client.en}
-              </span>
-            ))}
-          </div>
+          <h2 className="text-2xl font-bold text-center text-white mb-4">{t('work.clientsTitle')}</h2>
+          <p className="text-white/60 text-center mb-8 max-w-xl mx-auto">
+            {language === 'ar' 
+              ? 'نفخر بخدمة أكبر الشركات في المملكة العربية السعودية والمنطقة'
+              : 'Proud to serve the largest companies in Saudi Arabia and the region'
+            }
+          </p>
         </div>
+        <ClientsCarousel />
       </section>
 
       {/* Lightbox */}
