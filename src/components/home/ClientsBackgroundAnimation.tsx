@@ -24,7 +24,7 @@ const ClientsBackgroundAnimation = () => {
         x: Math.random() * 95 + 2.5,
         y: Math.random() * 90 + 5,
         size: Math.random() * 18 + 14,
-        duration: Math.random() * 6 + 8, // Faster: 8-14s
+        duration: Math.random() * 8 + 14, // 14-22s slower
         delay: Math.random() * 3,
         opacity: Math.random() * 0.3 + 0.15,
       });
@@ -70,7 +70,7 @@ const ClientsBackgroundAnimation = () => {
             left: `${(i * 3.3) % 100}%`,
             top: `${(i * 7.7) % 100}%`,
             backgroundColor: 'hsl(43 74% 49% / 0.4)',
-            animationDuration: `${2 + (i % 3)}s`,
+            animationDuration: `${4 + (i % 3)}s`,
             animationDelay: `${i * 0.1}s`,
           }}
         />

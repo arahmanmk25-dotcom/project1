@@ -24,7 +24,7 @@ const TruckParticles = () => {
         x: Math.random() * 92 + 4,
         y: Math.random() * 92 + 4,
         size: Math.random() * 28 + 22,
-        duration: Math.random() * 6 + 8, // 8-14s like clients
+        duration: Math.random() * 8 + 14, // 14-22s slower
         delay: Math.random() * 4,
         opacity: Math.random() * 0.45 + 0.2,
       });
@@ -70,7 +70,7 @@ const TruckParticles = () => {
             left: `${(i * 4) % 100}%`,
             top: `${(i * 8) % 100}%`,
             backgroundColor: 'hsl(43 74% 49% / 0.5)',
-            animationDuration: `${2 + (i % 3)}s`,
+            animationDuration: `${4 + (i % 3)}s`,
             animationDelay: `${i * 0.12}s`,
           }}
         />

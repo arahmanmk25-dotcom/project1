@@ -30,7 +30,7 @@ const FloatingTrucksBackground = ({ truckCount = 20, particleCount = 25, classNa
         x: Math.random() * 92 + 4,
         y: Math.random() * 92 + 4,
         size: Math.random() * 20 + 16,
-        duration: Math.random() * 6 + 8,
+        duration: Math.random() * 8 + 14, // 14-22s slower
         delay: Math.random() * 4,
         opacity: Math.random() * 0.35 + 0.15,
       });
@@ -76,7 +76,7 @@ const FloatingTrucksBackground = ({ truckCount = 20, particleCount = 25, classNa
             left: `${(i * 4) % 100}%`,
             top: `${(i * 7.5) % 100}%`,
             backgroundColor: 'hsl(43 74% 49% / 0.4)',
-            animationDuration: `${2 + (i % 3)}s`,
+            animationDuration: `${4 + (i % 3)}s`,
             animationDelay: `${i * 0.1}s`,
           }}
         />
