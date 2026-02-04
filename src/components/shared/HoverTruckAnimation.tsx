@@ -3,12 +3,12 @@ import { Truck } from 'lucide-react';
 const HoverTruckAnimation = () => {
   // Fixed positions for trucks to avoid re-renders
   const trucks = [
-    { x: 15, y: 20, size: 16, delay: 0, duration: 6 },
-    { x: 75, y: 15, size: 14, delay: 0.5, duration: 5.5 },
-    { x: 45, y: 60, size: 18, delay: 0.3, duration: 7 },
-    { x: 85, y: 70, size: 15, delay: 0.8, duration: 5.8 },
-    { x: 25, y: 75, size: 14, delay: 0.2, duration: 6.5 },
-    { x: 60, y: 30, size: 16, delay: 0.6, duration: 5.2 },
+    { x: 15, y: 20, size: 16, delay: 0, duration: 12 },
+    { x: 75, y: 15, size: 14, delay: 0.5, duration: 10 },
+    { x: 45, y: 60, size: 18, delay: 0.3, duration: 14 },
+    { x: 85, y: 70, size: 15, delay: 0.8, duration: 11 },
+    { x: 25, y: 75, size: 14, delay: 0.2, duration: 13 },
+    { x: 60, y: 30, size: 16, delay: 0.6, duration: 10.5 },
   ];
 
   const particles = [
@@ -59,7 +59,7 @@ const HoverTruckAnimation = () => {
             left: `${particle.x}%`,
             top: `${particle.y}%`,
             backgroundColor: 'hsl(43 74% 49% / 0.5)',
-            animationDuration: `${3 + (i % 3) * 0.5}s`,
+            animationDuration: `${5 + (i % 3)}s`,
             animationDelay: `${i * 0.1}s`,
           }}
         />
