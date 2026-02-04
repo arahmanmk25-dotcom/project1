@@ -1,5 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { useEffect, useRef, useCallback } from 'react';
 import { Truck } from 'lucide-react';
 
 interface Particle {
@@ -14,46 +13,33 @@ interface Particle {
   rotationSpeed: number;
 }
 
-interface Connection {
-  from: number;
-  to: number;
-}
-
 const TruckParticles = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [particles, setParticles] = useState<Particle[]>([]);
-  const [connections, setConnections] = useState<Connection[]>([]);
-  const animationRef = useRef<number>();
+  const canvasRef = useRef<HTMLCanvasElement>(null);
   const particlesRef = useRef<Particle[]>([]);
   const mouseRef = useRef<{ x: number; y: number } | null>(null);
+  const animationRef = useRef<number>();
 
   // Initialize particles
   useEffect(() => {
-    const createParticles = () => {
-      const newParticles: Particle[] = [];
-      const particleCount = window.innerWidth < 768 ? 10 : 18;
+    const particleCount = window.innerWidth < 768 ? 12 : 20;
+    const newParticles: Particle[] = [];
 
-      for (let i = 0; i < particleCount; i++) {
-        newParticles.push({
-          id: i,
-          x: Math.random() * 100,
-          y: Math.random() * 100,
-          size: Math.random() * 24 + 20,
-          speedX: (Math.random() - 0.5) * 0.12,
-          speedY: (Math.random() - 0.5) * 0.12,
-          opacity: Math.random() * 0.5 + 0.15,
-          rotation: Math.random() * 360,
-          rotationSpeed: (Math.random() - 0.5) * 0.4,
-        });
-      }
+    for (let i = 0; i < particleCount; i++) {
+      newParticles.push({
+        id: i,
+        x: Math.random() * 100,
+        y: Math.random() * 100,
+        size: Math.random() * 20 + 18,
+        speedX: (Math.random() - 0.5) * 0.3,
+        speedY: (Math.random() - 0.5) * 0.3,
+        opacity: Math.random() * 0.4 + 0.15,
+        rotation: Math.random() * 360,
+        rotationSpeed: (Math.random() - 0.5) * 1.5,
+      });
+    }
 
-      particlesRef.current = newParticles;
-      setParticles(newParticles);
-    };
-
-    createParticles();
-    window.addEventListener('resize', createParticles);
-    return () => window.removeEventListener('resize', createParticles);
+    particlesRef.current = newParticles;
   }, []);
 
   // Handle mouse movement
@@ -72,66 +58,106 @@ const TruckParticles = () => {
       mouseRef.current = null;
     };
 
-    const container = containerRef.current;
-    if (container) {
-      container.addEventListener('mousemove', handleMouseMove);
-      container.addEventListener('mouseleave', handleMouseLeave);
-    }
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mouseleave', handleMouseLeave);
 
     return () => {
-      if (container) {
-        container.removeEventListener('mousemove', handleMouseMove);
-        container.removeEventListener('mouseleave', handleMouseLeave);
-      }
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseleave', handleMouseLeave);
     };
   }, []);
 
-  // Animate particles
+  // Draw connections on canvas
+  const drawConnections = useCallback(() => {
+    const canvas = canvasRef.current;
+    const container = containerRef.current;
+    if (!canvas || !container) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    canvas.width = container.offsetWidth;
+    canvas.height = container.offsetHeight;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    const particles = particlesRef.current;
+    const connectionDistance = 25;
+
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        if (distance < connectionDistance) {
+          const opacity = (connectionDistance - distance) / connectionDistance * 0.5;
+          ctx.beginPath();
+          ctx.strokeStyle = `hsla(43, 74%, 49%, ${opacity})`;
+          ctx.lineWidth = 1.5;
+          ctx.moveTo(particles[i].x / 100 * canvas.width, particles[i].y / 100 * canvas.height);
+          ctx.lineTo(particles[j].x / 100 * canvas.width, particles[j].y / 100 * canvas.height);
+          ctx.stroke();
+        }
+      }
+    }
+  }, []);
+
+  // Animation loop
   useEffect(() => {
-    const animate = () => {
+    let lastTime = performance.now();
+
+    const animate = (currentTime: number) => {
+      const deltaTime = (currentTime - lastTime) / 16.67; // Normalize to 60fps
+      lastTime = currentTime;
+
       particlesRef.current = particlesRef.current.map((particle) => {
         let newSpeedX = particle.speedX;
         let newSpeedY = particle.speedY;
 
-        // Mouse interaction - particles move away from cursor
+        // Mouse repulsion
         if (mouseRef.current) {
           const dx = particle.x - mouseRef.current.x;
           const dy = particle.y - mouseRef.current.y;
           const distance = Math.sqrt(dx * dx + dy * dy);
-          const repelRadius = 20;
+          const repelRadius = 25;
 
           if (distance < repelRadius && distance > 0) {
             const force = (repelRadius - distance) / repelRadius;
             const angle = Math.atan2(dy, dx);
-            newSpeedX += Math.cos(angle) * force * 0.5;
-            newSpeedY += Math.sin(angle) * force * 0.5;
+            newSpeedX += Math.cos(angle) * force * 0.8 * deltaTime;
+            newSpeedY += Math.sin(angle) * force * 0.8 * deltaTime;
           }
         }
 
-        // Apply friction to slow down speed boost from mouse
-        newSpeedX *= 0.98;
-        newSpeedY *= 0.98;
+        // Apply friction
+        newSpeedX *= 0.995;
+        newSpeedY *= 0.995;
 
         // Ensure minimum speed
-        const minSpeed = 0.05;
+        const minSpeed = 0.15;
+        const maxSpeed = 0.8;
         if (Math.abs(newSpeedX) < minSpeed) {
-          newSpeedX = minSpeed * (Math.random() > 0.5 ? 1 : -1);
+          newSpeedX = minSpeed * (newSpeedX >= 0 ? 1 : -1);
         }
         if (Math.abs(newSpeedY) < minSpeed) {
-          newSpeedY = minSpeed * (Math.random() > 0.5 ? 1 : -1);
+          newSpeedY = minSpeed * (newSpeedY >= 0 ? 1 : -1);
         }
+        // Cap max speed
+        newSpeedX = Math.max(-maxSpeed, Math.min(maxSpeed, newSpeedX));
+        newSpeedY = Math.max(-maxSpeed, Math.min(maxSpeed, newSpeedY));
 
-        let newX = particle.x + newSpeedX;
-        let newY = particle.y + newSpeedY;
+        let newX = particle.x + newSpeedX * deltaTime;
+        let newY = particle.y + newSpeedY * deltaTime;
 
         // Bounce off edges
-        if (newX <= 0 || newX >= 100) {
+        if (newX <= 2 || newX >= 98) {
           newSpeedX = -newSpeedX;
-          newX = Math.max(0, Math.min(100, newX));
+          newX = Math.max(2, Math.min(98, newX));
         }
-        if (newY <= 0 || newY >= 100) {
+        if (newY <= 2 || newY >= 98) {
           newSpeedY = -newSpeedY;
-          newY = Math.max(0, Math.min(100, newY));
+          newY = Math.max(2, Math.min(98, newY));
         }
 
         return {
@@ -140,29 +166,11 @@ const TruckParticles = () => {
           y: newY,
           speedX: newSpeedX,
           speedY: newSpeedY,
-          rotation: particle.rotation + particle.rotationSpeed,
+          rotation: particle.rotation + particle.rotationSpeed * deltaTime,
         };
       });
 
-      // Calculate connections (connect nearby particles)
-      const newConnections: Connection[] = [];
-      const connectionDistance = 30;
-
-      for (let i = 0; i < particlesRef.current.length; i++) {
-        for (let j = i + 1; j < particlesRef.current.length; j++) {
-          const dx = particlesRef.current[i].x - particlesRef.current[j].x;
-          const dy = particlesRef.current[i].y - particlesRef.current[j].y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-
-          if (distance < connectionDistance) {
-            newConnections.push({ from: i, to: j });
-          }
-        }
-      }
-
-      setParticles([...particlesRef.current]);
-      setConnections(newConnections);
-
+      drawConnections();
       animationRef.current = requestAnimationFrame(animate);
     };
 
@@ -173,7 +181,7 @@ const TruckParticles = () => {
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, []);
+  }, [drawConnections]);
 
   return (
     <div
@@ -181,81 +189,47 @@ const TruckParticles = () => {
       className="absolute inset-0 overflow-hidden pointer-events-auto"
       style={{ zIndex: 1 }}
     >
-      {/* SVG for connection lines */}
-      <svg className="absolute inset-0 w-full h-full pointer-events-none">
-        {connections.map((connection, index) => {
-          const from = particles[connection.from];
-          const to = particles[connection.to];
-          if (!from || !to) return null;
+      {/* Canvas for connection lines */}
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 w-full h-full pointer-events-none"
+      />
 
-          const dx = from.x - to.x;
-          const dy = from.y - to.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-          const opacity = Math.max(0, (30 - distance) / 30) * 0.4;
-
-          return (
-            <motion.line
-              key={`connection-${index}`}
-              x1={`${from.x}%`}
-              y1={`${from.y}%`}
-              x2={`${to.x}%`}
-              y2={`${to.y}%`}
-              stroke="hsl(43 74% 49%)"
-              strokeWidth="1.5"
-              strokeOpacity={opacity}
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: 1 }}
-              transition={{ duration: 0.5 }}
-            />
-          );
-        })}
-      </svg>
-
-      {/* Truck particles */}
-      {particles.map((particle) => (
-        <motion.div
+      {/* Truck particles with CSS animations */}
+      {particlesRef.current.map((particle) => (
+        <div
           key={particle.id}
-          className="absolute pointer-events-none"
+          className="absolute pointer-events-none transition-all duration-75 ease-linear"
           style={{
             left: `${particle.x}%`,
             top: `${particle.y}%`,
             transform: `translate(-50%, -50%) rotate(${particle.rotation}deg)`,
+            opacity: particle.opacity,
           }}
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: particle.opacity, scale: 1 }}
-          transition={{ duration: 0.5, delay: particle.id * 0.08 }}
         >
           <Truck
             className="text-gold"
             style={{
               width: particle.size,
               height: particle.size,
-              filter: 'drop-shadow(0 0 10px hsl(43 74% 49% / 0.6))',
+              filter: 'drop-shadow(0 0 8px hsl(43 74% 49% / 0.5))',
             }}
           />
-        </motion.div>
+        </div>
       ))}
 
-      {/* Additional floating geometric shapes */}
-      {[...Array(8)].map((_, i) => (
-        <motion.div
-          key={`shape-${i}`}
-          className="absolute rounded-full bg-gold/25 pointer-events-none"
+      {/* Floating dots animation */}
+      {[...Array(10)].map((_, i) => (
+        <div
+          key={`dot-${i}`}
+          className="absolute rounded-full bg-gold/30 animate-pulse"
           style={{
-            width: 6 + (i % 3) * 2,
-            height: 6 + (i % 3) * 2,
-            left: `${8 + i * 12}%`,
-            top: `${15 + (i % 4) * 20}%`,
-          }}
-          animate={{
-            y: [0, -25, 0],
-            opacity: [0.2, 0.6, 0.2],
-          }}
-          transition={{
-            duration: 3.5 + i * 0.4,
-            repeat: Infinity,
-            ease: 'easeInOut',
-            delay: i * 0.25,
+            width: 4 + (i % 3) * 2,
+            height: 4 + (i % 3) * 2,
+            left: `${5 + i * 10}%`,
+            top: `${10 + (i % 5) * 18}%`,
+            animationDuration: `${2 + i * 0.3}s`,
+            animationDelay: `${i * 0.2}s`,
           }}
         />
       ))}

@@ -1,5 +1,4 @@
 import { useEffect, useState, useRef } from 'react';
-import { motion } from 'framer-motion';
 import { Truck } from 'lucide-react';
 import aramcoLogo from '@/assets/clients/aramco.png';
 import saipemLogo from '@/assets/clients/saipem.png';
@@ -16,16 +15,17 @@ import npcLogo from '@/assets/clients/npc.png';
 
 interface FloatingTruck {
   id: number;
-  x: number;
-  y: number;
+  startX: number;
+  startY: number;
   size: number;
-  speed: number;
+  duration: number;
+  delay: number;
   opacity: number;
 }
 
 const ClientsCarousel = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
   const [trucks, setTrucks] = useState<FloatingTruck[]>([]);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const clients = [
     { name: 'Aramco', logo: aramcoLogo, size: 'large' },
@@ -42,19 +42,20 @@ const ClientsCarousel = () => {
     { name: 'NPC', logo: npcLogo },
   ];
 
-  // Initialize floating trucks
+  // Initialize floating trucks with CSS animation parameters
   useEffect(() => {
-    const truckCount = window.innerWidth < 768 ? 6 : 10;
+    const truckCount = window.innerWidth < 768 ? 8 : 14;
     const newTrucks: FloatingTruck[] = [];
 
     for (let i = 0; i < truckCount; i++) {
       newTrucks.push({
         id: i,
-        x: Math.random() * 100,
-        y: Math.random() * 100,
-        size: Math.random() * 16 + 14,
-        speed: Math.random() * 15 + 20,
-        opacity: Math.random() * 0.3 + 0.1,
+        startX: Math.random() * 90 + 5,
+        startY: Math.random() * 80 + 10,
+        size: Math.random() * 14 + 12,
+        duration: Math.random() * 8 + 12,
+        delay: Math.random() * 5,
+        opacity: Math.random() * 0.25 + 0.1,
       });
     }
 
@@ -73,24 +74,17 @@ const ClientsCarousel = () => {
 
   return (
     <div ref={containerRef} className="w-full overflow-hidden py-10 relative">
-      {/* Floating truck animations */}
+      {/* Floating truck animations with CSS keyframes */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {trucks.map((truck) => (
-          <motion.div
+          <div
             key={truck.id}
-            className="absolute"
+            className="absolute animate-float-truck"
             style={{
-              left: `${truck.x}%`,
-              top: `${truck.y}%`,
-            }}
-            animate={{
-              x: [0, 30, -20, 10, 0],
-              y: [0, -15, 10, -5, 0],
-            }}
-            transition={{
-              duration: truck.speed,
-              repeat: Infinity,
-              ease: 'easeInOut',
+              left: `${truck.startX}%`,
+              top: `${truck.startY}%`,
+              animationDuration: `${truck.duration}s`,
+              animationDelay: `${truck.delay}s`,
             }}
           >
             <Truck
@@ -102,30 +96,42 @@ const ClientsCarousel = () => {
                 filter: 'drop-shadow(0 0 6px hsl(43 74% 49% / 0.4))',
               }}
             />
-          </motion.div>
+          </div>
         ))}
 
-        {/* Additional glowing dots */}
-        {[...Array(12)].map((_, i) => (
-          <motion.div
-            key={`dot-${i}`}
-            className="absolute w-1.5 h-1.5 rounded-full bg-gold/30"
+        {/* Glowing particles */}
+        {[...Array(20)].map((_, i) => (
+          <div
+            key={`particle-${i}`}
+            className="absolute rounded-full animate-glow-particle"
             style={{
-              left: `${5 + i * 8}%`,
-              top: `${20 + (i % 4) * 20}%`,
-            }}
-            animate={{
-              scale: [1, 1.5, 1],
-              opacity: [0.2, 0.5, 0.2],
-            }}
-            transition={{
-              duration: 2 + i * 0.3,
-              repeat: Infinity,
-              ease: 'easeInOut',
-              delay: i * 0.15,
+              width: 3 + (i % 4),
+              height: 3 + (i % 4),
+              left: `${(i * 5) % 100}%`,
+              top: `${(i * 7) % 100}%`,
+              backgroundColor: 'hsl(43 74% 49% / 0.3)',
+              animationDuration: `${3 + (i % 4)}s`,
+              animationDelay: `${i * 0.2}s`,
             }}
           />
         ))}
+
+        {/* Connecting lines effect - decorative */}
+        <svg className="absolute inset-0 w-full h-full opacity-20">
+          {[...Array(6)].map((_, i) => (
+            <line
+              key={`line-${i}`}
+              x1={`${10 + i * 15}%`}
+              y1={`${20 + (i % 3) * 25}%`}
+              x2={`${25 + i * 12}%`}
+              y2={`${40 + (i % 4) * 15}%`}
+              stroke="hsl(43 74% 49%)"
+              strokeWidth="1"
+              className="animate-pulse"
+              style={{ animationDuration: `${3 + i * 0.5}s` }}
+            />
+          ))}
+        </svg>
       </div>
 
       {/* Clients carousel */}
