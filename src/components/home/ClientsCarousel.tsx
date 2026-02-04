@@ -29,16 +29,16 @@ const ClientsCarousel = () => {
 
   const getLogoClass = (size?: string) => {
     if (size === 'large') {
-      return "h-16 md:h-20 w-auto max-w-[130px] md:max-w-[160px] object-contain opacity-90 group-hover:opacity-100 transition-all duration-300";
+      return "h-20 md:h-28 w-auto max-w-[180px] md:max-w-[220px] object-contain opacity-95 group-hover:opacity-100 transition-all duration-300";
     }
-    return "h-12 md:h-16 w-auto max-w-[110px] md:max-w-[140px] object-contain opacity-90 group-hover:opacity-100 transition-all duration-300";
+    return "h-16 md:h-24 w-auto max-w-[160px] md:max-w-[200px] object-contain opacity-95 group-hover:opacity-100 transition-all duration-300";
   };
 
   // Duplicate the clients array for seamless infinite scroll
   const duplicatedClients = [...clients, ...clients];
 
   return (
-    <div className="w-full overflow-hidden py-10">
+    <div className="w-full overflow-hidden py-12">
       <div 
         className="flex animate-scroll"
         style={{
@@ -48,9 +48,12 @@ const ClientsCarousel = () => {
         {duplicatedClients.map((client, index) => (
           <div
             key={`${client.name}-${index}`}
-            className="flex-shrink-0 px-4 md:px-6"
+            className="flex-shrink-0 px-5 md:px-8"
           >
-            <div className="flex items-center justify-center w-[120px] h-[70px] md:w-[150px] md:h-[85px] px-2 py-1 rounded-xl shadow-sm hover:shadow-md hover:scale-105 transition-all duration-300 group" style={{ backgroundColor: '#eff6f2' }}>
+            <div 
+              className="flex items-center justify-center w-[160px] h-[100px] md:w-[220px] md:h-[130px] px-4 py-3 rounded-2xl shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 group border border-white/10" 
+              style={{ backgroundColor: '#f5f9f6' }}
+            >
               <img 
                 src={client.logo} 
                 alt={client.name}
