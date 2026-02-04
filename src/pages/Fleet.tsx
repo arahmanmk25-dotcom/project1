@@ -207,8 +207,9 @@ const Fleet = () => {
       </section>
 
       {/* Stats */}
-      <section className="py-16 bg-primary">
-        <div className="container mx-auto px-4">
+      <section className="py-16 bg-primary relative overflow-hidden">
+        <FloatingTrucksBackground truckCount={18} particleCount={20} />
+        <div className="container mx-auto px-4 relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
               <div className="text-4xl font-bold text-gold mb-2">50+</div>
@@ -229,6 +230,9 @@ const Fleet = () => {
           </div>
         </div>
       </section>
+
+      {/* Spacer to separate stats from footer */}
+      <section className="py-8 bg-secondary" />
 
       {/* Lightbox */}
       <Lightbox

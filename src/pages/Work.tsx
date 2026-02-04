@@ -392,8 +392,9 @@ const Work = () => {
       </section>
 
       {/* Clients */}
-      <section className="py-16 bg-primary">
-        <div className="container mx-auto px-4">
+      <section className="py-16 bg-primary relative overflow-hidden">
+        <FloatingTrucksBackground truckCount={20} particleCount={25} />
+        <div className="container mx-auto px-4 relative z-10">
           <h2 className="text-3xl font-bold text-center text-white mb-12">{t('work.clientsTitle')}</h2>
           <div className="flex flex-wrap justify-center gap-8 md:gap-16">
             {clients.map((client, i) => (
