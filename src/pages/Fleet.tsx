@@ -1,6 +1,7 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Lightbox, useLightbox } from '@/components/ui/lightbox';
 import FloatingTrucksBackground from '@/components/shared/FloatingTrucksBackground';
+import HoverTruckAnimation from '@/components/shared/HoverTruckAnimation';
 
 // Fleet trucks - all images
 import fleetHero from '@/assets/trucks/fleet-hero.jpeg';
@@ -186,10 +187,11 @@ const Fleet = () => {
                 </div>
                 {/* Hover overlay with details */}
                 <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-primary/40 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-4">
-                  <h3 className="text-lg font-bold text-white mb-1">
+                  <HoverTruckAnimation />
+                  <h3 className="text-lg font-bold text-white mb-1 relative z-20">
                     {language === 'ar' ? item.nameAr : item.nameEn}
                   </h3>
-                  <div className="flex justify-between text-sm text-white/90">
+                  <div className="flex justify-between text-sm text-white/90 relative z-20">
                     <span>{language === 'ar' ? 'الموديل:' : 'Model:'} {item.model}</span>
                     <span>{language === 'ar' ? 'السنة:' : 'Year:'} {item.year}</span>
                   </div>

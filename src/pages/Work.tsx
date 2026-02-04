@@ -1,6 +1,7 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Lightbox, useLightbox } from '@/components/ui/lightbox';
 import FloatingTrucksBackground from '@/components/shared/FloatingTrucksBackground';
+import HoverTruckAnimation from '@/components/shared/HoverTruckAnimation';
 import ClientsCarousel from '@/components/home/ClientsCarousel';
 import ClientsBackgroundAnimation from '@/components/home/ClientsBackgroundAnimation';
 
@@ -358,10 +359,11 @@ const Work = () => {
                 </div>
                 {/* Hover overlay with description */}
                 <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-primary/40 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-4">
-                  <h3 className="text-lg font-bold text-white mb-2">
+                  <HoverTruckAnimation />
+                  <h3 className="text-lg font-bold text-white mb-2 relative z-20">
                     {language === 'ar' ? project.titleAr : project.titleEn}
                   </h3>
-                  <p className="text-sm text-white/90 leading-relaxed">
+                  <p className="text-sm text-white/90 leading-relaxed relative z-20">
                     {language === 'ar' ? project.descAr : project.descEn}
                   </p>
                 </div>
