@@ -23,7 +23,7 @@ const TruckParticles = () => {
 
   // Initialize particles
   useEffect(() => {
-    const particleCount = window.innerWidth < 768 ? 15 : 25;
+    const particleCount = window.innerWidth < 768 ? 18 : 30;
     const newParticles: Particle[] = [];
 
     for (let i = 0; i < particleCount; i++) {
@@ -31,12 +31,12 @@ const TruckParticles = () => {
         id: i,
         x: Math.random() * 90 + 5,
         y: Math.random() * 90 + 5,
-        size: Math.random() * 28 + 24, // Larger trucks: 24-52px
-        speedX: (Math.random() - 0.5) * 0.4,
-        speedY: (Math.random() - 0.5) * 0.4,
-        opacity: Math.random() * 0.5 + 0.2, // More visible: 0.2-0.7
+        size: Math.random() * 28 + 24,
+        speedX: (Math.random() - 0.5) * 1.2, // Much faster: was 0.4
+        speedY: (Math.random() - 0.5) * 1.2, // Much faster: was 0.4
+        opacity: Math.random() * 0.5 + 0.2,
         rotation: Math.random() * 360,
-        rotationSpeed: (Math.random() - 0.5) * 2,
+        rotationSpeed: (Math.random() - 0.5) * 4, // Faster rotation
       });
     }
 
@@ -138,8 +138,8 @@ const TruckParticles = () => {
         newSpeedY *= 0.995;
 
         // Ensure minimum/maximum speed
-        const minSpeed = 0.2;
-        const maxSpeed = 1;
+        const minSpeed = 0.5; // Faster minimum: was 0.2
+        const maxSpeed = 2.5; // Faster maximum: was 1
         if (Math.abs(newSpeedX) < minSpeed) {
           newSpeedX = minSpeed * (newSpeedX >= 0 ? 1 : -1);
         }
