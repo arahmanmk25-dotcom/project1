@@ -3,7 +3,7 @@ import { ArrowRight, Truck, Shield, Clock, Users, Phone, Mail } from 'lucide-rea
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import ClientsCarousel from '@/components/home/ClientsCarousel';
-import TruckParticles from '@/components/home/TruckParticles';
+import FloatingTrucksBackground from '@/components/shared/FloatingTrucksBackground';
 import ClientsBackgroundAnimation from '@/components/home/ClientsBackgroundAnimation';
 import hafcoLogo from '@/assets/hafco-logo.png';
 import heroImage from '@/assets/trucks/truck-5.jpeg';
@@ -35,7 +35,7 @@ const Home = () => {
           className="absolute inset-0 bg-cover bg-center opacity-30"
           style={{ backgroundImage: `url(${heroImage})` }}
         />
-        <TruckParticles />
+        <FloatingTrucksBackground truckCount={30} particleCount={25} />
         
         <div className="container mx-auto px-4 relative z-10 text-center">
           <img 

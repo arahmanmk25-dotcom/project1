@@ -3,6 +3,7 @@ import { Phone, Mail, MapPin, Headphones } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import hafcoLogo from '@/assets/hafco-logo.png';
 import { FaXTwitter, FaInstagram, FaFacebook, FaLinkedin } from 'react-icons/fa6';
+import FloatingTrucksBackground from '@/components/shared/FloatingTrucksBackground';
 
 const Footer = () => {
   const { t, language } = useLanguage();
@@ -24,9 +25,12 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-primary text-primary-foreground">
+    <footer className="bg-primary text-primary-foreground relative overflow-hidden">
+      {/* Truck Animation Background */}
+      <FloatingTrucksBackground truckCount={15} particleCount={20} />
+      
       {/* Main Footer */}
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 py-12 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-1">
@@ -184,7 +188,7 @@ const Footer = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-primary-foreground/20">
+      <div className="border-t border-primary-foreground/20 relative z-10">
         <div className="container mx-auto px-4 py-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-primary-foreground/70 text-sm">

@@ -1,5 +1,6 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Lightbox, useLightbox } from '@/components/ui/lightbox';
+import FloatingTrucksBackground from '@/components/shared/FloatingTrucksBackground';
 
 // Work/Projects - new images
 import workImg1 from '@/assets/trucks/work-img-1.jpeg';
@@ -294,6 +295,7 @@ const Work = () => {
           className="absolute inset-0 bg-cover bg-center opacity-30"
           style={{ backgroundImage: `url(${workImg1})` }}
         />
+        <FloatingTrucksBackground truckCount={25} particleCount={20} />
         <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{t('work.title')}</h1>
           <p className="text-xl text-gold">{t('work.subtitle')}</p>
