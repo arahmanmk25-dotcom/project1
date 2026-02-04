@@ -3,6 +3,7 @@ import { ArrowRight, Truck, Shield, Clock, Users, Phone, Mail } from 'lucide-rea
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import ClientsCarousel from '@/components/home/ClientsCarousel';
+import TruckParticles from '@/components/home/TruckParticles';
 import hafcoLogo from '@/assets/hafco-logo.png';
 import heroImage from '@/assets/trucks/truck-5.jpeg';
 import wantedTrailerImage from '@/assets/wanted-trailer.png';
@@ -33,6 +34,7 @@ const Home = () => {
           className="absolute inset-0 bg-cover bg-center opacity-30"
           style={{ backgroundImage: `url(${heroImage})` }}
         />
+        <TruckParticles />
         
         <div className="container mx-auto px-4 relative z-10 text-center">
           <img 
