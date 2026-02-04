@@ -392,6 +392,9 @@ const Work = () => {
         <ClientsCarousel />
       </section>
 
+      {/* Spacer to separate clients from footer */}
+      <section className="py-8 bg-secondary" />
+
       {/* Lightbox */}
       <Lightbox
         images={lightboxImages}
