@@ -4,6 +4,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import ClientsCarousel from '@/components/home/ClientsCarousel';
 import TruckParticles from '@/components/home/TruckParticles';
+import ClientsBackgroundAnimation from '@/components/home/ClientsBackgroundAnimation';
 import hafcoLogo from '@/assets/hafco-logo.png';
 import heroImage from '@/assets/trucks/truck-5.jpeg';
 import wantedTrailerImage from '@/assets/wanted-trailer.png';
@@ -106,8 +107,9 @@ const Home = () => {
       </section>
 
       {/* Clients */}
-      <section className="py-16 bg-primary overflow-hidden">
-        <div className="container mx-auto px-4">
+      <section className="py-16 bg-primary overflow-hidden relative">
+        <ClientsBackgroundAnimation />
+        <div className="container mx-auto px-4 relative z-10">
           <h2 className="text-2xl font-bold text-center text-white mb-4">{t('work.clientsTitle')}</h2>
           <p className="text-white/60 text-center mb-8 max-w-xl mx-auto">
             {language === 'ar' 
