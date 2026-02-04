@@ -378,11 +378,11 @@ const Work = () => {
       </section>
 
       {/* Clients */}
-      <section className="py-16 bg-primary overflow-hidden relative">
+      <section className="pt-10 pb-6 bg-primary overflow-hidden relative">
         <ClientsBackgroundAnimation />
         <div className="container mx-auto px-4 relative z-10">
-          <h2 className="text-2xl font-bold text-center text-white mb-4">{t('work.clientsTitle')}</h2>
-          <p className="text-white/60 text-center mb-8 max-w-xl mx-auto">
+          <h2 className="text-2xl font-bold text-center text-white mb-2">{t('work.clientsTitle')}</h2>
+          <p className="text-white/60 text-center mb-4 max-w-xl mx-auto text-sm">
             {language === 'ar' 
               ? 'نفخر بخدمة أكبر الشركات في المملكة العربية السعودية والمنطقة'
               : 'Proud to serve the largest companies in Saudi Arabia and the region'
