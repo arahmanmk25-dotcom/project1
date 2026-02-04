@@ -322,10 +322,11 @@ const Work = () => {
             </div>
             {/* Hover overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-6">
-              <h3 className="text-xl md:text-2xl font-bold text-white mb-2">
+              <HoverTruckAnimation />
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-2 relative z-20">
                 {language === 'ar' ? latestProject.titleAr : latestProject.titleEn}
               </h3>
-              <p className="text-white/90 leading-relaxed">
+              <p className="text-white/90 leading-relaxed relative z-20">
                 {language === 'ar' ? latestProject.descAr : latestProject.descEn}
               </p>
             </div>
