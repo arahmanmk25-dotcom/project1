@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Truck, Shield, Clock, Users, Phone, Mail } from 'lucide-react';
+import { ArrowRight, Truck, Shield, Clock, Users } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import ClientsCarousel from '@/components/home/ClientsCarousel';
@@ -7,7 +7,8 @@ import FloatingTrucksBackground from '@/components/shared/FloatingTrucksBackgrou
 import ClientsBackgroundAnimation from '@/components/home/ClientsBackgroundAnimation';
 import hafcoLogo from '@/assets/hafco-logo.png';
 import heroImage from '@/assets/trucks/truck-5.jpeg';
-import wantedTrailerImage from '@/assets/wanted-trailer.png';
+import wantedTrailerArImage from '@/assets/wanted-trailer.png';
+import wantedTrailerEnImage from '@/assets/wanted-trailer-en.png';
 
 const Home = () => {
   const { t, language } = useLanguage();
@@ -124,83 +125,12 @@ const Home = () => {
       {/* Wanted Trailer Post */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-              {language === 'ar' ? 'إعلان مطلوب للشراء' : 'Wanted to Buy'}
-            </h2>
-            <p className="text-muted-foreground text-lg">
-              {language === 'ar' 
-                ? 'نبحث عن المعدات التالية للشراء'
-                : 'We are looking to purchase the following equipment'
-              }
-            </p>
-          </div>
-          
-          <div className="max-w-4xl mx-auto bg-card rounded-2xl shadow-xl overflow-hidden border border-border">
-            <div className="grid md:grid-cols-2 gap-0">
-              {/* Image */}
-              <div className="relative">
-                <img 
-                  src={wantedTrailerImage} 
-                  alt={language === 'ar' ? 'سطحة مطلوبة للشراء' : 'Flatbed Trailer Wanted'}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              
-              {/* Content */}
-              <div className="p-8 flex flex-col justify-center">
-                <h3 className="text-2xl md:text-3xl font-bold text-primary mb-4">
-                  {language === 'ar' ? 'مطلوب سطحة للشراء' : 'Flatbed Trailer Wanted'}
-                </h3>
-                
-                <ul className="space-y-3 mb-6">
-                  <li className="flex items-center gap-3 text-foreground">
-                    <span className="w-2 h-2 bg-gold rounded-full"></span>
-                    <span className="font-medium">
-                      {language === 'ar' ? 'الطول: 13.60 متر' : 'Length: 13.60 meters'}
-                    </span>
-                  </li>
-                  <li className="flex items-center gap-3 text-foreground">
-                    <span className="w-2 h-2 bg-gold rounded-full"></span>
-                    <span className="font-medium">
-                      {language === 'ar' ? '3 محاور' : '3 Axles'}
-                    </span>
-                  </li>
-                  <li className="flex items-center gap-3 text-foreground">
-                    <span className="w-2 h-2 bg-gold rounded-full"></span>
-                    <span className="font-medium">
-                      {language === 'ar' ? 'صناعة محلية أو صينية' : 'Local or Chinese made'}
-                    </span>
-                  </li>
-                  <li className="flex items-center gap-3 text-foreground">
-                    <span className="w-2 h-2 bg-gold rounded-full"></span>
-                    <span className="font-medium">
-                      {language === 'ar' ? 'حالة جيدة لممتازة' : 'Good to excellent condition'}
-                    </span>
-                  </li>
-                </ul>
-
-                <div className="border-t border-border pt-6 space-y-3">
-                  <p className="text-lg font-bold text-primary mb-3">
-                    {language === 'ar' ? 'للتواصل:' : 'Contact Us:'}
-                  </p>
-                  <a 
-                    href="tel:+966535557874" 
-                    className="flex items-center gap-3 text-foreground hover:text-primary transition-colors"
-                  >
-                    <Phone className="h-5 w-5 text-gold" />
-                    <span dir="ltr">+966 535 557 874</span>
-                  </a>
-                  <a 
-                    href="mailto:mohamedhamed@hafcobigmovers.com" 
-                    className="flex items-center gap-3 text-foreground hover:text-primary transition-colors"
-                  >
-                    <Mail className="h-5 w-5 text-gold" />
-                    <span>mohamedhamed@hafcobigmovers.com</span>
-                  </a>
-                </div>
-              </div>
-            </div>
+          <div className="max-w-2xl mx-auto">
+            <img 
+              src={language === 'ar' ? wantedTrailerArImage : wantedTrailerEnImage} 
+              alt={language === 'ar' ? 'مطلوب سطحة للشراء' : 'Wanted Flatbed Trailer for Purchase'}
+              className="w-full h-auto rounded-2xl shadow-xl"
+            />
           </div>
         </div>
       </section>
