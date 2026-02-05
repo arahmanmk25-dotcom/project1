@@ -284,6 +284,24 @@
   animation-play-state: paused;
 }
 
+/* RTL scroll animation for clients carousel */
+@keyframes scroll-rtl {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-scroll-rtl {
+  animation: scroll-rtl 30s linear infinite;
+}
+
+.animate-scroll-rtl:hover {
+  animation-play-state: paused;
+}
+
 /* Floating truck animation for clients section */
 @keyframes float-truck {
   0%, 100% {

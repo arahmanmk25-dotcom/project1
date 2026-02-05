@@ -10,8 +10,12 @@ import wdLogisticsLogo from '@/assets/clients/wd-logistics.png';
 import eastPipesLogo from '@/assets/clients/east-pipes.png';
 import alqahtaniLogo from '@/assets/clients/alqahtani.png';
 import npcLogo from '@/assets/clients/npc.png';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const ClientsCarousel = () => {
+  const { language } = useLanguage();
+  const isRTL = language === 'ar';
+
   const clients = [
     { name: 'Aramco', logo: aramcoLogo, size: 'large' },
     { name: 'Saipem', logo: saipemLogo },
@@ -41,7 +45,7 @@ const ClientsCarousel = () => {
     <div className="w-full overflow-hidden py-10 relative z-10">
       {/* Clients carousel */}
       <div 
-        className="flex animate-scroll"
+        className={`flex ${isRTL ? 'animate-scroll-rtl' : 'animate-scroll'}`}
         style={{
           width: 'max-content',
         }}
