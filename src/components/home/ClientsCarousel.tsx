@@ -10,12 +10,8 @@ import wdLogisticsLogo from '@/assets/clients/wd-logistics.png';
 import eastPipesLogo from '@/assets/clients/east-pipes.png';
 import alqahtaniLogo from '@/assets/clients/alqahtani.png';
 import npcLogo from '@/assets/clients/npc.png';
-import { useLanguage } from '@/contexts/LanguageContext';
 
 const ClientsCarousel = () => {
-  const { language } = useLanguage();
-  const isRTL = language === 'ar';
-
   const clients = [
     { name: 'Aramco', logo: aramcoLogo, size: 'large' },
     { name: 'Saipem', logo: saipemLogo },
@@ -42,10 +38,10 @@ const ClientsCarousel = () => {
   const duplicatedClients = [...clients, ...clients];
 
   return (
-    <div className="w-full overflow-hidden py-10 relative z-10">
+    <div className="w-full overflow-hidden py-10 relative z-10" dir="ltr">
       {/* Clients carousel */}
       <div 
-        className={`flex ${isRTL ? 'animate-scroll-rtl' : 'animate-scroll'}`}
+        className="flex animate-scroll"
         style={{
           width: 'max-content',
         }}
