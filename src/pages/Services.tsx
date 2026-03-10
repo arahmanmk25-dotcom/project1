@@ -5,6 +5,8 @@ import truck13 from '@/assets/trucks/truck-13.jpeg';
 import truck12 from '@/assets/trucks/truck-12.jpeg';
 import truck9 from '@/assets/trucks/truck-9.jpeg';
 import FloatingTrucksBackground from '@/components/shared/FloatingTrucksBackground';
+import ScrollReveal from '@/components/shared/ScrollReveal';
+import PageTransition from '@/components/shared/PageTransition';
 
 const heroImage = truck13;
 
@@ -19,41 +21,44 @@ const Services = () => {
   ];
 
   return (
-    <div>
-      {/* Hero */}
-      <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-primary/90" />
-        <div 
-          className="absolute inset-0 bg-cover bg-center opacity-30"
-          style={{ backgroundImage: `url(${heroImage})` }}
-        />
-        <FloatingTrucksBackground truckCount={25} particleCount={20} />
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{t('services.title')}</h1>
-          <p className="text-xl text-gold">{t('services.subtitle')}</p>
-        </div>
-      </section>
-
-      {/* Services Grid */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-8">
-            {services.map((service, i) => (
-              <div key={i} className="bg-card rounded-xl overflow-hidden border border-border hover-lift group">
-                <div className="h-48 overflow-hidden">
-                  <img src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                </div>
-                <div className="p-6">
-                  <service.icon className="h-10 w-10 text-primary mb-4" />
-                  <h3 className="text-2xl font-bold mb-3">{service.title}</h3>
-                  <p className="text-muted-foreground">{service.desc}</p>
-                </div>
-              </div>
-            ))}
+    <PageTransition>
+      <div>
+        {/* Hero */}
+        <section className="relative py-32 overflow-hidden">
+          <div className="absolute inset-0 bg-primary/90" />
+          <div className="absolute inset-0 bg-cover bg-center opacity-30" style={{ backgroundImage: `url(${heroImage})` }} />
+          <FloatingTrucksBackground truckCount={25} particleCount={20} />
+          <div className="container mx-auto px-4 text-center relative z-10">
+            <ScrollReveal variant="fadeUp">
+              <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{t('services.title')}</h1>
+              <p className="text-xl text-gold">{t('services.subtitle')}</p>
+            </ScrollReveal>
           </div>
-        </div>
-      </section>
-    </div>
+        </section>
+
+        {/* Services Grid */}
+        <section className="py-20">
+          <div className="container mx-auto px-4">
+            <div className="grid md:grid-cols-2 gap-8">
+              {services.map((service, i) => (
+                <ScrollReveal key={i} variant="fadeUp" delay={i * 0.1}>
+                  <div className="bg-card rounded-xl overflow-hidden border border-border hover-lift group h-full">
+                    <div className="h-48 overflow-hidden">
+                      <img src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                    </div>
+                    <div className="p-6">
+                      <service.icon className="h-10 w-10 text-primary mb-4" />
+                      <h3 className="text-2xl font-bold mb-3">{service.title}</h3>
+                      <p className="text-muted-foreground">{service.desc}</p>
+                    </div>
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      </div>
+    </PageTransition>
   );
 };
 
