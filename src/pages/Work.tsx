@@ -411,6 +411,7 @@ const Work = () => {
         onNavigate={navigate}
       />
     </div>
+    </PageTransition>
   );
 };
 
