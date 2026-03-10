@@ -60,42 +60,48 @@
   }
 
   .dark {
-    --background: 147 76% 8%;
-    --foreground: 0 0% 98%;
+    --background: 150 20% 10%;
+    --foreground: 0 0% 95%;
 
-    --card: 147 76% 12%;
-    --card-foreground: 0 0% 98%;
+    --card: 150 20% 14%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 147 76% 12%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 150 20% 14%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 147 60% 45%;
+    --primary: 147 60% 40%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 147 30% 20%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 150 20% 16%;
+    --secondary-foreground: 0 0% 92%;
 
-    --muted: 147 30% 18%;
-    --muted-foreground: 147 20% 70%;
+    --muted: 150 15% 18%;
+    --muted-foreground: 150 10% 65%;
 
-    --accent: 43 74% 49%;
+    --accent: 43 74% 52%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 62.8% 40%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 147 30% 20%;
-    --input: 147 30% 20%;
-    --ring: 147 60% 45%;
+    --border: 150 15% 22%;
+    --input: 150 15% 22%;
+    --ring: 147 60% 40%;
 
-    --sidebar-background: 147 76% 10%;
-    --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 147 60% 45%;
+    --saudi-green: 147 60% 40%;
+    --saudi-green-dark: 147 60% 30%;
+    --saudi-green-light: 147 50% 50%;
+    --gold: 43 74% 52%;
+    --gold-light: 43 74% 65%;
+
+    --sidebar-background: 150 20% 10%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 147 60% 40%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 147 30% 18%;
-    --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 147 30% 20%;
-    --sidebar-ring: 43 74% 49%;
+    --sidebar-accent: 150 15% 18%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 150 15% 22%;
+    --sidebar-ring: 43 74% 52%;
   }
 }
 
@@ -127,7 +133,15 @@
 @layer components {
   /* Glass effect */
   .glass {
-    @apply bg-background/80 backdrop-blur-md border border-border/20;
+    @apply bg-background/85 backdrop-blur-md border border-border/30;
+  }
+
+  .dark .gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--saudi-green-light)) 100%);
+  }
+
+  .dark .hero-overlay {
+    background: linear-gradient(135deg, hsl(150 20% 8% / 0.95) 0%, hsl(150 20% 5% / 0.9) 100%);
   }
 
   /* Gradient backgrounds */
