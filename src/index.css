@@ -133,7 +133,15 @@
 @layer components {
   /* Glass effect */
   .glass {
-    @apply bg-background/80 backdrop-blur-md border border-border/20;
+    @apply bg-background/85 backdrop-blur-md border border-border/30;
+  }
+
+  .dark .gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--saudi-green-light)) 100%);
+  }
+
+  .dark .hero-overlay {
+    background: linear-gradient(135deg, hsl(150 20% 8% / 0.95) 0%, hsl(150 20% 5% / 0.9) 100%);
   }
 
   /* Gradient backgrounds */
