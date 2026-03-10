@@ -276,18 +276,18 @@ const Work = () => {
   }));
 
   return (
+    <PageTransition>
     <div>
       {/* Hero */}
       <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0 bg-primary/90" />
-        <div 
-          className="absolute inset-0 bg-cover bg-center opacity-30"
-          style={{ backgroundImage: `url(${workImg1})` }}
-        />
+        <div className="absolute inset-0 bg-cover bg-center opacity-30" style={{ backgroundImage: `url(${workImg1})` }} />
         <FloatingTrucksBackground truckCount={25} particleCount={20} />
         <div className="container mx-auto px-4 text-center relative z-10">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{t('work.title')}</h1>
-          <p className="text-xl text-gold">{t('work.subtitle')}</p>
+          <ScrollReveal variant="fadeUp">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{t('work.title')}</h1>
+            <p className="text-xl text-gold">{t('work.subtitle')}</p>
+          </ScrollReveal>
         </div>
       </section>
 
