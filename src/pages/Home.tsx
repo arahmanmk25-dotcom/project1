@@ -147,6 +147,9 @@ const Home = () => {
           <ClientsCarousel />
         </section>
 
+        {/* Testimonials */}
+        <Testimonials />
+
         {/* CTA */}
         <section className="py-20 bg-secondary">
           <div className="container mx-auto px-4 text-center">
