@@ -1,14 +1,25 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Globe } from 'lucide-react';
+import { Menu, X, Globe, Sun, Moon } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useTheme } from '@/contexts/ThemeContext';
 import { Button } from '@/components/ui/button';
 import hafcoLogo from '@/assets/hafco-logo.png';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { language, setLanguage, t, isRTL } = useLanguage();
+  const [isScrolled, setIsScrolled] = useState(false);
+  const { language, setLanguage, t } = useLanguage();
+  const { theme, toggleTheme } = useTheme();
   const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navLinks = [
     { href: '/', label: t('nav.home') },
@@ -26,18 +37,30 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 glass">
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? 'bg-background/95 backdrop-blur-lg shadow-lg h-16'
+          : 'glass h-20'
+      }`}
+    >
+      <div className="container mx-auto px-4 h-full">
+        <div className="flex items-center justify-between h-full">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 hover-lift">
-            <img 
-              src={hafcoLogo} 
-              alt="HAFCO Logo" 
-              className="h-14 w-auto object-contain"
+            <img
+              src={hafcoLogo}
+              alt="HAFCO Logo"
+              className={`w-auto object-contain transition-all duration-300 ${
+                isScrolled ? 'h-10' : 'h-14'
+              }`}
             />
             <div className="hidden sm:block">
-              <h1 className="text-xl font-bold text-primary leading-tight">
+              <h1
+                className={`font-bold text-primary leading-tight transition-all duration-300 ${
+                  isScrolled ? 'text-lg' : 'text-xl'
+                }`}
+              >
                 {language === 'ar' ? 'هافكو' : 'HAFCO'}
               </h1>
               <p className="text-xs text-muted-foreground uppercase tracking-wide">
@@ -64,7 +87,22 @@ const Header = () => {
           </nav>
 
           {/* Actions */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
+            {/* Dark Mode Toggle */}
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={toggleTheme}
+              className="hover:bg-primary/10"
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? (
+                <Sun className="h-4 w-4" />
+              ) : (
+                <Moon className="h-4 w-4" />
+              )}
+            </Button>
+
             {/* Language Toggle */}
             <Button
               variant="ghost"
