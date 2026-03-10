@@ -345,11 +345,13 @@ const Work = () => {
       {/* All Projects */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-primary mb-12">{t('work.projectsTitle')}</h2>
+          <ScrollReveal variant="fadeUp">
+            <h2 className="text-3xl font-bold text-center text-primary mb-12">{t('work.projectsTitle')}</h2>
+          </ScrollReveal>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {projects.map((project, i) => (
+              <ScrollReveal key={i} variant="fadeUp" delay={(i % 4) * 0.08}>
               <div 
-                key={i} 
                 className="relative group overflow-hidden rounded-xl hover-lift cursor-pointer"
                 onClick={() => openLightbox(i + 1)}
               >
@@ -357,10 +359,10 @@ const Work = () => {
                   <img 
                     src={project.image} 
                     alt={language === 'ar' ? project.titleAr : project.titleEn} 
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    loading="lazy"
                   />
                 </div>
-                {/* Hover overlay with description */}
                 <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-primary/40 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-4">
                   <HoverTruckAnimation />
                   <h3 className="text-lg font-bold text-white mb-2 relative z-20">
@@ -370,13 +372,13 @@ const Work = () => {
                     {language === 'ar' ? project.descAr : project.descEn}
                   </p>
                 </div>
-                {/* Default title at bottom */}
                 <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent group-hover:opacity-0 transition-opacity duration-300">
                   <h3 className="text-white font-bold">
                     {language === 'ar' ? project.titleAr : project.titleEn}
                   </h3>
                 </div>
               </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
