@@ -8,6 +8,7 @@ import ClientsBackgroundAnimation from '@/components/home/ClientsBackgroundAnima
 import ScrollReveal from '@/components/shared/ScrollReveal';
 import AnimatedCounter from '@/components/shared/AnimatedCounter';
 import PageTransition from '@/components/shared/PageTransition';
+import Testimonials from '@/components/home/Testimonials';
 import hafcoLogo from '@/assets/hafco-logo.png';
 import heroImage from '@/assets/trucks/truck-5.jpeg';
 
@@ -145,6 +146,9 @@ const Home = () => {
           </div>
           <ClientsCarousel />
         </section>
+
+        {/* Testimonials */}
+        <Testimonials />
 
         {/* CTA */}
         <section className="py-20 bg-secondary">
