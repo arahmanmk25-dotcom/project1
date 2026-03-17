@@ -1,22 +1,29 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Truck, Shield, Clock, Users } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import ClientsCarousel from '@/components/home/ClientsCarousel';
-import FloatingTrucksBackground from '@/components/shared/FloatingTrucksBackground';
 import ClientsBackgroundAnimation from '@/components/home/ClientsBackgroundAnimation';
 import ScrollReveal from '@/components/shared/ScrollReveal';
 import PageTransition from '@/components/shared/PageTransition';
-import ParallaxHero from '@/components/home/ParallaxHero';
 import HeroTypewriter from '@/components/home/HeroTypewriter';
 import StatsBar from '@/components/home/StatsBar';
 
 import hafcoLogo from '@/assets/hafco-logo.png';
 import heroImage from '@/assets/trucks/truck-5.jpeg';
+import truck13 from '@/assets/trucks/truck-13.jpeg';
+import truck12 from '@/assets/trucks/truck-12.jpeg';
+import truck9 from '@/assets/trucks/truck-9.jpeg';
+import workImg1 from '@/assets/trucks/work-img-1.jpeg';
 
 const Home = () => {
   const { t, language } = useLanguage();
+  const heroRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
+  const heroY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   const stats = [
     { value: '40+', label: t('about.yearsExperience') },
@@ -26,10 +33,10 @@ const Home = () => {
   ];
 
   const services = [
-    { icon: Truck, title: t('services.heavy.title'), desc: t('services.heavy.description') },
-    { icon: Shield, title: t('services.petroleum.title'), desc: t('services.petroleum.description') },
-    { icon: Clock, title: t('services.crane.title'), desc: t('services.crane.description') },
-    { icon: Users, title: t('services.logistics.title'), desc: t('services.logistics.description') },
+    { icon: Truck, title: t('services.heavy.title'), desc: t('services.heavy.description'), image: heroImage, num: '01' },
+    { icon: Shield, title: t('services.petroleum.title'), desc: t('services.petroleum.description'), image: truck13, num: '02' },
+    { icon: Clock, title: t('services.crane.title'), desc: t('services.crane.description'), image: truck12, num: '03' },
+    { icon: Users, title: t('services.logistics.title'), desc: t('services.logistics.description'), image: truck9, num: '04' },
   ];
 
   const typewriterWords = language === 'ar'
@@ -39,22 +46,31 @@ const Home = () => {
   return (
     <PageTransition>
       <div>
-        {/* Hero Section with Parallax */}
-        <ParallaxHero imageSrc={heroImage}>
-          <div className="container mx-auto px-4 text-center">
-            <FloatingTrucksBackground truckCount={30} particleCount={25} />
-            
+        {/* Full-viewport Hero */}
+        <section ref={heroRef} className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden -mt-20">
+          <motion.div
+            className="absolute inset-0"
+            style={{ y: heroY }}
+          >
+            <img src={heroImage} alt="HAFCO Fleet" className="w-full h-[120%] object-cover" />
+            <div className="absolute inset-0 hero-overlay" />
+          </motion.div>
+
+          <motion.div
+            className="relative z-10 container mx-auto px-4 text-center"
+            style={{ opacity: heroOpacity }}
+          >
             <motion.img
               src={hafcoLogo}
               alt="HAFCO Logo"
-              className="h-28 md:h-36 w-auto mx-auto mb-6 brightness-0 invert"
-              initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
-              animate={{ opacity: 1, scale: 1, rotate: 0 }}
+              className="h-24 md:h-32 w-auto mx-auto mb-6 brightness-0 invert"
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             />
 
             <motion.h2
-              className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4"
+              className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-4 tracking-tight"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -63,7 +79,7 @@ const Home = () => {
             </motion.h2>
 
             <motion.div
-              className="text-xl md:text-3xl text-gold font-semibold mb-4 h-10"
+              className="text-xl md:text-3xl text-gold font-semibold mb-6 h-10"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
@@ -72,7 +88,7 @@ const Home = () => {
             </motion.div>
 
             <motion.p
-              className="text-lg text-white/80 max-w-2xl mx-auto mb-8"
+              className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto mb-10 leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.6 }}
@@ -87,84 +103,135 @@ const Home = () => {
               transition={{ delay: 0.6, duration: 0.6 }}
             >
               <Link to="/contact">
-                <Button size="lg" className="bg-gold hover:bg-gold-light text-primary font-bold px-8 group">
+                <Button size="lg" className="bg-gold hover:bg-gold-light text-primary font-bold px-10 py-6 text-lg group">
                   {t('hero.cta')}
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
               <Link to="/about">
-                <Button size="lg" variant="outline" className="border-gold text-gold hover:bg-gold hover:text-primary">
+                <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 px-10 py-6 text-lg">
                   {t('hero.learnMore')}
                 </Button>
               </Link>
             </motion.div>
-          </div>
-        </ParallaxHero>
+          </motion.div>
 
-        {/* Stats Section - enhanced */}
+          {/* Scroll indicator */}
+          <motion.div
+            className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+            animate={{ y: [0, 10, 0] }}
+            transition={{ repeat: Infinity, duration: 2 }}
+          >
+            <div className="w-6 h-10 rounded-full border-2 border-white/30 flex justify-center pt-2">
+              <div className="w-1.5 h-3 rounded-full bg-gold" />
+            </div>
+          </motion.div>
+        </section>
+
+        {/* Stats */}
         <StatsBar stats={stats} variant="light" />
 
-        {/* Services Preview */}
-        <section className="py-20">
+        {/* About Intro - Editorial Block */}
+        <section className="py-24 md:py-32">
+          <div className="container mx-auto px-4">
+            <div className="max-w-5xl mx-auto">
+              <ScrollReveal variant="fadeUp">
+                <p className="text-gold font-semibold tracking-widest uppercase text-sm mb-4">
+                  {language === 'ar' ? 'منذ ١٩٨٤' : 'SINCE 1984'}
+                </p>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary leading-tight mb-8">
+                  {language === 'ar'
+                    ? 'إرث عريق من التميز'
+                    : 'A Proud Legacy of Excellence'}
+                </h2>
+                <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-3xl">
+                  {t('about.description')}
+                </p>
+              </ScrollReveal>
+            </div>
+          </div>
+        </section>
+
+        {/* Full-width Image Break */}
+        <section className="relative h-[50vh] min-h-[300px] overflow-hidden">
+          <img src={workImg1} alt="HAFCO Operations" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-primary/30" />
+        </section>
+
+        {/* Services - Numbered Editorial Style */}
+        <section className="py-24 md:py-32">
           <div className="container mx-auto px-4">
             <ScrollReveal variant="fadeUp">
-              <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">{t('services.title')}</h2>
-                <p className="text-muted-foreground text-lg">{t('services.subtitle')}</p>
+              <div className="max-w-5xl mx-auto mb-16">
+                <p className="text-gold font-semibold tracking-widest uppercase text-sm mb-4">
+                  {language === 'ar' ? 'خدماتنا' : 'OUR SERVICES'}
+                </p>
+                <h2 className="text-4xl md:text-5xl font-bold text-primary">{t('services.title')}</h2>
               </div>
             </ScrollReveal>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+            <div className="space-y-24">
               {services.map((service, index) => (
-                <ScrollReveal key={index} variant="fadeUp" delay={index * 0.1}>
-                  <motion.div
-                    whileHover={{ y: -8, boxShadow: '0 20px 40px -12px hsl(var(--primary) / 0.15)' }}
-                    transition={{ duration: 0.3 }}
-                    className="bg-card p-6 rounded-2xl border border-border h-full group cursor-pointer"
-                  >
-                    <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
-                      <service.icon className="h-7 w-7 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
+                <ScrollReveal key={index} variant="fadeUp" delay={0.1}>
+                  <div className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 lg:gap-16 items-center`}>
+                    {/* Image */}
+                    <div className="w-full lg:w-1/2">
+                      <div className="relative overflow-hidden rounded-2xl aspect-[4/3]">
+                        <img
+                          src={service.image}
+                          alt={service.title}
+                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                        />
+                      </div>
                     </div>
-                    <h3 className="text-xl font-bold mb-2">{service.title}</h3>
-                    <p className="text-muted-foreground text-sm">{service.desc}</p>
-                  </motion.div>
+                    {/* Content */}
+                    <div className="w-full lg:w-1/2">
+                      <span className="text-8xl md:text-9xl font-bold text-primary/10 leading-none block mb-[-20px]">
+                        {service.num}
+                      </span>
+                      <h3 className="text-3xl md:text-4xl font-bold text-primary mb-4">{service.title}</h3>
+                      <p className="text-lg text-muted-foreground leading-relaxed mb-6">{service.desc}</p>
+                      <Link to="/services">
+                        <Button variant="outline" className="group border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+                          {language === 'ar' ? 'اعرف المزيد' : 'Learn More'}
+                          <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                        </Button>
+                      </Link>
+                    </div>
+                  </div>
                 </ScrollReveal>
               ))}
             </div>
-            <ScrollReveal variant="fadeUp" delay={0.3}>
-              <div className="text-center mt-10">
-                <Link to="/services">
-                  <Button variant="outline" size="lg">{t('common.viewAll')}</Button>
-                </Link>
-              </div>
-            </ScrollReveal>
           </div>
         </section>
 
         {/* Clients */}
-        <section className="py-16 bg-primary overflow-hidden relative">
+        <section className="py-20 bg-primary overflow-hidden relative">
           <ClientsBackgroundAnimation />
           <div className="container mx-auto px-4 relative z-10">
             <ScrollReveal variant="fadeUp">
-              <h2 className="text-2xl font-bold text-center text-white mb-4">{t('work.clientsTitle')}</h2>
-              <p className="text-white/60 text-center mb-8 max-w-xl mx-auto">
-                {language === 'ar' 
+              <p className="text-gold/80 font-semibold tracking-widest uppercase text-sm text-center mb-3">
+                {language === 'ar' ? 'شركاؤنا' : 'OUR PARTNERS'}
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-4">{t('work.clientsTitle')}</h2>
+              <p className="text-white/50 text-center mb-10 max-w-xl mx-auto">
+                {language === 'ar'
                   ? 'نفخر بخدمة أكبر الشركات في المملكة العربية السعودية والمنطقة'
-                  : 'Proud to serve the largest companies in Saudi Arabia and the region'
-                }
+                  : 'Proud to serve the largest companies in Saudi Arabia and the region'}
               </p>
             </ScrollReveal>
           </div>
           <ClientsCarousel />
         </section>
 
-        {/* CTA */}
-        <section className="py-20 bg-secondary">
+        {/* CTA - Editorial */}
+        <section className="py-32 bg-secondary">
           <div className="container mx-auto px-4 text-center">
             <ScrollReveal variant="scaleIn">
-              <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">{t('contact.subtitle')}</h2>
-              <p className="text-muted-foreground mb-8 max-w-xl mx-auto">{t('contact.description')}</p>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-6 leading-tight">{t('contact.subtitle')}</h2>
+              <p className="text-lg text-muted-foreground mb-10 max-w-xl mx-auto">{t('contact.description')}</p>
               <Link to="/contact">
-                <Button size="lg" className="gradient-primary">{t('nav.getQuote')}</Button>
+                <Button size="lg" className="gradient-primary px-10 py-6 text-lg">{t('nav.getQuote')}</Button>
               </Link>
             </ScrollReveal>
           </div>

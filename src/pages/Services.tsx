@@ -1,60 +1,102 @@
-import { Truck, Cylinder, Construction, Package } from 'lucide-react';
+import { Truck, Cylinder, Construction, Package, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { Button } from '@/components/ui/button';
 import truck5 from '@/assets/trucks/truck-5.jpeg';
 import truck13 from '@/assets/trucks/truck-13.jpeg';
 import truck12 from '@/assets/trucks/truck-12.jpeg';
 import truck9 from '@/assets/trucks/truck-9.jpeg';
-import FloatingTrucksBackground from '@/components/shared/FloatingTrucksBackground';
 import ScrollReveal from '@/components/shared/ScrollReveal';
 import PageTransition from '@/components/shared/PageTransition';
 
 const heroImage = truck13;
 
 const Services = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const services = [
-    { icon: Truck, title: t('services.heavy.title'), desc: t('services.heavy.description'), image: truck5 },
-    { icon: Cylinder, title: t('services.petroleum.title'), desc: t('services.petroleum.description'), image: truck13 },
-    { icon: Construction, title: t('services.crane.title'), desc: t('services.crane.description'), image: truck12 },
-    { icon: Package, title: t('services.logistics.title'), desc: t('services.logistics.description'), image: truck9 },
+    { icon: Truck, title: t('services.heavy.title'), desc: t('services.heavy.description'), image: truck5, num: '01' },
+    { icon: Cylinder, title: t('services.petroleum.title'), desc: t('services.petroleum.description'), image: truck13, num: '02' },
+    { icon: Construction, title: t('services.crane.title'), desc: t('services.crane.description'), image: truck12, num: '03' },
+    { icon: Package, title: t('services.logistics.title'), desc: t('services.logistics.description'), image: truck9, num: '04' },
   ];
 
   return (
     <PageTransition>
       <div>
-        {/* Hero */}
-        <section className="relative py-32 overflow-hidden">
-          <div className="absolute inset-0 bg-primary/90" />
-          <div className="absolute inset-0 bg-cover bg-center opacity-30" style={{ backgroundImage: `url(${heroImage})` }} />
-          <FloatingTrucksBackground truckCount={25} particleCount={20} />
-          <div className="container mx-auto px-4 text-center relative z-10">
+        {/* Hero - Full viewport editorial */}
+        <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden -mt-20">
+          <img src={heroImage} alt="Services" className="absolute inset-0 w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/60 to-primary/90" />
+          <div className="relative z-10 container mx-auto px-4 text-center">
             <ScrollReveal variant="fadeUp">
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{t('services.title')}</h1>
-              <p className="text-xl text-gold">{t('services.subtitle')}</p>
+              <p className="text-gold font-semibold tracking-widest uppercase text-sm mb-4">
+                {language === 'ar' ? 'خدماتنا' : 'SERVICES'}
+              </p>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
+                {language === 'ar' ? 'اكتشف خدمات هافكو' : 'Explore HAFCO Services'}
+              </h1>
             </ScrollReveal>
           </div>
         </section>
 
-        {/* Services Grid */}
-        <section className="py-20">
+        {/* Services - Alternating editorial blocks */}
+        <section className="py-24 md:py-32">
           <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-2 gap-8">
-              {services.map((service, i) => (
-                <ScrollReveal key={i} variant="fadeUp" delay={i * 0.1}>
-                  <div className="bg-card rounded-xl overflow-hidden border border-border hover-lift group h-full">
-                    <div className="h-48 overflow-hidden">
-                      <img src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+            <div className="max-w-6xl mx-auto space-y-32">
+              {services.map((service, index) => (
+                <ScrollReveal key={index} variant="fadeUp">
+                  <div className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-10 lg:gap-20 items-center`}>
+                    {/* Image */}
+                    <div className="w-full lg:w-[55%]">
+                      <div className="relative overflow-hidden rounded-2xl aspect-[4/3]">
+                        <img
+                          src={service.image}
+                          alt={service.title}
+                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                        />
+                      </div>
                     </div>
-                    <div className="p-6">
-                      <service.icon className="h-10 w-10 text-primary mb-4" />
-                      <h3 className="text-2xl font-bold mb-3">{service.title}</h3>
-                      <p className="text-muted-foreground">{service.desc}</p>
+                    {/* Content */}
+                    <div className="w-full lg:w-[45%]">
+                      <span className="text-9xl font-bold text-primary/8 leading-none block mb-[-30px]">
+                        {service.num}
+                      </span>
+                      <div className="flex items-center gap-3 mb-4">
+                        <service.icon className="h-7 w-7 text-gold" />
+                        <p className="text-gold font-semibold tracking-widest uppercase text-xs">
+                          {language === 'ar' ? `الخدمة ${service.num}` : `SERVICE ${service.num}`}
+                        </p>
+                      </div>
+                      <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">{service.title}</h2>
+                      <p className="text-lg text-muted-foreground leading-relaxed">{service.desc}</p>
                     </div>
                   </div>
                 </ScrollReveal>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="py-32 bg-primary">
+          <div className="container mx-auto px-4 text-center">
+            <ScrollReveal variant="fadeUp">
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                {language === 'ar' ? 'هل تحتاج إلى خدماتنا؟' : 'Need Our Services?'}
+              </h2>
+              <p className="text-white/60 text-lg mb-10 max-w-xl mx-auto">
+                {language === 'ar'
+                  ? 'تواصل معنا اليوم للحصول على عرض سعر مخصص لاحتياجاتك'
+                  : 'Contact us today for a customized quote tailored to your needs'}
+              </p>
+              <Link to="/contact">
+                <Button size="lg" className="bg-gold hover:bg-gold-light text-primary font-bold px-10 py-6 text-lg group">
+                  {t('nav.getQuote')}
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+            </ScrollReveal>
           </div>
         </section>
       </div>
