@@ -1,11 +1,10 @@
 import { useLanguage } from '@/contexts/LanguageContext';
-import FloatingTrucksBackground from '@/components/shared/FloatingTrucksBackground';
 import ScrollReveal from '@/components/shared/ScrollReveal';
 import PageTransition from '@/components/shared/PageTransition';
 import StatsBar from '@/components/home/StatsBar';
 import FleetGallery from '@/components/fleet/FleetGallery';
 
-// Fleet trucks - all images
+// Fleet trucks
 import fleetHero from '@/assets/trucks/fleet-hero.jpeg';
 import fleet3 from '@/assets/trucks/fleet-3.jpg';
 import fleet4 from '@/assets/trucks/fleet-4.jpg';
@@ -62,25 +61,29 @@ const Fleet = () => {
   return (
     <PageTransition>
       <div>
-        {/* Hero */}
-        <section className="relative py-32 overflow-hidden">
-          <div className="absolute inset-0 bg-primary/90" />
-          <div className="absolute inset-0 bg-cover bg-center opacity-30" style={{ backgroundImage: `url(${fleetHero})` }} />
-          <FloatingTrucksBackground truckCount={25} particleCount={20} />
-          <div className="container mx-auto px-4 text-center relative z-10">
+        {/* Hero - Full viewport editorial */}
+        <section className="relative h-[70vh] min-h-[500px] flex items-end overflow-hidden -mt-20">
+          <img src={fleetHero} alt="Our Fleet" className="absolute inset-0 w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent" />
+          <div className="relative z-10 container mx-auto px-4 pb-16">
             <ScrollReveal variant="fadeUp">
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{t('fleet.title')}</h1>
-              <p className="text-xl text-gold">{t('fleet.subtitle')}</p>
+              <p className="text-gold font-semibold tracking-widest uppercase text-sm mb-3">
+                {language === 'ar' ? 'أسطولنا' : 'OUR FLEET'}
+              </p>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">{t('fleet.title')}</h1>
+              <p className="text-xl text-white/70 mt-4 max-w-2xl">{t('fleet.subtitle')}</p>
             </ScrollReveal>
           </div>
         </section>
 
-        {/* Fleet Description */}
-        <section className="py-12 bg-secondary">
-          <div className="container mx-auto px-4 text-center">
-            <ScrollReveal variant="fadeUp">
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">{t('fleet.description')}</p>
-            </ScrollReveal>
+        {/* Description */}
+        <section className="py-16">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <ScrollReveal variant="fadeUp">
+                <p className="text-xl text-muted-foreground leading-relaxed">{t('fleet.description')}</p>
+              </ScrollReveal>
+            </div>
           </div>
         </section>
 
