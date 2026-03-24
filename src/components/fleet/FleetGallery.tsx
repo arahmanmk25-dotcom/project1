@@ -57,24 +57,24 @@ const FleetGallery = ({ items, categories }: FleetGalleryProps) => {
         </div>
 
         {/* Masonry-style grid */}
-        <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+        <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           <AnimatePresence mode="popLayout">
             {filtered.map((item, i) => (
               <motion.div
-                key={`${item.nameEn}-${item.year}`}
+                key={`${item.nameEn}-${item.model}-${item.year}`}
                 layout
                 initial={{ opacity: 0, scale: 0.85 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.85 }}
                 transition={{ duration: 0.4, delay: i * 0.04 }}
-                className="group relative overflow-hidden rounded-2xl cursor-pointer hover-lift"
+                className="group relative overflow-hidden rounded-xl cursor-pointer hover-lift"
                 onClick={() => openLightbox(i)}
               >
-                <div className={`overflow-hidden ${i % 5 === 0 ? 'aspect-[4/5]' : 'aspect-[4/3]'}`}>
+                <div className="aspect-[4/3] overflow-hidden">
                   <img
                     src={item.src}
                     alt={language === 'ar' ? item.nameAr : item.nameEn}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 block"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     loading="lazy"
                   />
                 </div>

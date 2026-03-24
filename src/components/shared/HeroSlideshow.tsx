@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import FloatingTrucksBackground from '@/components/shared/FloatingTrucksBackground';
 
 interface HeroSlideshowProps {
   images: string[];
   interval?: number;
+  showTrucks?: boolean;
 }
 
-const HeroSlideshow = ({ images, interval = 10000 }: HeroSlideshowProps) => {
+const HeroSlideshow = ({ images, interval = 10000, showTrucks = true }: HeroSlideshowProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -18,18 +20,23 @@ const HeroSlideshow = ({ images, interval = 10000 }: HeroSlideshowProps) => {
   }, [images.length, interval]);
 
   return (
-    <>
+    <div className="absolute inset-0">
       {images.map((img, idx) => (
-        <motion.img
+        <motion.div
           key={idx}
-          src={img}
-          alt=""
-          className="absolute inset-0 w-full h-full object-cover"
-          animate={{ opacity: idx === currentIndex ? 1 : 0, scale: idx === currentIndex ? 1 : 1.05 }}
+          className="absolute inset-0"
+          animate={{ opacity: idx === currentIndex ? 1 : 0 }}
           transition={{ duration: 1.5, ease: 'easeInOut' }}
-        />
+        >
+          <img
+            src={img}
+            alt=""
+            className="w-full h-full object-cover"
+          />
+        </motion.div>
       ))}
-    </>
+      {showTrucks && <FloatingTrucksBackground truckCount={10} particleCount={12} />}
+    </div>
   );
 };
 
