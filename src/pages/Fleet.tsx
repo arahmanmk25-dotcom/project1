@@ -1,6 +1,7 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import ScrollReveal from '@/components/shared/ScrollReveal';
 import PageTransition from '@/components/shared/PageTransition';
+import HeroSlideshow from '@/components/shared/HeroSlideshow';
 import StatsBar from '@/components/home/StatsBar';
 import FleetGallery from '@/components/fleet/FleetGallery';
 
