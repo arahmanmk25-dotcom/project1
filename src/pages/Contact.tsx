@@ -8,8 +8,11 @@ import { useToast } from '@/hooks/use-toast';
 import { FaXTwitter, FaInstagram, FaFacebook, FaLinkedin } from 'react-icons/fa6';
 import { supabase } from '@/integrations/supabase/client';
 import heroImage from '@/assets/trucks/truck-6.jpeg';
+import truck5 from '@/assets/trucks/truck-5.jpeg';
+import truck13 from '@/assets/trucks/truck-13.jpeg';
 import ScrollReveal from '@/components/shared/ScrollReveal';
 import PageTransition from '@/components/shared/PageTransition';
+import HeroSlideshow from '@/components/shared/HeroSlideshow';
 
 declare global {
   interface Window {
