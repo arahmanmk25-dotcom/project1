@@ -8,6 +8,7 @@ import truck12 from '@/assets/trucks/truck-12.jpeg';
 import truck9 from '@/assets/trucks/truck-9.jpeg';
 import ScrollReveal from '@/components/shared/ScrollReveal';
 import PageTransition from '@/components/shared/PageTransition';
+import HeroSlideshow from '@/components/shared/HeroSlideshow';
 
 const heroImage = truck13;
 
