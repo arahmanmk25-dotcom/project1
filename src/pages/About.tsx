@@ -6,6 +6,7 @@ import workImg3 from '@/assets/trucks/work-img-3.jpeg';
 import ScrollReveal from '@/components/shared/ScrollReveal';
 import AnimatedCounter from '@/components/shared/AnimatedCounter';
 import PageTransition from '@/components/shared/PageTransition';
+import HeroSlideshow from '@/components/shared/HeroSlideshow';
 
 const About = () => {
   const { t, language } = useLanguage();
