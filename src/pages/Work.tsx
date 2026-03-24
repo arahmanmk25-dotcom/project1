@@ -5,6 +5,7 @@ import ClientsCarousel from '@/components/home/ClientsCarousel';
 import ClientsBackgroundAnimation from '@/components/home/ClientsBackgroundAnimation';
 import ScrollReveal from '@/components/shared/ScrollReveal';
 import PageTransition from '@/components/shared/PageTransition';
+import HeroSlideshow from '@/components/shared/HeroSlideshow';
 
 // Work/Projects - new images
 import workImg1 from '@/assets/trucks/work-img-1.jpeg';
