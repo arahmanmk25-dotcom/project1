@@ -27,7 +27,7 @@ const Services = () => {
       <div>
         {/* Hero - Full viewport editorial */}
         <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden -mt-20">
-          <img src={heroImage} alt="Services" className="absolute inset-0 w-full h-full object-cover" />
+          <HeroSlideshow images={[truck13, truck5, truck12, truck9]} interval={8000} />
           <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/60 to-primary/90" />
           <div className="relative z-10 container mx-auto px-4 text-center">
             <ScrollReveal variant="fadeUp">
