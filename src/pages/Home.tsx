@@ -62,18 +62,16 @@ const Home = () => {
             className="absolute inset-0"
             style={{ y: heroY }}
           >
-            <AnimatePresence mode="wait">
+            {heroImages.map((img, idx) => (
               <motion.img
-                key={currentHeroIndex}
-                src={heroImages[currentHeroIndex]}
+                key={idx}
+                src={img}
                 alt="HAFCO Fleet"
                 className="w-full h-[120%] object-cover absolute inset-0"
-                initial={{ opacity: 0, scale: 1.1 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0 }}
+                animate={{ opacity: idx === currentHeroIndex ? 1 : 0, scale: idx === currentHeroIndex ? 1 : 1.1 }}
                 transition={{ duration: 1.5, ease: 'easeInOut' }}
               />
-            </AnimatePresence>
+            ))}
             <div className="absolute inset-0 hero-overlay" />
           </motion.div>
 

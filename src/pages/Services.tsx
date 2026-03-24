@@ -59,10 +59,10 @@ const Services = () => {
                     </div>
                     {/* Content */}
                     <div className="w-full lg:w-[45%]">
-                      <span className="text-9xl font-bold text-primary/10 leading-none block mb-[-30px]">
+                      <span className="text-9xl font-bold text-primary/10 leading-none block">
                         {service.num}
                       </span>
-                      <div className="flex items-center gap-3 mb-4">
+                      <div className="flex items-center gap-3 mb-4 mt-2">
                         <service.icon className="h-7 w-7 text-gold" />
                         <p className="text-gold font-semibold tracking-widest uppercase text-xs">
                           {language === 'ar' ? `الخدمة ${service.num}` : `SERVICE ${service.num}`}

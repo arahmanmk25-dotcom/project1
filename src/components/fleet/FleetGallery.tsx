@@ -70,7 +70,7 @@ const FleetGallery = ({ items, categories }: FleetGalleryProps) => {
                 className="group relative overflow-hidden rounded-2xl cursor-pointer hover-lift"
                 onClick={() => openLightbox(i)}
               >
-                <div className={`overflow-hidden bg-primary/5 ${i % 5 === 0 ? 'aspect-[4/5]' : 'aspect-[4/3]'}`}>
+                <div className={`overflow-hidden ${i % 5 === 0 ? 'aspect-[4/5]' : 'aspect-[4/3]'}`}>
                   <img
                     src={item.src}
                     alt={language === 'ar' ? item.nameAr : item.nameEn}
