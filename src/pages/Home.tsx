@@ -10,6 +10,7 @@ import ScrollReveal from '@/components/shared/ScrollReveal';
 import PageTransition from '@/components/shared/PageTransition';
 import HeroTypewriter from '@/components/home/HeroTypewriter';
 import StatsBar from '@/components/home/StatsBar';
+import FloatingTrucksBackground from '@/components/shared/FloatingTrucksBackground';
 
 import hafcoLogo from '@/assets/hafco-logo.png';
 import heroImage from '@/assets/trucks/truck-5.jpeg';
@@ -63,16 +64,17 @@ const Home = () => {
             style={{ y: heroY }}
           >
             {heroImages.map((img, idx) => (
-              <motion.img
+              <motion.div
                 key={idx}
-                src={img}
-                alt="HAFCO Fleet"
-                className="w-full h-[120%] object-cover absolute inset-0"
-                animate={{ opacity: idx === currentHeroIndex ? 1 : 0, scale: idx === currentHeroIndex ? 1 : 1.1 }}
+                className="absolute inset-0"
+                animate={{ opacity: idx === currentHeroIndex ? 1 : 0 }}
                 transition={{ duration: 1.5, ease: 'easeInOut' }}
-              />
+              >
+                <img src={img} alt="HAFCO Fleet" className="w-full h-[120%] object-cover" />
+              </motion.div>
             ))}
             <div className="absolute inset-0 hero-overlay" />
+            <FloatingTrucksBackground truckCount={10} particleCount={12} />
           </motion.div>
 
           <motion.div
