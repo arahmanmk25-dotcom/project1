@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Truck, Shield, Clock, Users } from 'lucide-react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { useRef, useState, useEffect } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import ClientsCarousel from '@/components/home/ClientsCarousel';
@@ -24,6 +24,16 @@ const Home = () => {
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
   const heroY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+
+  const heroImages = [heroImage, truck13, truck12, truck9, workImg1];
+  const [currentHeroIndex, setCurrentHeroIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentHeroIndex((prev) => (prev + 1) % heroImages.length);
+    }, 10000);
+    return () => clearInterval(interval);
+  }, [heroImages.length]);
 
   const stats = [
     { value: '40+', label: t('about.yearsExperience') },
@@ -52,7 +62,18 @@ const Home = () => {
             className="absolute inset-0"
             style={{ y: heroY }}
           >
-            <img src={heroImage} alt="HAFCO Fleet" className="w-full h-[120%] object-cover" />
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={currentHeroIndex}
+                src={heroImages[currentHeroIndex]}
+                alt="HAFCO Fleet"
+                className="w-full h-[120%] object-cover absolute inset-0"
+                initial={{ opacity: 0, scale: 1.1 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1.5, ease: 'easeInOut' }}
+              />
+            </AnimatePresence>
             <div className="absolute inset-0 hero-overlay" />
           </motion.div>
 
@@ -109,7 +130,7 @@ const Home = () => {
                 </Button>
               </Link>
               <Link to="/about">
-                <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 px-10 py-6 text-lg">
+                <Button size="lg" variant="outline" className="border-gold/60 text-gold hover:bg-gold hover:text-primary px-10 py-6 text-lg font-semibold">
                   {t('hero.learnMore')}
                 </Button>
               </Link>

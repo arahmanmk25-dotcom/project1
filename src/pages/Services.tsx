@@ -59,7 +59,7 @@ const Services = () => {
                     </div>
                     {/* Content */}
                     <div className="w-full lg:w-[45%]">
-                      <span className="text-9xl font-bold text-primary/8 leading-none block mb-[-30px]">
+                      <span className="text-9xl font-bold text-primary/10 leading-none block mb-[-30px]">
                         {service.num}
                       </span>
                       <div className="flex items-center gap-3 mb-4">
