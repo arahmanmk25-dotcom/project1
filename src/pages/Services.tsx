@@ -10,7 +10,6 @@ import ScrollReveal from '@/components/shared/ScrollReveal';
 import PageTransition from '@/components/shared/PageTransition';
 import HeroSlideshow from '@/components/shared/HeroSlideshow';
 
-const heroImage = truck13;
 
 const Services = () => {
   const { t, language } = useLanguage();
