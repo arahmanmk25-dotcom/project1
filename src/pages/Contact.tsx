@@ -8,8 +8,11 @@ import { useToast } from '@/hooks/use-toast';
 import { FaXTwitter, FaInstagram, FaFacebook, FaLinkedin } from 'react-icons/fa6';
 import { supabase } from '@/integrations/supabase/client';
 import heroImage from '@/assets/trucks/truck-6.jpeg';
+import truck5 from '@/assets/trucks/truck-5.jpeg';
+import truck13 from '@/assets/trucks/truck-13.jpeg';
 import ScrollReveal from '@/components/shared/ScrollReveal';
 import PageTransition from '@/components/shared/PageTransition';
+import HeroSlideshow from '@/components/shared/HeroSlideshow';
 
 declare global {
   interface Window {
@@ -91,7 +94,7 @@ const Contact = () => {
       <div>
         {/* Hero - Editorial style */}
         <section className="relative h-[60vh] min-h-[400px] flex items-end overflow-hidden -mt-20">
-          <img src={heroImage} alt="Contact HAFCO" className="absolute inset-0 w-full h-full object-cover" />
+          <HeroSlideshow images={[heroImage, truck5, truck13]} interval={8000} />
           <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/60 to-transparent" />
           <div className="relative z-10 container mx-auto px-4 pb-16">
             <ScrollReveal variant="fadeUp">

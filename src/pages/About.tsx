@@ -6,6 +6,7 @@ import workImg3 from '@/assets/trucks/work-img-3.jpeg';
 import ScrollReveal from '@/components/shared/ScrollReveal';
 import AnimatedCounter from '@/components/shared/AnimatedCounter';
 import PageTransition from '@/components/shared/PageTransition';
+import HeroSlideshow from '@/components/shared/HeroSlideshow';
 
 const About = () => {
   const { t, language } = useLanguage();
@@ -61,7 +62,7 @@ const About = () => {
       <div>
         {/* Hero - Full viewport with editorial feel */}
         <section className="relative h-[70vh] min-h-[500px] flex items-end overflow-hidden -mt-20">
-          <img src={heroImage} alt="About HAFCO" className="absolute inset-0 w-full h-full object-cover" />
+          <HeroSlideshow images={[heroImage, truck5, workImg3]} interval={8000} />
           <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/60 to-transparent" />
           <div className="relative z-10 container mx-auto px-4 pb-16">
             <ScrollReveal variant="fadeUp">

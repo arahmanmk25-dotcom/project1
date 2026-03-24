@@ -8,8 +8,8 @@ import truck12 from '@/assets/trucks/truck-12.jpeg';
 import truck9 from '@/assets/trucks/truck-9.jpeg';
 import ScrollReveal from '@/components/shared/ScrollReveal';
 import PageTransition from '@/components/shared/PageTransition';
+import HeroSlideshow from '@/components/shared/HeroSlideshow';
 
-const heroImage = truck13;
 
 const Services = () => {
   const { t, language } = useLanguage();
@@ -26,7 +26,7 @@ const Services = () => {
       <div>
         {/* Hero - Full viewport editorial */}
         <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden -mt-20">
-          <img src={heroImage} alt="Services" className="absolute inset-0 w-full h-full object-cover" />
+          <HeroSlideshow images={[truck13, truck5, truck12, truck9]} interval={8000} />
           <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/60 to-primary/90" />
           <div className="relative z-10 container mx-auto px-4 text-center">
             <ScrollReveal variant="fadeUp">
@@ -59,10 +59,10 @@ const Services = () => {
                     </div>
                     {/* Content */}
                     <div className="w-full lg:w-[45%]">
-                      <span className="text-9xl font-bold text-primary/10 leading-none block mb-[-30px]">
+                      <span className="text-9xl font-bold text-primary/10 leading-none block">
                         {service.num}
                       </span>
-                      <div className="flex items-center gap-3 mb-4">
+                      <div className="flex items-center gap-3 mb-4 mt-2">
                         <service.icon className="h-7 w-7 text-gold" />
                         <p className="text-gold font-semibold tracking-widest uppercase text-xs">
                           {language === 'ar' ? `الخدمة ${service.num}` : `SERVICE ${service.num}`}
