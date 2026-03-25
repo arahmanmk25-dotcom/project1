@@ -101,8 +101,14 @@ const Contact = () => {
               <p className="text-gold font-semibold tracking-widest uppercase text-sm mb-3">
                 {language === 'ar' ? 'تواصل معنا' : 'GET IN TOUCH'}
               </p>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">{t('contact.title')}</h1>
-              <p className="text-xl text-white/70 mt-4 max-w-2xl">{t('contact.subtitle')}</p>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
+                {language === 'ar' ? 'نحن هنا لمساعدتك' : "We're Here to Help"}
+              </h1>
+              <p className="text-xl text-white/70 mt-4 max-w-2xl">
+                {language === 'ar'
+                  ? 'تواصل مع فريقنا للحصول على عرض سعر مخصص أو أي استفسار'
+                  : 'Reach out to our team for a customized quote or any inquiry'}
+              </p>
             </ScrollReveal>
           </div>
         </section>
