@@ -84,7 +84,8 @@ const Services = () => {
         </section>
 
         {/* CTA */}
-        <section className="py-32 bg-primary">
+        <section className="py-32 bg-primary relative overflow-hidden">
+          <FloatingTrucksBackground truckCount={12} particleCount={15} />
           <div className="container mx-auto px-4 text-center">
             <ScrollReveal variant="fadeUp">
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
