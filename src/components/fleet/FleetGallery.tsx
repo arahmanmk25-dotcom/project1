@@ -67,14 +67,14 @@ const FleetGallery = ({ items, categories }: FleetGalleryProps) => {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.85 }}
                 transition={{ duration: 0.4, delay: i * 0.04 }}
-                className="group relative overflow-hidden rounded-xl cursor-pointer hover-lift"
+                className="group relative overflow-hidden rounded-lg cursor-pointer hover-lift"
                 onClick={() => openLightbox(i)}
               >
-                <div className="aspect-[4/3] overflow-hidden">
+                <div className="overflow-hidden">
                   <img
                     src={item.src}
                     alt={language === 'ar' ? item.nameAr : item.nameEn}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="w-full h-auto block transition-transform duration-700 group-hover:scale-110"
                     loading="lazy"
                   />
                 </div>
