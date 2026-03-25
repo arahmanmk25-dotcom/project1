@@ -27,6 +27,9 @@ const StatsBar = ({ stats, variant = 'light' }: StatsBarProps) => {
         isDark ? 'bg-primary' : 'bg-secondary'
       }`}
     >
+      {/* Floating trucks background for dark variant */}
+      {isDark && <FloatingTrucksBackground truckCount={10} particleCount={12} />}
+
       {/* Decorative background pattern */}
       <div className="absolute inset-0 opacity-5">
         <div
