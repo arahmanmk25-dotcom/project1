@@ -57,7 +57,7 @@ const FleetGallery = ({ items, categories }: FleetGalleryProps) => {
         </div>
 
         {/* Masonry-style grid */}
-        <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
           <AnimatePresence mode="popLayout">
             {filtered.map((item, i) => (
               <motion.div
@@ -70,11 +70,11 @@ const FleetGallery = ({ items, categories }: FleetGalleryProps) => {
                 className="group relative overflow-hidden rounded-lg cursor-pointer hover-lift"
                 onClick={() => openLightbox(i)}
               >
-                <div className="overflow-hidden">
+                <div className="aspect-[4/3] overflow-hidden">
                   <img
                     src={item.src}
                     alt={language === 'ar' ? item.nameAr : item.nameEn}
-                    className="w-full h-auto block transition-transform duration-700 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     loading="lazy"
                   />
                 </div>
