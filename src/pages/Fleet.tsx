@@ -71,8 +71,14 @@ const Fleet = () => {
               <p className="text-gold font-semibold tracking-widest uppercase text-sm mb-3">
                 {language === 'ar' ? 'أسطولنا' : 'OUR FLEET'}
               </p>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">{t('fleet.title')}</h1>
-              <p className="text-xl text-white/70 mt-4 max-w-2xl">{t('fleet.subtitle')}</p>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
+                {language === 'ar' ? 'قوة على الطريق' : 'Power on the Road'}
+              </h1>
+              <p className="text-xl text-white/70 mt-4 max-w-2xl">
+                {language === 'ar'
+                  ? 'أسطول حديث من أكثر من ٥٠ شاحنة من أفضل العلامات التجارية العالمية'
+                  : 'A modern fleet of 50+ trucks from the world\'s top brands, ready for any mission'}
+              </p>
             </ScrollReveal>
           </div>
         </section>

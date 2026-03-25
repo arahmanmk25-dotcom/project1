@@ -69,8 +69,14 @@ const About = () => {
               <p className="text-gold font-semibold tracking-widest uppercase text-sm mb-3">
                 {language === 'ar' ? 'من نحن' : 'ABOUT US'}
               </p>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">{t('about.title')}</h1>
-              <p className="text-xl text-white/70 mt-4 max-w-2xl">{t('about.subtitle')}</p>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
+                {language === 'ar' ? 'إرث عريق منذ ١٩٨٤' : 'A Legacy Since 1984'}
+              </h1>
+              <p className="text-xl text-white/70 mt-4 max-w-2xl">
+                {language === 'ar'
+                  ? 'أكثر من ٤٠ عاماً من الخبرة في خدمة كبرى الشركات في المملكة العربية السعودية'
+                  : 'Over 40 years of expertise serving the largest companies in Saudi Arabia'}
+              </p>
             </ScrollReveal>
           </div>
         </section>
