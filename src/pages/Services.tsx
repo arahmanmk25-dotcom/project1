@@ -34,8 +34,13 @@ const Services = () => {
                 {language === 'ar' ? 'خدماتنا' : 'SERVICES'}
               </p>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
-                {language === 'ar' ? 'اكتشف خدمات هافكو' : 'Explore HAFCO Services'}
+                {language === 'ar' ? 'حلول نقل متكاملة' : 'Complete Transport Solutions'}
               </h1>
+              <p className="text-xl text-white/70 mt-4 max-w-2xl">
+                {language === 'ar'
+                  ? 'نقدم مجموعة شاملة من خدمات النقل الثقيل واللوجستيات لتلبية جميع احتياجاتكم'
+                  : 'A comprehensive range of heavy transport and logistics services tailored to your needs'}
+              </p>
             </ScrollReveal>
           </div>
         </section>
@@ -99,6 +104,9 @@ const Services = () => {
             </ScrollReveal>
           </div>
         </section>
+
+        {/* Spacer to separate from footer */}
+        <section className="py-8 bg-secondary" />
       </div>
     </PageTransition>
   );

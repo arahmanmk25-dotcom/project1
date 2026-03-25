@@ -74,7 +74,7 @@ const Home = () => {
               </motion.div>
             ))}
             <div className="absolute inset-0 hero-overlay" />
-            <FloatingTrucksBackground truckCount={10} particleCount={12} />
+            <FloatingTrucksBackground truckCount={18} particleCount={20} />
           </motion.div>
 
           <motion.div
