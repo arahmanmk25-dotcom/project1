@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import AnimatedCounter from '@/components/shared/AnimatedCounter';
+import FloatingTrucksBackground from '@/components/shared/FloatingTrucksBackground';
 
 interface StatItem {
   value: string;
