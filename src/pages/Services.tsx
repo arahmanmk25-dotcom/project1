@@ -99,6 +99,9 @@ const Services = () => {
             </ScrollReveal>
           </div>
         </section>
+
+        {/* Spacer to separate from footer */}
+        <section className="py-8 bg-secondary" />
       </div>
     </PageTransition>
   );
