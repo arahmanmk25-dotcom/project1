@@ -25,10 +25,10 @@ const Services = () => {
     <PageTransition>
       <div>
         {/* Hero - Full viewport editorial */}
-        <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden -mt-20">
+        <section className="relative h-[70vh] min-h-[500px] flex items-end overflow-hidden -mt-20">
           <HeroSlideshow images={[truck13, truck5, truck12, truck9]} interval={8000} />
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/60 to-primary/90" />
-          <div className="relative z-10 container mx-auto px-4 text-center">
+          <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/60 to-transparent" />
+          <div className="relative z-10 container mx-auto px-4 pb-16">
             <ScrollReveal variant="fadeUp">
               <p className="text-gold font-semibold tracking-widest uppercase text-sm mb-4">
                 {language === 'ar' ? 'خدماتنا' : 'SERVICES'}
