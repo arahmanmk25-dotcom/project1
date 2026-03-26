@@ -132,7 +132,7 @@ const Contact = () => {
                     <div className="flex items-start gap-5">
                       <Mail className="h-6 w-6 text-gold shrink-0 mt-1" />
                       <div className="space-y-1">
-                        <a href="mailto:hafcobigmovers@gmail.com" className="block text-muted-foreground hover:text-primary text-lg transition-colors">hafcobigmovers@gmail.com</a>
+                        <a href="mailto:info@hafcobigmovers.com" className="block text-muted-foreground hover:text-primary text-lg transition-colors">info@hafcobigmovers.com</a>
                         <a href="mailto:hafco.bigmovers@yahoo.com" className="block text-muted-foreground hover:text-primary transition-colors">hafco.bigmovers@yahoo.com</a>
                       </div>
                     </div>

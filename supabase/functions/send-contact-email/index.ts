@@ -158,7 +158,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Send to both HAFCO email addresses
     const recipientEmails = [
-      "hafcobigmovers@gmail.com",
+      "info@hafcobigmovers.com",
       "hafco.bigmovers@yahoo.com"
     ];
 
