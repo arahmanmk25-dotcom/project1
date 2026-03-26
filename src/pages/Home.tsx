@@ -11,6 +11,7 @@ import PageTransition from '@/components/shared/PageTransition';
 import HeroTypewriter from '@/components/home/HeroTypewriter';
 import StatsBar from '@/components/home/StatsBar';
 import FloatingTrucksBackground from '@/components/shared/FloatingTrucksBackground';
+import ServicesCards from '@/components/home/ServicesCards';
 
 import hafcoLogo from '@/assets/hafco-logo.png';
 import heroImage from '@/assets/trucks/truck-5.jpeg';
