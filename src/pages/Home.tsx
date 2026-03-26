@@ -174,52 +174,8 @@ const Home = () => {
           <div className="absolute inset-0 bg-primary/30" />
         </section>
 
-        {/* Services - Numbered Editorial Style */}
-        <section className="py-24 md:py-32">
-          <div className="container mx-auto px-4">
-            <ScrollReveal variant="fadeUp">
-              <div className="max-w-5xl mx-auto mb-16">
-                <p className="text-gold font-semibold tracking-widest uppercase text-sm mb-4">
-                  {language === 'ar' ? 'خدماتنا' : 'OUR SERVICES'}
-                </p>
-                <h2 className="text-4xl md:text-5xl font-bold text-primary">{t('services.title')}</h2>
-              </div>
-            </ScrollReveal>
-
-            <div className="space-y-24">
-              {services.map((service, index) => (
-                <ScrollReveal key={index} variant="fadeUp" delay={0.1}>
-                  <div className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 lg:gap-16 items-center`}>
-                    {/* Image */}
-                    <div className="w-full lg:w-1/2">
-                      <div className="relative overflow-hidden rounded-2xl aspect-[4/3]">
-                        <img
-                          src={service.image}
-                          alt={service.title}
-                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                        />
-                      </div>
-                    </div>
-                    {/* Content */}
-                    <div className="w-full lg:w-1/2">
-                      <span className="text-8xl md:text-9xl font-bold text-primary/10 leading-none block mb-[-20px]">
-                        {service.num}
-                      </span>
-                      <h3 className="text-3xl md:text-4xl font-bold text-primary mb-4">{service.title}</h3>
-                      <p className="text-lg text-muted-foreground leading-relaxed mb-6">{service.desc}</p>
-                      <Link to="/services">
-                        <Button variant="outline" className="group border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-                          {language === 'ar' ? 'اعرف المزيد' : 'Learn More'}
-                          <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                        </Button>
-                      </Link>
-                    </div>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
-          </div>
-        </section>
+        {/* Services */}
+        <ServicesCards />
 
         {/* Clients */}
         <section className="py-20 bg-primary overflow-hidden relative">
