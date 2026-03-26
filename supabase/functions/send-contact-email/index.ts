@@ -205,6 +205,11 @@ const handler = async (req: Request): Promise<Response> => {
       </div>
     `;
 
+    // Initialize Supabase client for logging
+    const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
+    const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
+    const supabaseAdmin = createClient(supabaseUrl, supabaseServiceKey);
+
     const response = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
@@ -223,8 +228,20 @@ const handler = async (req: Request): Promise<Response> => {
 
     if (!response.ok) {
       console.error("Resend API error:", emailResponse);
+      // Log failed submission
+      await supabaseAdmin.from('contact_submissions').insert({
+        name, email, phone, message, ip_address: clientIP,
+        status: 'failed',
+        error_message: emailResponse.message || 'Failed to send email',
+      });
       throw new Error(emailResponse.message || "Failed to send email");
     }
+
+    // Log successful submission
+    await supabaseAdmin.from('contact_submissions').insert({
+      name, email, phone, message, ip_address: clientIP,
+      status: 'sent',
+    });
 
     console.log("Email sent successfully:", emailResponse);
 
