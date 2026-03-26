@@ -1,5 +1,6 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { z } from "https://deno.land/x/zod@v3.22.4/mod.ts";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.39.3";
 
 const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
 const HCAPTCHA_SECRET_KEY = Deno.env.get("HCAPTCHA_SECRET_KEY");
@@ -204,6 +205,11 @@ const handler = async (req: Request): Promise<Response> => {
       </div>
     `;
 
+    // Initialize Supabase client for logging
+    const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
+    const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
+    const supabaseAdmin = createClient(supabaseUrl, supabaseServiceKey);
+
     const response = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
@@ -222,8 +228,20 @@ const handler = async (req: Request): Promise<Response> => {
 
     if (!response.ok) {
       console.error("Resend API error:", emailResponse);
+      // Log failed submission
+      await supabaseAdmin.from('contact_submissions').insert({
+        name, email, phone, message, ip_address: clientIP,
+        status: 'failed',
+        error_message: emailResponse.message || 'Failed to send email',
+      });
       throw new Error(emailResponse.message || "Failed to send email");
     }
+
+    // Log successful submission
+    await supabaseAdmin.from('contact_submissions').insert({
+      name, email, phone, message, ip_address: clientIP,
+      status: 'sent',
+    });
 
     console.log("Email sent successfully:", emailResponse);
 
