@@ -58,16 +58,16 @@ const Home = () => {
             className="absolute inset-0"
             style={{ y: heroY }}
           >
-            {heroImages.map((img, idx) => (
-              <motion.div
-                key={idx}
-                className="absolute inset-0"
-                animate={{ opacity: idx === currentHeroIndex ? 1 : 0 }}
-                transition={{ duration: 1.5, ease: 'easeInOut' }}
-              >
-                <img src={img} alt="HAFCO Fleet" className="w-full h-[120%] object-cover" />
-              </motion.div>
-            ))}
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full h-[120%] object-cover"
+              poster={heroImage}
+            >
+              <source src="/hafco-hero.mp4" type="video/mp4" />
+            </video>
             <div className="absolute inset-0 hero-overlay" />
             <FloatingTrucksBackground truckCount={18} particleCount={20} />
           </motion.div>
