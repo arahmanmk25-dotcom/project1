@@ -43,7 +43,7 @@ const Home = () => {
     <PageTransition>
       <div>
         {/* Full-viewport Hero */}
-        <section ref={heroRef} className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden -mt-20">
+        <section ref={heroRef} className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden -mt-16">
           <motion.div
             className="absolute inset-0"
             style={{ y: heroY }}
