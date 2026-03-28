@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef, useState, useEffect } from 'react';
+import { useRef } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import ClientsCarousel from '@/components/home/ClientsCarousel';
@@ -15,9 +15,6 @@ import ServicesCards from '@/components/home/ServicesCards';
 
 import hafcoLogo from '@/assets/hafco-logo.png';
 import heroImage from '@/assets/trucks/truck-5.jpeg';
-import truck13 from '@/assets/trucks/truck-13.jpeg';
-import truck12 from '@/assets/trucks/truck-12.jpeg';
-import truck9 from '@/assets/trucks/truck-9.jpeg';
 import workImg1 from '@/assets/trucks/work-img-1.jpeg';
 
 const Home = () => {
@@ -27,15 +24,8 @@ const Home = () => {
   const heroY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
-  const heroImages = [heroImage, truck13, truck12, truck9, workImg1];
-  const [currentHeroIndex, setCurrentHeroIndex] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentHeroIndex((prev) => (prev + 1) % heroImages.length);
-    }, 10000);
-    return () => clearInterval(interval);
-  }, [heroImages.length]);
+
 
   const stats = [
     { value: '40+', label: t('about.yearsExperience') },
@@ -58,16 +48,16 @@ const Home = () => {
             className="absolute inset-0"
             style={{ y: heroY }}
           >
-            {heroImages.map((img, idx) => (
-              <motion.div
-                key={idx}
-                className="absolute inset-0"
-                animate={{ opacity: idx === currentHeroIndex ? 1 : 0 }}
-                transition={{ duration: 1.5, ease: 'easeInOut' }}
-              >
-                <img src={img} alt="HAFCO Fleet" className="w-full h-[120%] object-cover" />
-              </motion.div>
-            ))}
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full h-[120%] object-cover"
+              poster={heroImage}
+            >
+              <source src="/hafco-hero.mp4" type="video/mp4" />
+            </video>
             <div className="absolute inset-0 hero-overlay" />
             <FloatingTrucksBackground truckCount={18} particleCount={20} />
           </motion.div>
