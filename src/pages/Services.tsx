@@ -26,7 +26,7 @@ const Services = () => {
     <PageTransition>
       <div>
         {/* Hero - Full viewport editorial */}
-        <section className="relative h-[70vh] min-h-[500px] flex items-end overflow-hidden -mt-20">
+        <section className="relative h-[70vh] min-h-[500px] flex items-end overflow-hidden -mt-16">
           <HeroSlideshow images={[truck13, truck5, truck12, truck9]} interval={8000} />
           <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/60 to-transparent" />
           <div className="relative z-10 container mx-auto px-4 pb-16">

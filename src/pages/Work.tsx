@@ -97,7 +97,7 @@ const Work = () => {
     <PageTransition>
       <div>
         {/* Hero - Full viewport editorial */}
-        <section className="relative h-[70vh] min-h-[500px] flex items-end overflow-hidden -mt-20">
+        <section className="relative h-[70vh] min-h-[500px] flex items-end overflow-hidden -mt-16">
           <HeroSlideshow images={[workImg1, workImg3, workImg5, workNew20, workImg15]} interval={8000} />
           <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent" />
           <div className="relative z-10 container mx-auto px-4 pb-16">

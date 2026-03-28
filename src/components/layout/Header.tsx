@@ -39,8 +39,8 @@ const Header = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-background/95 backdrop-blur-lg shadow-lg h-16'
-          : 'glass h-20'
+          ? 'bg-background/95 backdrop-blur-lg shadow-lg h-14'
+          : 'glass h-16'
       }`}
     >
       <div className="container mx-auto px-4 h-full">
@@ -51,7 +51,7 @@ const Header = () => {
               src={hafcoLogo}
               alt="HAFCO Logo"
               className={`w-auto object-contain transition-all duration-300 ${
-                isScrolled ? 'h-10' : 'h-14'
+                isScrolled ? 'h-8' : 'h-10'
               }`}
             />
             <div className="hidden sm:block">
