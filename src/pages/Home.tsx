@@ -15,9 +15,7 @@ import ServicesCards from '@/components/home/ServicesCards';
 
 import hafcoLogo from '@/assets/hafco-logo.png';
 import heroImage from '@/assets/trucks/truck-5.jpeg';
-import truck13 from '@/assets/trucks/truck-13.jpeg';
-import truck12 from '@/assets/trucks/truck-12.jpeg';
-import truck9 from '@/assets/trucks/truck-9.jpeg';
+import workImg1 from '@/assets/trucks/work-img-1.jpeg';
 import workImg1 from '@/assets/trucks/work-img-1.jpeg';
 
 const Home = () => {
