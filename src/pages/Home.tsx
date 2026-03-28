@@ -16,7 +16,6 @@ import ServicesCards from '@/components/home/ServicesCards';
 import hafcoLogo from '@/assets/hafco-logo.png';
 import heroImage from '@/assets/trucks/truck-5.jpeg';
 import workImg1 from '@/assets/trucks/work-img-1.jpeg';
-import workImg1 from '@/assets/trucks/work-img-1.jpeg';
 
 const Home = () => {
   const { t, language } = useLanguage();
