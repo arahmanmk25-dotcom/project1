@@ -69,7 +69,7 @@ const Home = () => {
             <motion.img
               src={hafcoLogo}
               alt="HAFCO Logo"
-              className="h-24 md:h-32 w-auto mx-auto mb-6 brightness-0 invert"
+              className="h-20 md:h-28 w-auto mx-auto mb-4 mt-8 brightness-0 invert"
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
