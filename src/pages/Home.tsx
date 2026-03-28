@@ -27,15 +27,8 @@ const Home = () => {
   const heroY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
-  const heroImages = [heroImage, truck13, truck12, truck9, workImg1];
-  const [currentHeroIndex, setCurrentHeroIndex] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentHeroIndex((prev) => (prev + 1) % heroImages.length);
-    }, 10000);
-    return () => clearInterval(interval);
-  }, [heroImages.length]);
+
 
   const stats = [
     { value: '40+', label: t('about.yearsExperience') },
