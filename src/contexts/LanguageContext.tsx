@@ -57,13 +57,13 @@ const translations: Record<Language, Record<string, string>> = {
     'services.title': 'Our Services',
     'services.subtitle': 'Comprehensive Big Movers Solutions',
     'services.heavy.title': 'Big Equipment Transport',
-    'services.heavy.description': 'Safe and efficient transport of heavy machinery, industrial equipment, and oversized loads across Saudi Arabia.',
+    'services.heavy.description': 'Safe and efficient transport of heavy machinery, industrial equipment, and oversized loads across Saudi Arabia. Our fleet of specialized low-bed trailers and multi-axle transporters can handle loads weighing up to hundreds of tons. We provide complete route surveys, escort vehicles, and obtain all necessary permits from the relevant authorities to ensure smooth and timely delivery. With over 40 years of experience, we have successfully transported transformers, turbines, reactors, and large-scale industrial components for major projects across the Kingdom.',
     'services.petroleum.title': 'Petroleum Pipe Transport',
-    'services.petroleum.description': 'Specialized transport of petroleum pipes up to 30 meters in length with precision handling.',
+    'services.petroleum.description': 'Specialized transport of petroleum pipes up to 30 meters in length with precision handling and secure fastening systems. We serve major pipeline contractors and oil & gas companies throughout the Eastern Province and beyond. Our experienced drivers and dedicated pipe-carrier trailers ensure that every pipe arrives at site in perfect condition, on schedule. We coordinate closely with project managers to align deliveries with construction timelines, minimizing downtime and maximizing efficiency.',
     'services.crane.title': 'Crane Services',
-    'services.crane.description': 'Professional crane lifting and moving services for construction and industrial projects.',
+    'services.crane.description': 'Professional crane lifting and moving services for construction and industrial projects of all scales. We operate a range of mobile cranes with varying capacities to support loading, unloading, and positioning of heavy equipment on-site. Our certified operators follow strict safety protocols and work in coordination with site engineers to execute lifts with precision. Whether it is erecting steel structures, placing precast elements, or supporting plant shutdowns, our crane services deliver reliability and safety.',
     'services.logistics.title': 'Logistics Solutions',
-    'services.logistics.description': 'End-to-end logistics management including route planning, permits, and coordination.',
+    'services.logistics.description': 'End-to-end logistics management including route planning, permits, traffic coordination, and real-time tracking. We handle every aspect of the supply chain for oversized and heavy cargo — from initial site assessment and feasibility studies to final delivery and positioning. Our dedicated logistics team works around the clock to ensure all regulatory requirements are met, escort vehicles are arranged, and communication with authorities is maintained throughout the journey. We pride ourselves on delivering complex shipments safely, on time, and within budget.',
     'services.learnMore': 'Learn More',
 
     // Work/Portfolio
