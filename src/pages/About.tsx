@@ -149,26 +149,24 @@ const About = () => {
           </div>
         </section>
 
-        {/* Full-width Image Break */}
-        <section className="relative h-[40vh] min-h-[250px] overflow-hidden">
-          <img src={truck5} alt="HAFCO Fleet" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-primary/20" />
-        </section>
-
-        {/* Stats - Inline editorial */}
-        <section className="py-20 bg-primary">
-          <div className="container mx-auto px-4">
-            <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-12">
-              {stats.map((stat, i) => (
-                <ScrollReveal key={i} variant="fadeUp" delay={i * 0.1}>
-                  <div className="text-center">
-                    <div className="text-5xl md:text-6xl font-bold text-white mb-2">
-                      <AnimatedCounter value={stat.value} />
+        {/* Full-width Image Break with Stats Overlay */}
+        <section className="relative h-[50vh] min-h-[350px] overflow-hidden">
+          <img src={truck5} alt="HAFCO Fleet" className="w-full h-full object-cover object-left-bottom" />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/60 to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 py-12">
+            <div className="container mx-auto px-4">
+              <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+                {stats.map((stat, i) => (
+                  <ScrollReveal key={i} variant="fadeUp" delay={i * 0.1}>
+                    <div className="text-center">
+                      <div className="text-4xl md:text-5xl font-bold text-white mb-1">
+                        <AnimatedCounter value={stat.value} />
+                      </div>
+                      <div className="text-white/70 text-xs uppercase tracking-widest font-medium">{stat.label}</div>
                     </div>
-                    <div className="text-white/60 text-sm uppercase tracking-wide">{stat.label}</div>
-                  </div>
-                </ScrollReveal>
-              ))}
+                  </ScrollReveal>
+                ))}
+              </div>
             </div>
           </div>
         </section>
