@@ -44,8 +44,12 @@ const About = () => {
     { role: language === 'ar' ? 'مدير المالي و الاداري' : 'Financial & Administrative Manager', name: language === 'ar' ? 'مصطفى السيد حنطور' : 'Moustafa El Sayed Hantour', phone: '0580859588' },
   ];
 
-  const bottomMembers = [
+  const middleManagers = [
+    { role: language === 'ar' ? 'الرئيس التنفيذي للقطاع الهندسي' : 'Chief Engineering Officer', name: language === 'ar' ? 'عبدالهادي سعيد القحطاني' : 'Abdel Hadi Saeed Al-Qahtani', phone: '0553787824' },
     { role: language === 'ar' ? 'مدير التطوير' : 'Development Manager', name: language === 'ar' ? 'فيصل سعيد القحطاني' : 'Faisal Saeed Al-Qahtani', phone: '0560676302' },
+  ];
+
+  const bottomMembers = [
     { role: language === 'ar' ? 'الموارد البشرية' : 'Human Resources', name: language === 'ar' ? 'عيسى الراشدي' : 'Essa Al-Rashidy', phone: '0507679998' },
   ];
 
