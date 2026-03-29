@@ -151,7 +151,7 @@ const About = () => {
 
         {/* Full-width Image Break with Stats Overlay */}
         <section className="relative h-[50vh] min-h-[350px] overflow-hidden">
-          <img src={truck5} alt="HAFCO Fleet" className="w-full h-full object-cover object-left-bottom" />
+          <img src={truck5} alt="HAFCO Fleet" className="w-full h-full object-cover object-center" />
           <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/60 to-transparent" />
           <div className="absolute bottom-0 left-0 right-0 py-12">
             <div className="container mx-auto px-4">
