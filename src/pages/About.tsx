@@ -44,8 +44,12 @@ const About = () => {
     { role: language === 'ar' ? 'مدير المالي و الاداري' : 'Financial & Administrative Manager', name: language === 'ar' ? 'مصطفى السيد حنطور' : 'Moustafa El Sayed Hantour', phone: '0580859588' },
   ];
 
-  const bottomMembers = [
+  const middleManagers = [
+    { role: language === 'ar' ? 'الرئيس التنفيذي للقطاع الهندسي' : 'Chief Engineering Officer', name: language === 'ar' ? 'عبدالهادي سعيد القحطاني' : 'Abdel Hadi Saeed Al-Qahtani', phone: '0553787824' },
     { role: language === 'ar' ? 'مدير التطوير' : 'Development Manager', name: language === 'ar' ? 'فيصل سعيد القحطاني' : 'Faisal Saeed Al-Qahtani', phone: '0560676302' },
+  ];
+
+  const bottomMembers = [
     { role: language === 'ar' ? 'الموارد البشرية' : 'Human Resources', name: language === 'ar' ? 'عيسى الراشدي' : 'Essa Al-Rashidy', phone: '0507679998' },
   ];
 
@@ -241,7 +245,25 @@ const About = () => {
                 ))}
               </div>
 
-              <div className="grid md:grid-cols-2 gap-8">
+              <div className="grid md:grid-cols-2 gap-8 mb-8">
+                {middleManagers.map((member, i) => (
+                  <ScrollReveal key={i} variant="fadeUp" delay={i * 0.1}>
+                    <div className="bg-card p-8 rounded-xl border border-border text-center">
+                      <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <Briefcase className="h-8 w-8 text-primary" />
+                      </div>
+                      <h4 className="font-bold text-lg mb-1">{member.name}</h4>
+                      <p className="text-gold text-sm mb-3">{member.role}</p>
+                      <a href={`tel:${member.phone}`} className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+                        <Phone className="h-4 w-4" />
+                        {member.phone}
+                      </a>
+                    </div>
+                  </ScrollReveal>
+                ))}
+              </div>
+
+              <div className="grid md:grid-cols-1 max-w-md mx-auto gap-8">
                 {bottomMembers.map((member, i) => (
                   <ScrollReveal key={i} variant="fadeUp" delay={i * 0.1}>
                     <div className="bg-card p-8 rounded-xl border border-border text-center">
