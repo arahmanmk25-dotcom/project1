@@ -192,9 +192,12 @@ const Footer = () => {
       <div className="border-t border-primary-foreground/20 relative z-10">
         <div className="container mx-auto px-4 py-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-primary-foreground/70 text-sm">
-              © {currentYear} HAFCO. {t('footer.rights')}
-            </p>
+            <div className="flex items-center gap-4">
+              <img src={vatLogo} alt="VAT Registered" className="h-10 w-auto object-contain" />
+              <p className="text-primary-foreground/70 text-sm">
+                © {currentYear} HAFCO. {t('footer.rights')}
+              </p>
+            </div>
             <div className="flex items-center gap-4 text-sm">
               <Link
                 to="/privacy"
