@@ -190,27 +190,27 @@ const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="border-t border-primary-foreground/20 relative z-10">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-4">
-              <img src={vatLogo} alt="VAT Registered" className="h-10 w-auto object-contain" />
+        <div className="container mx-auto px-4 py-6">
+          <div className="flex flex-col items-center gap-6">
+            <img src={vatLogo} alt="VAT Registered - ضريبة القيمة المضافة" className="h-20 w-auto object-contain" />
+            <div className="flex flex-col md:flex-row items-center justify-between w-full gap-4">
               <p className="text-primary-foreground/70 text-sm">
                 © {currentYear} HAFCO. {t('footer.rights')}
               </p>
-            </div>
-            <div className="flex items-center gap-4 text-sm">
-              <Link
-                to="/privacy"
-                className="text-primary-foreground/70 hover:text-gold transition-colors"
-              >
-                {t('footer.privacy')}
-              </Link>
-              <Link
-                to="/terms"
-                className="text-primary-foreground/70 hover:text-gold transition-colors"
-              >
-                {t('footer.terms')}
-              </Link>
+              <div className="flex items-center gap-4 text-sm">
+                <Link
+                  to="/privacy"
+                  className="text-primary-foreground/70 hover:text-gold transition-colors"
+                >
+                  {t('footer.privacy')}
+                </Link>
+                <Link
+                  to="/terms"
+                  className="text-primary-foreground/70 hover:text-gold transition-colors"
+                >
+                  {t('footer.terms')}
+                </Link>
+              </div>
             </div>
           </div>
         </div>
