@@ -16,16 +16,17 @@ interface ServiceItem {
   desc: string;
   image: string;
   num: string;
+  slug: string;
 }
 
 const ServicesCards = () => {
   const { t, language } = useLanguage();
 
   const services: ServiceItem[] = [
-    { icon: Truck, title: t('services.heavy.title'), desc: language === 'ar' ? 'نقل المعدات الثقيلة والآلات الصناعية' : 'Heavy equipment & industrial machinery transport', image: heroImage, num: '01' },
-    { icon: Shield, title: t('services.petroleum.title'), desc: language === 'ar' ? 'نقل أنابيب ومواد البترول بأمان' : 'Safe petroleum pipe & materials hauling', image: truck13, num: '02' },
-    { icon: Clock, title: t('services.crane.title'), desc: language === 'ar' ? 'خدمات الرافعات للمشاريع الكبرى' : 'Crane services for major projects', image: truck12, num: '03' },
-    { icon: Users, title: t('services.logistics.title'), desc: language === 'ar' ? 'حلول لوجستية متكاملة' : 'End-to-end logistics solutions', image: truck9, num: '04' },
+    { icon: Truck, title: t('services.heavy.title'), desc: language === 'ar' ? 'نقل المعدات الثقيلة والآلات الصناعية' : 'Heavy equipment & industrial machinery transport', image: heroImage, num: '01', slug: 'heavy-transport' },
+    { icon: Shield, title: t('services.petroleum.title'), desc: language === 'ar' ? 'نقل أنابيب ومواد البترول بأمان' : 'Safe petroleum pipe & materials hauling', image: truck13, num: '02', slug: 'petroleum' },
+    { icon: Clock, title: t('services.crane.title'), desc: language === 'ar' ? 'خدمات الرافعات للمشاريع الكبرى' : 'Crane services for major projects', image: truck12, num: '03', slug: 'crane' },
+    { icon: Users, title: t('services.logistics.title'), desc: language === 'ar' ? 'حلول لوجستية متكاملة' : 'End-to-end logistics solutions', image: truck9, num: '04', slug: 'logistics' },
   ];
 
   return (
@@ -51,30 +52,32 @@ const ServicesCards = () => {
 
             return (
               <ScrollReveal key={index} variant="fadeUp" delay={index * 0.1}>
-                <motion.div
-                  className="relative rounded-2xl overflow-hidden border border-border shadow-lg group h-[300px]"
-                  whileHover={{ y: -4 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/30 to-transparent" />
-                  <span className="absolute top-4 right-4 text-6xl font-bold text-white/10 select-none">
-                    {service.num}
-                  </span>
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <div className="flex items-center gap-3 mb-2">
-                      <div className="inline-flex p-2 rounded-lg bg-gold/20 backdrop-blur-sm">
-                        <Icon className="h-5 w-5 text-gold" />
+                <Link to={`/services#${service.slug}`}>
+                  <motion.div
+                    className="relative rounded-2xl overflow-hidden border border-border shadow-lg group h-[300px] cursor-pointer"
+                    whileHover={{ y: -4 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/30 to-transparent" />
+                    <span className="absolute top-4 right-4 text-6xl font-bold text-white/10 select-none">
+                      {service.num}
+                    </span>
+                    <div className="absolute bottom-0 left-0 right-0 p-6">
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className="inline-flex p-2 rounded-lg bg-gold/20 backdrop-blur-sm">
+                          <Icon className="h-5 w-5 text-gold" />
+                        </div>
+                        <h3 className="text-xl font-bold text-white">{service.title}</h3>
                       </div>
-                      <h3 className="text-xl font-bold text-white">{service.title}</h3>
+                      <p className="text-white/70 text-sm">{service.desc}</p>
                     </div>
-                    <p className="text-white/70 text-sm">{service.desc}</p>
-                  </div>
-                </motion.div>
+                  </motion.div>
+                </Link>
               </ScrollReveal>
             );
           })}

@@ -1,5 +1,6 @@
+import { useEffect } from 'react';
 import { Truck, Cylinder, Construction, Package, ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import FloatingTrucksBackground from '@/components/shared/FloatingTrucksBackground';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
@@ -14,12 +15,22 @@ import HeroSlideshow from '@/components/shared/HeroSlideshow';
 
 const Services = () => {
   const { t, language } = useLanguage();
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      setTimeout(() => {
+        const el = document.querySelector(location.hash);
+        el?.scrollIntoView({ behavior: 'smooth' });
+      }, 500);
+    }
+  }, [location.hash]);
 
   const services = [
-    { icon: Truck, title: t('services.heavy.title'), desc: t('services.heavy.description'), image: truck5, num: '01' },
-    { icon: Cylinder, title: t('services.petroleum.title'), desc: t('services.petroleum.description'), image: truck13, num: '02' },
-    { icon: Construction, title: t('services.crane.title'), desc: t('services.crane.description'), image: truck12, num: '03' },
-    { icon: Package, title: t('services.logistics.title'), desc: t('services.logistics.description'), image: truck9, num: '04' },
+    { icon: Truck, title: t('services.heavy.title'), desc: t('services.heavy.description'), image: truck5, num: '01', id: 'heavy-transport' },
+    { icon: Cylinder, title: t('services.petroleum.title'), desc: t('services.petroleum.description'), image: truck13, num: '02', id: 'petroleum' },
+    { icon: Construction, title: t('services.crane.title'), desc: t('services.crane.description'), image: truck12, num: '03', id: 'crane' },
+    { icon: Package, title: t('services.logistics.title'), desc: t('services.logistics.description'), image: truck9, num: '04', id: 'logistics' },
   ];
 
   return (
@@ -52,6 +63,7 @@ const Services = () => {
             <div className="max-w-6xl mx-auto space-y-32">
               {services.map((service, index) => (
                 <ScrollReveal key={index} variant="fadeUp">
+                  <div id={service.id} className="scroll-mt-24" />
                   <div className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-10 lg:gap-20 items-center`}>
                     {/* Image */}
                     <div className="w-full lg:w-[55%]">
