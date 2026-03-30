@@ -15,6 +15,16 @@ import HeroSlideshow from '@/components/shared/HeroSlideshow';
 
 const Services = () => {
   const { t, language } = useLanguage();
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      setTimeout(() => {
+        const el = document.querySelector(location.hash);
+        el?.scrollIntoView({ behavior: 'smooth' });
+      }, 500);
+    }
+  }, [location.hash]);
 
   const services = [
     { icon: Truck, title: t('services.heavy.title'), desc: t('services.heavy.description'), image: truck5, num: '01', id: 'heavy-transport' },
