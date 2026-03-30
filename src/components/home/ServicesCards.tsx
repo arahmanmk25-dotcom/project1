@@ -16,16 +16,17 @@ interface ServiceItem {
   desc: string;
   image: string;
   num: string;
+  slug: string;
 }
 
 const ServicesCards = () => {
   const { t, language } = useLanguage();
 
   const services: ServiceItem[] = [
-    { icon: Truck, title: t('services.heavy.title'), desc: language === 'ar' ? 'نقل المعدات الثقيلة والآلات الصناعية' : 'Heavy equipment & industrial machinery transport', image: heroImage, num: '01' },
-    { icon: Shield, title: t('services.petroleum.title'), desc: language === 'ar' ? 'نقل أنابيب ومواد البترول بأمان' : 'Safe petroleum pipe & materials hauling', image: truck13, num: '02' },
-    { icon: Clock, title: t('services.crane.title'), desc: language === 'ar' ? 'خدمات الرافعات للمشاريع الكبرى' : 'Crane services for major projects', image: truck12, num: '03' },
-    { icon: Users, title: t('services.logistics.title'), desc: language === 'ar' ? 'حلول لوجستية متكاملة' : 'End-to-end logistics solutions', image: truck9, num: '04' },
+    { icon: Truck, title: t('services.heavy.title'), desc: language === 'ar' ? 'نقل المعدات الثقيلة والآلات الصناعية' : 'Heavy equipment & industrial machinery transport', image: heroImage, num: '01', slug: 'heavy-transport' },
+    { icon: Shield, title: t('services.petroleum.title'), desc: language === 'ar' ? 'نقل أنابيب ومواد البترول بأمان' : 'Safe petroleum pipe & materials hauling', image: truck13, num: '02', slug: 'petroleum' },
+    { icon: Clock, title: t('services.crane.title'), desc: language === 'ar' ? 'خدمات الرافعات للمشاريع الكبرى' : 'Crane services for major projects', image: truck12, num: '03', slug: 'crane' },
+    { icon: Users, title: t('services.logistics.title'), desc: language === 'ar' ? 'حلول لوجستية متكاملة' : 'End-to-end logistics solutions', image: truck9, num: '04', slug: 'logistics' },
   ];
 
   return (
