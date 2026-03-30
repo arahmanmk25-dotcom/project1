@@ -46,12 +46,12 @@ const Header = () => {
       <div className="container mx-auto px-4 h-full">
         <div className="flex items-center justify-between h-full">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 hover-lift">
+          <Link to="/" className="flex items-center gap-2 sm:gap-3 hover-lift shrink-0">
             <img
               src={hafcoLogo}
               alt="HAFCO Logo"
               className={`w-auto object-contain transition-all duration-300 ${
-                isScrolled ? 'h-8' : 'h-10'
+                isScrolled ? 'h-7 sm:h-8' : 'h-8 sm:h-10'
               }`}
             />
             <div className="hidden sm:block">
@@ -86,17 +86,17 @@ const Header = () => {
           </nav>
 
           {/* Actions */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1 sm:gap-2 shrink-0">
             {/* Language Toggle */}
             <Button
               variant="ghost"
               size="sm"
               onClick={toggleLanguage}
-              className="flex items-center gap-2 hover:bg-primary/10"
+              className="flex items-center gap-1 sm:gap-2 hover:bg-primary/10 px-2 sm:px-3"
             >
               <Globe className="h-4 w-4" />
-              <span className="font-medium">
-                {language === 'en' ? 'العربية' : 'English'}
+              <span className="font-medium text-xs sm:text-sm">
+                {language === 'en' ? 'العربية' : 'EN'}
               </span>
             </Button>
 
@@ -111,45 +111,45 @@ const Header = () => {
             <Button
               variant="ghost"
               size="icon"
-              className="lg:hidden"
+              className="lg:hidden h-9 w-9"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
           </div>
         </div>
-
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <nav className="lg:hidden py-4 border-t border-border animate-fade-in">
-            <div className="flex flex-col gap-2">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  to={link.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className={`px-4 py-3 rounded-lg text-base font-medium transition-all duration-300 ${
-                    isActive(link.href)
-                      ? 'bg-primary text-primary-foreground'
-                      : 'text-foreground hover:bg-primary/10'
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
-              <Link
-                to="/contact"
-                onClick={() => setIsMenuOpen(false)}
-                className="mt-2"
-              >
-                <Button className="w-full gradient-primary">
-                  {t('nav.getQuote')}
-                </Button>
-              </Link>
-            </div>
-          </nav>
-        )}
       </div>
+
+      {/* Mobile Navigation - Full screen overlay */}
+      {isMenuOpen && (
+        <nav className="lg:hidden fixed inset-x-0 top-14 bottom-0 bg-background/98 backdrop-blur-xl animate-fade-in z-40 overflow-y-auto">
+          <div className="container mx-auto px-4 py-6 flex flex-col gap-2">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                to={link.href}
+                onClick={() => setIsMenuOpen(false)}
+                className={`px-4 py-3.5 rounded-xl text-base font-medium transition-all duration-300 ${
+                  isActive(link.href)
+                    ? 'bg-primary text-primary-foreground'
+                    : 'text-foreground hover:bg-primary/10'
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <Link
+              to="/contact"
+              onClick={() => setIsMenuOpen(false)}
+              className="mt-4"
+            >
+              <Button className="w-full gradient-primary py-6 text-base font-bold">
+                {t('nav.getQuote')}
+              </Button>
+            </Link>
+          </div>
+        </nav>
+      )}
     </header>
   );
 };
