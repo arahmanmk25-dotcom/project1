@@ -52,6 +52,7 @@ const Services = () => {
             <div className="max-w-6xl mx-auto space-y-32">
               {services.map((service, index) => (
                 <ScrollReveal key={index} variant="fadeUp">
+                  <div id={service.id} className="scroll-mt-24" />
                   <div className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-10 lg:gap-20 items-center`}>
                     {/* Image */}
                     <div className="w-full lg:w-[55%]">
