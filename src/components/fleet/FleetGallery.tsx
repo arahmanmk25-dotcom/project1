@@ -61,13 +61,13 @@ const FleetGallery = ({ items, categories }: FleetGalleryProps) => {
         <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
           <AnimatePresence mode="popLayout">
             {filtered.map((item, i) => (
+              <ScrollReveal key={`${item.nameEn}-${item.model}-${item.year}`} variant="fadeUp" delay={(i % 4) * 0.08}>
               <motion.div
-                key={`${item.nameEn}-${item.model}-${item.year}`}
                 layout
                 initial={{ opacity: 0, scale: 0.85 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.85 }}
-                transition={{ duration: 0.4, delay: i * 0.04 }}
+                transition={{ duration: 0.4 }}
                 className="group relative overflow-hidden rounded-lg cursor-pointer hover-lift"
                 onClick={() => openLightbox(i)}
               >
