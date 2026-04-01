@@ -138,6 +138,7 @@ const Work = () => {
                 </div>
               </ScrollReveal>
 
+              <ScrollReveal variant="fadeUp" delay={0.1}>
               <div
                 className="relative group overflow-hidden rounded-2xl cursor-pointer"
                 onClick={() => openLightbox(0)}
