@@ -234,6 +234,9 @@ const Home = () => {
             </div>
           </div>
         </section>
+
+        {/* Spacer before footer */}
+        <section className="py-12 bg-secondary" />
       </div>
     </PageTransition>
   );
