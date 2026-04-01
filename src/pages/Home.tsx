@@ -219,13 +219,13 @@ const Home = () => {
               <ScrollReveal variant="scaleIn" delay={0.3}>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Link to="/contact">
-                    <Button size="lg" className="bg-gold hover:bg-gold-light text-primary font-bold px-12 py-7 text-lg group">
+                    <Button size="lg" className="bg-gold hover:bg-gold-light text-primary font-bold px-10 py-5 text-base group">
                       {t('nav.getQuote')}
                       <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </Link>
                   <Link to="/services">
-                    <Button size="lg" variant="outline" className="border-white text-white bg-white/10 hover:bg-white hover:text-primary px-10 py-7 text-lg font-semibold">
+                    <Button size="lg" variant="outline" className="border-white text-white bg-white/10 hover:bg-white hover:text-primary px-10 py-5 text-base font-semibold">
                       {language === 'ar' ? 'خدماتنا' : 'Our Services'}
                     </Button>
                   </Link>
