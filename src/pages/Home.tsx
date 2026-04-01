@@ -186,16 +186,49 @@ const Home = () => {
           <ClientsCarousel />
         </section>
 
-        {/* CTA - Editorial */}
-        <section className="py-32 bg-secondary">
-          <div className="container mx-auto px-4 text-center">
-            <ScrollReveal variant="scaleIn">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-6 leading-tight">{t('contact.subtitle')}</h2>
-              <p className="text-lg text-muted-foreground mb-10 max-w-xl mx-auto">{t('contact.description')}</p>
-              <Link to="/contact">
-                <Button size="lg" className="gradient-primary px-10 py-6 text-lg">{t('nav.getQuote')}</Button>
-              </Link>
-            </ScrollReveal>
+        {/* CTA - Bold diagonal section */}
+        <section className="relative py-32 md:py-40 overflow-hidden bg-primary">
+          {/* Decorative elements */}
+          <div className="absolute inset-0">
+            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,hsl(var(--gold)/0.15),transparent_60%)]" />
+            <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(ellipse_at_bottom_left,hsl(var(--gold)/0.1),transparent_60%)]" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-gold/5 rounded-full" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-gold/10 rounded-full" />
+          </div>
+          
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="max-w-4xl mx-auto text-center">
+              <ScrollReveal variant="fadeUp">
+                <p className="text-gold font-semibold tracking-widest uppercase text-sm mb-6">
+                  {language === 'ar' ? 'ابدأ مشروعك' : 'START YOUR PROJECT'}
+                </p>
+              </ScrollReveal>
+              <ScrollReveal variant="fadeUp" delay={0.1}>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                  {t('contact.subtitle')}
+                </h2>
+              </ScrollReveal>
+              <ScrollReveal variant="fadeUp" delay={0.2}>
+                <p className="text-lg md:text-xl text-white/60 mb-12 max-w-2xl mx-auto leading-relaxed">
+                  {t('contact.description')}
+                </p>
+              </ScrollReveal>
+              <ScrollReveal variant="scaleIn" delay={0.3}>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Link to="/contact">
+                    <Button size="lg" className="bg-gold hover:bg-gold-light text-primary font-bold px-12 py-7 text-lg group">
+                      {t('nav.getQuote')}
+                      <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </Link>
+                  <Link to="/services">
+                    <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 px-10 py-7 text-lg font-semibold">
+                      {language === 'ar' ? 'خدماتنا' : 'Our Services'}
+                    </Button>
+                  </Link>
+                </div>
+              </ScrollReveal>
+            </div>
           </div>
         </section>
       </div>

@@ -99,6 +99,7 @@ const FleetGallery = ({ items, categories }: FleetGalleryProps) => {
                   </h3>
                 </div>
               </motion.div>
+              </ScrollReveal>
             ))}
           </AnimatePresence>
         </motion.div>

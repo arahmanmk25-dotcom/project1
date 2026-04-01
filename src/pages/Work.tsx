@@ -165,6 +165,7 @@ const Work = () => {
                   </h3>
                 </div>
               </div>
+              </ScrollReveal>
             </div>
           </div>
         </section>
