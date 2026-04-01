@@ -13,6 +13,7 @@ import Work from "./pages/Work";
 import Fleet from "./pages/Fleet";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import ScrollToTop from "./components/shared/ScrollToTop";
 
 const queryClient = new QueryClient();
 
