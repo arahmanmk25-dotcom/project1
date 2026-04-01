@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Globe } from 'lucide-react';
+import { Menu, X, Globe, ChevronDown } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import hafcoLogo from '@/assets/hafco-logo.png';
@@ -9,7 +9,8 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { language, setLanguage, t } = useLanguage();
-  
+  const menuRef = useRef<HTMLDivElement>(null);
+
   const location = useLocation();
 
   useEffect(() => {
@@ -19,6 +20,23 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Close menu on route change
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location.pathname]);
+
+  // Close menu on outside click
+  useEffect(() => {
+    if (!isMenuOpen) return;
+    const handleClick = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setIsMenuOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClick);
+    return () => document.removeEventListener('mousedown', handleClick);
+  }, [isMenuOpen]);
 
   const navLinks = [
     { href: '/', label: t('nav.home') },
@@ -30,6 +48,7 @@ const Header = () => {
   ];
 
   const isActive = (path: string) => location.pathname === path;
+  const currentPage = navLinks.find((l) => isActive(l.href)) ?? navLinks[0];
 
   const toggleLanguage = () => {
     setLanguage(language === 'en' ? 'ar' : 'en');
@@ -107,48 +126,44 @@ const Header = () => {
               </Button>
             </Link>
 
-            {/* Mobile Menu Toggle */}
-            <Button
-              variant="ghost"
-              size="icon"
-              className="lg:hidden h-9 w-9"
+            {/* Mobile Menu Toggle - shows current page name + chevron */}
+            <button
+              className="lg:hidden flex items-center gap-1.5 px-3 py-2 rounded-lg bg-primary/10 text-foreground font-medium text-sm"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </Button>
+              <span>{currentPage.label}</span>
+              <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isMenuOpen ? 'rotate-180' : ''}`} />
+            </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Navigation - Full screen overlay */}
+      {/* Mobile Dropdown Navigation */}
       {isMenuOpen && (
-        <nav className="lg:hidden fixed inset-x-0 top-14 bottom-0 bg-background/98 backdrop-blur-xl animate-fade-in z-40 overflow-y-auto">
-          <div className="container mx-auto px-4 py-6 flex flex-col gap-2">
-            {navLinks.map((link) => (
+        <div
+          ref={menuRef}
+          className="lg:hidden absolute top-full right-4 left-4 sm:left-auto sm:w-64 bg-background border border-border rounded-xl shadow-2xl overflow-hidden animate-fade-in z-50"
+        >
+          <nav className="py-2">
+            {navLinks.filter((l) => l.href !== currentPage.href).map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
                 onClick={() => setIsMenuOpen(false)}
-                className={`px-4 py-3.5 rounded-xl text-base font-medium transition-all duration-300 ${
-                  isActive(link.href)
-                    ? 'bg-primary text-primary-foreground'
-                    : 'text-foreground hover:bg-primary/10'
-                }`}
+                className="block px-5 py-3 text-sm font-medium text-foreground hover:bg-primary/10 transition-colors"
               >
                 {link.label}
               </Link>
             ))}
-            <Link
-              to="/contact"
-              onClick={() => setIsMenuOpen(false)}
-              className="mt-4"
-            >
-              <Button className="w-full gradient-primary py-6 text-base font-bold">
-                {t('nav.getQuote')}
-              </Button>
-            </Link>
-          </div>
-        </nav>
+            <div className="border-t border-border mt-1 pt-1 px-3 pb-2">
+              <Link to="/contact" onClick={() => setIsMenuOpen(false)}>
+                <Button className="w-full gradient-primary mt-1 font-bold">
+                  {t('nav.getQuote')}
+                </Button>
+              </Link>
+            </div>
+          </nav>
+        </div>
       )}
     </header>
   );
