@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Lightbox, useLightbox } from '@/components/ui/lightbox';
 import { useLanguage } from '@/contexts/LanguageContext';
 import HoverTruckAnimation from '@/components/shared/HoverTruckAnimation';
+import ScrollReveal from '@/components/shared/ScrollReveal';
 
 interface FleetItem {
   src: string;
