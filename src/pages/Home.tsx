@@ -225,7 +225,7 @@ const Home = () => {
                     </Button>
                   </Link>
                   <Link to="/services">
-                    <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 px-10 py-7 text-lg font-semibold">
+                    <Button size="lg" variant="outline" className="border-white text-white bg-white/10 hover:bg-white hover:text-primary px-10 py-7 text-lg font-semibold">
                       {language === 'ar' ? 'خدماتنا' : 'Our Services'}
                     </Button>
                   </Link>
@@ -234,6 +234,9 @@ const Home = () => {
             </div>
           </div>
         </section>
+
+        {/* Spacer before footer */}
+        <section className="py-12 bg-secondary" />
       </div>
     </PageTransition>
   );
