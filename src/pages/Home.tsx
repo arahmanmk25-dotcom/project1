@@ -187,7 +187,7 @@ const Home = () => {
         </section>
 
         {/* CTA - Bold diagonal section */}
-        <section className="relative py-32 md:py-40 overflow-hidden bg-primary">
+        <section className="relative py-32 md:py-40 overflow-hidden bg-gradient-to-b from-primary via-[hsl(var(--primary)/0.92)] to-primary border-t border-gold/10">
           {/* Decorative elements */}
           <div className="absolute inset-0">
             <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,hsl(var(--gold)/0.15),transparent_60%)]" />
