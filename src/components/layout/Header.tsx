@@ -87,43 +87,37 @@ const Header = () => {
             </div>
           </Link>
 
-          {/* Desktop Navigation - Morphing circle */}
+          {/* Desktop Navigation - Expanding bubble */}
           <div className="hidden lg:flex items-center justify-center absolute left-1/2 -translate-x-1/2">
             <div className="relative" ref={menuRef}>
-              <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className={`relative cursor-pointer transition-all duration-500 ease-out ${
-                  isMenuOpen ? 'opacity-0 scale-75 pointer-events-none' : 'opacity-100 scale-100'
-                }`}
-              >
-                <span className="relative z-10 px-5 py-2 text-sm font-semibold text-foreground">
-                  {currentPage.label}
-                </span>
-                <span className="absolute inset-0 rounded-full border-2 border-primary/40 animate-[spin_8s_linear_infinite]" />
-                <span className="absolute inset-1 rounded-full border border-primary/20 animate-[spin_12s_linear_infinite_reverse]" />
-              </button>
-
               <div
-                className={`absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 flex items-center gap-0.5 bg-background/95 backdrop-blur-xl border border-border/40 rounded-full px-2 py-1 shadow-2xl whitespace-nowrap transition-all duration-500 ease-out ${
+                className={`flex items-center rounded-full backdrop-blur-xl border transition-all duration-500 ease-out ${
                   isMenuOpen
-                    ? 'opacity-100 scale-100'
-                    : 'opacity-0 scale-0 pointer-events-none'
+                    ? 'bg-background/95 border-border/40 px-2 py-1 shadow-2xl gap-0.5'
+                    : 'bg-primary/10 border-primary/20 px-5 py-2 shadow-md gap-0 cursor-pointer hover:bg-primary/15'
                 }`}
+                onClick={() => !isMenuOpen && setIsMenuOpen(true)}
               >
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    to={link.href}
-                    onClick={() => setIsMenuOpen(false)}
-                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
-                      isActive(link.href)
-                        ? 'bg-primary text-primary-foreground shadow-md'
-                        : 'text-muted-foreground hover:text-foreground hover:bg-primary/10'
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
+                {isMenuOpen ? (
+                  navLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      to={link.href}
+                      onClick={() => setIsMenuOpen(false)}
+                      className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-200 ${
+                        isActive(link.href)
+                          ? 'bg-primary text-primary-foreground shadow-md'
+                          : 'text-muted-foreground hover:text-foreground hover:bg-primary/10'
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  ))
+                ) : (
+                  <span className="text-sm font-semibold text-foreground">
+                    {currentPage.label}
+                  </span>
+                )}
               </div>
             </div>
           </div>
