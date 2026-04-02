@@ -87,36 +87,45 @@ const Header = () => {
             </div>
           </Link>
 
-          {/* Desktop Navigation - Expanding bubble */}
+          {/* Desktop Navigation - Split animation */}
           <div className="hidden lg:flex items-center justify-center absolute left-1/2 -translate-x-1/2">
             <div className="relative" ref={menuRef}>
-              <div
-                className={`flex items-center rounded-full backdrop-blur-xl border transition-all duration-500 ease-out ${
-                  isMenuOpen
-                    ? 'bg-background/95 border-border/40 px-2 py-1 shadow-2xl gap-0.5'
-                    : 'bg-primary/10 border-primary/20 px-5 py-2 shadow-md gap-0 cursor-pointer hover:bg-primary/15'
-                }`}
-                onClick={() => !isMenuOpen && setIsMenuOpen(true)}
-              >
+              <div className="flex items-center gap-0">
                 {isMenuOpen ? (
-                  navLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      to={link.href}
-                      onClick={() => setIsMenuOpen(false)}
-                      className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-200 ${
-                        isActive(link.href)
-                          ? 'bg-primary text-primary-foreground shadow-md'
-                          : 'text-muted-foreground hover:text-foreground hover:bg-primary/10'
-                      }`}
-                    >
-                      {link.label}
-                    </Link>
-                  ))
+                  navLinks.map((link, i) => {
+                    const mid = Math.floor(navLinks.length / 2);
+                    const offset = i - mid;
+                    return (
+                      <Link
+                        key={link.href}
+                        to={link.href}
+                        onClick={() => setIsMenuOpen(false)}
+                        className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-500 ease-out ${
+                          isActive(link.href)
+                            ? 'bg-primary text-primary-foreground shadow-md scale-105'
+                            : 'text-muted-foreground hover:text-foreground hover:bg-primary/10'
+                        }`}
+                        style={{
+                          animation: `fade-in 0.4s ease-out ${Math.abs(offset) * 80}ms both`,
+                          transform: `translateX(0)`,
+                        }}
+                      >
+                        {link.label}
+                      </Link>
+                    );
+                  })
                 ) : (
-                  <span className="text-sm font-semibold text-foreground">
-                    {currentPage.label}
-                  </span>
+                  <button
+                    onClick={() => setIsMenuOpen(true)}
+                    className="group cursor-pointer flex items-center gap-2 px-5 py-2 rounded-full bg-primary/10 border border-primary/20 hover:bg-primary/15 transition-all duration-300"
+                  >
+                    <span className="text-sm font-semibold text-foreground">{currentPage.label}</span>
+                    <span className="flex gap-[3px]">
+                      <span className="w-1 h-1 rounded-full bg-primary/60 group-hover:bg-primary transition-colors" />
+                      <span className="w-1 h-1 rounded-full bg-primary/40 group-hover:bg-primary/80 transition-colors delay-75" />
+                      <span className="w-1 h-1 rounded-full bg-primary/20 group-hover:bg-primary/60 transition-colors delay-150" />
+                    </span>
+                  </button>
                 )}
               </div>
             </div>
