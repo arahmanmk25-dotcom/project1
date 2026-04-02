@@ -87,44 +87,44 @@ const Header = () => {
             </div>
           </Link>
 
-          {/* Desktop Navigation - Floating dot indicator */}
+          {/* Desktop Navigation - Underline reveal */}
           <div className="hidden lg:flex items-center justify-center absolute left-1/2 -translate-x-1/2">
             <div className="relative" ref={menuRef}>
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="flex flex-col items-center gap-1 group cursor-pointer"
+                className="flex flex-col items-center cursor-pointer group"
               >
-                <span className="text-sm font-semibold text-foreground tracking-wide group-hover:text-primary transition-colors duration-300">
+                <span className="text-sm font-semibold text-foreground tracking-wide pb-1">
                   {currentPage.label}
                 </span>
                 <span
-                  className={`h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_8px_hsl(var(--primary)/0.6)] transition-transform duration-300 ${
-                    isMenuOpen ? 'scale-0' : 'scale-100 animate-pulse'
-                  }`}
-                />
-                <ChevronDown
-                  className={`h-3.5 w-3.5 text-muted-foreground transition-all duration-300 ${
-                    isMenuOpen ? 'rotate-180 text-primary' : ''
+                  className={`h-[2px] bg-primary transition-all duration-500 ease-out ${
+                    isMenuOpen ? 'w-0' : 'w-full'
                   }`}
                 />
               </button>
 
-              {isMenuOpen && (
-                <div className="absolute top-full mt-3 left-1/2 -translate-x-1/2 flex items-center gap-0.5 bg-background/90 backdrop-blur-xl border border-border/50 rounded-full px-1.5 py-1 shadow-[0_8px_32px_rgba(0,0,0,0.12)] whitespace-nowrap animate-fade-in">
-                  {navLinks
-                    .filter((l) => l.href !== currentPage.href)
-                    .map((link) => (
-                      <Link
-                        key={link.href}
-                        to={link.href}
-                        onClick={() => setIsMenuOpen(false)}
-                        className="relative px-4 py-2 rounded-full text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-primary/10 transition-all duration-200"
-                      >
-                        {link.label}
-                      </Link>
-                    ))}
-                </div>
-              )}
+              <div
+                className={`absolute top-full mt-4 left-1/2 -translate-x-1/2 flex items-center gap-1 bg-background/90 backdrop-blur-xl border border-border/40 rounded-2xl px-2 py-1.5 shadow-2xl whitespace-nowrap transition-all duration-300 origin-top ${
+                  isMenuOpen
+                    ? 'opacity-100 translate-y-0 scale-100'
+                    : 'opacity-0 -translate-y-2 scale-95 pointer-events-none'
+                }`}
+              >
+                {navLinks
+                  .filter((l) => l.href !== currentPage.href)
+                  .map((link, i) => (
+                    <Link
+                      key={link.href}
+                      to={link.href}
+                      onClick={() => setIsMenuOpen(false)}
+                      className="px-4 py-2 rounded-xl text-sm font-medium text-muted-foreground hover:text-primary hover:bg-primary/5 transition-all duration-200"
+                      style={{ animationDelay: `${i * 50}ms` }}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+              </div>
             </div>
           </div>
 
