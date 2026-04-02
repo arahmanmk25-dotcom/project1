@@ -87,23 +87,30 @@ const Header = () => {
             </div>
           </Link>
 
-          {/* Desktop Navigation - Center current page with dropdown */}
+          {/* Desktop Navigation - Floating dot indicator */}
           <div className="hidden lg:flex items-center justify-center absolute left-1/2 -translate-x-1/2">
             <div className="relative" ref={menuRef}>
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="flex flex-col items-center gap-0.5 group"
+                className="flex flex-col items-center gap-1 group cursor-pointer"
               >
-                <span className="px-5 py-1.5 rounded-full bg-primary text-primary-foreground shadow-md text-sm font-medium">
+                <span className="text-sm font-semibold text-foreground tracking-wide group-hover:text-primary transition-colors duration-300">
                   {currentPage.label}
                 </span>
+                <span
+                  className={`h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_8px_hsl(var(--primary)/0.6)] transition-transform duration-300 ${
+                    isMenuOpen ? 'scale-0' : 'scale-100 animate-pulse'
+                  }`}
+                />
                 <ChevronDown
-                  className={`h-4 w-4 text-primary transition-transform duration-200 ${isMenuOpen ? 'rotate-180' : ''}`}
+                  className={`h-3.5 w-3.5 text-muted-foreground transition-all duration-300 ${
+                    isMenuOpen ? 'rotate-180 text-primary' : ''
+                  }`}
                 />
               </button>
 
               {isMenuOpen && (
-                <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 flex items-center gap-1 bg-background/95 backdrop-blur-lg border border-border rounded-full px-2 py-1.5 shadow-xl animate-fade-in whitespace-nowrap">
+                <div className="absolute top-full mt-3 left-1/2 -translate-x-1/2 flex items-center gap-0.5 bg-background/90 backdrop-blur-xl border border-border/50 rounded-full px-1.5 py-1 shadow-[0_8px_32px_rgba(0,0,0,0.12)] whitespace-nowrap animate-fade-in">
                   {navLinks
                     .filter((l) => l.href !== currentPage.href)
                     .map((link) => (
@@ -111,7 +118,7 @@ const Header = () => {
                         key={link.href}
                         to={link.href}
                         onClick={() => setIsMenuOpen(false)}
-                        className="px-4 py-1.5 rounded-full text-sm font-medium text-foreground hover:bg-primary/10 transition-colors"
+                        className="relative px-4 py-2 rounded-full text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-primary/10 transition-all duration-200"
                       >
                         {link.label}
                       </Link>
