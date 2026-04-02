@@ -87,47 +87,48 @@ const Header = () => {
             </div>
           </Link>
 
-          {/* Desktop Navigation - Split animation */}
+          {/* Desktop Navigation - Orbital ring */}
           <div className="hidden lg:flex items-center justify-center absolute left-1/2 -translate-x-1/2">
             <div className="relative" ref={menuRef}>
-              <div className="flex items-center gap-0">
-                {isMenuOpen ? (
-                  navLinks.map((link, i) => {
-                    const mid = Math.floor(navLinks.length / 2);
-                    const offset = i - mid;
-                    return (
-                      <Link
-                        key={link.href}
-                        to={link.href}
-                        onClick={() => setIsMenuOpen(false)}
-                        className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-500 ease-out ${
-                          isActive(link.href)
-                            ? 'bg-primary text-primary-foreground shadow-md scale-105'
-                            : 'text-muted-foreground hover:text-foreground hover:bg-primary/10'
-                        }`}
-                        style={{
-                          animation: `fade-in 0.4s ease-out ${Math.abs(offset) * 80}ms both`,
-                          transform: `translateX(0)`,
-                        }}
-                      >
-                        {link.label}
-                      </Link>
-                    );
-                  })
-                ) : (
-                  <button
-                    onClick={() => setIsMenuOpen(true)}
-                    className="group cursor-pointer flex items-center gap-2 px-5 py-2 rounded-full bg-primary/10 border border-primary/20 hover:bg-primary/15 transition-all duration-300"
-                  >
-                    <span className="text-sm font-semibold text-foreground">{currentPage.label}</span>
-                    <span className="flex gap-[3px]">
-                      <span className="w-1 h-1 rounded-full bg-primary/60 group-hover:bg-primary transition-colors" />
-                      <span className="w-1 h-1 rounded-full bg-primary/40 group-hover:bg-primary/80 transition-colors delay-75" />
-                      <span className="w-1 h-1 rounded-full bg-primary/20 group-hover:bg-primary/60 transition-colors delay-150" />
-                    </span>
-                  </button>
-                )}
-              </div>
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="relative cursor-pointer z-10"
+              >
+                <span className="px-5 py-2 text-sm font-bold text-foreground bg-primary/10 rounded-full border border-primary/30 hover:border-primary/60 transition-all duration-300 inline-block">
+                  {currentPage.label}
+                </span>
+              </button>
+
+              {isMenuOpen && (
+                <>
+                  {navLinks
+                    .filter((l) => l.href !== currentPage.href)
+                    .map((link, i, arr) => {
+                      const angle = (i / arr.length) * 360 - 90;
+                      const radius = 100;
+                      const x = Math.cos((angle * Math.PI) / 180) * radius;
+                      const y = Math.sin((angle * Math.PI) / 180) * radius;
+                      return (
+                        <Link
+                          key={link.href}
+                          to={link.href}
+                          onClick={() => setIsMenuOpen(false)}
+                          className="absolute top-1/2 left-1/2 z-20 px-3 py-1.5 rounded-full text-xs font-medium bg-background/95 backdrop-blur-md border border-border/50 shadow-lg text-muted-foreground hover:text-primary hover:border-primary/40 transition-all duration-200 whitespace-nowrap"
+                          style={{
+                            transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
+                            animation: `scale-in 0.3s ease-out ${i * 60}ms both`,
+                          }}
+                        >
+                          {link.label}
+                        </Link>
+                      );
+                    })}
+                  {/* Orbit ring decoration */}
+                  <div
+                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] rounded-full border border-dashed border-primary/15 pointer-events-none animate-[spin_20s_linear_infinite]"
+                  />
+                </>
+              )}
             </div>
           </div>
 
