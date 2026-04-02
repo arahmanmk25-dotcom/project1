@@ -87,43 +87,43 @@ const Header = () => {
             </div>
           </Link>
 
-          {/* Desktop Navigation - Underline reveal */}
+          {/* Desktop Navigation - Morphing circle */}
           <div className="hidden lg:flex items-center justify-center absolute left-1/2 -translate-x-1/2">
             <div className="relative" ref={menuRef}>
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="flex flex-col items-center cursor-pointer group"
+                className={`relative cursor-pointer transition-all duration-500 ease-out ${
+                  isMenuOpen ? 'opacity-0 scale-75 pointer-events-none' : 'opacity-100 scale-100'
+                }`}
               >
-                <span className="text-sm font-semibold text-foreground tracking-wide pb-1">
+                <span className="relative z-10 px-5 py-2 text-sm font-semibold text-foreground">
                   {currentPage.label}
                 </span>
-                <span
-                  className={`h-[2px] bg-primary transition-all duration-500 ease-out ${
-                    isMenuOpen ? 'w-0' : 'w-full'
-                  }`}
-                />
+                <span className="absolute inset-0 rounded-full border-2 border-primary/40 animate-[spin_8s_linear_infinite]" />
+                <span className="absolute inset-1 rounded-full border border-primary/20 animate-[spin_12s_linear_infinite_reverse]" />
               </button>
 
               <div
-                className={`absolute top-full mt-4 left-1/2 -translate-x-1/2 flex items-center gap-1 bg-background/90 backdrop-blur-xl border border-border/40 rounded-2xl px-2 py-1.5 shadow-2xl whitespace-nowrap transition-all duration-300 origin-top ${
+                className={`absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 flex items-center gap-0.5 bg-background/95 backdrop-blur-xl border border-border/40 rounded-full px-2 py-1 shadow-2xl whitespace-nowrap transition-all duration-500 ease-out ${
                   isMenuOpen
-                    ? 'opacity-100 translate-y-0 scale-100'
-                    : 'opacity-0 -translate-y-2 scale-95 pointer-events-none'
+                    ? 'opacity-100 scale-100'
+                    : 'opacity-0 scale-0 pointer-events-none'
                 }`}
               >
-                {navLinks
-                  .filter((l) => l.href !== currentPage.href)
-                  .map((link, i) => (
-                    <Link
-                      key={link.href}
-                      to={link.href}
-                      onClick={() => setIsMenuOpen(false)}
-                      className="px-4 py-2 rounded-xl text-sm font-medium text-muted-foreground hover:text-primary hover:bg-primary/5 transition-all duration-200"
-                      style={{ animationDelay: `${i * 50}ms` }}
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    to={link.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                      isActive(link.href)
+                        ? 'bg-primary text-primary-foreground shadow-md'
+                        : 'text-muted-foreground hover:text-foreground hover:bg-primary/10'
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
               </div>
             </div>
           </div>
