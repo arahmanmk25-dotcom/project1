@@ -87,48 +87,51 @@ const Header = () => {
             </div>
           </Link>
 
-          {/* Desktop Navigation - Orbital ring */}
+          {/* Desktop Navigation - Typewriter Slot */}
           <div className="hidden lg:flex items-center justify-center absolute left-1/2 -translate-x-1/2">
-            <div className="relative" ref={menuRef}>
-              <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="relative cursor-pointer z-10"
-              >
-                <span className="px-5 py-2 text-sm font-bold text-foreground bg-primary/10 rounded-full border border-primary/30 hover:border-primary/60 transition-all duration-300 inline-block">
+            <div
+              className="relative group cursor-pointer"
+              ref={menuRef}
+              onMouseEnter={() => setIsMenuOpen(true)}
+              onMouseLeave={() => setIsMenuOpen(false)}
+            >
+              {/* Slot window */}
+              <div className="relative h-9 overflow-hidden rounded-lg border border-border/50 bg-background/80 backdrop-blur-md px-5 min-w-[120px] flex items-center justify-center">
+                {/* Typing cursor blink */}
+                <span className="text-sm font-mono font-semibold text-foreground tracking-wide">
                   {currentPage.label}
                 </span>
-              </button>
+                <span className="ml-1 w-[2px] h-4 bg-primary animate-[pulse_1s_steps(1)_infinite]" />
 
-              {isMenuOpen && (
-                <>
-                  {navLinks
-                    .filter((l) => l.href !== currentPage.href)
-                    .map((link, i, arr) => {
-                      const angle = (i / arr.length) * 360 - 90;
-                      const radius = 100;
-                      const x = Math.cos((angle * Math.PI) / 180) * radius;
-                      const y = Math.sin((angle * Math.PI) / 180) * radius;
-                      return (
-                        <Link
-                          key={link.href}
-                          to={link.href}
-                          onClick={() => setIsMenuOpen(false)}
-                          className="absolute top-1/2 left-1/2 z-20 px-3 py-1.5 rounded-full text-xs font-medium bg-background/95 backdrop-blur-md border border-border/50 shadow-lg text-muted-foreground hover:text-primary hover:border-primary/40 transition-all duration-200 whitespace-nowrap"
-                          style={{
-                            transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
-                            animation: `scale-in 0.3s ease-out ${i * 60}ms both`,
-                          }}
-                        >
-                          {link.label}
-                        </Link>
-                      );
-                    })}
-                  {/* Orbit ring decoration */}
-                  <div
-                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] rounded-full border border-dashed border-primary/15 pointer-events-none animate-[spin_20s_linear_infinite]"
-                  />
-                </>
-              )}
+                {/* Slot reel - slides up on hover */}
+                {isMenuOpen && (
+                  <div className="absolute inset-0 flex flex-col bg-background/95 backdrop-blur-xl rounded-lg border border-primary/20 shadow-xl z-20"
+                    style={{ top: 0, height: `${navLinks.length * 36}px` }}
+                  >
+                    {navLinks.map((link, i) => (
+                      <Link
+                        key={link.href}
+                        to={link.href}
+                        onClick={() => setIsMenuOpen(false)}
+                        className={`flex items-center justify-center h-9 px-5 text-sm font-mono font-medium whitespace-nowrap transition-all duration-150 ${
+                          isActive(link.href)
+                            ? 'text-primary bg-primary/10'
+                            : 'text-muted-foreground hover:text-foreground hover:bg-primary/5'
+                        }`}
+                        style={{
+                          animation: `fade-in 0.25s ease-out ${i * 40}ms both`,
+                        }}
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Subtle slot machine lines */}
+              <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+              <div className="absolute left-0 right-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
             </div>
           </div>
 
