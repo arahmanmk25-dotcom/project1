@@ -94,15 +94,20 @@ const Header = () => {
             onMouseEnter={() => setIsMenuOpen(true)}
             onMouseLeave={() => setIsMenuOpen(false)}
           >
-            <div className="relative cursor-pointer">
+            <div className="relative cursor-pointer pb-4">
               {/* Current page label with underline */}
               <span className="text-sm font-semibold text-foreground tracking-wide pb-1 border-b-2 border-primary">
                 {currentPage.label}
               </span>
 
+              {/* Invisible bridge to keep hover alive */}
+              {isMenuOpen && (
+                <div className="absolute top-full left-1/2 -translate-x-1/2 w-40 h-4" />
+              )}
+
               {/* Dropdown pill with all links */}
               {isMenuOpen && (
-                <div className="absolute top-[calc(100%+12px)] left-1/2 -translate-x-1/2 bg-background/95 backdrop-blur-xl rounded-full shadow-xl border border-border/30 px-2 py-1.5 flex items-center gap-1 animate-fade-in z-50">
+                <div className="absolute top-[calc(100%+16px)] left-1/2 -translate-x-1/2 bg-background/95 backdrop-blur-xl rounded-full shadow-xl border border-border/30 px-2 py-1.5 flex items-center gap-1 animate-fade-in z-50">
                   {navLinks.filter((l) => l.href !== currentPage.href).map((link) => (
                     <Link
                       key={link.href}
