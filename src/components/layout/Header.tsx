@@ -87,51 +87,38 @@ const Header = () => {
             </div>
           </Link>
 
-          {/* Desktop Navigation - Typewriter Slot */}
-          <div className="hidden lg:flex items-center justify-center absolute left-1/2 -translate-x-1/2">
-            <div
-              className="relative group cursor-pointer"
-              ref={menuRef}
-              onMouseEnter={() => setIsMenuOpen(true)}
-              onMouseLeave={() => setIsMenuOpen(false)}
-            >
-              {/* Slot window */}
-              <div className="relative h-9 overflow-hidden rounded-lg border border-border/50 bg-background/80 backdrop-blur-md px-5 min-w-[120px] flex items-center justify-center">
-                {/* Typing cursor blink */}
-                <span className="text-sm font-mono font-semibold text-foreground tracking-wide">
-                  {currentPage.label}
-                </span>
-                <span className="ml-1 w-[2px] h-4 bg-primary animate-[pulse_1s_steps(1)_infinite]" />
+          {/* Desktop Navigation - Centered current page with dropdown pill */}
+          <div
+            className="hidden lg:flex items-center justify-center absolute left-1/2 -translate-x-1/2"
+            ref={menuRef}
+            onMouseEnter={() => setIsMenuOpen(true)}
+            onMouseLeave={() => setIsMenuOpen(false)}
+          >
+            <div className="relative cursor-pointer">
+              {/* Current page label with underline */}
+              <span className="text-sm font-semibold text-foreground tracking-wide pb-1 border-b-2 border-primary">
+                {currentPage.label}
+              </span>
 
-                {/* Slot reel - slides up on hover */}
-                {isMenuOpen && (
-                  <div className="absolute inset-0 flex flex-col bg-background/95 backdrop-blur-xl rounded-lg border border-primary/20 shadow-xl z-20"
-                    style={{ top: 0, height: `${navLinks.length * 36}px` }}
-                  >
-                    {navLinks.map((link, i) => (
-                      <Link
-                        key={link.href}
-                        to={link.href}
-                        onClick={() => setIsMenuOpen(false)}
-                        className={`flex items-center justify-center h-9 px-5 text-sm font-mono font-medium whitespace-nowrap transition-all duration-150 ${
-                          isActive(link.href)
-                            ? 'text-primary bg-primary/10'
-                            : 'text-muted-foreground hover:text-foreground hover:bg-primary/5'
-                        }`}
-                        style={{
-                          animation: `fade-in 0.25s ease-out ${i * 40}ms both`,
-                        }}
-                      >
-                        {link.label}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              {/* Subtle slot machine lines */}
-              <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
-              <div className="absolute left-0 right-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+              {/* Dropdown pill with all links */}
+              {isMenuOpen && (
+                <div className="absolute top-[calc(100%+12px)] left-1/2 -translate-x-1/2 bg-background/95 backdrop-blur-xl rounded-full shadow-xl border border-border/30 px-2 py-1.5 flex items-center gap-1 animate-fade-in z-50">
+                  {navLinks.filter((l) => l.href !== currentPage.href).map((link) => (
+                    <Link
+                      key={link.href}
+                      to={link.href}
+                      onClick={() => setIsMenuOpen(false)}
+                      className={`px-4 py-1.5 text-sm font-medium whitespace-nowrap rounded-full transition-all duration-150 ${
+                        isActive(link.href)
+                          ? 'text-primary bg-primary/10'
+                          : 'text-muted-foreground hover:text-foreground hover:bg-primary/5'
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
 
