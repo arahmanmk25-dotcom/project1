@@ -26,10 +26,12 @@ const Header = () => {
     setIsMenuOpen(false);
   }, [location.pathname]);
 
-  // Close menu on outside click
+  // Close mobile menu on outside click (only for mobile)
   useEffect(() => {
     if (!isMenuOpen) return;
     const handleClick = (e: MouseEvent) => {
+      // Only handle outside clicks for mobile menu
+      if (window.innerWidth >= 1024) return;
       if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
         setIsMenuOpen(false);
       }
