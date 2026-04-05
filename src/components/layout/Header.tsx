@@ -103,7 +103,7 @@ const Header = () => {
               {isMenuOpen && (
                 <>
                   {/* Bridge area to keep hover alive */}
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 w-[500px] h-5" />
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 w-[500px] h-5 pointer-events-none" />
                   <div className="absolute top-[calc(100%+20px)] left-1/2 -translate-x-1/2 bg-background/95 backdrop-blur-xl rounded-full shadow-xl border border-border/30 px-2 py-1.5 flex items-center gap-1 animate-fade-in z-50">
                     {navLinks.filter((l) => l.href !== currentPage.href).map((link) => (
                       <Link
