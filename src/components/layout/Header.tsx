@@ -26,10 +26,12 @@ const Header = () => {
     setIsMenuOpen(false);
   }, [location.pathname]);
 
-  // Close menu on outside click
+  // Close mobile menu on outside click (only for mobile)
   useEffect(() => {
     if (!isMenuOpen) return;
     const handleClick = (e: MouseEvent) => {
+      // Only handle outside clicks for mobile menu
+      if (window.innerWidth >= 1024) return;
       if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
         setIsMenuOpen(false);
       }
@@ -90,11 +92,10 @@ const Header = () => {
           {/* Desktop Navigation - Centered current page with dropdown pill */}
           <div
             className="hidden lg:flex items-center justify-center absolute left-1/2 -translate-x-1/2"
-            ref={menuRef}
             onMouseEnter={() => setIsMenuOpen(true)}
             onMouseLeave={() => setIsMenuOpen(false)}
           >
-            <div className="relative cursor-pointer">
+            <div className="relative cursor-pointer py-2">
               {/* Current page label with underline */}
               <span className="text-sm font-semibold text-foreground tracking-wide pb-1 border-b-2 border-primary">
                 {currentPage.label}
@@ -102,22 +103,26 @@ const Header = () => {
 
               {/* Dropdown pill with all links */}
               {isMenuOpen && (
-                <div className="absolute top-[calc(100%+12px)] left-1/2 -translate-x-1/2 bg-background/95 backdrop-blur-xl rounded-full shadow-xl border border-border/30 px-2 py-1.5 flex items-center gap-1 animate-fade-in z-50">
-                  {navLinks.filter((l) => l.href !== currentPage.href).map((link) => (
-                    <Link
-                      key={link.href}
-                      to={link.href}
-                      onClick={() => setIsMenuOpen(false)}
-                      className={`px-4 py-1.5 text-sm font-medium whitespace-nowrap rounded-full transition-all duration-150 ${
-                        isActive(link.href)
-                          ? 'text-primary bg-primary/10'
-                          : 'text-muted-foreground hover:text-foreground hover:bg-primary/5'
-                      }`}
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
-                </div>
+                <>
+                  {/* Bridge area to keep hover alive */}
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 w-[500px] h-5 z-40" />
+                  <div className="absolute top-[calc(100%+20px)] left-1/2 -translate-x-1/2 bg-background/95 backdrop-blur-xl rounded-full shadow-xl border border-border/30 px-2 py-1.5 flex items-center gap-1 animate-fade-in z-50">
+                    {navLinks.filter((l) => l.href !== currentPage.href).map((link) => (
+                      <Link
+                        key={link.href}
+                        to={link.href}
+                        onClick={() => setIsMenuOpen(false)}
+                        className={`px-4 py-1.5 text-sm font-medium whitespace-nowrap rounded-full transition-all duration-150 ${
+                          isActive(link.href)
+                            ? 'text-primary bg-primary/10'
+                            : 'text-muted-foreground hover:text-foreground hover:bg-primary/5'
+                        }`}
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
+                </>
               )}
             </div>
           </div>
