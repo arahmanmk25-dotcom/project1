@@ -179,7 +179,7 @@ const Work = () => {
                   <ScrollReveal key={i} variant="fadeUp" delay={(i % 3) * 0.08}>
                     <div
                       className="relative group overflow-hidden rounded-xl cursor-pointer"
-                      onClick={() => openLightbox(i + 1)}
+                      onClick={() => openLightbox(i)}
                     >
                       <div className="aspect-[4/3]">
                         <img
