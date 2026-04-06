@@ -6,7 +6,7 @@ import ScrollReveal from '@/components/shared/ScrollReveal';
 
 import workImg1 from '@/assets/trucks/work-img-1.jpeg';
 import workImg3 from '@/assets/trucks/work-img-3.jpeg';
-import fleet3 from '@/assets/trucks/fleet-3.jpg';
+
 import workImg7 from '@/assets/trucks/work-img-7.jpg';
 import workNew20 from '@/assets/trucks/work-new-20.jpg';
 
