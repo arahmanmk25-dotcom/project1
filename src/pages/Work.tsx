@@ -115,53 +115,8 @@ const Work = () => {
           </div>
         </section>
 
-        {/* Latest Project - Featured editorial */}
-        <section className="py-12">
-          <div className="container mx-auto px-4">
-            <div className="max-w-6xl mx-auto">
-              <ScrollReveal variant="fadeUp">
-                <div className="flex items-center gap-3 mb-8">
-                  <span className="relative flex h-3 w-3">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-3 w-3 bg-gold"></span>
-                  </span>
-                  <p className="text-gold font-semibold tracking-widest uppercase text-sm">
-                    {language === 'ar' ? 'أحدث مشاريعنا' : 'LATEST PROJECT'}
-                  </p>
-                </div>
-              </ScrollReveal>
 
-              <ScrollReveal variant="fadeUp" delay={0.1}>
-              <div
-                className="relative group overflow-hidden rounded-2xl cursor-pointer"
-                onClick={() => openLightbox(0)}
-              >
-                <div className="aspect-[21/9]">
-                  <img
-                    src={latestProject.image}
-                    alt={language === 'ar' ? latestProject.titleAr : latestProject.titleEn}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8 md:p-12">
-                  <HoverTruckAnimation />
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 relative z-20">
-                    {language === 'ar' ? latestProject.titleAr : latestProject.titleEn}
-                  </h3>
-                  <p className="text-white/90 text-lg leading-relaxed max-w-2xl relative z-20">
-                    {language === 'ar' ? latestProject.descAr : latestProject.descEn}
-                  </p>
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12 bg-gradient-to-t from-black/80 to-transparent group-hover:opacity-0 transition-opacity duration-300">
-                  <h3 className="text-2xl md:text-3xl text-white font-bold">
-                    {language === 'ar' ? latestProject.titleAr : latestProject.titleEn}
-                  </h3>
-                </div>
-              </div>
-              </ScrollReveal>
-            </div>
-          </div>
-        </section>
+
 
         {/* All Projects - Clean grid */}
         <section className="py-24">
