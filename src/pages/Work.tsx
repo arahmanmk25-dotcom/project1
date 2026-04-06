@@ -44,15 +44,8 @@ const Work = () => {
   const { t, language } = useLanguage();
   const { isOpen, currentIndex, openLightbox, closeLightbox, navigate } = useLightbox();
 
-  const latestProject = { 
-    titleEn: '29m Crane Arm Transport',
-    titleAr: 'نقل ذراع كرين ٢٩ متر',
-    descEn: 'Specialized night transport of a 29-meter crane arm using our flagship HAFCO MAN truck with extended lowbed trailer. This challenging operation required expert coordination, secure fastening with heavy-duty chains, and careful route planning for safe oversized load delivery.',
-    descAr: 'نقل متخصص ليلي لذراع كرين بطول ٢٩ متر باستخدام شاحنة HAFCO MAN مع مقطورة لوبيد ممتدة. هذه العملية الصعبة تطلبت تنسيق خبراء، تثبيت آمن بسلاسل شديدة التحمل، وتخطيط دقيق للمسار لتوصيل الحمولة كبيرة الحجم بأمان.',
-    image: workNew20
-  };
-
   const projects = [
+    { titleEn: '29m Crane Arm Transport', titleAr: 'نقل ذراع كرين ٢٩ متر', descEn: 'Specialized night transport of a 29-meter crane arm using our flagship HAFCO MAN truck with extended lowbed trailer.', descAr: 'نقل متخصص ليلي لذراع كرين بطول ٢٩ متر باستخدام شاحنة HAFCO MAN مع مقطورة لوبيد ممتدة.', image: workNew20 },
     { titleEn: 'Aramco Excavator Relocation', titleAr: 'نقل حفارة أرامكو', descEn: 'Heavy excavator transport for Aramco oil field operations. Secured with industrial chains on our specialized lowbed trailer.', descAr: 'نقل حفارة ثقيلة لعمليات حقول نفط أرامكو. مثبتة بسلاسل صناعية على مقطورة لوبيد متخصصة.', image: workImg1 },
     { titleEn: 'SABIC Industrial Machinery', titleAr: 'آلات سابك الصناعية', descEn: 'Delivery of petrochemical processing equipment to SABIC facility in Jubail Industrial City.', descAr: 'توصيل معدات معالجة بتروكيماوية إلى منشأة سابك في مدينة الجبيل الصناعية.', image: workImg2 },
     { titleEn: '30m Petroleum Pipes - Eastern Province', titleAr: 'أنابيب بترولية ٣٠م - المنطقة الشرقية', descEn: 'Transport of 30-meter coated petroleum pipeline sections from Dammam port to Ras Tanura refinery.', descAr: 'نقل أقسام أنابيب بترولية مطلية بطول ٣٠ متر من ميناء الدمام إلى مصفاة رأس تنورة.', image: workImg3 },
@@ -85,7 +78,7 @@ const Work = () => {
     { titleEn: 'Prestressed Concrete Beam', titleAr: 'عارضة خرسانية مسبقة الإجهاد', descEn: 'Heavy prestressed concrete beam for flyover bridge construction.', descAr: 'عارضة خرسانية ثقيلة مسبقة الإجهاد لبناء جسر علوي.', image: workNew19 },
   ];
 
-  const allProjectsForLightbox = [latestProject, ...projects];
+  const allProjectsForLightbox = projects;
 
   const lightboxImages = allProjectsForLightbox.map(project => ({
     src: project.image,
@@ -122,53 +115,8 @@ const Work = () => {
           </div>
         </section>
 
-        {/* Latest Project - Featured editorial */}
-        <section className="py-12">
-          <div className="container mx-auto px-4">
-            <div className="max-w-6xl mx-auto">
-              <ScrollReveal variant="fadeUp">
-                <div className="flex items-center gap-3 mb-8">
-                  <span className="relative flex h-3 w-3">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-3 w-3 bg-gold"></span>
-                  </span>
-                  <p className="text-gold font-semibold tracking-widest uppercase text-sm">
-                    {language === 'ar' ? 'أحدث مشاريعنا' : 'LATEST PROJECT'}
-                  </p>
-                </div>
-              </ScrollReveal>
 
-              <ScrollReveal variant="fadeUp" delay={0.1}>
-              <div
-                className="relative group overflow-hidden rounded-2xl cursor-pointer"
-                onClick={() => openLightbox(0)}
-              >
-                <div className="aspect-[21/9]">
-                  <img
-                    src={latestProject.image}
-                    alt={language === 'ar' ? latestProject.titleAr : latestProject.titleEn}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8 md:p-12">
-                  <HoverTruckAnimation />
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 relative z-20">
-                    {language === 'ar' ? latestProject.titleAr : latestProject.titleEn}
-                  </h3>
-                  <p className="text-white/90 text-lg leading-relaxed max-w-2xl relative z-20">
-                    {language === 'ar' ? latestProject.descAr : latestProject.descEn}
-                  </p>
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12 bg-gradient-to-t from-black/80 to-transparent group-hover:opacity-0 transition-opacity duration-300">
-                  <h3 className="text-2xl md:text-3xl text-white font-bold">
-                    {language === 'ar' ? latestProject.titleAr : latestProject.titleEn}
-                  </h3>
-                </div>
-              </div>
-              </ScrollReveal>
-            </div>
-          </div>
-        </section>
+
 
         {/* All Projects - Clean grid */}
         <section className="py-24">
@@ -186,7 +134,7 @@ const Work = () => {
                   <ScrollReveal key={i} variant="fadeUp" delay={(i % 3) * 0.08}>
                     <div
                       className="relative group overflow-hidden rounded-xl cursor-pointer"
-                      onClick={() => openLightbox(i + 1)}
+                      onClick={() => openLightbox(i)}
                     >
                       <div className="aspect-[4/3]">
                         <img
