@@ -25,7 +25,7 @@ const ServicesCards = () => {
   const services: ServiceItem[] = [
     { icon: Truck, title: t('services.heavy.title'), desc: language === 'ar' ? 'نقل المعدات الثقيلة والآلات الصناعية بأمان وكفاءة عبر المملكة' : 'Safe & efficient heavy equipment and industrial machinery transport across Saudi Arabia', image: workImg1, num: '01', slug: 'heavy-transport' },
     { icon: Shield, title: t('services.petroleum.title'), desc: language === 'ar' ? 'نقل أنابيب ومواد البترول بأعلى معايير السلامة الدولية' : 'Petroleum pipe and materials hauling with top international safety standards', image: workImg3, num: '02', slug: 'petroleum' },
-    { icon: Clock, title: t('services.crane.title'), desc: language === 'ar' ? 'خدمات الرافعات المتخصصة للمشاريع الكبرى والإنشائية' : 'Specialized crane services for major construction and industrial projects', image: workNew20, num: '03', slug: 'crane' }, title: t('services.crane.title'), desc: language === 'ar' ? 'خدمات الرافعات المتخصصة للمشاريع الكبرى والإنشائية' : 'Specialized crane services for major construction and industrial projects', image: workNew20, num: '03', slug: 'crane' }, },
+    { icon: Clock, title: t('services.crane.title'), desc: language === 'ar' ? 'خدمات الرافعات المتخصصة للمشاريع الكبرى والإنشائية' : 'Specialized crane services for major construction and industrial projects', image: workNew20, num: '03', slug: 'crane' },
     { icon: Users, title: t('services.logistics.title'), desc: language === 'ar' ? 'حلول لوجستية متكاملة وشاملة من الباب إلى الباب' : 'Comprehensive end-to-end logistics solutions tailored to your needs', image: workImg7, num: '04', slug: 'logistics' },
   ];
 
