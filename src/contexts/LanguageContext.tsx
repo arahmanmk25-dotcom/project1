@@ -18,6 +18,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.work': 'Our Work',
     'nav.fleet': 'Our Fleet',
     'nav.contact': 'Contact Us',
+    'nav.clients': 'Our Clients',
     'nav.getQuote': 'Get a Quote',
 
     // Hero
@@ -123,6 +124,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.work': 'أعمالنا',
     'nav.fleet': 'أسطولنا',
     'nav.contact': 'اتصل بنا',
+    'nav.clients': 'عملاؤنا',
     'nav.getQuote': 'احصل على عرض سعر',
 
     // Hero
