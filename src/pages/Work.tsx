@@ -88,19 +88,27 @@ const Work = () => {
     { titleEn: 'Prestressed Concrete Beam', titleAr: 'عارضة خرسانية مسبقة الإجهاد', descEn: 'Heavy prestressed concrete beam for flyover bridge construction.', descAr: 'عارضة خرسانية ثقيلة مسبقة الإجهاد لبناء جسر علوي.', image: workNew19 },
   ];
 
-  // Build lightbox images array, expanding multi-image projects
+  // Build lightbox images: latest project first, then grid projects
   const lightboxImages: { src: string; title: string; description: string }[] = [];
-  const cardToLightboxIndex: number[] = [];
   
+  // Add latest project images
+  const latestLightboxStart = 0;
+  latestProject.images.forEach((img, imgIdx) => {
+    lightboxImages.push({
+      src: img,
+      title: (language === 'ar' ? latestProject.titleAr : latestProject.titleEn) + ` (${imgIdx + 1}/${latestProject.images.length})`,
+      description: language === 'ar' ? latestProject.descAr : latestProject.descEn,
+    });
+  });
+
+  // Add grid project images
+  const cardToLightboxIndex: number[] = [];
   projects.forEach((project) => {
     cardToLightboxIndex.push(lightboxImages.length);
-    const imgs = project.images || [project.image];
-    imgs.forEach((img, imgIdx) => {
-      lightboxImages.push({
-        src: img,
-        title: (language === 'ar' ? project.titleAr : project.titleEn) + (imgs.length > 1 ? ` (${imgIdx + 1}/${imgs.length})` : ''),
-        description: language === 'ar' ? project.descAr : project.descEn,
-      });
+    lightboxImages.push({
+      src: project.image,
+      title: language === 'ar' ? project.titleAr : project.titleEn,
+      description: language === 'ar' ? project.descAr : project.descEn,
     });
   });
 
