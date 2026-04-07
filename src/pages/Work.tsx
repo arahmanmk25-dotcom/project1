@@ -46,8 +46,15 @@ const Work = () => {
   const { t, language } = useLanguage();
   const { isOpen, currentIndex, openLightbox, closeLightbox, navigate } = useLightbox();
 
+  const latestProject = {
+    titleEn: '48" Petroleum Coating Pipe 25m',
+    titleAr: 'أنبوب بترولي مطلي ٤٨ بوصة ٢٥ متر',
+    descEn: 'Transport of 48-inch diameter, 25-meter petroleum coating pipes with specialized flatbed trailers and secure fastening systems.',
+    descAr: 'نقل أنابيب بترولية مطلية بقطر ٤٨ بوصة وطول ٢٥ متر بمقطورات مسطحة متخصصة وأنظمة تثبيت آمنة.',
+    images: [pipe48_1, pipe48_2, pipe48_3],
+  };
+
   const projects = [
-    { titleEn: '48" Petroleum Coating Pipe 25m', titleAr: 'أنبوب بترولي مطلي ٤٨ بوصة ٢٥ متر', descEn: 'Transport of 48-inch diameter, 25-meter petroleum coating pipes with specialized flatbed trailers and secure fastening systems.', descAr: 'نقل أنابيب بترولية مطلية بقطر ٤٨ بوصة وطول ٢٥ متر بمقطورات مسطحة متخصصة وأنظمة تثبيت آمنة.', image: pipe48_1, images: [pipe48_1, pipe48_2, pipe48_3] },
     { titleEn: '29m Crane Arm Transport', titleAr: 'نقل ذراع كرين ٢٩ متر', descEn: 'Specialized night transport of a 29-meter crane arm using our flagship HAFCO MAN truck with extended lowbed trailer.', descAr: 'نقل متخصص ليلي لذراع كرين بطول ٢٩ متر باستخدام شاحنة HAFCO MAN مع مقطورة لوبيد ممتدة.', image: workNew20 },
     { titleEn: 'Aramco Excavator Relocation', titleAr: 'نقل حفارة أرامكو', descEn: 'Heavy excavator transport for Aramco oil field operations. Secured with industrial chains on our specialized lowbed trailer.', descAr: 'نقل حفارة ثقيلة لعمليات حقول نفط أرامكو. مثبتة بسلاسل صناعية على مقطورة لوبيد متخصصة.', image: workImg1 },
     { titleEn: 'SABIC Industrial Machinery', titleAr: 'آلات سابك الصناعية', descEn: 'Delivery of petrochemical processing equipment to SABIC facility in Jubail Industrial City.', descAr: 'توصيل معدات معالجة بتروكيماوية إلى منشأة سابك في مدينة الجبيل الصناعية.', image: workImg2 },
