@@ -141,7 +141,39 @@ const Work = () => {
           </div>
         </section>
 
+        {/* Latest Project - Featured */}
+        <section className="py-24 bg-secondary/30">
+          <div className="container mx-auto px-4">
+            <div className="max-w-6xl mx-auto">
+              <ScrollReveal variant="fadeUp">
+                <p className="text-gold font-semibold tracking-widest uppercase text-sm mb-4">
+                  {language === 'ar' ? 'أحدث مشروع' : 'LATEST PROJECT'}
+                </p>
+                <h2 className="text-4xl md:text-5xl font-bold text-primary mb-8">
+                  {language === 'ar' ? latestProject.titleAr : latestProject.titleEn}
+                </h2>
+              </ScrollReveal>
 
+              <ScrollReveal variant="fadeUp" delay={0.1}>
+                <div
+                  className="relative rounded-2xl overflow-hidden cursor-pointer group h-[50vh] min-h-[400px]"
+                  onClick={() => openLightbox(latestLightboxStart)}
+                >
+                  <HeroSlideshow images={latestProject.images} interval={5000} showTrucks={false} />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:from-black/90 transition-all duration-500" />
+                  <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10">
+                    <p className="text-white/80 text-lg md:text-xl leading-relaxed max-w-2xl">
+                      {language === 'ar' ? latestProject.descAr : latestProject.descEn}
+                    </p>
+                    <p className="text-gold font-semibold mt-4 text-sm tracking-wide uppercase group-hover:underline">
+                      {language === 'ar' ? 'اضغط لعرض الصور' : 'Click to view photos'} ({latestProject.images.length})
+                    </p>
+                  </div>
+                </div>
+              </ScrollReveal>
+            </div>
+          </div>
+        </section>
 
 
         {/* All Projects - Clean grid */}
