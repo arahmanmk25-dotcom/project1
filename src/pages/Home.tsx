@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
-import ClientsMarquee from '@/components/home/ClientsMarquee';
+import ClientsCarousel from '@/components/home/ClientsCarousel';
 import ClientsBackgroundAnimation from '@/components/home/ClientsBackgroundAnimation';
 import ScrollReveal from '@/components/shared/ScrollReveal';
 import PageTransition from '@/components/shared/PageTransition';
@@ -183,7 +183,7 @@ const Home = () => {
               </p>
             </ScrollReveal>
           </div>
-          <ClientsMarquee />
+          <ClientsCarousel />
         </section>
 
         {/* Visual separator between clients and CTA */}
