@@ -39,7 +39,9 @@ import workNew17 from '@/assets/trucks/work-new-17.jpg';
 import workNew18 from '@/assets/trucks/work-new-18.jpg';
 import workNew19 from '@/assets/trucks/work-new-19.jpg';
 import workNew20 from '@/assets/trucks/work-new-20.jpg';
-
+import pipe48_1 from '@/assets/trucks/pipe-48-1.jpeg';
+import pipe48_2 from '@/assets/trucks/pipe-48-2.jpeg';
+import pipe48_3 from '@/assets/trucks/pipe-48-3.jpeg';
 const Work = () => {
   const { t, language } = useLanguage();
   const { isOpen, currentIndex, openLightbox, closeLightbox, navigate } = useLightbox();
