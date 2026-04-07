@@ -11,7 +11,7 @@ import About from "./pages/About";
 import Services from "./pages/Services";
 import Work from "./pages/Work";
 import Fleet from "./pages/Fleet";
-import Clients from "./pages/Clients";
+
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/shared/ScrollToTop";
@@ -28,7 +28,7 @@ const AnimatedRoutes = () => {
         <Route path="/services" element={<Services />} />
         <Route path="/fleet" element={<Fleet />} />
         <Route path="/work" element={<Work />} />
-        <Route path="/clients" element={<Clients />} />
+        
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
