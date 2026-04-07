@@ -46,8 +46,15 @@ const Work = () => {
   const { t, language } = useLanguage();
   const { isOpen, currentIndex, openLightbox, closeLightbox, navigate } = useLightbox();
 
+  const latestProject = {
+    titleEn: '48" Petroleum Coating Pipe 25m',
+    titleAr: 'أنبوب بترولي مطلي ٤٨ بوصة ٢٥ متر',
+    descEn: 'Transport of 48-inch diameter, 25-meter petroleum coating pipes with specialized flatbed trailers and secure fastening systems.',
+    descAr: 'نقل أنابيب بترولية مطلية بقطر ٤٨ بوصة وطول ٢٥ متر بمقطورات مسطحة متخصصة وأنظمة تثبيت آمنة.',
+    images: [pipe48_1, pipe48_2, pipe48_3],
+  };
+
   const projects = [
-    { titleEn: '48" Petroleum Coating Pipe 25m', titleAr: 'أنبوب بترولي مطلي ٤٨ بوصة ٢٥ متر', descEn: 'Transport of 48-inch diameter, 25-meter petroleum coating pipes with specialized flatbed trailers and secure fastening systems.', descAr: 'نقل أنابيب بترولية مطلية بقطر ٤٨ بوصة وطول ٢٥ متر بمقطورات مسطحة متخصصة وأنظمة تثبيت آمنة.', image: pipe48_1, images: [pipe48_1, pipe48_2, pipe48_3] },
     { titleEn: '29m Crane Arm Transport', titleAr: 'نقل ذراع كرين ٢٩ متر', descEn: 'Specialized night transport of a 29-meter crane arm using our flagship HAFCO MAN truck with extended lowbed trailer.', descAr: 'نقل متخصص ليلي لذراع كرين بطول ٢٩ متر باستخدام شاحنة HAFCO MAN مع مقطورة لوبيد ممتدة.', image: workNew20 },
     { titleEn: 'Aramco Excavator Relocation', titleAr: 'نقل حفارة أرامكو', descEn: 'Heavy excavator transport for Aramco oil field operations. Secured with industrial chains on our specialized lowbed trailer.', descAr: 'نقل حفارة ثقيلة لعمليات حقول نفط أرامكو. مثبتة بسلاسل صناعية على مقطورة لوبيد متخصصة.', image: workImg1 },
     { titleEn: 'SABIC Industrial Machinery', titleAr: 'آلات سابك الصناعية', descEn: 'Delivery of petrochemical processing equipment to SABIC facility in Jubail Industrial City.', descAr: 'توصيل معدات معالجة بتروكيماوية إلى منشأة سابك في مدينة الجبيل الصناعية.', image: workImg2 },
@@ -81,19 +88,27 @@ const Work = () => {
     { titleEn: 'Prestressed Concrete Beam', titleAr: 'عارضة خرسانية مسبقة الإجهاد', descEn: 'Heavy prestressed concrete beam for flyover bridge construction.', descAr: 'عارضة خرسانية ثقيلة مسبقة الإجهاد لبناء جسر علوي.', image: workNew19 },
   ];
 
-  // Build lightbox images array, expanding multi-image projects
+  // Build lightbox images: latest project first, then grid projects
   const lightboxImages: { src: string; title: string; description: string }[] = [];
-  const cardToLightboxIndex: number[] = [];
   
+  // Add latest project images
+  const latestLightboxStart = 0;
+  latestProject.images.forEach((img, imgIdx) => {
+    lightboxImages.push({
+      src: img,
+      title: (language === 'ar' ? latestProject.titleAr : latestProject.titleEn) + ` (${imgIdx + 1}/${latestProject.images.length})`,
+      description: language === 'ar' ? latestProject.descAr : latestProject.descEn,
+    });
+  });
+
+  // Add grid project images
+  const cardToLightboxIndex: number[] = [];
   projects.forEach((project) => {
     cardToLightboxIndex.push(lightboxImages.length);
-    const imgs = project.images || [project.image];
-    imgs.forEach((img, imgIdx) => {
-      lightboxImages.push({
-        src: img,
-        title: (language === 'ar' ? project.titleAr : project.titleEn) + (imgs.length > 1 ? ` (${imgIdx + 1}/${imgs.length})` : ''),
-        description: language === 'ar' ? project.descAr : project.descEn,
-      });
+    lightboxImages.push({
+      src: project.image,
+      title: language === 'ar' ? project.titleAr : project.titleEn,
+      description: language === 'ar' ? project.descAr : project.descEn,
     });
   });
 
@@ -126,7 +141,39 @@ const Work = () => {
           </div>
         </section>
 
+        {/* Latest Project - Featured */}
+        <section className="py-24 bg-secondary/30">
+          <div className="container mx-auto px-4">
+            <div className="max-w-6xl mx-auto">
+              <ScrollReveal variant="fadeUp">
+                <p className="text-gold font-semibold tracking-widest uppercase text-sm mb-4">
+                  {language === 'ar' ? 'أحدث مشروع' : 'LATEST PROJECT'}
+                </p>
+                <h2 className="text-4xl md:text-5xl font-bold text-primary mb-8">
+                  {language === 'ar' ? latestProject.titleAr : latestProject.titleEn}
+                </h2>
+              </ScrollReveal>
 
+              <ScrollReveal variant="fadeUp" delay={0.1}>
+                <div
+                  className="relative rounded-2xl overflow-hidden cursor-pointer group h-[50vh] min-h-[400px]"
+                  onClick={() => openLightbox(latestLightboxStart)}
+                >
+                  <HeroSlideshow images={latestProject.images} interval={5000} showTrucks={false} />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:from-black/90 transition-all duration-500" />
+                  <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10">
+                    <p className="text-white/80 text-lg md:text-xl leading-relaxed max-w-2xl">
+                      {language === 'ar' ? latestProject.descAr : latestProject.descEn}
+                    </p>
+                    <p className="text-gold font-semibold mt-4 text-sm tracking-wide uppercase group-hover:underline">
+                      {language === 'ar' ? 'اضغط لعرض الصور' : 'Click to view photos'} ({latestProject.images.length})
+                    </p>
+                  </div>
+                </div>
+              </ScrollReveal>
+            </div>
+          </div>
+        </section>
 
 
         {/* All Projects - Clean grid */}

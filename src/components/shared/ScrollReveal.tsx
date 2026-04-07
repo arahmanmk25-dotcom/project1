@@ -1,5 +1,5 @@
 import { motion, useInView } from 'framer-motion';
-import { useRef, useState, useEffect, ReactNode } from 'react';
+import { useRef, ReactNode } from 'react';
 
 interface ScrollRevealProps {
   children: ReactNode;
@@ -43,23 +43,16 @@ const ScrollReveal = ({
   variant = 'fadeUp', 
   delay = 0, 
   duration = 0.6, 
-  once = true 
+  once = false 
 }: ScrollRevealProps) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once, amount: 0.15 });
-  const [hasAnimated, setHasAnimated] = useState(false);
-
-  useEffect(() => {
-    if (isInView && !hasAnimated) {
-      setHasAnimated(true);
-    }
-  }, [isInView, hasAnimated]);
 
   return (
     <motion.div
       ref={ref}
       initial="hidden"
-      animate={hasAnimated ? 'visible' : 'hidden'}
+      animate={isInView ? 'visible' : 'hidden'}
       variants={variants[variant]}
       transition={{ duration, delay, ease: [0.25, 0.1, 0.25, 1] }}
       className={className}
