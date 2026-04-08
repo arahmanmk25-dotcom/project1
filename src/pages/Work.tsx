@@ -42,6 +42,8 @@ import workNew20 from '@/assets/trucks/work-new-20.jpg';
 import pipe48_1 from '@/assets/trucks/pipe-48-1.jpeg';
 import pipe48_2 from '@/assets/trucks/pipe-48-2.jpeg';
 import pipe48_3 from '@/assets/trucks/pipe-48-3.jpeg';
+import pipe48_4 from '@/assets/trucks/pipe-48-4.jpeg';
+import pipe48_5 from '@/assets/trucks/pipe-48-5.jpeg';
 const Work = () => {
   const { t, language } = useLanguage();
   const { isOpen, currentIndex, openLightbox, closeLightbox, navigate } = useLightbox();
@@ -51,7 +53,7 @@ const Work = () => {
     titleAr: 'أنبوب بترولي مطلي ٤٨ بوصة ٢٥ متر',
     descEn: 'Transport of 48-inch diameter, 25-meter petroleum coating pipes with specialized flatbed trailers and secure fastening systems.',
     descAr: 'نقل أنابيب بترولية مطلية بقطر ٤٨ بوصة وطول ٢٥ متر بمقطورات مسطحة متخصصة وأنظمة تثبيت آمنة.',
-    images: [pipe48_1, pipe48_2, pipe48_3],
+    images: [pipe48_1, pipe48_2, pipe48_3, pipe48_4, pipe48_5],
   };
 
   const projects = [
