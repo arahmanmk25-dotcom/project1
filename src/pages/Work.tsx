@@ -53,7 +53,7 @@ const Work = () => {
     titleAr: 'أنبوب بترولي مطلي ٤٨ بوصة ٢٥ متر',
     descEn: 'Transport of 48-inch diameter, 25-meter petroleum coating pipes with specialized flatbed trailers and secure fastening systems.',
     descAr: 'نقل أنابيب بترولية مطلية بقطر ٤٨ بوصة وطول ٢٥ متر بمقطورات مسطحة متخصصة وأنظمة تثبيت آمنة.',
-    images: [pipe48_1, pipe48_2, pipe48_3],
+    images: [pipe48_1, pipe48_2, pipe48_3, pipe48_4, pipe48_5],
   };
 
   const projects = [
