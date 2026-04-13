@@ -62,9 +62,8 @@ const FleetGallery = ({ items, categories }: FleetGalleryProps) => {
             <motion.div
               key={`${item.nameEn}-${item.model}-${item.year}`}
               initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.2 }}
-              transition={{ duration: 0.35, ease: 'easeOut', delay: (i % 4) * 0.06 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.35, ease: 'easeOut', delay: i * 0.05 }}
               className="group relative cursor-pointer overflow-hidden rounded-lg hover-lift"
               onClick={() => openLightbox(i)}
             >
