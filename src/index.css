@@ -6,57 +6,51 @@
 
 @layer base {
   :root {
-    /* Saudi Green Theme */
-    --background: 0 0% 100%;
-    --foreground: 147 76% 15%;
+    /* Vintage Aged-Paper Theme (keeps HAFCO green identity, muted) */
+    --background: 42 38% 88%;
+    --foreground: 120 25% 12%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 147 76% 15%;
+    --card: 42 35% 92%;
+    --card-foreground: 120 25% 12%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 147 76% 15%;
+    --popover: 42 38% 90%;
+    --popover-foreground: 120 25% 12%;
 
-    /* Saudi Green - Primary */
-    --primary: 147 76% 22%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 120 20% 24%;
+    --primary-foreground: 42 38% 94%;
 
-    /* Light green tint */
-    --secondary: 147 30% 95%;
-    --secondary-foreground: 147 76% 22%;
+    --secondary: 40 30% 80%;
+    --secondary-foreground: 120 25% 18%;
 
-    /* Muted greens */
-    --muted: 147 20% 96%;
-    --muted-foreground: 147 30% 40%;
+    --muted: 40 25% 82%;
+    --muted-foreground: 40 18% 32%;
 
-    /* Gold accent */
-    --accent: 43 74% 49%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 38 35% 50%;
+    --accent-foreground: 42 38% 95%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 12 55% 38%;
+    --destructive-foreground: 42 38% 95%;
 
-    --border: 147 20% 90%;
-    --input: 147 20% 90%;
-    --ring: 147 76% 22%;
+    --border: 40 25% 70%;
+    --input: 40 25% 72%;
+    --ring: 120 20% 24%;
 
-    --radius: 0.75rem;
+    --radius: 0.375rem;
 
-    /* Custom colors */
-    --saudi-green: 147 76% 22%;
-    --saudi-green-dark: 147 76% 15%;
-    --saudi-green-light: 147 50% 40%;
-    --gold: 43 74% 49%;
-    --gold-light: 43 74% 65%;
+    --saudi-green: 120 20% 24%;
+    --saudi-green-dark: 120 25% 14%;
+    --saudi-green-light: 110 18% 38%;
+    --gold: 38 35% 50%;
+    --gold-light: 38 40% 65%;
 
-    /* Sidebar */
-    --sidebar-background: 147 76% 22%;
-    --sidebar-foreground: 0 0% 100%;
-    --sidebar-primary: 0 0% 100%;
-    --sidebar-primary-foreground: 147 76% 22%;
-    --sidebar-accent: 147 76% 28%;
-    --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 147 76% 28%;
-    --sidebar-ring: 43 74% 49%;
+    --sidebar-background: 120 25% 14%;
+    --sidebar-foreground: 42 38% 92%;
+    --sidebar-primary: 42 38% 92%;
+    --sidebar-primary-foreground: 120 25% 14%;
+    --sidebar-accent: 120 20% 22%;
+    --sidebar-accent-foreground: 42 38% 92%;
+    --sidebar-border: 120 20% 22%;
+    --sidebar-ring: 38 35% 50%;
   }
 
   .dark {
