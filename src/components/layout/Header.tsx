@@ -72,7 +72,7 @@ const Header = () => {
             <img
               src={hafcoLogo}
               alt="HAFCO Logo"
-              className={`w-auto object-contain transition-all duration-300 ${
+              className={`vintage-logo w-auto object-contain transition-all duration-300 ${
                 isScrolled ? 'h-7 sm:h-8' : 'h-8 sm:h-10'
               }`}
             />
