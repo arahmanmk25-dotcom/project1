@@ -42,95 +42,114 @@ const Home = () => {
   return (
     <PageTransition>
       <div>
-        {/* Full-viewport Hero */}
-        <section ref={heroRef} className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden -mt-16">
+        {/* ===== Vintage Industrial Woodblock Hero ===== */}
+        <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden -mt-16 pt-24 pb-12 px-4 md:px-8 vintage-paper-light">
           <motion.div
-            className="absolute inset-0"
-            style={{ y: heroY }}
-          >
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="w-full h-[120%] object-cover"
-              poster={heroImage}
-            >
-              <source src="/hafco-hero.mp4" type="video/mp4" />
-            </video>
-            <div className="absolute inset-0 hero-overlay" />
-            <FloatingTrucksBackground truckCount={18} particleCount={20} />
-          </motion.div>
-
-          <motion.div
-            className="relative z-10 container mx-auto px-4 text-center"
+            className="relative w-full max-w-6xl vintage-frame vintage-paper p-3 md:p-6 overflow-hidden"
             style={{ opacity: heroOpacity }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            <motion.img
-              src={hafcoLogo}
-              alt="HAFCO Logo"
-              className="h-20 md:h-28 w-auto mx-auto mb-4 mt-8 brightness-0 invert"
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            />
-
-            <motion.h2
-              className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-4 tracking-tight"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              {language === 'ar' ? 'هافكو' : 'HAFCO'}
-            </motion.h2>
-
-            <motion.div
-              className="text-xl md:text-3xl text-gold font-semibold mb-6 h-10"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4 }}
-            >
-              <HeroTypewriter words={typewriterWords} />
-            </motion.div>
-
-            <motion.p
-              className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto mb-10 leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.6 }}
-            >
-              {t('hero.description')}
-            </motion.p>
-
-            <motion.div
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.6 }}
-            >
-              <Link to="/contact">
-                <Button size="lg" className="bg-gold hover:bg-gold-light text-primary font-bold px-10 py-6 text-lg group">
-                  {t('hero.cta')}
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Link>
-              <Link to="/about">
-                <Button size="lg" variant="outline" className="border-gold/60 text-gold hover:bg-gold hover:text-primary px-10 py-6 text-lg font-semibold">
-                  {t('hero.learnMore')}
-                </Button>
-              </Link>
-            </motion.div>
-          </motion.div>
-
-          {/* Scroll indicator */}
-          <motion.div
-            className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
-            animate={{ y: [0, 10, 0] }}
-            transition={{ repeat: Infinity, duration: 2 }}
-          >
-            <div className="w-6 h-10 rounded-full border-2 border-white/30 flex justify-center pt-2">
-              <div className="w-1.5 h-3 rounded-full bg-gold" />
+            {/* Faded background video */}
+            <div className="absolute inset-0 z-0 opacity-20 mix-blend-multiply pointer-events-none overflow-hidden">
+              <video autoPlay muted loop playsInline className="w-full h-full object-cover" poster={heroImage}>
+                <source src="/hafco-hero.mp4" type="video/mp4" />
+              </video>
             </div>
+
+            {/* Inner ghost border + content */}
+            <div className="relative z-10 vintage-corners border-2 border-primary/30 flex flex-col items-center text-center py-14 md:py-20 px-4 md:px-8">
+              <span className="vc-bl" /><span className="vc-br" />
+
+              {/* Top region badge */}
+              <div className="mb-8 flex flex-col items-center">
+                <div className="w-16 h-px bg-primary mb-2" />
+                <span className="font-stencil text-primary text-xs md:text-sm uppercase">
+                  {language === 'ar' ? 'المملكة العربية السعودية' : 'Kingdom of Saudi Arabia'}
+                </span>
+                <div className="w-16 h-px bg-primary mt-2" />
+              </div>
+
+              {/* Logo mark */}
+              <motion.img
+                src={hafcoLogo}
+                alt="HAFCO"
+                className="vintage-logo h-12 md:h-16 w-auto mb-6 opacity-90"
+                initial={{ opacity: 0, scale: 0.7 }}
+                animate={{ opacity: 0.9, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.1 }}
+              />
+
+              {/* Main woodblock title */}
+              <div className="relative mb-10">
+                <motion.h1
+                  className="font-display text-7xl md:text-8xl lg:text-9xl text-primary uppercase leading-none tracking-tighter"
+                  initial={{ opacity: 0, y: 24 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, delay: 0.2 }}
+                >
+                  {language === 'ar' ? 'هافكو' : 'HAFCO'}
+                </motion.h1>
+                <motion.div
+                  className="absolute -bottom-5 left-1/2 -translate-x-1/2 bg-card px-4 py-1 border border-primary whitespace-nowrap"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.45 }}
+                >
+                  <p className="font-stencil text-xl md:text-3xl text-primary">
+                    {language === 'ar' ? 'النقل الثقيل' : 'HEAVY TRANSPORT'}
+                  </p>
+                </motion.div>
+              </div>
+
+              {/* Typewriter rotating word */}
+              <motion.div
+                className="font-italic-serif text-lg md:text-2xl text-accent mt-8 mb-6 h-8"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.55 }}
+              >
+                <HeroTypewriter words={typewriterWords} />
+              </motion.div>
+
+              {/* Description */}
+              <motion.p
+                className="font-italic-serif text-lg md:text-2xl text-foreground/80 max-w-2xl leading-relaxed mb-10"
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6, duration: 0.6 }}
+              >
+                {t('hero.description')}
+              </motion.p>
+
+              {/* CTAs */}
+              <motion.div
+                className="flex flex-wrap justify-center gap-5"
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7, duration: 0.6 }}
+              >
+                <Link to="/contact"><button className="btn-vintage">{t('hero.cta')} <ArrowRight className="ml-2 h-4 w-4 inline" /></button></Link>
+                <Link to="/about"><button className="btn-vintage-outline">{t('hero.learnMore')}</button></Link>
+              </motion.div>
+            </div>
+
+            {/* Rotated "Original Quality" stamp */}
+            <div className="hidden md:block absolute bottom-6 right-8 rotate-12 opacity-40 pointer-events-none z-20">
+              <div className="vintage-stamp w-24 h-24 p-3">
+                <div className="border border-primary rounded-full p-2 text-[10px] leading-tight">
+                  {language === 'ar' ? 'جودة\nأصلية' : 'Original\nQuality\nEst. 1984'}
+                </div>
+              </div>
+            </div>
+
+            {/* Top-right reference number */}
+            <div className="absolute top-4 right-4 md:top-6 md:right-8 border border-primary/60 px-2 py-1 text-[10px] font-stencil text-primary opacity-70 z-20 bg-card/60">
+              REF · HFC-72-A
+            </div>
+
+            <FloatingTrucksBackground truckCount={6} particleCount={0} />
           </motion.div>
         </section>
 

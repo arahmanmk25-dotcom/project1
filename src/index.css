@@ -6,50 +6,51 @@
 
 @layer base {
   :root {
-    /* Vintage Aged-Paper Theme (keeps HAFCO green identity, muted) */
-    --background: 42 38% 88%;
-    --foreground: 120 25% 12%;
+    /* === HAFCO Vintage Industrial Woodblock === */
+    /* Paper #fdfaf1, Card #e9e4d1, Ink #3a5a40, Deep ink #2d4632, Antique gold */
+    --background: 47 60% 97%;          /* #fdfaf1 paper */
+    --foreground: 132 23% 14%;         /* deep woodblock ink */
 
-    --card: 42 35% 92%;
-    --card-foreground: 120 25% 12%;
+    --card: 49 36% 87%;                /* #e9e4d1 aged card */
+    --card-foreground: 132 23% 14%;
 
-    --popover: 42 38% 90%;
-    --popover-foreground: 120 25% 12%;
+    --popover: 47 60% 97%;
+    --popover-foreground: 132 23% 14%;
 
-    --primary: 120 20% 24%;
-    --primary-foreground: 42 38% 94%;
+    --primary: 127 24% 23%;            /* #3a5a40 ink green */
+    --primary-foreground: 47 60% 97%;
 
-    --secondary: 40 30% 80%;
-    --secondary-foreground: 120 25% 18%;
+    --secondary: 49 36% 87%;           /* #e9e4d1 */
+    --secondary-foreground: 132 23% 14%;
 
-    --muted: 40 25% 82%;
-    --muted-foreground: 40 18% 32%;
+    --muted: 49 30% 90%;
+    --muted-foreground: 132 12% 30%;
 
-    --accent: 38 35% 50%;
-    --accent-foreground: 42 38% 95%;
+    --accent: 38 35% 50%;              /* antique gold */
+    --accent-foreground: 47 60% 97%;
 
     --destructive: 12 55% 38%;
-    --destructive-foreground: 42 38% 95%;
+    --destructive-foreground: 47 60% 97%;
 
-    --border: 40 25% 70%;
-    --input: 40 25% 72%;
-    --ring: 120 20% 24%;
+    --border: 127 24% 23%;             /* same as ink so borders look stamped */
+    --input: 127 18% 40%;
+    --ring: 127 24% 23%;
 
-    --radius: 0.375rem;
+    --radius: 0.125rem;                /* tight, woodblock corners */
 
-    --saudi-green: 120 20% 24%;
-    --saudi-green-dark: 120 25% 14%;
-    --saudi-green-light: 110 18% 38%;
+    --saudi-green: 127 24% 23%;
+    --saudi-green-dark: 134 23% 18%;
+    --saudi-green-light: 127 18% 35%;
     --gold: 38 35% 50%;
     --gold-light: 38 40% 65%;
 
-    --sidebar-background: 120 25% 14%;
-    --sidebar-foreground: 42 38% 92%;
-    --sidebar-primary: 42 38% 92%;
-    --sidebar-primary-foreground: 120 25% 14%;
-    --sidebar-accent: 120 20% 22%;
-    --sidebar-accent-foreground: 42 38% 92%;
-    --sidebar-border: 120 20% 22%;
+    --sidebar-background: 134 23% 18%;
+    --sidebar-foreground: 47 60% 97%;
+    --sidebar-primary: 47 60% 97%;
+    --sidebar-primary-foreground: 134 23% 18%;
+    --sidebar-accent: 127 24% 23%;
+    --sidebar-accent-foreground: 47 60% 97%;
+    --sidebar-border: 127 24% 23%;
     --sidebar-ring: 38 35% 50%;
   }
 
@@ -106,21 +107,28 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Cairo', 'Poppins', sans-serif;
+    font-family: 'Bitter', 'Cairo', serif;
+    /* woodblock dot-grid texture over paper */
+    background-color: hsl(47 60% 97%);
     background-image:
-      radial-gradient(hsl(40 30% 35% / 0.08) 1px, transparent 1px),
-      radial-gradient(hsl(40 30% 25% / 0.06) 1px, transparent 1px);
-    background-size: 3px 3px, 7px 7px;
-    background-position: 0 0, 1px 2px;
+      radial-gradient(hsl(49 26% 78%) 1px, transparent 1.2px),
+      radial-gradient(hsl(40 25% 88% / 0.5) 1px, transparent 1px);
+    background-size: 24px 24px, 6px 6px;
+    background-position: 0 0, 0 0;
   }
 
   /* Vintage duotone filter: applies to all photo images automatically */
   img[src*=".jpg"], img[src*=".jpeg"], img[src*=".JPG"], img[src*=".JPEG"], img[src*=".webp"], img.vintage-photo {
-    filter: sepia(0.55) saturate(0.75) hue-rotate(40deg) contrast(0.92) brightness(0.96);
+    filter: sepia(0.6) saturate(0.7) hue-rotate(38deg) contrast(0.92) brightness(0.95);
     transition: filter 0.5s ease;
   }
   img[src*=".jpg"]:hover, img[src*=".jpeg"]:hover, img.vintage-photo:hover {
-    filter: sepia(0.35) saturate(0.95) hue-rotate(35deg) contrast(0.98);
+    filter: sepia(0.4) saturate(0.95) hue-rotate(32deg) contrast(0.98);
+  }
+
+  /* Logos kept intact – the brand mark stays as-is for recognition */
+  img[src*="logo"], img[alt*="Logo"], img[alt*="logo"], .keep-original {
+    filter: none !important;
   }
 
   /* Vintage logo treatment: desaturated green */
@@ -134,19 +142,98 @@
   }
 
   [dir="ltr"] {
-    font-family: 'Poppins', 'Cairo', sans-serif;
+    font-family: 'Bitter', 'Cairo', serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Cairo', 'Poppins', sans-serif;
+    font-family: 'Ultra', 'Bitter', 'Cairo', serif;
     @apply font-bold;
+    letter-spacing: -0.01em;
   }
 }
 
 @layer components {
-  /* Glass effect */
+  /* ===== Vintage Industrial Woodblock Utilities ===== */
+  .font-display { font-family: 'Ultra', 'Bitter', serif; letter-spacing: -0.02em; }
+  .font-stencil { font-family: 'Bebas Neue', 'Cairo', sans-serif; letter-spacing: 0.2em; }
+  .font-italic-serif { font-family: 'Cormorant Garamond', 'Cairo', serif; font-style: italic; }
+  .font-body-serif { font-family: 'Bitter', 'Cairo', serif; }
+
+  /* Aged paper card with dot-grid texture */
+  .vintage-paper {
+    background-color: hsl(49 36% 87%);
+    background-image: radial-gradient(hsl(49 26% 78%) 1px, transparent 1.2px);
+    background-size: 24px 24px;
+  }
+  .vintage-paper-light {
+    background-color: hsl(47 60% 97%);
+    background-image: radial-gradient(hsl(49 26% 82%) 1px, transparent 1.2px);
+    background-size: 24px 24px;
+  }
+
+  /* Thick stamped frame */
+  .vintage-frame {
+    border: 12px solid hsl(var(--primary));
+    box-shadow:
+      0 0 0 1px hsl(var(--primary) / 0.15),
+      0 25px 60px -20px hsl(var(--primary) / 0.4);
+  }
+  .vintage-frame-thin {
+    border: 2px solid hsl(var(--primary) / 0.4);
+  }
+
+  /* Woodblock button: solid ink with inner ghost border */
+  .btn-vintage {
+    @apply relative inline-flex items-center justify-center px-8 py-4 font-stencil text-sm uppercase transition-transform;
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+  .btn-vintage::after {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    border: 1px solid hsl(var(--primary-foreground) / 0.4);
+    pointer-events: none;
+  }
+  .btn-vintage:hover { transform: translateY(-2px); }
+
+  .btn-vintage-outline {
+    @apply relative inline-flex items-center justify-center px-8 py-4 font-stencil text-sm uppercase transition-colors;
+    background: transparent;
+    color: hsl(var(--primary));
+    border: 2px solid hsl(var(--primary));
+  }
+  .btn-vintage-outline:hover { background: hsl(var(--primary) / 0.08); }
+
+  /* Round seal / stamp */
+  .vintage-stamp {
+    @apply inline-flex items-center justify-center rounded-full text-center font-stencil uppercase;
+    border: 4px solid hsl(var(--primary));
+    color: hsl(var(--primary));
+  }
+
+  /* Decorative double-line divider with center label */
+  .vintage-divider {
+    display: flex; align-items: center; gap: 1rem;
+    color: hsl(var(--primary));
+  }
+  .vintage-divider::before, .vintage-divider::after {
+    content: ''; flex: 1; height: 1px; background: hsl(var(--primary));
+  }
+
+  /* Corner crop marks */
+  .vintage-corners { position: relative; }
+  .vintage-corners::before, .vintage-corners::after,
+  .vintage-corners > .vc-bl, .vintage-corners > .vc-br {
+    content: ''; position: absolute; width: 28px; height: 28px;
+    border-color: hsl(var(--primary) / 0.4); border-style: solid; border-width: 0;
+  }
+  .vintage-corners::before { top: 8px; left: 8px; border-top-width: 2px; border-left-width: 2px; }
+  .vintage-corners::after  { top: 8px; right: 8px; border-top-width: 2px; border-right-width: 2px; }
+
+  /* Glass effect (kept for backwards compat with header) */
   .glass {
-    @apply bg-background/85 backdrop-blur-md border border-border/30;
+    @apply bg-background/90 backdrop-blur-md border-b border-primary/20;
   }
 
   .dark .gradient-primary {

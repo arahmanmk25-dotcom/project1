@@ -59,15 +59,15 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b-2 border-primary/80 ${
         isScrolled
-          ? 'bg-background/95 backdrop-blur-lg shadow-lg h-14'
-          : 'glass h-16'
+          ? 'bg-background/95 backdrop-blur-md shadow-md h-14'
+          : 'bg-background/90 backdrop-blur-sm h-16'
       }`}
     >
       <div className="container mx-auto px-4 h-full">
         <div className="flex items-center justify-between h-full">
-          {/* Logo */}
+          {/* Logo + stamped wordmark */}
           <Link to="/" className="flex items-center gap-2 sm:gap-3 hover-lift shrink-0">
             <img
               src={hafcoLogo}
@@ -76,45 +76,39 @@ const Header = () => {
                 isScrolled ? 'h-7 sm:h-8' : 'h-8 sm:h-10'
               }`}
             />
-            <div className="hidden sm:block">
-              <h1
-                className={`font-bold text-primary leading-tight transition-all duration-300 ${
-                  isScrolled ? 'text-lg' : 'text-xl'
-                }`}
-              >
+            <div className="hidden sm:flex flex-col leading-none border-l-2 border-primary/60 pl-3">
+              <h1 className={`font-display text-primary transition-all duration-300 ${isScrolled ? 'text-base' : 'text-xl'}`}>
                 {language === 'ar' ? 'هافكو' : 'HAFCO'}
               </h1>
-              <p className="text-xs text-muted-foreground uppercase tracking-wide">
-                {language === 'ar' ? 'للنقل الثقيل' : 'BIG MOVERS'}
+              <p className="font-stencil text-[10px] text-primary/70 mt-0.5">
+                {language === 'ar' ? 'للنقل الثقيل · ١٩٨٤' : 'BIG MOVERS · EST. 1984'}
               </p>
             </div>
           </Link>
 
-          {/* Desktop Navigation - Centered current page with dropdown pill */}
+          {/* Desktop Navigation - stencil tabs */}
           <div
             className="hidden lg:flex items-center justify-center absolute left-1/2 -translate-x-1/2"
             onMouseEnter={() => setIsMenuOpen(true)}
             onMouseLeave={() => setIsMenuOpen(false)}
           >
             <div className="relative cursor-pointer">
-              {/* Current page label with underline */}
-              <span className="text-sm font-semibold text-foreground tracking-wide pb-1 border-b-2 border-primary">
+              <span className="font-stencil text-sm text-primary pb-1 border-b-2 border-double border-primary">
                 {currentPage.label}
               </span>
 
-              {/* Dropdown pill with all links - continuous hover zone via padding */}
               {isMenuOpen && (
                 <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 z-50">
-                  <div className="bg-background/95 backdrop-blur-xl rounded-full shadow-xl border border-border/30 px-2 py-1.5 flex items-center gap-1 animate-fade-in">
+                  <div className="vintage-paper border-2 border-primary px-2 py-1.5 flex items-center gap-1 animate-fade-in shadow-lg">
                     {navLinks.filter((l) => l.href !== currentPage.href).map((link) => (
                       <Link
                         key={link.href}
                         to={link.href}
                         onClick={() => setIsMenuOpen(false)}
-                        className={`px-4 py-1.5 text-sm font-medium whitespace-nowrap rounded-full transition-all duration-150 ${
+                        className={`px-4 py-1.5 font-stencil text-xs whitespace-nowrap transition-all duration-150 ${
                           isActive(link.href)
-                            ? 'text-primary bg-primary/10'
-                            : 'text-muted-foreground hover:text-foreground hover:bg-primary/5'
+                            ? 'text-primary-foreground bg-primary'
+                            : 'text-primary hover:bg-primary/10'
                         }`}
                       >
                         {link.label}
