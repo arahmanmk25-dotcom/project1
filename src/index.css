@@ -107,21 +107,28 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Cairo', 'Poppins', sans-serif;
+    font-family: 'Bitter', 'Cairo', serif;
+    /* woodblock dot-grid texture over paper */
+    background-color: hsl(47 60% 97%);
     background-image:
-      radial-gradient(hsl(40 30% 35% / 0.08) 1px, transparent 1px),
-      radial-gradient(hsl(40 30% 25% / 0.06) 1px, transparent 1px);
-    background-size: 3px 3px, 7px 7px;
-    background-position: 0 0, 1px 2px;
+      radial-gradient(hsl(49 26% 78%) 1px, transparent 1.2px),
+      radial-gradient(hsl(40 25% 88% / 0.5) 1px, transparent 1px);
+    background-size: 24px 24px, 6px 6px;
+    background-position: 0 0, 0 0;
   }
 
   /* Vintage duotone filter: applies to all photo images automatically */
   img[src*=".jpg"], img[src*=".jpeg"], img[src*=".JPG"], img[src*=".JPEG"], img[src*=".webp"], img.vintage-photo {
-    filter: sepia(0.55) saturate(0.75) hue-rotate(40deg) contrast(0.92) brightness(0.96);
+    filter: sepia(0.6) saturate(0.7) hue-rotate(38deg) contrast(0.92) brightness(0.95);
     transition: filter 0.5s ease;
   }
   img[src*=".jpg"]:hover, img[src*=".jpeg"]:hover, img.vintage-photo:hover {
-    filter: sepia(0.35) saturate(0.95) hue-rotate(35deg) contrast(0.98);
+    filter: sepia(0.4) saturate(0.95) hue-rotate(32deg) contrast(0.98);
+  }
+
+  /* Logos kept intact – the brand mark stays as-is for recognition */
+  img[src*="logo"], img[alt*="Logo"], img[alt*="logo"], .keep-original {
+    filter: none !important;
   }
 
   /* Vintage logo treatment: desaturated green */
