@@ -6,50 +6,51 @@
 
 @layer base {
   :root {
-    /* Vintage Aged-Paper Theme (keeps HAFCO green identity, muted) */
-    --background: 42 38% 88%;
-    --foreground: 120 25% 12%;
+    /* === HAFCO Vintage Industrial Woodblock === */
+    /* Paper #fdfaf1, Card #e9e4d1, Ink #3a5a40, Deep ink #2d4632, Antique gold */
+    --background: 47 60% 97%;          /* #fdfaf1 paper */
+    --foreground: 132 23% 14%;         /* deep woodblock ink */
 
-    --card: 42 35% 92%;
-    --card-foreground: 120 25% 12%;
+    --card: 49 36% 87%;                /* #e9e4d1 aged card */
+    --card-foreground: 132 23% 14%;
 
-    --popover: 42 38% 90%;
-    --popover-foreground: 120 25% 12%;
+    --popover: 47 60% 97%;
+    --popover-foreground: 132 23% 14%;
 
-    --primary: 120 20% 24%;
-    --primary-foreground: 42 38% 94%;
+    --primary: 127 24% 23%;            /* #3a5a40 ink green */
+    --primary-foreground: 47 60% 97%;
 
-    --secondary: 40 30% 80%;
-    --secondary-foreground: 120 25% 18%;
+    --secondary: 49 36% 87%;           /* #e9e4d1 */
+    --secondary-foreground: 132 23% 14%;
 
-    --muted: 40 25% 82%;
-    --muted-foreground: 40 18% 32%;
+    --muted: 49 30% 90%;
+    --muted-foreground: 132 12% 30%;
 
-    --accent: 38 35% 50%;
-    --accent-foreground: 42 38% 95%;
+    --accent: 38 35% 50%;              /* antique gold */
+    --accent-foreground: 47 60% 97%;
 
     --destructive: 12 55% 38%;
-    --destructive-foreground: 42 38% 95%;
+    --destructive-foreground: 47 60% 97%;
 
-    --border: 40 25% 70%;
-    --input: 40 25% 72%;
-    --ring: 120 20% 24%;
+    --border: 127 24% 23%;             /* same as ink so borders look stamped */
+    --input: 127 18% 40%;
+    --ring: 127 24% 23%;
 
-    --radius: 0.375rem;
+    --radius: 0.125rem;                /* tight, woodblock corners */
 
-    --saudi-green: 120 20% 24%;
-    --saudi-green-dark: 120 25% 14%;
-    --saudi-green-light: 110 18% 38%;
+    --saudi-green: 127 24% 23%;
+    --saudi-green-dark: 134 23% 18%;
+    --saudi-green-light: 127 18% 35%;
     --gold: 38 35% 50%;
     --gold-light: 38 40% 65%;
 
-    --sidebar-background: 120 25% 14%;
-    --sidebar-foreground: 42 38% 92%;
-    --sidebar-primary: 42 38% 92%;
-    --sidebar-primary-foreground: 120 25% 14%;
-    --sidebar-accent: 120 20% 22%;
-    --sidebar-accent-foreground: 42 38% 92%;
-    --sidebar-border: 120 20% 22%;
+    --sidebar-background: 134 23% 18%;
+    --sidebar-foreground: 47 60% 97%;
+    --sidebar-primary: 47 60% 97%;
+    --sidebar-primary-foreground: 134 23% 18%;
+    --sidebar-accent: 127 24% 23%;
+    --sidebar-accent-foreground: 47 60% 97%;
+    --sidebar-border: 127 24% 23%;
     --sidebar-ring: 38 35% 50%;
   }
 
