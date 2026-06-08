@@ -142,12 +142,13 @@
   }
 
   [dir="ltr"] {
-    font-family: 'Poppins', 'Cairo', sans-serif;
+    font-family: 'Bitter', 'Cairo', serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Cairo', 'Poppins', sans-serif;
+    font-family: 'Ultra', 'Bitter', 'Cairo', serif;
     @apply font-bold;
+    letter-spacing: -0.01em;
   }
 }
 
