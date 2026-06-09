@@ -137,9 +137,9 @@ const Header = () => {
 
             {/* CTA Button - Desktop */}
             <Link to="/contact" className="hidden md:block">
-              <Button className="gradient-primary hover:opacity-90 transition-opacity">
+              <button className="btn-vintage text-xs px-5 py-2.5">
                 {t('nav.getQuote')}
-              </Button>
+              </button>
             </Link>
 
             {/* Mobile Menu Toggle - shows current page name + chevron */}
