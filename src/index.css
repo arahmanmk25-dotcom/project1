@@ -586,3 +586,126 @@ section.py-32 .max-w-5xl,
 section.py-32 .max-w-6xl {
   position: relative;
 }
+
+/* ============================================================
+   LOGISTICS / TRUCKING THEMED DECORATIONS
+   ============================================================ */
+
+/* Truck rolling across the road divider */
+@keyframes road-roll {
+  0%   { transform: translate(-10%, -50%); }
+  100% { transform: translate(110vw, -50%); }
+}
+.animate-road-roll {
+  animation: road-roll 18s linear infinite;
+}
+
+/* Cargo crate corner ticks — apply to any element via .crate-corners */
+.crate-corners { position: relative; }
+.crate-corners::before,
+.crate-corners::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 2px solid hsl(var(--primary));
+}
+.crate-corners::before { top: -1px; left: -1px; border-right: 0; border-bottom: 0; }
+.crate-corners::after  { bottom: -1px; right: -1px; border-left: 0; border-top: 0; }
+
+/* Subtle road / lane texture you can drop on any container */
+.road-bg {
+  background-color: hsl(132 18% 14%);
+  background-image:
+    repeating-linear-gradient(
+      to right,
+      hsl(38 55% 48% / 0.9) 0 36px,
+      transparent 36px 80px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      hsl(132 18% 14%),
+      hsl(132 18% 18%) 6px
+    );
+  background-size: 80px 2px, 100% 12px;
+  background-position: center, 0 0;
+  background-repeat: repeat-x, repeat;
+}
+
+/* Freight container slab — like a metal shipping container side panel */
+.cargo-panel {
+  background-color: hsl(49 36% 87%);
+  background-image:
+    repeating-linear-gradient(
+      to right,
+      hsl(var(--primary) / 0.12) 0 1px,
+      transparent 1px 36px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      hsl(var(--primary) / 0.06) 0 1px,
+      transparent 1px 36px
+    );
+  border: 2px solid hsl(var(--primary) / 0.55);
+}
+
+/* "Certified hauler" oval badge */
+.hauler-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.9rem;
+  border: 2px solid hsl(var(--primary));
+  background: hsl(47 60% 97%);
+  color: hsl(var(--primary));
+  font-family: 'Bebas Neue', 'Cairo', sans-serif;
+  letter-spacing: 0.22em;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  border-radius: 999px;
+}
+.hauler-badge::before {
+  content: '';
+  display: inline-block;
+  width: 8px; height: 8px;
+  background: hsl(38 55% 48%);
+  border-radius: 999px;
+}
+
+/* Caution-tape diagonal stripe (e.g. as a thin section break) */
+.caution-tape {
+  height: 14px;
+  background-image: repeating-linear-gradient(
+    45deg,
+    hsl(38 55% 48%) 0 16px,
+    hsl(132 23% 14%) 16px 32px
+  );
+  border-top: 1px solid hsl(var(--primary));
+  border-bottom: 1px solid hsl(var(--primary));
+}
+
+/* Road-line bottom border helper */
+.dashed-road {
+  border-top: 2px dashed hsl(var(--primary) / 0.5);
+}
+
+/* Tiny "shipping label" stamp utility */
+.shipping-stamp {
+  display: inline-block;
+  padding: 6px 10px;
+  border: 2px solid hsl(var(--primary));
+  font-family: 'Bebas Neue', 'Cairo', sans-serif;
+  letter-spacing: 0.3em;
+  font-size: 0.7rem;
+  color: hsl(var(--primary));
+  background: hsl(47 60% 97%);
+  text-transform: uppercase;
+  position: relative;
+}
+.shipping-stamp::after {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border: 1px solid hsl(var(--primary) / 0.4);
+  pointer-events: none;
+}
