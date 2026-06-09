@@ -117,16 +117,15 @@
     background-position: 0 0, 0 0;
   }
 
-  /* Vintage duotone filter: applies to all photo images automatically */
-  img[src*=".jpg"], img[src*=".jpeg"], img[src*=".JPG"], img[src*=".JPEG"], img[src*=".webp"], img.vintage-photo {
-    filter: sepia(0.6) saturate(0.7) hue-rotate(38deg) contrast(0.92) brightness(0.95);
+  /* ===== VINTAGE DUOTONE — stronger sepia + green ink wash on every photo =====
+     Logos/SVGs and anything marked .keep-original are excluded. */
+  img:not(.keep-original):not([src$=".svg"]):not([src*="logo"]):not([alt*="Logo"]):not([alt*="logo"]) {
+    filter: sepia(0.85) saturate(0.55) hue-rotate(38deg) contrast(0.95) brightness(0.9);
     transition: filter 0.5s ease;
   }
-  img[src*=".jpg"]:hover, img[src*=".jpeg"]:hover, img.vintage-photo:hover {
-    filter: sepia(0.4) saturate(0.95) hue-rotate(32deg) contrast(0.98);
+  img:not(.keep-original):not([src$=".svg"]):not([src*="logo"]):not([alt*="Logo"]):not([alt*="logo"]):hover {
+    filter: sepia(0.6) saturate(0.8) hue-rotate(32deg) contrast(1) brightness(0.97);
   }
-
-  /* Logos kept intact – the brand mark stays as-is for recognition */
   img[src*="logo"], img[alt*="Logo"], img[alt*="logo"], .keep-original {
     filter: none !important;
   }
