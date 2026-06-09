@@ -12,6 +12,7 @@ import HeroTypewriter from '@/components/home/HeroTypewriter';
 import StatsBar from '@/components/home/StatsBar';
 import FloatingTrucksBackground from '@/components/shared/FloatingTrucksBackground';
 import ServicesCards from '@/components/home/ServicesCards';
+import RoadDivider from '@/components/shared/RoadDivider';
 
 import hafcoLogo from '@/assets/hafco-logo.png';
 import heroImage from '@/assets/trucks/truck-5.jpeg';
@@ -133,6 +134,19 @@ const Home = () => {
                 <Link to="/contact"><button className="btn-vintage">{t('hero.cta')} <ArrowRight className="ml-2 h-4 w-4 inline" /></button></Link>
                 <Link to="/about"><button className="btn-vintage-outline">{t('hero.learnMore')}</button></Link>
               </motion.div>
+
+              {/* Certified hauler badges */}
+              <motion.div
+                className="mt-10 flex flex-wrap justify-center gap-3"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.85, duration: 0.5 }}
+              >
+                <span className="hauler-badge">{language === 'ar' ? 'مرخّص · هيئة النقل' : 'Licensed · TGA'}</span>
+                <span className="hauler-badge">{language === 'ar' ? 'أسطول ٥٠+ شاحنة' : 'Fleet · 50+ Trucks'}</span>
+                <span className="hauler-badge">{language === 'ar' ? 'تغطية المملكة' : 'KSA-Wide Coverage'}</span>
+                <span className="hauler-badge">{language === 'ar' ? 'منذ ١٩٨٤' : 'Est. 1984'}</span>
+              </motion.div>
             </div>
 
             {/* Rotated "Original Quality" stamp */}
@@ -205,8 +219,8 @@ const Home = () => {
           <ClientsCarousel />
         </section>
 
-        {/* Visual separator between clients and CTA */}
-        <section className="py-16 bg-secondary" />
+        {/* Road divider between clients and CTA */}
+        <RoadDivider labelEn="KM · 0072 — KSA CORRIDOR" labelAr="كم · ٠٠٧٢ — ممر المملكة" />
 
         {/* CTA - Bold diagonal section */}
         <section className="relative py-32 md:py-40 overflow-hidden bg-primary">
@@ -254,8 +268,8 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Spacer before footer */}
-        <section className="py-12 bg-secondary" />
+        {/* Road divider before footer */}
+        <RoadDivider variant="dark" labelEn="DEPOT · RIYADH" labelAr="المستودع · الرياض" />
       </div>
     </PageTransition>
   );

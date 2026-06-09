@@ -4,6 +4,7 @@ import PageTransition from '@/components/shared/PageTransition';
 import HeroSlideshow from '@/components/shared/HeroSlideshow';
 import StatsBar from '@/components/home/StatsBar';
 import FleetGallery from '@/components/fleet/FleetGallery';
+import RoadDivider from '@/components/shared/RoadDivider';
 
 // Fleet trucks
 import fleetHero from '@/assets/trucks/fleet-hero.jpeg';
@@ -100,7 +101,7 @@ const Fleet = () => {
         {/* Stats */}
         <StatsBar stats={fleetStats} variant="dark" />
 
-        <section className="py-8 bg-secondary" />
+        <RoadDivider variant="dark" labelEn="DEPOT · 50+ UNITS READY" labelAr="المستودع · أكثر من ٥٠ وحدة جاهزة" />
       </div>
     </PageTransition>
   );
