@@ -3,6 +3,7 @@ import Header from './Header';
 import Footer from './Footer';
 import WhatsAppButton from './WhatsAppButton';
 import BackToTop from '@/components/shared/BackToTop';
+import FreightBand from '@/components/shared/FreightBand';
 
 interface LayoutProps {
   children: ReactNode;
@@ -15,6 +16,7 @@ const Layout = ({ children }: LayoutProps) => {
       <main className="flex-1">
         {children}
       </main>
+      <FreightBand />
       <Footer />
       <WhatsAppButton />
       <BackToTop />
