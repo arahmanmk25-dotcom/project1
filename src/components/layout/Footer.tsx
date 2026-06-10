@@ -36,10 +36,10 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center gap-3 mb-4">
-              <img 
-                src={hafcoLogo} 
-                alt="HAFCO Logo" 
-                className="h-16 w-auto object-contain brightness-0 invert"
+              <img
+                src={hafcoLogo}
+                alt="HAFCO Logo"
+                className="h-16 w-auto object-contain footer-logo-white"
               />
             </Link>
             <h2 className="text-2xl font-bold mb-2">
