@@ -250,7 +250,7 @@ const Home = () => {
         </section>
 
         {/* Road divider between clients and CTA */}
-        <RoadDivider labelEn="KM · 0072 — KSA CORRIDOR" labelAr="كم · ٠٠٧٢ — ممر المملكة" />
+        <RoadDivider labelEn="KM · 0072 — KSA CORRIDOR" labelAr="كم · ٠٠٧٢ — ممر المملكة" originEn="RIYADH" originAr="الرياض" destinationEn="JEDDAH" destinationAr="جدة" />
 
         {/* CTA - Bold diagonal section */}
         <section className="relative py-32 md:py-40 overflow-hidden bg-primary">
