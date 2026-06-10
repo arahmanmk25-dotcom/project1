@@ -188,7 +188,7 @@ export const Lightbox = ({ images, isOpen, currentIndex, onClose, onNavigate }: 
 
       {/* Image container */}
       <div 
-        className="max-w-[90vw] max-h-[90vh] flex flex-col items-center overflow-hidden"
+        className="max-w-[92vw] max-h-[92vh] flex flex-col items-center pt-16 pb-4"
         onClick={(e) => e.stopPropagation()}
         onWheel={handleWheel}
       >
@@ -201,7 +201,7 @@ export const Lightbox = ({ images, isOpen, currentIndex, onClose, onNavigate }: 
             src={currentImage.src}
             alt={currentImage.title || 'Image'}
             onClick={handleImageClick}
-            className="max-w-[90vw] max-h-[80vh] object-contain rounded-lg select-none"
+            className="max-w-[88vw] max-h-[62vh] md:max-h-[68vh] object-contain rounded-lg select-none"
             style={{
               transform: `scale(${zoom}) translate(${position.x / zoom}px, ${position.y / zoom}px)`,
               transition: isDragging ? 'none' : 'transform 0.2s ease-out'
@@ -210,8 +210,8 @@ export const Lightbox = ({ images, isOpen, currentIndex, onClose, onNavigate }: 
           />
         </div>
         {currentImage.title && zoom === 1 && (
-          <div className="mt-4 text-center max-w-2xl">
-            <p className="text-white text-lg font-medium">
+          <div className="mt-4 text-center max-w-2xl px-4">
+            <p className="text-white text-base md:text-lg font-medium">
               {currentImage.title}
             </p>
             {currentImage.description && (
@@ -221,7 +221,7 @@ export const Lightbox = ({ images, isOpen, currentIndex, onClose, onNavigate }: 
             )}
           </div>
         )}
-        <p className="mt-2 text-white/60 text-sm">
+        <p className="mt-3 text-white/70 text-sm">
           {currentIndex + 1} / {images.length} {zoom > 1 && '• Click image or press 0 to reset zoom'}
         </p>
       </div>
