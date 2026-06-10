@@ -87,6 +87,9 @@
   img[src*="logo"], img[alt*="Logo"], img[alt*="logo"], .keep-original {
     filter: none !important;
   }
+  img.footer-logo-white {
+    filter: brightness(0) invert(1) contrast(1.15) !important;
+  }
 
   .vintage-logo {
     filter: saturate(0.75) brightness(0.95) contrast(1.05);
