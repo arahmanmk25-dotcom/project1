@@ -167,8 +167,38 @@ const Home = () => {
           </motion.div>
         </section>
 
+        {/* Slogan band */}
+        <section className="relative py-16 md:py-20 bg-primary overflow-hidden">
+          <div className="absolute inset-0 opacity-[0.08]" style={{ backgroundImage: 'repeating-linear-gradient(45deg, hsl(var(--gold)) 0 1px, transparent 1px 14px)' }} />
+          <div className="container mx-auto px-4 relative z-10 text-center">
+            <ScrollReveal variant="fadeUp">
+              <p className="text-gold/80 font-stencil text-xs md:text-sm tracking-[0.4em] mb-5">
+                {language === 'ar' ? '— شعارنا —' : '— OUR CREED —'}
+              </p>
+              <h2 className="font-display text-3xl md:text-5xl lg:text-6xl text-background leading-tight">
+                {language === 'ar' ? (
+                  <>ننقل <span className="italic text-gold">المستحيل</span>.</>
+                ) : (
+                  <>We move the <span className="italic text-gold">impossible</span>.</>
+                )}
+              </h2>
+              <p className="font-italic-serif text-lg md:text-2xl text-background/80 mt-6 max-w-3xl mx-auto">
+                {language === 'ar'
+                  ? 'هافكو — تاريخٌ راسخٌ في صناعة النقل واللوجستيات منذ عام ١٩٨٤.'
+                  : 'HAFCO — history written into the logistics industry since 1984.'}
+              </p>
+              <div className="mt-8 flex items-center justify-center gap-4">
+                <span className="h-px w-12 bg-gold/60" />
+                <span className="font-stencil text-[10px] tracking-[0.5em] text-gold">EST · 1984</span>
+                <span className="h-px w-12 bg-gold/60" />
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
+
         {/* Stats */}
         <StatsBar stats={stats} variant="light" />
+
 
         {/* About Intro - Editorial Block */}
         <section className="py-24 md:py-32">
