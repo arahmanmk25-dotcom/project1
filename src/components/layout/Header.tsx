@@ -99,16 +99,16 @@ const Header = () => {
 
               {isMenuOpen && (
                 <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 z-50">
-                  <div className="vintage-paper border-2 border-primary px-2 py-1.5 flex items-center gap-1 animate-fade-in shadow-lg">
+                  <div className="bg-primary border-2 border-gold px-2 py-1.5 flex items-center gap-1 animate-fade-in shadow-2xl rounded-sm">
                     {navLinks.filter((l) => l.href !== currentPage.href).map((link) => (
                       <Link
                         key={link.href}
                         to={link.href}
                         onClick={() => setIsMenuOpen(false)}
-                        className={`px-4 py-1.5 font-stencil text-xs whitespace-nowrap transition-all duration-150 ${
+                        className={`px-4 py-2 font-stencil text-xs whitespace-nowrap tracking-widest transition-all duration-150 rounded-sm ${
                           isActive(link.href)
-                            ? 'text-primary-foreground bg-primary'
-                            : 'text-primary hover:bg-primary/10'
+                            ? 'bg-gold text-primary'
+                            : 'text-background hover:bg-gold hover:text-primary'
                         }`}
                       >
                         {link.label}
