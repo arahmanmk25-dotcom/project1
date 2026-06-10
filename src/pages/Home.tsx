@@ -299,7 +299,7 @@ const Home = () => {
         </section>
 
         {/* Road divider before footer */}
-        <RoadDivider variant="dark" labelEn="DEPOT · RIYADH" labelAr="المستودع · الرياض" />
+        <RoadDivider variant="dark" labelEn="DEPOT · RIYADH" labelAr="المستودع · الرياض" originEn="DAMMAM" originAr="الدمام" destinationEn="MAKKAH" destinationAr="مكة" />
       </div>
     </PageTransition>
   );
