@@ -8,6 +8,7 @@ import ScrollReveal from '@/components/shared/ScrollReveal';
 import FloatingTrucksBackground from '@/components/shared/FloatingTrucksBackground';
 import ClientsCarousel from '@/components/home/ClientsCarousel';
 import ClientsBackgroundAnimation from '@/components/home/ClientsBackgroundAnimation';
+import SloganBand from '@/components/shared/SloganBand';
 
 import aramcoLogo from '@/assets/clients/aramco.png';
 import saipemLogo from '@/assets/clients/saipem.png';
@@ -154,6 +155,14 @@ const Clients = () => {
             </motion.p>
           </div>
         </section>
+
+        {/* Slogan */}
+        <SloganBand
+          eyebrowEn="OUR PARTNERS"
+          eyebrowAr="شركاؤنا"
+          sloganEn="Trusted by the names that build the Kingdom."
+          sloganAr="موثوقون لدى من يبني المملكة."
+        />
 
         {/* Client Logo Grid */}
         <section className="py-24 md:py-32">

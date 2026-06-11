@@ -8,6 +8,7 @@ import ScrollReveal from '@/components/shared/ScrollReveal';
 import AnimatedCounter from '@/components/shared/AnimatedCounter';
 import PageTransition from '@/components/shared/PageTransition';
 import HeroSlideshow from '@/components/shared/HeroSlideshow';
+import SloganBand from '@/components/shared/SloganBand';
 
 const About = () => {
   const { t, language } = useLanguage();
@@ -85,6 +86,14 @@ const About = () => {
             </ScrollReveal>
           </div>
         </section>
+
+        {/* Slogan */}
+        <SloganBand
+          eyebrowEn="OUR STORY"
+          eyebrowAr="قصتنا"
+          sloganEn="Four decades of moving Saudi Arabia forward."
+          sloganAr="أربعة عقود من تحريك المملكة نحو الأمام."
+        />
 
         {/* Company Story - Editorial */}
         <section className="py-24 md:py-32">

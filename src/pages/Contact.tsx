@@ -14,6 +14,7 @@ import truck13 from '@/assets/trucks/truck-13.jpeg';
 import ScrollReveal from '@/components/shared/ScrollReveal';
 import PageTransition from '@/components/shared/PageTransition';
 import HeroSlideshow from '@/components/shared/HeroSlideshow';
+import SloganBand from '@/components/shared/SloganBand';
 
 declare global {
   interface Window {
@@ -113,6 +114,14 @@ const Contact = () => {
             </ScrollReveal>
           </div>
         </section>
+
+        {/* Slogan */}
+        <SloganBand
+          eyebrowEn="GET IN TOUCH"
+          eyebrowAr="تواصل معنا"
+          sloganEn="One call. One quote. One trusted partner."
+          sloganAr="مكالمة واحدة. عرض واحد. شريك واحد موثوق."
+        />
 
         {/* Contact Content - Editorial layout */}
         <section className="py-24 md:py-32">
