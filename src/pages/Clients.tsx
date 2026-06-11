@@ -156,6 +156,14 @@ const Clients = () => {
           </div>
         </section>
 
+        {/* Slogan */}
+        <SloganBand
+          eyebrowEn="OUR PARTNERS"
+          eyebrowAr="شركاؤنا"
+          sloganEn="Trusted by the names that build the Kingdom."
+          sloganAr="موثوقون لدى من يبني المملكة."
+        />
+
         {/* Client Logo Grid */}
         <section className="py-24 md:py-32">
           <div className="container mx-auto px-4">
