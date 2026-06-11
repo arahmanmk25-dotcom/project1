@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Truck, Cylinder, Construction, Package, ArrowRight } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
-import FloatingTrucksBackground from '@/components/shared/FloatingTrucksBackground';
+
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import truck5 from '@/assets/trucks/truck-5.jpeg';
