@@ -1,5 +1,6 @@
 import { Users, Target, Eye, Award, Truck, Shield, Clock, Building, FileCheck, Phone, Mail, Scale, Briefcase, Crown } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { formatPhone, phoneHref } from '@/lib/utils';
 import heroImage from '@/assets/trucks/truck-10.jpeg';
 import truck5 from '@/assets/trucks/truck-5.jpeg';
 import workImg3 from '@/assets/trucks/work-img-3.jpeg';

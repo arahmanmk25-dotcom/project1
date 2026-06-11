@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Headphones } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { formatPhone, phoneHref } from '@/lib/utils';
 import hafcoLogo from '@/assets/hafco-logo.png';
 
 import { FaXTwitter, FaInstagram, FaFacebook, FaLinkedin } from 'react-icons/fa6';

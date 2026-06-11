@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Phone, Mail, MapPin, Clock, Headphones } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { formatPhone, phoneHref } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
