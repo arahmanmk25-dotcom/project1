@@ -42,12 +42,12 @@ const Footer = () => {
                 className="h-16 w-auto object-contain footer-logo-white"
               />
             </Link>
-            <h2 className="text-2xl font-bold mb-2 font-serif-display" style={{ fontFamily: language === 'ar' ? "'Aref Ruqaa', serif" : "'Playfair Display', serif" }}>
+            <h2 className="text-2xl font-bold mb-2 font-serif-display" style={{ fontFamily: language === 'ar' ? "'Amiri', serif" : "'Playfair Display', serif" }}>
               {language === 'ar' ? 'هافكو' : 'HAFCO'}
             </h2>
             <p
               className="text-primary-foreground/85 text-[15px] leading-relaxed italic"
-              style={{ fontFamily: language === 'ar' ? "'Amiri', serif" : "'Cormorant Garamond', serif" }}
+              style={{ fontFamily: language === 'ar' ? "'Amiri', serif" : "'Playfair Display', serif" }}
             >
               {t('footer.description')}
             </p>
@@ -64,7 +64,7 @@ const Footer = () => {
                   <Link
                     to={link.href}
                     className="group inline-flex items-center gap-2 text-primary-foreground/85 hover:text-gold transition-colors duration-300 text-[15px] font-medium tracking-wide"
-                    style={{ fontFamily: language === 'ar' ? "'Amiri', serif" : "'Cormorant Garamond', serif" }}
+                    style={{ fontFamily: language === 'ar' ? "'Amiri', serif" : "'Playfair Display', serif" }}
                   >
                     <span className="h-px w-3 bg-gold/60 group-hover:w-5 transition-all" />
                     {link.label}
@@ -85,7 +85,7 @@ const Footer = () => {
                   <Link
                     to="/services"
                     className="group inline-flex items-center gap-2 text-primary-foreground/85 hover:text-gold transition-colors duration-300 text-[15px] font-medium tracking-wide"
-                    style={{ fontFamily: language === 'ar' ? "'Amiri', serif" : "'Cormorant Garamond', serif" }}
+                    style={{ fontFamily: language === 'ar' ? "'Amiri', serif" : "'Playfair Display', serif" }}
                   >
                     <span className="h-px w-3 bg-gold/60 group-hover:w-5 transition-all" />
                     {service}
@@ -100,7 +100,7 @@ const Footer = () => {
             <h3 className="text-lg font-bold mb-4 text-gold uppercase tracking-[0.25em] font-serif-display">
               {t('footer.contact')}
             </h3>
-            <ul className="space-y-3" style={{ fontFamily: language === 'ar' ? "'Amiri', serif" : "'Cormorant Garamond', serif" }}>
+            <ul className="space-y-3" style={{ fontFamily: language === 'ar' ? "'Amiri', serif" : "'Playfair Display', serif" }}>
               <li className="flex items-start gap-3">
                 <a 
                   href="https://maps.app.goo.gl/5j8xUKXF6DrfnAyM7" 

@@ -213,13 +213,13 @@ const Work = () => {
                         <span className="lux-fleuron block mb-1">— ❦ —</span>
                         <h3
                           className="font-serif-display text-base md:text-lg font-bold text-primary leading-tight"
-                          style={{ fontFamily: language === 'ar' ? "'Aref Ruqaa', serif" : "'Playfair Display', serif" }}
+                          style={{ fontFamily: language === 'ar' ? "'Amiri', serif" : "'Playfair Display', serif" }}
                         >
                           {language === 'ar' ? project.titleAr : project.titleEn}
                         </h3>
                         <p
                           className="mt-2 text-[13px] text-muted-foreground leading-relaxed line-clamp-2"
-                          style={{ fontFamily: language === 'ar' ? "'Amiri', serif" : "'Cormorant Garamond', serif" }}
+                          style={{ fontFamily: language === 'ar' ? "'Amiri', serif" : "'Playfair Display', serif" }}
                         >
                           {language === 'ar' ? project.descAr : project.descEn}
                         </p>

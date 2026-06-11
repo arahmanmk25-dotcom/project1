@@ -65,7 +65,7 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', 'Cairo', sans-serif;
+    font-family: 'Playfair Display', 'Amiri', sans-serif;
     font-weight: 300;
     letter-spacing: 0.005em;
     /* extremely subtle paper grain — no dot grid */
@@ -95,11 +95,11 @@
     filter: saturate(0.75) brightness(0.95) contrast(1.05);
   }
 
-  [dir="rtl"] { font-family: 'Cairo', sans-serif; }
-  [dir="ltr"] { font-family: 'Inter', 'Cairo', sans-serif; }
+  [dir="rtl"] { font-family: 'Amiri', sans-serif; }
+  [dir="ltr"] { font-family: 'Playfair Display', 'Amiri', sans-serif; }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', 'Cormorant Garamond', 'Cairo', serif;
+    font-family: 'Playfair Display', 'Playfair Display', 'Amiri', serif;
     font-weight: 500;
     letter-spacing: -0.015em;
     color: hsl(var(--primary));
@@ -110,10 +110,10 @@
 @layer components {
   /* === Typography utilities === */
   .font-display    { font-family: 'Playfair Display', serif; font-weight: 500; letter-spacing: -0.02em; }
-  .font-editorial  { font-family: 'Italiana', 'Playfair Display', serif; letter-spacing: 0.04em; }
-  .font-italic-serif { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 500; }
-  .font-body-serif { font-family: 'Cormorant Garamond', serif; font-weight: 500; }
-  .font-stencil    { font-family: 'Inter', sans-serif; font-weight: 500; letter-spacing: 0.32em; text-transform: uppercase; font-size: 0.72rem; }
+  .font-editorial  { font-family: 'Playfair Display', 'Playfair Display', serif; letter-spacing: 0.04em; }
+  .font-italic-serif { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; }
+  .font-body-serif { font-family: 'Playfair Display', serif; font-weight: 500; }
+  .font-stencil    { font-family: 'Playfair Display', sans-serif; font-weight: 500; letter-spacing: 0.32em; text-transform: uppercase; font-size: 0.72rem; }
 
   /* Hairline ink frame */
   .vintage-frame {
@@ -130,7 +130,7 @@
   /* Editorial button — ink on cream, gold hairline underline on hover */
   .btn-vintage {
     @apply relative inline-flex items-center justify-center px-9 py-3.5 transition-all;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Playfair Display', sans-serif;
     font-size: 0.72rem;
     font-weight: 500;
     letter-spacing: 0.32em;
@@ -154,7 +154,7 @@
 
   .btn-vintage-outline {
     @apply relative inline-flex items-center justify-center px-9 py-3.5 transition-colors;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Playfair Display', sans-serif;
     font-size: 0.72rem;
     font-weight: 500;
     letter-spacing: 0.32em;
@@ -173,7 +173,7 @@
     @apply inline-flex items-center justify-center rounded-full text-center;
     border: 1px solid hsl(var(--accent));
     color: hsl(var(--accent));
-    font-family: 'Italiana', serif;
+    font-family: 'Playfair Display', serif;
     letter-spacing: 0.28em;
     text-transform: uppercase;
     font-size: 0.7rem;
@@ -183,7 +183,7 @@
   .vintage-divider {
     display: flex; align-items: center; gap: 1.25rem;
     color: hsl(var(--primary));
-    font-family: 'Italiana', serif;
+    font-family: 'Playfair Display', serif;
     letter-spacing: 0.35em;
     text-transform: uppercase;
     font-size: 0.7rem;
@@ -315,7 +315,7 @@
   border: 1px solid hsl(var(--primary)) !important;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  font-family: 'Inter', sans-serif !important;
+  font-family: 'Playfair Display', sans-serif !important;
   font-weight: 500;
   font-size: 0.75rem;
 }
@@ -333,7 +333,7 @@
 /* Gold accent: champagne brushed feel */
 .text-gold {
   color: hsl(var(--accent)) !important;
-  font-family: 'Italiana', 'Cormorant Garamond', serif !important;
+  font-family: 'Playfair Display', 'Playfair Display', serif !important;
   letter-spacing: 0.35em !important;
   text-transform: uppercase;
   font-weight: 400;
@@ -363,12 +363,12 @@ section.relative.overflow-hidden video {
 
 /* Global serif headings, refined letterspacing */
 h1, h2 {
-  font-family: 'Playfair Display', 'Cormorant Garamond', 'Cairo', serif !important;
+  font-family: 'Playfair Display', 'Playfair Display', 'Amiri', serif !important;
   font-weight: 500 !important;
   letter-spacing: -0.02em;
 }
 h3, h4 {
-  font-family: 'Cormorant Garamond', 'Cairo', serif !important;
+  font-family: 'Playfair Display', 'Amiri', serif !important;
   font-weight: 600 !important;
   letter-spacing: -0.005em;
 }
@@ -378,7 +378,7 @@ input, textarea, select {
   background-color: hsl(40 35% 96%) !important;
   border: 1px solid hsl(var(--primary) / 0.25) !important;
   border-radius: 3px !important;
-  font-family: 'Inter', 'Cairo', sans-serif !important;
+  font-family: 'Playfair Display', 'Amiri', sans-serif !important;
   font-weight: 400;
 }
 input:focus, textarea:focus, select:focus {
@@ -435,7 +435,7 @@ input:focus, textarea:focus, select:focus {
   border: 1px solid hsl(var(--primary) / 0.4);
   background: hsl(40 35% 96%);
   color: hsl(var(--primary));
-  font-family: 'Italiana', 'Inter', sans-serif;
+  font-family: 'Playfair Display', 'Playfair Display', sans-serif;
   letter-spacing: 0.3em;
   font-size: 0.68rem;
   text-transform: uppercase;
@@ -464,7 +464,7 @@ input:focus, textarea:focus, select:focus {
   display: inline-block;
   padding: 6px 12px;
   border: 1px solid hsl(var(--accent));
-  font-family: 'Italiana', serif;
+  font-family: 'Playfair Display', serif;
   letter-spacing: 0.32em;
   font-size: 0.7rem;
   color: hsl(var(--accent));
@@ -480,7 +480,7 @@ input:focus, textarea:focus, select:focus {
 :root[lang="ar"] body,
 [dir="rtl"] body,
 [lang="ar"] {
-  font-family: 'Amiri', 'Cormorant Garamond', serif;
+  font-family: 'Amiri', 'Playfair Display', serif;
   font-weight: 400;
   letter-spacing: 0;
 }
@@ -491,13 +491,13 @@ input:focus, textarea:focus, select:focus {
 [dir="rtl"] h4, [lang="ar"] h4,
 [dir="rtl"] .font-display, [lang="ar"] .font-display,
 [dir="rtl"] .font-serif-display, [lang="ar"] .font-serif-display {
-  font-family: 'Aref Ruqaa', 'Amiri', serif !important;
+  font-family: 'Amiri', 'Amiri', serif !important;
   font-weight: 700;
   letter-spacing: 0;
 }
 
 [dir="rtl"] .font-stencil, [lang="ar"] .font-stencil {
-  font-family: 'Reem Kufi', 'Aref Ruqaa', serif !important;
+  font-family: 'Amiri', 'Amiri', serif !important;
   letter-spacing: 0.1em;
 }
 
@@ -606,7 +606,7 @@ input:focus, textarea:focus, select:focus {
 /* ornamental fleur on cards */
 .lux-fleuron {
   display: inline-block;
-  font-family: 'Italiana', 'Cormorant Garamond', serif;
+  font-family: 'Playfair Display', 'Playfair Display', serif;
   color: hsl(var(--accent));
   font-size: 0.9rem;
   letter-spacing: 0.4em;

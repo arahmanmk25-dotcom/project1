@@ -69,8 +69,8 @@ export default {
         },
       },
       fontFamily: {
-        cairo: ['Cairo', 'sans-serif'],
-        poppins: ['Poppins', 'Cairo', 'sans-serif'],
+        cairo: ['Amiri', 'sans-serif'],
+        poppins: ['Playfair Display', 'Amiri', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",
