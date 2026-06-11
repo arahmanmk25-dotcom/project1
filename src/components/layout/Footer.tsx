@@ -151,7 +151,7 @@ const Footer = () => {
             </ul>
             {/* Social Media */}
             <div className="mt-6">
-              <p className="text-sm text-gold mb-3">{language === 'ar' ? 'تابعنا' : 'Follow Us'}</p>
+              <p className="text-xs text-gold mb-3 font-bold tracking-[0.25em] uppercase">{language === 'ar' ? 'تابعنا' : 'Follow Us'}</p>
               <div className="flex items-center gap-4">
                 <a 
                   href="https://x.com/HafcoBigMovers" 
