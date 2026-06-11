@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Phone, Mail, MapPin, Clock, Headphones } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { formatPhone, phoneHref } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -139,16 +140,16 @@ const Contact = () => {
                     <div className="flex items-start gap-5">
                       <Phone className="h-6 w-6 text-gold shrink-0 mt-1" />
                       <div className="space-y-1">
-                        <a href="tel:+966535557874" className="block text-muted-foreground hover:text-primary transition-colors">+966 535557874</a>
-                        <a href="tel:+966560676302" className="block text-muted-foreground hover:text-primary transition-colors">+966 560676302</a>
-                        <a href="tel:+966504826306" className="block text-muted-foreground hover:text-primary transition-colors">+966 504826306</a>
+                        <a href={phoneHref('0535557874')} className="block text-muted-foreground hover:text-primary transition-colors font-phone">{formatPhone('0535557874')}</a>
+                        <a href={phoneHref('0560676302')} className="block text-muted-foreground hover:text-primary transition-colors font-phone">{formatPhone('0560676302')}</a>
+                        <a href={phoneHref('0504826306')} className="block text-muted-foreground hover:text-primary transition-colors font-phone">{formatPhone('0504826306')}</a>
                       </div>
                     </div>
                     <div className="flex items-start gap-5">
                       <Headphones className="h-6 w-6 text-gold shrink-0 mt-1" />
                       <div>
                         <p className="font-medium text-gold text-lg">{language === 'ar' ? 'لا تنسى جوال التشغيل على مدار الساعه' : 'Work Line (24/7)'}</p>
-                        <a href="tel:+966599990239" className="text-muted-foreground hover:text-primary transition-colors">+966 599990239</a>
+                        <a href={phoneHref('0599990239')} className="text-muted-foreground hover:text-primary transition-colors font-phone">{formatPhone('0599990239')}</a>
                       </div>
                     </div>
                     <div className="flex items-start gap-5">

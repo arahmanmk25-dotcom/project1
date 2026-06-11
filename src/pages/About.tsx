@@ -1,5 +1,6 @@
 import { Users, Target, Eye, Award, Truck, Shield, Clock, Building, FileCheck, Phone, Mail, Scale, Briefcase, Crown } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { formatPhone, phoneHref } from '@/lib/utils';
 import heroImage from '@/assets/trucks/truck-10.jpeg';
 import truck5 from '@/assets/trucks/truck-5.jpeg';
 import workImg3 from '@/assets/trucks/work-img-3.jpeg';
@@ -238,9 +239,9 @@ const About = () => {
                       <h4 className="font-serif-display text-xl font-bold text-primary mb-1" style={{ fontFamily: language === 'ar' ? "'Amiri', serif" : "'Playfair Display', serif" }}>{member.name}</h4>
                       <p className="text-gold text-sm italic mb-4">{member.role}</p>
                       <div className="mx-auto h-px w-10 bg-gold/50 mb-3" />
-                      <a href={`tel:${member.phone}`} className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm tracking-wide">
+                      <a href={phoneHref(member.phone)} className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm tracking-wide font-phone">
                         <Phone className="h-4 w-4" />
-                        {member.phone}
+                        {formatPhone(member.phone, false)}
                       </a>
                     </div>
                   </ScrollReveal>
@@ -257,9 +258,9 @@ const About = () => {
                       <h4 className="font-serif-display text-xl font-bold text-primary mb-1" style={{ fontFamily: language === 'ar' ? "'Amiri', serif" : "'Playfair Display', serif" }}>{member.name}</h4>
                       <p className="text-gold text-sm italic mb-4">{member.role}</p>
                       <div className="mx-auto h-px w-10 bg-gold/50 mb-3" />
-                      <a href={`tel:${member.phone}`} className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm tracking-wide">
+                      <a href={phoneHref(member.phone)} className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm tracking-wide font-phone">
                         <Phone className="h-4 w-4" />
-                        {member.phone}
+                        {formatPhone(member.phone, false)}
                       </a>
                     </div>
                   </ScrollReveal>
@@ -276,9 +277,9 @@ const About = () => {
                       <h4 className="font-serif-display text-xl font-bold text-primary mb-1" style={{ fontFamily: language === 'ar' ? "'Amiri', serif" : "'Playfair Display', serif" }}>{member.name}</h4>
                       <p className="text-gold text-sm italic mb-4">{member.role}</p>
                       <div className="mx-auto h-px w-10 bg-gold/50 mb-3" />
-                      <a href={`tel:${member.phone}`} className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm tracking-wide">
+                      <a href={phoneHref(member.phone)} className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm tracking-wide font-phone">
                         <Phone className="h-4 w-4" />
-                        {member.phone}
+                        {formatPhone(member.phone, false)}
                       </a>
                     </div>
                   </ScrollReveal>
