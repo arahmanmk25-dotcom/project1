@@ -5,7 +5,6 @@ import { useRef } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import ClientsCarousel from '@/components/home/ClientsCarousel';
-import ClientsBackgroundAnimation from '@/components/home/ClientsBackgroundAnimation';
 import ScrollReveal from '@/components/shared/ScrollReveal';
 import PageTransition from '@/components/shared/PageTransition';
 import HeroTypewriter from '@/components/home/HeroTypewriter';
@@ -228,7 +227,7 @@ const Home = () => {
 
         {/* Clients */}
         <section className="py-20 bg-primary overflow-hidden relative">
-          <ClientsBackgroundAnimation />
+          <div className="absolute inset-0 opacity-[0.08] pointer-events-none" style={{ backgroundImage: 'repeating-linear-gradient(45deg, hsl(var(--gold)) 0 1px, transparent 1px 14px)' }} />
           <div className="container mx-auto px-4 relative z-10">
             <ScrollReveal variant="fadeUp">
               <p className="text-gold/80 font-semibold tracking-widest uppercase text-sm text-center mb-3">
