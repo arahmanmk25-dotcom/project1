@@ -69,9 +69,9 @@ export default {
         },
       },
       fontFamily: {
-        cairo: ['Amiri', 'sans-serif'],
-        poppins: ['Playfair Display', 'Amiri', 'sans-serif'],
-        phone: ['Cinzel', 'Playfair Display', 'serif'],
+        cairo: ['HafcoDigits', 'Amiri', 'sans-serif'],
+        poppins: ['HafcoDigits', 'Playfair Display', 'HafcoDigits', 'Amiri', 'sans-serif'],
+        phone: ['Cinzel', 'HafcoDigits', 'Playfair Display', 'serif'],
       },
       borderRadius: {
         lg: "var(--radius)",
