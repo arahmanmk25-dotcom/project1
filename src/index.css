@@ -339,6 +339,12 @@
   text-transform: uppercase;
   font-weight: 400;
 }
+[dir="rtl"] .text-gold,
+[lang="ar"] .text-gold {
+  font-family: 'Amiri', 'Amiri', serif !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
 .bg-gold { background-color: hsl(var(--accent)) !important; }
 .border-gold { border-color: hsl(var(--accent)) !important; }
 
