@@ -9,6 +9,24 @@
    Restrained. Quiet. Worth-it.
    ============================================================ */
 
+/* === Digit override: render all numbers in Cinzel (phone-number font) === */
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/cinzel/v26/8vIU7ww63mVu7gtR-kwKxNvkNOjw-uTnTYo.ttf) format('truetype');
+  unicode-range: U+0030-0039;
+}
+@font-face {
+  font-family: 'Amiri';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/cinzel/v26/8vIU7ww63mVu7gtR-kwKxNvkNOjw-uTnTYo.ttf) format('truetype');
+  unicode-range: U+0030-0039;
+}
+
 @layer base {
   :root {
     --background: 40 35% 95%;          /* warm ivory */
