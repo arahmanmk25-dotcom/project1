@@ -57,90 +57,97 @@ const Services = () => {
           </div>
         </section>
 
-        {/* Services - Editorial bento grid */}
-        <section className="py-24 md:py-32 bg-secondary/30 relative overflow-hidden">
-          {/* Decorative gold rule */}
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
-
+        {/* Services - Luxury editorial showcase */}
+        <section className="py-28 md:py-40 bg-[#fbfaf6] relative overflow-hidden">
           <div className="container mx-auto px-4 relative">
-            {/* Section eyebrow */}
+            {/* Section header - editorial */}
             <ScrollReveal variant="fadeUp">
-              <div className="flex items-center gap-4 mb-16 max-w-6xl mx-auto">
-                <div className="h-px flex-1 bg-primary/20" />
-                <p className="text-gold font-semibold tracking-[0.3em] uppercase text-xs">
-                  {language === 'ar' ? '— أربع خدمات رئيسية —' : '— FOUR CORE SERVICES —'}
+              <div className="max-w-6xl mx-auto mb-24 md:mb-32 text-center">
+                <p className="text-gold font-semibold tracking-[0.4em] uppercase text-[11px] mb-6">
+                  {language === 'ar' ? 'الخدمات' : 'THE SERVICES'}
                 </p>
-                <div className="h-px flex-1 bg-primary/20" />
+                <div className="flex items-center justify-center gap-4 mb-8">
+                  <div className="h-px w-12 bg-gold/60" />
+                  <span className="text-gold text-xs">✦</span>
+                  <div className="h-px w-12 bg-gold/60" />
+                </div>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary leading-[1.1] max-w-3xl mx-auto">
+                  {language === 'ar'
+                    ? 'إتقان في كل حمولة، تميّز في كل رحلة'
+                    : 'Mastery in every load. Distinction in every journey.'}
+                </h2>
               </div>
             </ScrollReveal>
 
-            <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+            {/* Services list - alternating hero panels */}
+            <div className="max-w-6xl mx-auto space-y-28 md:space-y-40">
               {services.map((service, index) => {
-                // Vary card heights for editorial rhythm
-                const tall = index === 0 || index === 3;
+                const reversed = index % 2 === 1;
                 return (
                   <ScrollReveal key={index} variant="fadeUp">
                     <div id={service.id} className="scroll-mt-24" />
                     <article
-                      className={`group relative overflow-hidden rounded-3xl bg-primary cursor-pointer
-                        ${tall ? 'aspect-[4/5]' : 'aspect-[4/5] md:aspect-[5/6]'}
-                        ${index === 1 ? 'md:translate-y-12' : ''}
-                        ${index === 2 ? 'md:-translate-y-12' : ''}
-                      `}
+                      className={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center ${
+                        reversed ? 'lg:[direction:rtl]' : ''
+                      }`}
                     >
-                      {/* Image layer */}
-                      <img
-                        src={service.image}
-                        alt={service.title}
-                        className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-90 group-hover:scale-110 transition-all duration-[1200ms] ease-out"
-                      />
-
-                      {/* Dark gradient mask */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/70 to-primary/10" />
-
-                      {/* Gold corner accent */}
-                      <div className="absolute top-0 right-0 w-24 h-24 overflow-hidden pointer-events-none">
-                        <div className="absolute top-0 right-0 w-px h-16 bg-gold/60" />
-                        <div className="absolute top-0 right-0 h-px w-16 bg-gold/60" />
-                      </div>
-
-                      {/* Oversized numeral */}
-                      <span
-                        className="font-phone absolute -top-6 -left-2 text-[12rem] leading-none font-bold text-gold/15 group-hover:text-gold/30 transition-colors duration-700 select-none pointer-events-none"
-                      >
-                        {service.num}
-                      </span>
-
-                      {/* Top eyebrow */}
-                      <div className="absolute top-8 right-8 flex items-center gap-2 z-10">
-                        <p className="text-gold/80 font-semibold tracking-[0.25em] uppercase text-[10px]">
-                          {language === 'ar' ? `الخدمة ${service.num}` : `SERVICE ${service.num}`}
-                        </p>
-                        <div className="h-px w-8 bg-gold/60" />
-                      </div>
-
-                      {/* Icon badge */}
-                      <div className="absolute top-8 left-8 z-10">
-                        <div className="w-14 h-14 rounded-full border border-gold/40 flex items-center justify-center backdrop-blur-sm bg-primary/30 group-hover:border-gold group-hover:bg-gold/10 transition-all duration-500">
-                          <service.icon className="h-6 w-6 text-gold" />
+                      {/* Image panel */}
+                      <div className="lg:col-span-7 [direction:ltr]">
+                        <div className="relative group">
+                          {/* Gold frame offset */}
+                          <div
+                            className={`absolute -inset-4 lg:-inset-6 border border-gold/40 rounded-sm pointer-events-none transition-all duration-700 group-hover:border-gold/80 ${
+                              reversed ? 'lg:-translate-x-4 lg:-translate-y-4' : 'lg:translate-x-4 lg:translate-y-4'
+                            }`}
+                          />
+                          <div className="relative overflow-hidden rounded-sm aspect-[4/5] lg:aspect-[3/4]">
+                            <img
+                              src={service.image}
+                              alt={service.title}
+                              className="w-full h-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.04]"
+                            />
+                            {/* Subtle vignette */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent" />
+                          </div>
                         </div>
                       </div>
 
-                      {/* Content - bottom */}
-                      <div className="absolute bottom-0 left-0 right-0 p-8 lg:p-10 z-10">
-                        <div className="h-px w-12 bg-gold mb-5 group-hover:w-24 transition-all duration-500" />
-                        <h2 className="text-2xl lg:text-3xl font-bold text-white mb-3 leading-tight">
+                      {/* Content panel */}
+                      <div className="lg:col-span-5 [direction:ltr] relative">
+                        {/* Faint serif numeral */}
+                        <div className="relative mb-8">
+                          <span
+                            className="font-phone block text-[8rem] lg:text-[10rem] leading-[0.85] font-normal text-gold/25 select-none"
+                          >
+                            {service.num}
+                          </span>
+                          <div className="absolute bottom-3 left-0 h-px w-20 bg-gold" />
+                        </div>
+
+                        {/* Eyebrow */}
+                        <div className="flex items-center gap-3 mb-5">
+                          <service.icon className="h-5 w-5 text-gold" strokeWidth={1.25} />
+                          <p className="text-gold font-semibold tracking-[0.35em] uppercase text-[10px]">
+                            {language === 'ar' ? 'خدمة مميزة' : 'SIGNATURE SERVICE'}
+                          </p>
+                        </div>
+
+                        {/* Title */}
+                        <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-6 leading-[1.1]">
                           {service.title}
-                        </h2>
-                        <p className="text-white/70 leading-relaxed text-sm lg:text-base line-clamp-3 group-hover:line-clamp-none transition-all duration-500">
+                        </h3>
+
+                        {/* Gold divider */}
+                        <div className="flex items-center gap-3 mb-7">
+                          <div className="h-px w-8 bg-gold" />
+                          <span className="text-gold/70 text-[10px]">✦</span>
+                          <div className="h-px w-16 bg-gold/40" />
+                        </div>
+
+                        {/* Description */}
+                        <p className="text-base lg:text-lg text-muted-foreground leading-[1.9] font-light">
                           {service.desc}
                         </p>
-                        <div className="flex items-center gap-2 mt-5 text-gold opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500">
-                          <span className="text-xs font-semibold tracking-widest uppercase">
-                            {language === 'ar' ? 'اعرف المزيد' : 'EXPLORE'}
-                          </span>
-                          <ArrowRight className={`h-4 w-4 ${language === 'ar' ? 'rotate-180' : ''}`} />
-                        </div>
                       </div>
                     </article>
                   </ScrollReveal>
@@ -148,9 +155,6 @@ const Services = () => {
               })}
             </div>
           </div>
-
-          {/* Decorative gold rule */}
-          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
         </section>
 
         {/* CTA */}
