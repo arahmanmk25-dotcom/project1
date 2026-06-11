@@ -14,6 +14,7 @@ import truck13 from '@/assets/trucks/truck-13.jpeg';
 import ScrollReveal from '@/components/shared/ScrollReveal';
 import PageTransition from '@/components/shared/PageTransition';
 import HeroSlideshow from '@/components/shared/HeroSlideshow';
+import SloganBand from '@/components/shared/SloganBand';
 
 declare global {
   interface Window {
