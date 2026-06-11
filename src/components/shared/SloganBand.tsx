@@ -26,7 +26,7 @@ const SloganBand = ({ eyebrowEn, eyebrowAr, sloganEn, sloganAr }: SloganBandProp
               <div className="h-px w-12 bg-gold/60" />
             </div>
             <h2
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary leading-[1.15]"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary leading-[1.15] whitespace-pre-line"
               style={{ fontFamily: language === 'ar' ? "'Amiri', serif" : "'Playfair Display', serif" }}
             >
               {language === 'ar' ? sloganAr : sloganEn}

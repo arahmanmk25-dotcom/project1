@@ -91,8 +91,8 @@ const About = () => {
         <SloganBand
           eyebrowEn="OUR STORY"
           eyebrowAr="قصتنا"
-          sloganEn="Four decades of moving Saudi Arabia forward."
-          sloganAr="أربعة عقود من تحريك المملكة نحو الأمام."
+          sloganEn={"Four decades of moving\nSaudi Arabia\nforward."}
+          sloganAr={"أربعة عقود\nمن تحريك المملكة\nنحو الأمام."}
         />
 
         {/* Company Story - Editorial */}
