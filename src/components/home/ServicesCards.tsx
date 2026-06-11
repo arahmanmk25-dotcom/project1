@@ -64,7 +64,7 @@ const ServicesCards = () => {
                         alt={service.title}
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-primary/10 to-transparent opacity-80 group-hover:opacity-100 transition-all duration-500" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-60 group-hover:opacity-90 transition-all duration-500" />
                       <span className="absolute top-3 right-4 font-serif-display text-5xl text-gold/80 italic select-none drop-shadow">
                         {service.num}
                       </span>
