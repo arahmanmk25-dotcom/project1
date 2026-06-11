@@ -115,6 +115,14 @@ const Contact = () => {
           </div>
         </section>
 
+        {/* Slogan */}
+        <SloganBand
+          eyebrowEn="GET IN TOUCH"
+          eyebrowAr="تواصل معنا"
+          sloganEn="One call. One quote. One trusted partner."
+          sloganAr="مكالمة واحدة. عرض واحد. شريك واحد موثوق."
+        />
+
         {/* Contact Content - Editorial layout */}
         <section className="py-24 md:py-32">
           <div className="container mx-auto px-4">
