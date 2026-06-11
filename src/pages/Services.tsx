@@ -87,50 +87,55 @@ const Services = () => {
               {services.map((service, index) => (
                 <ScrollReveal key={index} variant="fadeUp">
                   <div id={service.id} className="scroll-mt-24" />
-                  <article className="group relative border-b border-primary/15 transition-colors duration-500 hover:border-gold">
-                    <div className="grid grid-cols-12 gap-4 md:gap-8 items-center py-10 md:py-14 px-2 md:px-4 relative">
-                      {/* Index numeral */}
-                      <div className="col-span-2 md:col-span-1">
-                        <span className="font-phone text-2xl md:text-3xl text-gold/70 group-hover:text-gold transition-colors duration-500">
-                          {service.num}
-                        </span>
-                      </div>
+                  <Link
+                    to={`/contact?service=${service.id}`}
+                    className="block border-b border-primary/15 transition-colors duration-500 hover:border-gold group"
+                  >
+                    <article className="relative">
+                      <div className="grid grid-cols-12 gap-4 md:gap-8 items-center pt-10 md:pt-14 pb-6 md:pb-8 px-2 md:px-4">
+                        {/* Index numeral */}
+                        <div className="col-span-2 md:col-span-1">
+                          <span className="font-phone text-2xl md:text-3xl text-gold/70 group-hover:text-gold transition-colors duration-500">
+                            {service.num}
+                          </span>
+                        </div>
 
-                      {/* Title + eyebrow */}
-                      <div className="col-span-10 md:col-span-6">
-                        <p className="text-gold/80 font-semibold tracking-[0.35em] uppercase text-[10px] mb-2 md:mb-3">
-                          {language === 'ar' ? 'خدمة مميزة' : 'SIGNATURE SERVICE'}
-                        </p>
-                        <h3 className="text-2xl md:text-4xl lg:text-5xl font-bold text-primary leading-[1.1] group-hover:translate-x-2 transition-transform duration-500 ease-out">
-                          {service.title}
-                        </h3>
-                      </div>
+                        {/* Title + eyebrow */}
+                        <div className="col-span-10 md:col-span-6">
+                          <p className="text-gold/80 font-semibold tracking-[0.35em] uppercase text-[10px] mb-2 md:mb-3">
+                            {language === 'ar' ? 'خدمة مميزة' : 'SIGNATURE SERVICE'}
+                          </p>
+                          <h3 className="text-2xl md:text-4xl lg:text-5xl font-bold text-primary leading-[1.1] group-hover:translate-x-2 transition-transform duration-500 ease-out">
+                            {service.title}
+                          </h3>
+                        </div>
 
-                      {/* Thumbnail */}
-                      <div className="hidden md:block col-span-3">
-                        <div className="relative overflow-hidden rounded-sm aspect-[4/3] opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-700 ease-out">
-                          <img src={service.image} alt={service.title} className="w-full h-full object-cover" />
-                          <div className="absolute inset-0 ring-1 ring-inset ring-gold/40" />
+                        {/* Thumbnail */}
+                        <div className="hidden md:block col-span-3">
+                          <div className="relative overflow-hidden rounded-sm aspect-[4/3] opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-700 ease-out">
+                            <img src={service.image} alt={service.title} className="w-full h-full object-cover" />
+                            <div className="absolute inset-0 ring-1 ring-inset ring-gold/40" />
+                          </div>
+                        </div>
+
+                        {/* Arrow */}
+                        <div className="col-span-12 md:col-span-2 flex md:justify-end">
+                          <div className="w-12 h-12 rounded-full border border-primary/20 flex items-center justify-center group-hover:border-gold group-hover:bg-gold transition-all duration-500">
+                            <ArrowRight className={`h-4 w-4 text-primary/60 group-hover:text-white transition-colors duration-500 ${language === 'ar' ? 'rotate-180' : ''}`} strokeWidth={1.5} />
+                          </div>
                         </div>
                       </div>
 
-                      {/* Arrow / icon */}
-                      <div className="col-span-12 md:col-span-2 flex md:justify-end">
-                        <div className="w-12 h-12 rounded-full border border-primary/20 flex items-center justify-center group-hover:border-gold group-hover:bg-gold transition-all duration-500">
-                          <ArrowRight className={`h-4 w-4 text-primary/60 group-hover:text-white transition-colors duration-500 ${language === 'ar' ? 'rotate-180' : ''}`} strokeWidth={1.5} />
+                      {/* Description - always visible */}
+                      <div className="grid grid-cols-12 gap-4 md:gap-8 px-2 md:px-4 pb-10 md:pb-14">
+                        <div className="col-span-12 md:col-start-2 md:col-span-9">
+                          <p className="text-base md:text-lg text-muted-foreground leading-[1.9] font-light">
+                            {service.desc}
+                          </p>
                         </div>
                       </div>
-                    </div>
-
-                    {/* Expanding description */}
-                    <div className="grid grid-cols-12 gap-4 md:gap-8 px-2 md:px-4 overflow-hidden max-h-0 group-hover:max-h-40 transition-all duration-700 ease-out">
-                      <div className="col-span-12 md:col-start-2 md:col-span-9 pb-10">
-                        <p className="text-base md:text-lg text-muted-foreground leading-[1.9] font-light">
-                          {service.desc}
-                        </p>
-                      </div>
-                    </div>
-                  </article>
+                    </article>
+                  </Link>
                 </ScrollReveal>
               ))}
             </div>
