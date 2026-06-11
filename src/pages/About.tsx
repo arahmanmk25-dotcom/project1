@@ -87,6 +87,14 @@ const About = () => {
           </div>
         </section>
 
+        {/* Slogan */}
+        <SloganBand
+          eyebrowEn="OUR STORY"
+          eyebrowAr="قصتنا"
+          sloganEn="Four decades of moving Saudi Arabia forward."
+          sloganAr="أربعة عقود من تحريك المملكة نحو الأمام."
+        />
+
         {/* Company Story - Editorial */}
         <section className="py-24 md:py-32">
           <div className="container mx-auto px-4">
