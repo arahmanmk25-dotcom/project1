@@ -80,13 +80,13 @@ const ServicesCards = () => {
                       <span className="lux-fleuron block mb-1">— ❦ —</span>
                       <h3
                         className="font-serif-display text-xl md:text-2xl font-bold text-primary leading-tight"
-                        style={{ fontFamily: language === 'ar' ? "'Aref Ruqaa', serif" : "'Playfair Display', serif" }}
+                        style={{ fontFamily: language === 'ar' ? "'Amiri', serif" : "'Playfair Display', serif" }}
                       >
                         {service.title}
                       </h3>
                       <p
                         className="mt-3 text-sm text-muted-foreground leading-relaxed italic"
-                        style={{ fontFamily: language === 'ar' ? "'Amiri', serif" : "'Cormorant Garamond', serif" }}
+                        style={{ fontFamily: language === 'ar' ? "'Amiri', serif" : "'Playfair Display', serif" }}
                       >
                         {service.desc}
                       </p>
