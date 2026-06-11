@@ -264,7 +264,7 @@ const Work = () => {
                 {projects.map((project, i) => (
                   <ScrollReveal key={i} variant="fadeUp" delay={(i % 3) * 0.08}>
                     <div
-                      className="lux-card group cursor-pointer !p-3"
+                      className="lux-card group cursor-pointer !p-3 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
                       onClick={() => openLightbox(cardToLightboxIndex[i])}
                     >
                       <div className="relative aspect-[4/3] overflow-hidden">

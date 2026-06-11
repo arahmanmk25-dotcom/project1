@@ -54,9 +54,7 @@ const ServicesCards = () => {
               <ScrollReveal key={index} variant="fadeUp" delay={index * 0.1}>
                 <Link to={`/services#${service.slug}`}>
                   <motion.div
-                    className="lux-card group cursor-pointer !p-3 h-full"
-                    whileHover={{ y: -4 }}
-                    transition={{ duration: 0.3 }}
+                    className="lux-card group cursor-pointer !p-3 h-full transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
                   >
                     <div className="relative aspect-[16/10] overflow-hidden">
                       <img
