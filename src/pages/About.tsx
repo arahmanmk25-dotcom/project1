@@ -8,6 +8,7 @@ import ScrollReveal from '@/components/shared/ScrollReveal';
 import AnimatedCounter from '@/components/shared/AnimatedCounter';
 import PageTransition from '@/components/shared/PageTransition';
 import HeroSlideshow from '@/components/shared/HeroSlideshow';
+import SloganBand from '@/components/shared/SloganBand';
 
 const About = () => {
   const { t, language } = useLanguage();
