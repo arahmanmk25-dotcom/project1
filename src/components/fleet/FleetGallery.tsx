@@ -2,7 +2,7 @@ import { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { Lightbox, useLightbox } from '@/components/ui/lightbox';
 import { useLanguage } from '@/contexts/LanguageContext';
-import HoverTruckAnimation from '@/components/shared/HoverTruckAnimation';
+
 
 interface FleetItem {
   src: string;
@@ -75,9 +75,6 @@ const FleetGallery = ({ items, categories }: FleetGalleryProps) => {
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/85 via-primary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute inset-x-0 bottom-0 p-4 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
-                  <HoverTruckAnimation />
-                </div>
               </div>
 
               <div className="pt-4 pb-1 px-2 text-center">
