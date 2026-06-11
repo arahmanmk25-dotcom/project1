@@ -43,7 +43,7 @@ const FreightBand = () => {
       <div className="absolute bottom-1 left-1 w-3 h-3 border-b-2 border-l-2 border-primary/60" />
       <div className="absolute bottom-1 right-1 w-3 h-3 border-b-2 border-r-2 border-primary/60" />
 
-      <div className="flex animate-marquee-left whitespace-nowrap py-4">
+      <div dir="ltr" className="flex animate-marquee-left whitespace-nowrap py-4">
         {loop.map((item, i) => {
           const Icon = item.icon;
           return (
