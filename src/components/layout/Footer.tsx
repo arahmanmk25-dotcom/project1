@@ -127,14 +127,14 @@ const Footer = () => {
               <li className="flex items-center gap-3">
                 <Phone className="h-5 w-5 text-gold shrink-0" />
                 <div className="flex flex-col text-[15px]">
-                  <a href="tel:+966535557874" className="text-primary-foreground/85 hover:text-gold transition-colors">
-                    +966 535557874
+                  <a href={phoneHref('0535557874')} className="text-primary-foreground/85 hover:text-gold transition-colors font-phone">
+                    {formatPhone('0535557874')}
                   </a>
-                  <a href="tel:+966560676302" className="text-primary-foreground/85 hover:text-gold transition-colors">
-                    +966 560676302
+                  <a href={phoneHref('0560676302')} className="text-primary-foreground/85 hover:text-gold transition-colors font-phone">
+                    {formatPhone('0560676302')}
                   </a>
-                  <a href="tel:+966504826306" className="text-primary-foreground/85 hover:text-gold transition-colors">
-                    +966 504826306
+                  <a href={phoneHref('0504826306')} className="text-primary-foreground/85 hover:text-gold transition-colors font-phone">
+                    {formatPhone('0504826306')}
                   </a>
                 </div>
               </li>
@@ -144,8 +144,8 @@ const Footer = () => {
                   <span className="text-gold font-bold tracking-wider uppercase text-xs" style={{ fontFamily: 'inherit' }}>
                     {language === 'ar' ? 'خط الطوارئ · على مدار الساعة' : 'Work Line · 24/7'}
                   </span>
-                  <a href="tel:+966599990239" className="text-primary-foreground font-bold hover:text-gold transition-colors text-base">
-                    +966 599990239
+                  <a href={phoneHref('0599990239')} className="text-primary-foreground font-bold hover:text-gold transition-colors text-base font-phone">
+                    {formatPhone('0599990239')}
                   </a>
                 </div>
               </li>
