@@ -471,3 +471,146 @@ input:focus, textarea:focus, select:focus {
   background: transparent;
   text-transform: uppercase;
 }
+
+/* ============================================================
+   Vintage luxury Arabic typography
+   - Aref Ruqaa: classical calligraphic display (headings)
+   - Amiri: refined Naskh serif (body)
+   ============================================================ */
+:root[lang="ar"] body,
+[dir="rtl"] body,
+[lang="ar"] {
+  font-family: 'Amiri', 'Cormorant Garamond', serif;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+[dir="rtl"] h1, [lang="ar"] h1,
+[dir="rtl"] h2, [lang="ar"] h2,
+[dir="rtl"] h3, [lang="ar"] h3,
+[dir="rtl"] h4, [lang="ar"] h4,
+[dir="rtl"] .font-display, [lang="ar"] .font-display,
+[dir="rtl"] .font-serif-display, [lang="ar"] .font-serif-display {
+  font-family: 'Aref Ruqaa', 'Amiri', serif !important;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+[dir="rtl"] .font-stencil, [lang="ar"] .font-stencil {
+  font-family: 'Reem Kufi', 'Aref Ruqaa', serif !important;
+  letter-spacing: 0.1em;
+}
+
+[dir="rtl"] .font-italic-serif, [lang="ar"] .font-italic-serif {
+  font-family: 'Amiri', serif !important;
+  font-style: italic;
+}
+
+/* ============================================================
+   Client logos — drop white backgrounds, warm vintage tone
+   ============================================================ */
+.client-logo-vintage {
+  mix-blend-mode: multiply;
+  filter: grayscale(0.25) contrast(1.05) brightness(0.98) sepia(0.12);
+  transition: filter 0.4s ease, opacity 0.4s ease;
+}
+.client-logo-vintage:hover {
+  filter: grayscale(0) contrast(1.1) brightness(1) sepia(0);
+}
+.client-plate {
+  background:
+    linear-gradient(180deg, hsl(40 38% 96%) 0%, hsl(38 30% 90%) 100%);
+  border: 1px solid hsl(38 42% 52% / 0.35);
+  box-shadow:
+    inset 0 0 0 1px hsl(40 35% 98%),
+    0 1px 0 hsl(38 42% 52% / 0.15),
+    0 8px 24px -12px hsl(140 22% 18% / 0.25);
+  position: relative;
+}
+.client-plate::before,
+.client-plate::after {
+  content: "";
+  position: absolute;
+  width: 8px; height: 8px;
+  border: 1px solid hsl(38 42% 52% / 0.7);
+}
+.client-plate::before { top: 4px; left: 4px; border-right: 0; border-bottom: 0; }
+.client-plate::after  { bottom: 4px; right: 4px; border-left: 0; border-top: 0; }
+
+/* ============================================================
+   Luxury vintage card — used for team / fleet / showcase cards
+   Ivory paper · gilt rule · corner ornaments · embossed shadow
+   ============================================================ */
+.lux-card {
+  position: relative;
+  background:
+    radial-gradient(120% 80% at 50% 0%, hsl(38 35% 96%) 0%, hsl(38 28% 90%) 100%);
+  border: 1px solid hsl(140 22% 18% / 0.35);
+  box-shadow:
+    inset 0 0 0 1px hsl(40 40% 98%),
+    inset 0 0 0 6px transparent,
+    0 1px 0 hsl(38 42% 52% / 0.2),
+    0 22px 40px -28px hsl(140 22% 18% / 0.45);
+  padding: 2rem 1.75rem;
+  border-radius: 2px;
+  overflow: hidden;
+  transition: transform 0.5s cubic-bezier(.2,.7,.2,1), box-shadow 0.5s;
+}
+.lux-card:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    inset 0 0 0 1px hsl(40 40% 98%),
+    0 1px 0 hsl(38 42% 52% / 0.3),
+    0 30px 50px -28px hsl(140 22% 18% / 0.55);
+}
+/* gilt frame */
+.lux-card::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px solid hsl(38 42% 52% / 0.55);
+  pointer-events: none;
+}
+/* top + bottom hairline ornament */
+.lux-card::after {
+  content: "";
+  position: absolute;
+  left: 24px; right: 24px; top: 14px;
+  height: 1px;
+  background:
+    linear-gradient(to right,
+      transparent 0, hsl(38 42% 52% / 0.7) 18%,
+      hsl(38 42% 52% / 0.9) 50%,
+      hsl(38 42% 52% / 0.7) 82%, transparent 100%);
+}
+.lux-card > * { position: relative; z-index: 1; }
+
+.lux-card-dark {
+  background:
+    radial-gradient(120% 80% at 50% 0%, hsl(140 24% 14%) 0%, hsl(140 26% 10%) 100%);
+  color: hsl(40 40% 96%);
+  border-color: hsl(38 42% 52% / 0.6);
+  box-shadow:
+    inset 0 0 0 1px hsl(38 42% 52% / 0.2),
+    0 22px 40px -22px hsl(0 0% 0% / 0.6);
+}
+.lux-card-dark::before { border-color: hsl(38 50% 60% / 0.75); }
+.lux-card-dark::after {
+  background:
+    linear-gradient(to right,
+      transparent 0, hsl(38 60% 70% / 0.6) 18%,
+      hsl(38 70% 78% / 0.95) 50%,
+      hsl(38 60% 70% / 0.6) 82%, transparent 100%);
+}
+
+/* ornamental fleur on cards */
+.lux-fleuron {
+  display: inline-block;
+  font-family: 'Italiana', 'Cormorant Garamond', serif;
+  color: hsl(var(--accent));
+  font-size: 0.9rem;
+  letter-spacing: 0.4em;
+}
+
+/* Make the lightbox always render LTR-safe so RTL doesn't flip the layout */
+.lightbox-ltr { direction: ltr; }

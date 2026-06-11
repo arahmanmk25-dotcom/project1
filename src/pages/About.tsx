@@ -210,31 +210,35 @@ const About = () => {
               </ScrollReveal>
 
               {/* Owners */}
-              <div className="grid md:grid-cols-2 gap-8 mb-12">
+              <div className="grid md:grid-cols-2 gap-10 mb-12">
                 {owners.map((owner, i) => (
                   <ScrollReveal key={i} variant="fadeUp" delay={i * 0.1}>
-                    <div className="bg-card p-8 rounded-xl border-2 border-gold text-center">
-                      <div className="w-20 h-20 bg-gold/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <div className="lux-card text-center">
+                      <span className="lux-fleuron block mb-3">— ❦ —</span>
+                      <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-5 border border-gold/60" style={{ background: 'radial-gradient(circle, hsl(38 42% 52% / 0.18), transparent 70%)' }}>
                         <Crown className="h-10 w-10 text-gold" />
                       </div>
-                      <h4 className="font-bold text-xl mb-1">{owner.name}</h4>
-                      <p className="text-gold font-semibold">{owner.role}</p>
+                      <p className="text-[10px] tracking-[0.4em] uppercase text-gold/80 mb-2">{language === 'ar' ? 'مالك المؤسسة' : 'Founding Owner'}</p>
+                      <h4 className="font-serif-display text-2xl font-bold text-primary mb-1" style={{ fontFamily: language === 'ar' ? "'Aref Ruqaa', serif" : "'Playfair Display', serif" }}>{owner.name}</h4>
+                      <p className="text-gold font-semibold tracking-wide italic">{owner.role}</p>
+                      <div className="mt-5 mx-auto h-px w-16 bg-gold/60" />
                     </div>
                   </ScrollReveal>
                 ))}
               </div>
 
-              {/* Managers */}
+              {/* Top Managers */}
               <div className="grid md:grid-cols-2 gap-8 mb-8">
                 {topManagers.map((member, i) => (
                   <ScrollReveal key={i} variant="fadeUp" delay={i * 0.1}>
-                    <div className="bg-card p-8 rounded-xl border border-border text-center">
-                      <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <Briefcase className="h-8 w-8 text-primary" />
+                    <div className="lux-card text-center">
+                      <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border border-primary/40 bg-primary/5">
+                        <Briefcase className="h-7 w-7 text-primary" />
                       </div>
-                      <h4 className="font-bold text-lg mb-1">{member.name}</h4>
-                      <p className="text-gold text-sm mb-3">{member.role}</p>
-                      <a href={`tel:${member.phone}`} className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+                      <h4 className="font-serif-display text-xl font-bold text-primary mb-1" style={{ fontFamily: language === 'ar' ? "'Aref Ruqaa', serif" : "'Playfair Display', serif" }}>{member.name}</h4>
+                      <p className="text-gold text-sm italic mb-4">{member.role}</p>
+                      <div className="mx-auto h-px w-10 bg-gold/50 mb-3" />
+                      <a href={`tel:${member.phone}`} className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm tracking-wide">
                         <Phone className="h-4 w-4" />
                         {member.phone}
                       </a>
@@ -246,13 +250,14 @@ const About = () => {
               <div className="grid md:grid-cols-2 gap-8 mb-8">
                 {middleManagers.map((member, i) => (
                   <ScrollReveal key={i} variant="fadeUp" delay={i * 0.1}>
-                    <div className="bg-card p-8 rounded-xl border border-border text-center">
-                      <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <Briefcase className="h-8 w-8 text-primary" />
+                    <div className="lux-card text-center">
+                      <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border border-primary/40 bg-primary/5">
+                        <Briefcase className="h-7 w-7 text-primary" />
                       </div>
-                      <h4 className="font-bold text-lg mb-1">{member.name}</h4>
-                      <p className="text-gold text-sm mb-3">{member.role}</p>
-                      <a href={`tel:${member.phone}`} className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+                      <h4 className="font-serif-display text-xl font-bold text-primary mb-1" style={{ fontFamily: language === 'ar' ? "'Aref Ruqaa', serif" : "'Playfair Display', serif" }}>{member.name}</h4>
+                      <p className="text-gold text-sm italic mb-4">{member.role}</p>
+                      <div className="mx-auto h-px w-10 bg-gold/50 mb-3" />
+                      <a href={`tel:${member.phone}`} className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm tracking-wide">
                         <Phone className="h-4 w-4" />
                         {member.phone}
                       </a>
@@ -264,13 +269,14 @@ const About = () => {
               <div className="grid md:grid-cols-1 max-w-md mx-auto gap-8">
                 {bottomMembers.map((member, i) => (
                   <ScrollReveal key={i} variant="fadeUp" delay={i * 0.1}>
-                    <div className="bg-card p-8 rounded-xl border border-border text-center">
-                      <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <Briefcase className="h-8 w-8 text-primary" />
+                    <div className="lux-card text-center">
+                      <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border border-primary/40 bg-primary/5">
+                        <Briefcase className="h-7 w-7 text-primary" />
                       </div>
-                      <h4 className="font-bold text-lg mb-1">{member.name}</h4>
-                      <p className="text-gold text-sm mb-3">{member.role}</p>
-                      <a href={`tel:${member.phone}`} className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+                      <h4 className="font-serif-display text-xl font-bold text-primary mb-1" style={{ fontFamily: language === 'ar' ? "'Aref Ruqaa', serif" : "'Playfair Display', serif" }}>{member.name}</h4>
+                      <p className="text-gold text-sm italic mb-4">{member.role}</p>
+                      <div className="mx-auto h-px w-10 bg-gold/50 mb-3" />
+                      <a href={`tel:${member.phone}`} className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm tracking-wide">
                         <Phone className="h-4 w-4" />
                         {member.phone}
                       </a>

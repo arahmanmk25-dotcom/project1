@@ -51,11 +51,11 @@ const ClientsCarousel = () => {
             key={`${client.name}-${index}`}
             className="flex-shrink-0 px-4 md:px-6"
           >
-            <div className="flex items-center justify-center w-[120px] h-[70px] md:w-[150px] md:h-[85px] px-2 py-1 rounded-xl shadow-sm hover:shadow-md hover:scale-105 transition-all duration-300 group" style={{ backgroundColor: '#eff6f2' }}>
+            <div className="client-plate flex items-center justify-center w-[130px] h-[80px] md:w-[160px] md:h-[95px] px-3 py-2 transition-all duration-500 hover:scale-[1.04] group">
               <img 
                 src={client.logo} 
                 alt={client.name}
-                className={getLogoClass(client.size)}
+                className={`${getLogoClass(client.size)} client-logo-vintage`}
               />
             </div>
           </div>

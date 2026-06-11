@@ -177,15 +177,15 @@ const Home = () => {
               </p>
               <h2 className="font-display text-3xl md:text-5xl lg:text-6xl text-background leading-tight">
                 {language === 'ar' ? (
-                  <>ننقل <span className="italic text-gold">المستحيل</span>.</>
+                  <>ننقل ما يَعجِزُ عنه <span className="italic text-gold">سواه</span>.</>
                 ) : (
-                  <>We move the <span className="italic text-gold">impossible</span>.</>
+                  <>We move what <span className="italic text-gold">others can't</span>.</>
                 )}
               </h2>
-              <p className="font-italic-serif text-lg md:text-2xl text-background/80 mt-6 max-w-3xl mx-auto">
+              <p className="font-italic-serif text-lg md:text-2xl text-background/85 mt-6 max-w-3xl mx-auto">
                 {language === 'ar'
-                  ? 'هافكو — تاريخٌ راسخٌ في صناعة النقل واللوجستيات منذ عام ١٩٨٤.'
-                  : 'HAFCO — history written into the logistics industry since 1984.'}
+                  ? 'هافكو — فصلٌ راسخٌ في تاريخ النقل واللوجستيات في المملكة منذ عام ١٩٨٤.'
+                  : 'HAFCO — a chapter written into the history of Saudi logistics since 1984.'}
               </p>
               <div className="mt-8 flex items-center justify-center gap-4">
                 <span className="h-px w-12 bg-gold/60" />

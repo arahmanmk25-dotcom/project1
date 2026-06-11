@@ -57,40 +57,39 @@ const FleetGallery = ({ items, categories }: FleetGalleryProps) => {
           ))}
         </div>
 
-        <div key={activeCategory} className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div key={activeCategory} className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {filtered.map((item, i) => (
             <motion.div
               key={`${item.nameEn}-${item.model}-${item.year}`}
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.35, ease: 'easeOut', delay: i * 0.05 }}
-              className="group relative cursor-pointer overflow-hidden rounded-lg hover-lift"
+              transition={{ duration: 0.45, ease: 'easeOut', delay: i * 0.04 }}
+              className="lux-card group cursor-pointer !p-3"
               onClick={() => openLightbox(i)}
             >
-              <div className="aspect-[4/3] overflow-hidden">
+              <div className="relative aspect-[4/3] overflow-hidden">
                 <img
                   src={item.src}
                   alt={language === 'ar' ? item.nameAr : item.nameEn}
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                   loading="lazy"
                 />
-              </div>
-
-              <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-primary via-primary/60 to-transparent p-5 opacity-0 transition-all duration-300 group-hover:opacity-100">
-                <HoverTruckAnimation />
-                <h3 className="relative z-20 mb-1 text-lg font-bold text-white">
-                  {language === 'ar' ? item.nameAr : item.nameEn}
-                </h3>
-                <div className="relative z-20 flex justify-between text-sm text-white/80">
-                  <span>{item.model}</span>
-                  <span>{item.year}</span>
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/85 via-primary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-x-0 bottom-0 p-4 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+                  <HoverTruckAnimation />
                 </div>
               </div>
 
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 transition-opacity duration-300 group-hover:opacity-0">
-                <h3 className="text-sm font-bold text-white">
+              <div className="pt-4 pb-1 px-2 text-center">
+                <span className="lux-fleuron block mb-1">— ❦ —</span>
+                <h3 className="font-serif-display text-base md:text-lg font-bold text-primary leading-tight" style={{ fontFamily: language === 'ar' ? "'Aref Ruqaa', serif" : "'Playfair Display', serif" }}>
                   {language === 'ar' ? item.nameAr : item.nameEn}
                 </h3>
+                <div className="mt-2 flex items-center justify-center gap-3 text-[11px] tracking-[0.25em] uppercase text-gold">
+                  <span>{item.model}</span>
+                  <span className="h-3 w-px bg-gold/50" />
+                  <span>{item.year}</span>
+                </div>
               </div>
             </motion.div>
           ))}

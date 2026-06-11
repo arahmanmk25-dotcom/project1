@@ -52,16 +52,18 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-bold mb-4 text-gold">
+            <h3 className="text-lg font-bold mb-4 text-gold uppercase tracking-[0.25em] font-serif-display">
               {t('footer.quickLinks')}
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     to={link.href}
-                    className="text-primary-foreground/80 hover:text-gold transition-colors duration-300 text-sm"
+                    className="group inline-flex items-center gap-2 text-primary-foreground/85 hover:text-gold transition-colors duration-300 text-[15px] font-medium tracking-wide"
+                    style={{ fontFamily: language === 'ar' ? "'Amiri', serif" : "'Cormorant Garamond', serif" }}
                   >
+                    <span className="h-px w-3 bg-gold/60 group-hover:w-5 transition-all" />
                     {link.label}
                   </Link>
                 </li>
