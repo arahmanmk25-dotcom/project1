@@ -64,7 +64,7 @@ const FleetGallery = ({ items, categories }: FleetGalleryProps) => {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, ease: 'easeOut', delay: i * 0.04 }}
-              className="lux-card group cursor-pointer !p-3"
+              className="lux-card group cursor-pointer !p-3 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
               onClick={() => openLightbox(i)}
             >
               <div className="relative aspect-[4/3] overflow-hidden">

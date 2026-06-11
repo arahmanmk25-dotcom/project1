@@ -87,7 +87,7 @@ const Services = () => {
                   <ScrollReveal key={index} variant="fadeUp" delay={index * 0.1}>
                     <div id={service.id} className="scroll-mt-24" />
                     <Link to={`/contact?service=${service.id}`}>
-                      <div className="lux-card group cursor-pointer !p-3 h-full">
+                      <div className="lux-card group cursor-pointer !p-3 h-full transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
                         <div className="relative aspect-[16/10] overflow-hidden">
                           <img
                             src={service.image}
