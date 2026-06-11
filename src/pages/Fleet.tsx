@@ -5,6 +5,7 @@ import HeroSlideshow from '@/components/shared/HeroSlideshow';
 import StatsBar from '@/components/home/StatsBar';
 import FleetGallery from '@/components/fleet/FleetGallery';
 import RoadDivider from '@/components/shared/RoadDivider';
+import SloganBand from '@/components/shared/SloganBand';
 
 // Fleet trucks
 import fleetHero from '@/assets/trucks/fleet-hero.jpeg';
