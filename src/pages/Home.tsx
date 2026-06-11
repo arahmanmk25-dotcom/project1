@@ -228,7 +228,7 @@ const Home = () => {
 
         {/* Clients */}
         <section className="py-20 bg-primary overflow-hidden relative">
-          <ClientsBackgroundAnimation />
+          <div className="absolute inset-0 opacity-[0.08] pointer-events-none" style={{ backgroundImage: 'repeating-linear-gradient(45deg, hsl(var(--gold)) 0 1px, transparent 1px 14px)' }} />
           <div className="container mx-auto px-4 relative z-10">
             <ScrollReveal variant="fadeUp">
               <p className="text-gold/80 font-semibold tracking-widest uppercase text-sm text-center mb-3">
