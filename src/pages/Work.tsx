@@ -179,10 +179,20 @@ const Work = () => {
                 {/* Image with gold frame */}
                 <ScrollReveal variant="fadeUp" delay={0.05} className="lg:col-span-7">
                   <div
-                    className="relative group cursor-pointer"
+                    className="relative group cursor-pointer p-4 md:p-6 bg-card"
                     onClick={() => openLightbox(latestLightboxStart)}
                   >
-                    <div className="relative overflow-hidden rounded-sm aspect-[4/3] ring-1 ring-gold/40">
+                    {/* Outer gold rule */}
+                    <div className="absolute inset-0 border border-gold/60 pointer-events-none" />
+                    {/* Inner gold rule */}
+                    <div className="absolute inset-2 md:inset-3 border border-gold/30 pointer-events-none" />
+                    {/* Corner ornaments */}
+                    <span className="absolute -top-1 -left-1 w-3 h-3 border-t-2 border-l-2 border-gold pointer-events-none" />
+                    <span className="absolute -top-1 -right-1 w-3 h-3 border-t-2 border-r-2 border-gold pointer-events-none" />
+                    <span className="absolute -bottom-1 -left-1 w-3 h-3 border-b-2 border-l-2 border-gold pointer-events-none" />
+                    <span className="absolute -bottom-1 -right-1 w-3 h-3 border-b-2 border-r-2 border-gold pointer-events-none" />
+
+                    <div className="relative overflow-hidden aspect-[4/3]">
                       <HeroSlideshow images={latestProject.images} interval={5000} showTrucks={false} />
                       <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent pointer-events-none" />
                       {/* Photo count badge */}
@@ -191,6 +201,15 @@ const Work = () => {
                           {latestProject.images.length} {language === 'ar' ? 'صور' : 'Photos'}
                         </span>
                       </div>
+                    </div>
+
+                    {/* Caption plate */}
+                    <div className="flex items-center justify-center gap-3 pt-4 pb-1">
+                      <div className="h-px w-8 bg-gold/60" />
+                      <span className="text-gold/80 text-[10px] tracking-[0.4em] uppercase font-semibold">
+                        {language === 'ar' ? 'مجموعة هافكو' : 'HAFCO ARCHIVE'}
+                      </span>
+                      <div className="h-px w-8 bg-gold/60" />
                     </div>
                   </div>
                 </ScrollReveal>
