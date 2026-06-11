@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Truck, Cylinder, Construction, Package, ArrowRight } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
-import FloatingTrucksBackground from '@/components/shared/FloatingTrucksBackground';
+
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import truck5 from '@/assets/trucks/truck-5.jpeg';
@@ -136,7 +136,13 @@ const Services = () => {
 
         {/* CTA */}
         <section className="py-32 bg-primary relative overflow-hidden">
-          <FloatingTrucksBackground truckCount={12} particleCount={15} />
+          <div
+            className="absolute inset-0 opacity-[0.08] pointer-events-none"
+            style={{
+              backgroundImage:
+                'repeating-linear-gradient(45deg, hsl(var(--gold)) 0 1px, transparent 1px 14px)',
+            }}
+          />
           <div className="container mx-auto px-4 text-center">
             <ScrollReveal variant="fadeUp">
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
