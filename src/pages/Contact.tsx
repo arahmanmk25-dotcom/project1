@@ -234,7 +234,7 @@ const Contact = () => {
                 </div>
                 <div className="mt-6 text-center">
                   <p className="text-muted-foreground mb-2">
-                    {language === 'ar' ? 'العنوان المختصر:' : 'Short Address:'} <span className="font-bold text-primary">EQGA2837</span>
+                    {language === 'ar' ? 'العنوان المختصر:' : 'Short Address:'} <span className="font-phone font-bold text-primary tracking-wider">EQGA2837</span>
                   </p>
                   <a href="https://maps.google.com/?q=EQGA2837+Dammam+Saudi+Arabia" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-gold hover:text-gold-light transition-colors text-lg">
                     <MapPin className="h-5 w-5" />
