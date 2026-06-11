@@ -9,55 +9,31 @@
    Restrained. Quiet. Worth-it.
    ============================================================ */
 
-/* === Digit override: render Latin digits 0-9 in Cinzel across all body fonts === */
-/* Each weight must be declared explicitly so the browser's font-matching picks our Cinzel
-   glyphs (instead of Playfair / Amiri) for U+0030–U+0039. */
+/* === Digit override: dedicated 'HafcoDigits' family (Cinzel glyphs, digits only).
+   Placed FIRST in every font stack so digits 0-9 always render in Cinzel,
+   while all other characters fall through to Playfair / Amiri. === */
 @font-face {
-  font-family: 'Playfair Display';
-  font-style: normal; font-weight: 400; font-display: swap;
+  font-family: 'HafcoDigits';
+  font-style: normal; font-weight: 100 500; font-display: swap;
   src: url(https://fonts.gstatic.com/s/cinzel/v26/8vIU7ww63mVu7gtR-kwKxNvkNOjw-tbnTYo.ttf) format('truetype');
   unicode-range: U+0030-0039;
 }
 @font-face {
-  font-family: 'Playfair Display';
-  font-style: normal; font-weight: 500; font-display: swap;
-  src: url(https://fonts.gstatic.com/s/cinzel/v26/8vIU7ww63mVu7gtR-kwKxNvkNOjw-uTnTYo.ttf) format('truetype');
-  unicode-range: U+0030-0039;
-}
-@font-face {
-  font-family: 'Playfair Display';
-  font-style: normal; font-weight: 600; font-display: swap;
-  src: url(https://fonts.gstatic.com/s/cinzel/v26/8vIU7ww63mVu7gtR-kwKxNvkNOjw-gjgTYo.ttf) format('truetype');
-  unicode-range: U+0030-0039;
-}
-@font-face {
-  font-family: 'Playfair Display';
-  font-style: normal; font-weight: 700; font-display: swap;
+  font-family: 'HafcoDigits';
+  font-style: normal; font-weight: 501 900; font-display: swap;
   src: url(https://fonts.gstatic.com/s/cinzel/v26/8vIU7ww63mVu7gtR-kwKxNvkNOjw-jHgTYo.ttf) format('truetype');
   unicode-range: U+0030-0039;
 }
 @font-face {
-  font-family: 'Playfair Display';
-  font-style: italic; font-weight: 400 700; font-display: swap;
+  font-family: 'HafcoDigits';
+  font-style: italic; font-weight: 100 500; font-display: swap;
   src: url(https://fonts.gstatic.com/s/cinzel/v26/8vIU7ww63mVu7gtR-kwKxNvkNOjw-tbnTYo.ttf) format('truetype');
   unicode-range: U+0030-0039;
 }
 @font-face {
-  font-family: 'Amiri';
-  font-style: normal; font-weight: 400; font-display: swap;
-  src: url(https://fonts.gstatic.com/s/cinzel/v26/8vIU7ww63mVu7gtR-kwKxNvkNOjw-tbnTYo.ttf) format('truetype');
-  unicode-range: U+0030-0039;
-}
-@font-face {
-  font-family: 'Amiri';
-  font-style: normal; font-weight: 700; font-display: swap;
+  font-family: 'HafcoDigits';
+  font-style: italic; font-weight: 501 900; font-display: swap;
   src: url(https://fonts.gstatic.com/s/cinzel/v26/8vIU7ww63mVu7gtR-kwKxNvkNOjw-jHgTYo.ttf) format('truetype');
-  unicode-range: U+0030-0039;
-}
-@font-face {
-  font-family: 'Amiri';
-  font-style: italic; font-weight: 400 700; font-display: swap;
-  src: url(https://fonts.gstatic.com/s/cinzel/v26/8vIU7ww63mVu7gtR-kwKxNvkNOjw-tbnTYo.ttf) format('truetype');
   unicode-range: U+0030-0039;
 }
 
