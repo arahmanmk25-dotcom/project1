@@ -5,7 +5,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import PageTransition from '@/components/shared/PageTransition';
 import ScrollReveal from '@/components/shared/ScrollReveal';
-import FloatingTrucksBackground from '@/components/shared/FloatingTrucksBackground';
+
 import ClientsCarousel from '@/components/home/ClientsCarousel';
 import SloganBand from '@/components/shared/SloganBand';
 
@@ -123,7 +123,7 @@ const Clients = () => {
         <section className="relative min-h-[60vh] flex items-end pb-16 overflow-hidden -mt-16 pt-16 bg-primary">
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--gold)/0.12),transparent_60%)]" />
-            <FloatingTrucksBackground truckCount={14} particleCount={16} />
+            <div className="absolute inset-0 opacity-[0.08] pointer-events-none" style={{ backgroundImage: 'repeating-linear-gradient(45deg, hsl(var(--gold)) 0 1px, transparent 1px 14px)' }} />
           </div>
           <div className="container mx-auto px-4 relative z-10">
             <motion.p

@@ -9,7 +9,7 @@ import ScrollReveal from '@/components/shared/ScrollReveal';
 import PageTransition from '@/components/shared/PageTransition';
 import HeroTypewriter from '@/components/home/HeroTypewriter';
 import StatsBar from '@/components/home/StatsBar';
-import FloatingTrucksBackground from '@/components/shared/FloatingTrucksBackground';
+
 import ServicesCards from '@/components/home/ServicesCards';
 import RoadDivider from '@/components/shared/RoadDivider';
 
@@ -158,7 +158,7 @@ const Home = () => {
             </div>
 
 
-            <FloatingTrucksBackground truckCount={6} particleCount={0} />
+
           </motion.div>
         </section>
 
