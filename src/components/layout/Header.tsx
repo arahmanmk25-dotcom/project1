@@ -93,7 +93,10 @@ const Header = () => {
             onMouseLeave={() => setIsMenuOpen(false)}
           >
             <div className="relative cursor-pointer">
-              <span className="font-stencil text-sm text-primary pb-1 border-b-2 border-double border-primary">
+              <span
+                className="text-sm text-primary pb-1 border-b-2 border-double border-primary tracking-[0.2em] uppercase font-semibold"
+                style={{ fontFamily: language === 'ar' ? "'Aref Ruqaa', serif" : "'Cormorant Garamond', serif" }}
+              >
                 {currentPage.label}
               </span>
 
@@ -105,7 +108,8 @@ const Header = () => {
                         key={link.href}
                         to={link.href}
                         onClick={() => setIsMenuOpen(false)}
-                        className={`px-4 py-2 font-stencil text-xs whitespace-nowrap tracking-widest transition-all duration-150 rounded-sm ${
+                        style={{ fontFamily: language === 'ar' ? "'Aref Ruqaa', serif" : "'Cormorant Garamond', serif" }}
+                        className={`px-4 py-2 text-[13px] whitespace-nowrap tracking-[0.18em] uppercase font-semibold transition-all duration-150 rounded-sm ${
                           isActive(link.href)
                             ? 'bg-gold text-primary'
                             : 'text-background hover:bg-gold hover:text-primary'

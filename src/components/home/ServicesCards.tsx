@@ -46,7 +46,7 @@ const ServicesCards = () => {
           </div>
         </ScrollReveal>
 
-        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-7">
           {services.map((service, index) => {
             const Icon = service.icon;
 
@@ -54,35 +54,45 @@ const ServicesCards = () => {
               <ScrollReveal key={index} variant="fadeUp" delay={index * 0.1}>
                 <Link to={`/services#${service.slug}`}>
                   <motion.div
-                    className="relative rounded-2xl overflow-hidden cursor-pointer group h-[280px] sm:h-[300px]"
+                    className="lux-card group cursor-pointer !p-3 h-full"
                     whileHover={{ y: -4 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/10 group-hover:from-black/95 group-hover:via-black/60 transition-all duration-500" />
-
-                    <span className="absolute top-4 right-5 text-8xl font-bold text-white/[0.06] select-none group-hover:text-gold/10 transition-colors duration-500">
-                      {service.num}
-                    </span>
-
-                    <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-7">
-                      <div className="flex items-center gap-3 mb-3">
-                        <div className="inline-flex p-2.5 rounded-xl bg-gold/20 group-hover:bg-gold/30 transition-colors">
-                          <Icon className="h-5 w-5 text-gold" />
-                        </div>
-                        <h3 className="text-lg sm:text-xl font-bold text-white">{service.title}</h3>
+                    <div className="relative aspect-[16/10] overflow-hidden">
+                      <img
+                        src={service.image}
+                        alt={service.title}
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-primary/10 to-transparent opacity-80 group-hover:opacity-100 transition-all duration-500" />
+                      <span className="absolute top-3 right-4 font-serif-display text-5xl text-gold/80 italic select-none drop-shadow">
+                        {service.num}
+                      </span>
+                      <div className="absolute bottom-3 left-3 inline-flex items-center gap-2 bg-card/90 px-3 py-1.5 border border-gold/40">
+                        <Icon className="h-4 w-4 text-gold" />
+                        <span className="font-stencil text-[10px] tracking-[0.25em] uppercase text-primary">
+                          {language === 'ar' ? 'خدمة' : 'Service'}
+                        </span>
                       </div>
-                      <p className="text-white/60 text-sm leading-relaxed mb-3">
+                    </div>
+
+                    <div className="pt-5 pb-3 px-3 text-center">
+                      <span className="lux-fleuron block mb-1">— ❦ —</span>
+                      <h3
+                        className="font-serif-display text-xl md:text-2xl font-bold text-primary leading-tight"
+                        style={{ fontFamily: language === 'ar' ? "'Aref Ruqaa', serif" : "'Playfair Display', serif" }}
+                      >
+                        {service.title}
+                      </h3>
+                      <p
+                        className="mt-3 text-sm text-muted-foreground leading-relaxed italic"
+                        style={{ fontFamily: language === 'ar' ? "'Amiri', serif" : "'Cormorant Garamond', serif" }}
+                      >
                         {service.desc}
                       </p>
-                      <div className="flex items-center gap-1.5 text-gold font-medium text-sm translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                      <div className="mt-4 flex items-center justify-center gap-1.5 text-gold font-semibold text-xs tracking-[0.25em] uppercase opacity-70 group-hover:opacity-100 transition">
                         {language === 'ar' ? 'اعرف المزيد' : 'Learn More'}
-                        <ArrowRight className="h-4 w-4" />
+                        <ArrowRight className="h-3.5 w-3.5" />
                       </div>
                     </div>
                   </motion.div>

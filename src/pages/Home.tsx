@@ -99,7 +99,7 @@ const Home = () => {
                   transition={{ duration: 0.5, delay: 0.45 }}
                 >
                   <p className="font-stencil text-xl md:text-3xl text-primary">
-                    {language === 'ar' ? 'النقل الثقيل' : 'HEAVY TRANSPORT'}
+                    {language === 'ar' ? 'للنقل الثقيل' : 'BIG MOVERS'}
                   </p>
                 </motion.div>
               </div>
