@@ -30,7 +30,7 @@ const FreightBand = () => {
         { icon: Globe2, label: 'Cross-Border Logistics' },
       ];
 
-  const loop = [...items, ...items];
+  const loop = [...items, ...items, ...items, ...items];
 
   return (
     <div
