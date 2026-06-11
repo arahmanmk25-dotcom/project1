@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import FloatingTrucksBackground from '@/components/shared/FloatingTrucksBackground';
+
 
 interface HeroSlideshowProps {
   images: string[];
@@ -35,7 +35,7 @@ const HeroSlideshow = ({ images, interval = 10000, showTrucks = true }: HeroSlid
           />
         </motion.div>
       ))}
-      {showTrucks && <FloatingTrucksBackground truckCount={10} particleCount={12} />}
+      
     </div>
   );
 };

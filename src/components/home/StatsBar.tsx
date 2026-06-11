@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import AnimatedCounter from '@/components/shared/AnimatedCounter';
-import FloatingTrucksBackground from '@/components/shared/FloatingTrucksBackground';
+
 
 interface StatItem {
   value: string;
@@ -27,8 +27,13 @@ const StatsBar = ({ stats, variant = 'light' }: StatsBarProps) => {
         isDark ? 'bg-primary' : 'bg-secondary'
       }`}
     >
-      {/* Floating trucks background for dark variant */}
-      {isDark && <FloatingTrucksBackground truckCount={10} particleCount={12} />}
+      {/* Diagonal stripe pattern for dark variant */}
+      {isDark && (
+        <div
+          className="absolute inset-0 opacity-[0.08] pointer-events-none"
+          style={{ backgroundImage: 'repeating-linear-gradient(45deg, hsl(var(--gold)) 0 1px, transparent 1px 14px)' }}
+        />
+      )}
 
       {/* Decorative background pattern */}
       <div className="absolute inset-0 opacity-5">
