@@ -84,6 +84,14 @@ const Fleet = () => {
           </div>
         </section>
 
+        {/* Slogan */}
+        <SloganBand
+          eyebrowEn="THE FLEET"
+          eyebrowAr="الأسطول"
+          sloganEn="Built for the road. Trusted for the load."
+          sloganAr="مصنوعة للطريق. موثوقة للحمل."
+        />
+
         {/* Description */}
         <section className="py-16">
           <div className="container mx-auto px-4">
