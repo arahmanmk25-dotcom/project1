@@ -5,7 +5,6 @@ import { formatPhone, phoneHref } from '@/lib/utils';
 import hafcoLogo from '@/assets/hafco-logo.png';
 
 import { FaXTwitter, FaInstagram, FaFacebook, FaLinkedin } from 'react-icons/fa6';
-import FloatingTrucksBackground from '@/components/shared/FloatingTrucksBackground';
 
 const Footer = () => {
   const { t, language } = useLanguage();
@@ -28,8 +27,9 @@ const Footer = () => {
 
   return (
     <footer className="bg-primary text-primary-foreground relative overflow-hidden">
-      {/* Truck Animation Background */}
-      <FloatingTrucksBackground truckCount={15} particleCount={20} />
+      {/* Diagonal stripe background */}
+      <div className="absolute inset-0 opacity-[0.08] pointer-events-none" style={{ backgroundImage: 'repeating-linear-gradient(45deg, hsl(var(--gold)) 0 1px, transparent 1px 14px)' }} />
+      
       
       {/* Main Footer */}
       <div className="container mx-auto px-4 py-12 relative z-10">
