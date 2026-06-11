@@ -42,10 +42,13 @@ const Footer = () => {
                 className="h-16 w-auto object-contain footer-logo-white"
               />
             </Link>
-            <h2 className="text-2xl font-bold mb-2">
+            <h2 className="text-2xl font-bold mb-2 font-serif-display" style={{ fontFamily: language === 'ar' ? "'Aref Ruqaa', serif" : "'Playfair Display', serif" }}>
               {language === 'ar' ? 'هافكو' : 'HAFCO'}
             </h2>
-            <p className="text-primary-foreground/80 text-sm leading-relaxed">
+            <p
+              className="text-primary-foreground/85 text-[15px] leading-relaxed italic"
+              style={{ fontFamily: language === 'ar' ? "'Amiri', serif" : "'Cormorant Garamond', serif" }}
+            >
               {t('footer.description')}
             </p>
           </div>
