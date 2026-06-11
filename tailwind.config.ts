@@ -71,6 +71,7 @@ export default {
       fontFamily: {
         cairo: ['Amiri', 'sans-serif'],
         poppins: ['Playfair Display', 'Amiri', 'sans-serif'],
+        phone: ['Cinzel', 'Playfair Display', 'serif'],
       },
       borderRadius: {
         lg: "var(--radius)",
