@@ -132,47 +132,105 @@ const Work = () => {
           </div>
         </section>
 
-        {/* Description */}
-        <section className="py-16">
+        {/* Slogan - editorial */}
+        <section className="py-24 md:py-32 bg-[#fbfaf6]">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <ScrollReveal variant="fadeUp">
-                <p className="text-xl text-muted-foreground leading-relaxed">{t('work.description')}</p>
-              </ScrollReveal>
-            </div>
+            <ScrollReveal variant="fadeUp">
+              <div className="max-w-4xl mx-auto text-center">
+                <p className="text-gold font-semibold tracking-[0.4em] uppercase text-[11px] mb-6">
+                  {language === 'ar' ? 'سجلّ إنجازاتنا' : 'OUR RECORD'}
+                </p>
+                <div className="flex items-center justify-center gap-4 mb-8">
+                  <div className="h-px w-12 bg-gold/60" />
+                  <span className="text-gold text-xs">✦</span>
+                  <div className="h-px w-12 bg-gold/60" />
+                </div>
+                <h2
+                  className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary leading-[1.15]"
+                  style={{ fontFamily: language === 'ar' ? "'Amiri', serif" : "'Playfair Display', serif" }}
+                >
+                  {language === 'ar'
+                    ? 'كل مشروع علامة، وكل نقلة بصمة.'
+                    : 'Every project a milestone. Every move a mark.'}
+                </h2>
+                <p className="mt-8 text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+                  {t('work.description')}
+                </p>
+              </div>
+            </ScrollReveal>
           </div>
         </section>
 
-        {/* Latest Project - Featured */}
-        <section className="py-24 bg-secondary/30">
+        {/* Latest Project - Editorial feature */}
+        <section className="py-24 md:py-32 bg-secondary/30 relative overflow-hidden">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <ScrollReveal variant="fadeUp">
-                <p className="text-gold font-semibold tracking-widest uppercase text-sm mb-4">
-                  {language === 'ar' ? 'أحدث مشروع' : 'LATEST PROJECT'}
-                </p>
-                <h2 className="text-4xl md:text-5xl font-bold text-primary mb-8">
-                  {language === 'ar' ? latestProject.titleAr : latestProject.titleEn}
-                </h2>
-              </ScrollReveal>
-
-              <ScrollReveal variant="fadeUp" delay={0.1}>
-                <div
-                  className="relative rounded-2xl overflow-hidden cursor-pointer group h-[50vh] min-h-[400px]"
-                  onClick={() => openLightbox(latestLightboxStart)}
-                >
-                  <HeroSlideshow images={latestProject.images} interval={5000} showTrucks={false} />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:from-black/90 transition-all duration-500" />
-                  <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10">
-                    <p className="text-white/80 text-lg md:text-xl leading-relaxed max-w-2xl">
-                      {language === 'ar' ? latestProject.descAr : latestProject.descEn}
-                    </p>
-                    <p className="text-gold font-semibold mt-4 text-sm tracking-wide uppercase group-hover:underline">
-                      {language === 'ar' ? 'اضغط لعرض الصور' : 'Click to view photos'} ({latestProject.images.length})
-                    </p>
-                  </div>
+                <div className="flex items-center gap-4 mb-12">
+                  <div className="h-px w-12 bg-gold" />
+                  <p className="text-gold font-semibold tracking-[0.35em] uppercase text-[11px]">
+                    {language === 'ar' ? 'أحدث مشروع' : 'LATEST PROJECT'}
+                  </p>
+                  <div className="h-px flex-1 bg-gold/30" />
                 </div>
               </ScrollReveal>
+
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+                {/* Image with gold frame */}
+                <ScrollReveal variant="fadeUp" delay={0.05}>
+                  <div className="lg:col-span-7">
+                    <div
+                      className="relative group cursor-pointer"
+                      onClick={() => openLightbox(latestLightboxStart)}
+                    >
+                      {/* Gold frame offset */}
+                      <div className="absolute -inset-3 lg:-inset-5 border border-gold/50 rounded-sm pointer-events-none translate-x-3 translate-y-3 lg:translate-x-5 lg:translate-y-5 transition-all duration-700 group-hover:translate-x-2 group-hover:translate-y-2 group-hover:border-gold" />
+                      <div className="relative overflow-hidden rounded-sm aspect-[4/3]">
+                        <HeroSlideshow images={latestProject.images} interval={5000} showTrucks={false} />
+                        <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent pointer-events-none" />
+                        {/* Photo count badge */}
+                        <div className="absolute top-4 left-4 inline-flex items-center gap-2 bg-card/95 px-3 py-1.5 border border-gold/50">
+                          <span className="font-stencil text-[10px] tracking-[0.25em] uppercase text-primary">
+                            {latestProject.images.length} {language === 'ar' ? 'صور' : 'Photos'}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </ScrollReveal>
+
+                {/* Content */}
+                <ScrollReveal variant="fadeUp" delay={0.1}>
+                  <div className="lg:col-span-5">
+                    <span className="font-serif-display italic text-7xl lg:text-8xl text-gold/30 leading-none block mb-2">
+                      ★
+                    </span>
+                    <h3
+                      className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary leading-[1.1] mb-6"
+                      style={{ fontFamily: language === 'ar' ? "'Amiri', serif" : "'Playfair Display', serif" }}
+                    >
+                      {language === 'ar' ? latestProject.titleAr : latestProject.titleEn}
+                    </h3>
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="h-px w-8 bg-gold" />
+                      <span className="text-gold/70 text-[10px]">✦</span>
+                      <div className="h-px w-16 bg-gold/40" />
+                    </div>
+                    <p className="text-base lg:text-lg text-muted-foreground leading-[1.9] font-light mb-8">
+                      {language === 'ar' ? latestProject.descAr : latestProject.descEn}
+                    </p>
+                    <button
+                      onClick={() => openLightbox(latestLightboxStart)}
+                      className="group inline-flex items-center gap-3 text-primary border-b border-gold pb-2 hover:border-primary transition-colors duration-300"
+                    >
+                      <span className="font-semibold text-xs tracking-[0.3em] uppercase">
+                        {language === 'ar' ? 'عرض المعرض' : 'View Gallery'}
+                      </span>
+                      <span className={`text-gold group-hover:translate-x-1 transition-transform ${language === 'ar' ? 'rotate-180' : ''}`}>→</span>
+                    </button>
+                  </div>
+                </ScrollReveal>
+              </div>
             </div>
           </div>
         </section>
