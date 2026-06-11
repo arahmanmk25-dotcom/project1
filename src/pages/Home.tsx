@@ -158,10 +158,6 @@ const Home = () => {
               </div>
             </div>
 
-            {/* Top-right reference number */}
-            <div className="absolute top-4 right-4 md:top-6 md:right-8 border border-primary/60 px-2 py-1 text-[10px] font-stencil text-primary opacity-70 z-20 bg-card/60">
-              REF · HFC-72-A
-            </div>
 
             <FloatingTrucksBackground truckCount={6} particleCount={0} />
           </motion.div>
