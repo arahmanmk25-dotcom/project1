@@ -118,7 +118,7 @@ const About = () => {
                 <ScrollReveal key={i} variant="fadeUp" delay={i * 0.05}>
                   <div className="bg-card p-6 rounded-xl border border-border">
                     <p className="text-sm text-muted-foreground mb-1">{info.label}</p>
-                    <p className="text-lg font-bold text-primary">{info.value}</p>
+                    <p className={`text-lg font-bold text-primary ${/^[0-9\s+-]+$/.test(info.value) ? 'font-phone' : ''}`}>{info.value}</p>
                   </div>
                 </ScrollReveal>
               ))}
