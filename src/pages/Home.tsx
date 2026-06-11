@@ -177,7 +177,7 @@ const Home = () => {
               </p>
               <h2 className="font-display text-3xl md:text-5xl lg:text-6xl text-background leading-tight">
                 {language === 'ar' ? (
-                  <>ننقل ما يَعجِزُ عنه <span className="italic text-gold">سواه</span>.</>
+                  <>ننقل ما يَعجِزُ عنه <span className="italic text-gold">سوانا</span>.</>
                 ) : (
                   <>We move what <span className="italic text-gold">others can't</span>.</>
                 )}
