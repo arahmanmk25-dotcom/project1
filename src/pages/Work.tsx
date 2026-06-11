@@ -147,7 +147,7 @@ const Work = () => {
                 </div>
                 <h2
                   className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary leading-[1.15]"
-                  style={{ fontFamily: language === 'ar' ? "'Amiri', serif" : "'Playfair Display', serif" }}
+                  style={{ fontFamily: language === 'ar' ? "'HafcoDigits', 'Amiri', serif" : "'HafcoDigits', 'Playfair Display', serif" }}
                 >
                   {language === 'ar'
                     ? 'كل مشروع علامة، وكل نقلة بصمة.'
@@ -222,7 +222,7 @@ const Work = () => {
                     </span>
                     <h3
                       className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary leading-[1.1] mb-6"
-                      style={{ fontFamily: language === 'ar' ? "'Amiri', serif" : "'Playfair Display', serif" }}
+                      style={{ fontFamily: language === 'ar' ? "'HafcoDigits', 'Amiri', serif" : "'HafcoDigits', 'Playfair Display', serif" }}
                     >
                       {language === 'ar' ? latestProject.titleAr : latestProject.titleEn}
                     </h3>
@@ -286,13 +286,13 @@ const Work = () => {
                         <span className="lux-fleuron block mb-1">— ❦ —</span>
                         <h3
                           className="font-serif-display text-base md:text-lg font-bold text-primary leading-tight"
-                          style={{ fontFamily: language === 'ar' ? "'Amiri', serif" : "'Playfair Display', serif" }}
+                          style={{ fontFamily: language === 'ar' ? "'HafcoDigits', 'Amiri', serif" : "'HafcoDigits', 'Playfair Display', serif" }}
                         >
                           {language === 'ar' ? project.titleAr : project.titleEn}
                         </h3>
                         <p
                           className="mt-2 text-[13px] text-muted-foreground leading-relaxed line-clamp-2"
-                          style={{ fontFamily: language === 'ar' ? "'Amiri', serif" : "'Playfair Display', serif" }}
+                          style={{ fontFamily: language === 'ar' ? "'HafcoDigits', 'Amiri', serif" : "'HafcoDigits', 'Playfair Display', serif" }}
                         >
                           {language === 'ar' ? project.descAr : project.descEn}
                         </p>

@@ -9,55 +9,31 @@
    Restrained. Quiet. Worth-it.
    ============================================================ */
 
-/* === Digit override: render Latin digits 0-9 in Cinzel across all body fonts === */
-/* Each weight must be declared explicitly so the browser's font-matching picks our Cinzel
-   glyphs (instead of Playfair / Amiri) for U+0030–U+0039. */
+/* === Digit override: dedicated 'HafcoDigits' family (Cinzel glyphs, digits only).
+   Placed FIRST in every font stack so digits 0-9 always render in Cinzel,
+   while all other characters fall through to Playfair / Amiri. === */
 @font-face {
-  font-family: 'Playfair Display';
-  font-style: normal; font-weight: 400; font-display: swap;
+  font-family: 'HafcoDigits';
+  font-style: normal; font-weight: 100 500; font-display: swap;
   src: url(https://fonts.gstatic.com/s/cinzel/v26/8vIU7ww63mVu7gtR-kwKxNvkNOjw-tbnTYo.ttf) format('truetype');
   unicode-range: U+0030-0039;
 }
 @font-face {
-  font-family: 'Playfair Display';
-  font-style: normal; font-weight: 500; font-display: swap;
-  src: url(https://fonts.gstatic.com/s/cinzel/v26/8vIU7ww63mVu7gtR-kwKxNvkNOjw-uTnTYo.ttf) format('truetype');
-  unicode-range: U+0030-0039;
-}
-@font-face {
-  font-family: 'Playfair Display';
-  font-style: normal; font-weight: 600; font-display: swap;
-  src: url(https://fonts.gstatic.com/s/cinzel/v26/8vIU7ww63mVu7gtR-kwKxNvkNOjw-gjgTYo.ttf) format('truetype');
-  unicode-range: U+0030-0039;
-}
-@font-face {
-  font-family: 'Playfair Display';
-  font-style: normal; font-weight: 700; font-display: swap;
+  font-family: 'HafcoDigits';
+  font-style: normal; font-weight: 501 900; font-display: swap;
   src: url(https://fonts.gstatic.com/s/cinzel/v26/8vIU7ww63mVu7gtR-kwKxNvkNOjw-jHgTYo.ttf) format('truetype');
   unicode-range: U+0030-0039;
 }
 @font-face {
-  font-family: 'Playfair Display';
-  font-style: italic; font-weight: 400 700; font-display: swap;
+  font-family: 'HafcoDigits';
+  font-style: italic; font-weight: 100 500; font-display: swap;
   src: url(https://fonts.gstatic.com/s/cinzel/v26/8vIU7ww63mVu7gtR-kwKxNvkNOjw-tbnTYo.ttf) format('truetype');
   unicode-range: U+0030-0039;
 }
 @font-face {
-  font-family: 'Amiri';
-  font-style: normal; font-weight: 400; font-display: swap;
-  src: url(https://fonts.gstatic.com/s/cinzel/v26/8vIU7ww63mVu7gtR-kwKxNvkNOjw-tbnTYo.ttf) format('truetype');
-  unicode-range: U+0030-0039;
-}
-@font-face {
-  font-family: 'Amiri';
-  font-style: normal; font-weight: 700; font-display: swap;
+  font-family: 'HafcoDigits';
+  font-style: italic; font-weight: 501 900; font-display: swap;
   src: url(https://fonts.gstatic.com/s/cinzel/v26/8vIU7ww63mVu7gtR-kwKxNvkNOjw-jHgTYo.ttf) format('truetype');
-  unicode-range: U+0030-0039;
-}
-@font-face {
-  font-family: 'Amiri';
-  font-style: italic; font-weight: 400 700; font-display: swap;
-  src: url(https://fonts.gstatic.com/s/cinzel/v26/8vIU7ww63mVu7gtR-kwKxNvkNOjw-tbnTYo.ttf) format('truetype');
   unicode-range: U+0030-0039;
 }
 
@@ -118,7 +94,7 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Playfair Display', 'Amiri', sans-serif;
+    font-family: 'HafcoDigits', 'Playfair Display', 'HafcoDigits', 'Amiri', sans-serif;
     font-weight: 300;
     letter-spacing: 0.005em;
     /* extremely subtle paper grain — no dot grid */
@@ -148,11 +124,11 @@
     filter: saturate(0.75) brightness(0.95) contrast(1.05);
   }
 
-  [dir="rtl"] { font-family: 'Amiri', sans-serif; }
-  [dir="ltr"] { font-family: 'Playfair Display', 'Amiri', sans-serif; }
+  [dir="rtl"] { font-family: 'HafcoDigits', 'Amiri', sans-serif; }
+  [dir="ltr"] { font-family: 'HafcoDigits', 'Playfair Display', 'HafcoDigits', 'Amiri', sans-serif; }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', 'Playfair Display', 'Amiri', serif;
+    font-family: 'HafcoDigits', 'Playfair Display', 'HafcoDigits', 'Playfair Display', 'HafcoDigits', 'Amiri', serif;
     font-weight: 500;
     letter-spacing: -0.015em;
     color: hsl(var(--primary));
@@ -162,12 +138,12 @@
 
 @layer components {
   /* === Typography utilities === */
-  .font-display    { font-family: 'Playfair Display', serif; font-weight: 500; letter-spacing: -0.02em; }
-  .font-editorial  { font-family: 'Playfair Display', 'Playfair Display', serif; letter-spacing: 0.04em; }
-  .font-italic-serif { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; }
-  .font-body-serif { font-family: 'Playfair Display', serif; font-weight: 500; }
-  .font-stencil    { font-family: 'Playfair Display', sans-serif; font-weight: 500; letter-spacing: 0.32em; text-transform: uppercase; font-size: 0.72rem; }
-  .font-phone      { font-family: 'Cinzel', 'Playfair Display', serif; font-variant-numeric: tabular-nums; letter-spacing: 0.06em; }
+  .font-display    { font-family: 'HafcoDigits', 'Playfair Display', serif; font-weight: 500; letter-spacing: -0.02em; }
+  .font-editorial  { font-family: 'HafcoDigits', 'Playfair Display', 'HafcoDigits', 'Playfair Display', serif; letter-spacing: 0.04em; }
+  .font-italic-serif { font-family: 'HafcoDigits', 'Playfair Display', serif; font-style: italic; font-weight: 500; }
+  .font-body-serif { font-family: 'HafcoDigits', 'Playfair Display', serif; font-weight: 500; }
+  .font-stencil    { font-family: 'HafcoDigits', 'Playfair Display', sans-serif; font-weight: 500; letter-spacing: 0.32em; text-transform: uppercase; font-size: 0.72rem; }
+  .font-phone      { font-family: 'Cinzel', 'HafcoDigits', 'Playfair Display', serif; font-variant-numeric: tabular-nums; letter-spacing: 0.06em; }
 
   /* Hairline ink frame */
   .vintage-frame {
@@ -184,7 +160,7 @@
   /* Editorial button — ink on cream, gold hairline underline on hover */
   .btn-vintage {
     @apply relative inline-flex items-center justify-center px-9 py-3.5 transition-all;
-    font-family: 'Playfair Display', sans-serif;
+    font-family: 'HafcoDigits', 'Playfair Display', sans-serif;
     font-size: 0.72rem;
     font-weight: 500;
     letter-spacing: 0.32em;
@@ -208,7 +184,7 @@
 
   .btn-vintage-outline {
     @apply relative inline-flex items-center justify-center px-9 py-3.5 transition-colors;
-    font-family: 'Playfair Display', sans-serif;
+    font-family: 'HafcoDigits', 'Playfair Display', sans-serif;
     font-size: 0.72rem;
     font-weight: 500;
     letter-spacing: 0.32em;
@@ -227,7 +203,7 @@
     @apply inline-flex items-center justify-center rounded-full text-center;
     border: 1px solid hsl(var(--accent));
     color: hsl(var(--accent));
-    font-family: 'Playfair Display', serif;
+    font-family: 'HafcoDigits', 'Playfair Display', serif;
     letter-spacing: 0.28em;
     text-transform: uppercase;
     font-size: 0.7rem;
@@ -237,7 +213,7 @@
   .vintage-divider {
     display: flex; align-items: center; gap: 1.25rem;
     color: hsl(var(--primary));
-    font-family: 'Playfair Display', serif;
+    font-family: 'HafcoDigits', 'Playfair Display', serif;
     letter-spacing: 0.35em;
     text-transform: uppercase;
     font-size: 0.7rem;
@@ -369,7 +345,7 @@
   border: 1px solid hsl(var(--primary)) !important;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  font-family: 'Playfair Display', sans-serif !important;
+  font-family: 'HafcoDigits', 'Playfair Display', sans-serif !important;
   font-weight: 500;
   font-size: 0.75rem;
 }
@@ -387,14 +363,14 @@
 /* Gold accent: champagne brushed feel */
 .text-gold {
   color: hsl(var(--accent)) !important;
-  font-family: 'Playfair Display', 'Playfair Display', serif !important;
+  font-family: 'HafcoDigits', 'Playfair Display', 'HafcoDigits', 'Playfair Display', serif !important;
   letter-spacing: 0.35em !important;
   text-transform: uppercase;
   font-weight: 400;
 }
 [dir="rtl"] .text-gold,
 [lang="ar"] .text-gold {
-  font-family: 'Amiri', 'Amiri', serif !important;
+  font-family: 'HafcoDigits', 'Amiri', 'HafcoDigits', 'Amiri', serif !important;
   letter-spacing: 0 !important;
   text-transform: none !important;
 }
@@ -409,7 +385,7 @@ section .text-white {
   text-shadow: 0 2px 30px hsl(140 30% 5% / 0.4);
 }
 h1.text-white, h2.text-white {
-  font-family: 'Playfair Display', serif !important;
+  font-family: 'HafcoDigits', 'Playfair Display', serif !important;
   font-weight: 500 !important;
   letter-spacing: -0.02em;
   text-transform: none;
@@ -423,12 +399,12 @@ section.relative.overflow-hidden video {
 
 /* Global serif headings, refined letterspacing */
 h1, h2 {
-  font-family: 'Playfair Display', 'Playfair Display', 'Amiri', serif !important;
+  font-family: 'HafcoDigits', 'Playfair Display', 'HafcoDigits', 'Playfair Display', 'HafcoDigits', 'Amiri', serif !important;
   font-weight: 500 !important;
   letter-spacing: -0.02em;
 }
 h3, h4 {
-  font-family: 'Playfair Display', 'Amiri', serif !important;
+  font-family: 'HafcoDigits', 'Playfair Display', 'HafcoDigits', 'Amiri', serif !important;
   font-weight: 600 !important;
   letter-spacing: -0.005em;
 }
@@ -438,7 +414,7 @@ input, textarea, select {
   background-color: hsl(40 35% 96%) !important;
   border: 1px solid hsl(var(--primary) / 0.25) !important;
   border-radius: 3px !important;
-  font-family: 'Playfair Display', 'Amiri', sans-serif !important;
+  font-family: 'HafcoDigits', 'Playfair Display', 'HafcoDigits', 'Amiri', sans-serif !important;
   font-weight: 400;
 }
 input:focus, textarea:focus, select:focus {
@@ -495,7 +471,7 @@ input:focus, textarea:focus, select:focus {
   border: 1px solid hsl(var(--primary) / 0.4);
   background: hsl(40 35% 96%);
   color: hsl(var(--primary));
-  font-family: 'Playfair Display', 'Playfair Display', sans-serif;
+  font-family: 'HafcoDigits', 'Playfair Display', 'HafcoDigits', 'Playfair Display', sans-serif;
   letter-spacing: 0.3em;
   font-size: 0.68rem;
   text-transform: uppercase;
@@ -524,7 +500,7 @@ input:focus, textarea:focus, select:focus {
   display: inline-block;
   padding: 6px 12px;
   border: 1px solid hsl(var(--accent));
-  font-family: 'Playfair Display', serif;
+  font-family: 'HafcoDigits', 'Playfair Display', serif;
   letter-spacing: 0.32em;
   font-size: 0.7rem;
   color: hsl(var(--accent));
@@ -540,7 +516,7 @@ input:focus, textarea:focus, select:focus {
 :root[lang="ar"] body,
 [dir="rtl"] body,
 [lang="ar"] {
-  font-family: 'Amiri', 'Playfair Display', serif;
+  font-family: 'HafcoDigits', 'Amiri', 'HafcoDigits', 'Playfair Display', serif;
   font-weight: 400;
   letter-spacing: 0;
 }
@@ -551,18 +527,18 @@ input:focus, textarea:focus, select:focus {
 [dir="rtl"] h4, [lang="ar"] h4,
 [dir="rtl"] .font-display, [lang="ar"] .font-display,
 [dir="rtl"] .font-serif-display, [lang="ar"] .font-serif-display {
-  font-family: 'Amiri', 'Amiri', serif !important;
+  font-family: 'HafcoDigits', 'Amiri', 'HafcoDigits', 'Amiri', serif !important;
   font-weight: 700;
   letter-spacing: 0;
 }
 
 [dir="rtl"] .font-stencil, [lang="ar"] .font-stencil {
-  font-family: 'Amiri', 'Amiri', serif !important;
+  font-family: 'HafcoDigits', 'Amiri', 'HafcoDigits', 'Amiri', serif !important;
   letter-spacing: 0.1em;
 }
 
 [dir="rtl"] .font-italic-serif, [lang="ar"] .font-italic-serif {
-  font-family: 'Amiri', serif !important;
+  font-family: 'HafcoDigits', 'Amiri', serif !important;
   font-style: italic;
 }
 
@@ -666,7 +642,7 @@ input:focus, textarea:focus, select:focus {
 /* ornamental fleur on cards */
 .lux-fleuron {
   display: inline-block;
-  font-family: 'Playfair Display', 'Playfair Display', serif;
+  font-family: 'HafcoDigits', 'Playfair Display', 'HafcoDigits', 'Playfair Display', serif;
   color: hsl(var(--accent));
   font-size: 0.9rem;
   letter-spacing: 0.4em;

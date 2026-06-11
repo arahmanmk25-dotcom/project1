@@ -95,7 +95,7 @@ const Header = () => {
             <div className="relative cursor-pointer">
               <span
                 className="text-sm text-primary pb-1 border-b-2 border-double border-primary tracking-[0.2em] uppercase font-semibold"
-                style={{ fontFamily: language === 'ar' ? "'Amiri', serif" : "'Playfair Display', serif" }}
+                style={{ fontFamily: language === 'ar' ? "'HafcoDigits', 'Amiri', serif" : "'HafcoDigits', 'Playfair Display', serif" }}
               >
                 {currentPage.label}
               </span>
@@ -108,7 +108,7 @@ const Header = () => {
                         key={link.href}
                         to={link.href}
                         onClick={() => setIsMenuOpen(false)}
-                        style={{ fontFamily: language === 'ar' ? "'Amiri', serif" : "'Playfair Display', serif" }}
+                        style={{ fontFamily: language === 'ar' ? "'HafcoDigits', 'Amiri', serif" : "'HafcoDigits', 'Playfair Display', serif" }}
                         className={`px-4 py-2 text-[13px] whitespace-nowrap tracking-[0.18em] uppercase font-semibold transition-all duration-150 rounded-sm ${
                           isActive(link.href)
                             ? 'bg-gold text-primary'

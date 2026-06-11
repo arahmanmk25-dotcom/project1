@@ -82,7 +82,7 @@ const FleetGallery = ({ items, categories }: FleetGalleryProps) => {
 
               <div className="pt-4 pb-1 px-2 text-center">
                 <span className="lux-fleuron block mb-1">— ❦ —</span>
-                <h3 className="font-serif-display text-base md:text-lg font-bold text-primary leading-tight" style={{ fontFamily: language === 'ar' ? "'Amiri', serif" : "'Playfair Display', serif" }}>
+                <h3 className="font-serif-display text-base md:text-lg font-bold text-primary leading-tight" style={{ fontFamily: language === 'ar' ? "'HafcoDigits', 'Amiri', serif" : "'HafcoDigits', 'Playfair Display', serif" }}>
                   {language === 'ar' ? item.nameAr : item.nameEn}
                 </h3>
                 <div className="mt-2 flex items-center justify-center gap-3 text-[11px] tracking-[0.25em] uppercase text-gold">

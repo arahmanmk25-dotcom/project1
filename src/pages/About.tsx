@@ -229,7 +229,7 @@ const About = () => {
                         <Crown className="h-10 w-10 text-gold" />
                       </div>
                       <p className="text-[10px] tracking-[0.4em] uppercase text-gold/80 mb-2">{language === 'ar' ? 'مالك المؤسسة' : 'Founding Owner'}</p>
-                      <h4 className="font-serif-display text-2xl font-bold text-primary mb-1" style={{ fontFamily: language === 'ar' ? "'Amiri', serif" : "'Playfair Display', serif" }}>{owner.name}</h4>
+                      <h4 className="font-serif-display text-2xl font-bold text-primary mb-1" style={{ fontFamily: language === 'ar' ? "'HafcoDigits', 'Amiri', serif" : "'HafcoDigits', 'Playfair Display', serif" }}>{owner.name}</h4>
                       <p className="text-gold font-semibold tracking-wide italic">{owner.role}</p>
                       <div className="mt-5 mx-auto h-px w-16 bg-gold/60" />
                     </div>
@@ -245,7 +245,7 @@ const About = () => {
                       <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border border-primary/40 bg-primary/5">
                         <Briefcase className="h-7 w-7 text-primary" />
                       </div>
-                      <h4 className="font-serif-display text-xl font-bold text-primary mb-1" style={{ fontFamily: language === 'ar' ? "'Amiri', serif" : "'Playfair Display', serif" }}>{member.name}</h4>
+                      <h4 className="font-serif-display text-xl font-bold text-primary mb-1" style={{ fontFamily: language === 'ar' ? "'HafcoDigits', 'Amiri', serif" : "'HafcoDigits', 'Playfair Display', serif" }}>{member.name}</h4>
                       <p className="text-gold text-sm italic mb-4">{member.role}</p>
                       <div className="mx-auto h-px w-10 bg-gold/50 mb-3" />
                       <a href={phoneHref(member.phone)} className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm tracking-wide font-phone">
@@ -264,7 +264,7 @@ const About = () => {
                       <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border border-primary/40 bg-primary/5">
                         <Briefcase className="h-7 w-7 text-primary" />
                       </div>
-                      <h4 className="font-serif-display text-xl font-bold text-primary mb-1" style={{ fontFamily: language === 'ar' ? "'Amiri', serif" : "'Playfair Display', serif" }}>{member.name}</h4>
+                      <h4 className="font-serif-display text-xl font-bold text-primary mb-1" style={{ fontFamily: language === 'ar' ? "'HafcoDigits', 'Amiri', serif" : "'HafcoDigits', 'Playfair Display', serif" }}>{member.name}</h4>
                       <p className="text-gold text-sm italic mb-4">{member.role}</p>
                       <div className="mx-auto h-px w-10 bg-gold/50 mb-3" />
                       <a href={phoneHref(member.phone)} className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm tracking-wide font-phone">
@@ -283,7 +283,7 @@ const About = () => {
                       <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border border-primary/40 bg-primary/5">
                         <Briefcase className="h-7 w-7 text-primary" />
                       </div>
-                      <h4 className="font-serif-display text-xl font-bold text-primary mb-1" style={{ fontFamily: language === 'ar' ? "'Amiri', serif" : "'Playfair Display', serif" }}>{member.name}</h4>
+                      <h4 className="font-serif-display text-xl font-bold text-primary mb-1" style={{ fontFamily: language === 'ar' ? "'HafcoDigits', 'Amiri', serif" : "'HafcoDigits', 'Playfair Display', serif" }}>{member.name}</h4>
                       <p className="text-gold text-sm italic mb-4">{member.role}</p>
                       <div className="mx-auto h-px w-10 bg-gold/50 mb-3" />
                       <a href={phoneHref(member.phone)} className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm tracking-wide font-phone">
