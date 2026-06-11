@@ -128,7 +128,8 @@ export const Lightbox = ({ images, isOpen, currentIndex, onClose, onNavigate }: 
 
   return (
     <div 
-      className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center animate-fade-in"
+      dir="ltr"
+      className="lightbox-ltr fixed inset-0 z-50 bg-black/95 flex items-center justify-center animate-fade-in"
       onClick={zoom === 1 ? onClose : undefined}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
