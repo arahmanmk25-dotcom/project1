@@ -193,30 +193,36 @@ const Work = () => {
                 {projects.map((project, i) => (
                   <ScrollReveal key={i} variant="fadeUp" delay={(i % 3) * 0.08}>
                     <div
-                      className="relative group overflow-hidden rounded-xl cursor-pointer"
+                      className="lux-card group cursor-pointer !p-3"
                       onClick={() => openLightbox(cardToLightboxIndex[i])}
                     >
-                      <div className="aspect-[4/3]">
+                      <div className="relative aspect-[4/3] overflow-hidden">
                         <img
                           src={project.image}
                           alt={language === 'ar' ? project.titleAr : project.titleEn}
-                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                           loading="lazy"
                         />
+                        <div className="absolute inset-0 bg-gradient-to-t from-primary/85 via-primary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                        <div className="absolute inset-x-0 bottom-0 p-4 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+                          <HoverTruckAnimation />
+                        </div>
                       </div>
-                      <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-5">
-                        <HoverTruckAnimation />
-                        <h3 className="text-lg font-bold text-white mb-1 relative z-20">
+
+                      <div className="pt-4 pb-2 px-3 text-center">
+                        <span className="lux-fleuron block mb-1">— ❦ —</span>
+                        <h3
+                          className="font-serif-display text-base md:text-lg font-bold text-primary leading-tight"
+                          style={{ fontFamily: language === 'ar' ? "'Aref Ruqaa', serif" : "'Playfair Display', serif" }}
+                        >
                           {language === 'ar' ? project.titleAr : project.titleEn}
                         </h3>
-                        <p className="text-sm text-white/80 leading-relaxed relative z-20 line-clamp-2">
+                        <p
+                          className="mt-2 text-[13px] text-muted-foreground leading-relaxed line-clamp-2"
+                          style={{ fontFamily: language === 'ar' ? "'Amiri', serif" : "'Cormorant Garamond', serif" }}
+                        >
                           {language === 'ar' ? project.descAr : project.descEn}
                         </p>
-                      </div>
-                      <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/80 to-transparent group-hover:opacity-0 transition-opacity duration-300">
-                        <h3 className="text-white font-bold">
-                          {language === 'ar' ? project.titleAr : project.titleEn}
-                        </h3>
                       </div>
                     </div>
                   </ScrollReveal>
