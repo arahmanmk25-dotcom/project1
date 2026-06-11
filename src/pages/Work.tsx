@@ -177,31 +177,27 @@ const Work = () => {
 
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
                 {/* Image with gold frame */}
-                <ScrollReveal variant="fadeUp" delay={0.05}>
-                  <div className="lg:col-span-7">
-                    <div
-                      className="relative group cursor-pointer"
-                      onClick={() => openLightbox(latestLightboxStart)}
-                    >
-                      {/* Gold frame offset */}
-                      <div className="absolute -inset-3 lg:-inset-5 border border-gold/50 rounded-sm pointer-events-none translate-x-3 translate-y-3 lg:translate-x-5 lg:translate-y-5 transition-all duration-700 group-hover:translate-x-2 group-hover:translate-y-2 group-hover:border-gold" />
-                      <div className="relative overflow-hidden rounded-sm aspect-[4/3]">
-                        <HeroSlideshow images={latestProject.images} interval={5000} showTrucks={false} />
-                        <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent pointer-events-none" />
-                        {/* Photo count badge */}
-                        <div className="absolute top-4 left-4 inline-flex items-center gap-2 bg-card/95 px-3 py-1.5 border border-gold/50">
-                          <span className="font-stencil text-[10px] tracking-[0.25em] uppercase text-primary">
-                            {latestProject.images.length} {language === 'ar' ? 'صور' : 'Photos'}
-                          </span>
-                        </div>
+                <ScrollReveal variant="fadeUp" delay={0.05} className="lg:col-span-7">
+                  <div
+                    className="relative group cursor-pointer"
+                    onClick={() => openLightbox(latestLightboxStart)}
+                  >
+                    <div className="relative overflow-hidden rounded-sm aspect-[4/3] ring-1 ring-gold/40">
+                      <HeroSlideshow images={latestProject.images} interval={5000} showTrucks={false} />
+                      <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent pointer-events-none" />
+                      {/* Photo count badge */}
+                      <div className="absolute top-4 left-4 inline-flex items-center gap-2 bg-card/95 px-3 py-1.5 border border-gold/50">
+                        <span className="font-stencil text-[10px] tracking-[0.25em] uppercase text-primary">
+                          {latestProject.images.length} {language === 'ar' ? 'صور' : 'Photos'}
+                        </span>
                       </div>
                     </div>
                   </div>
                 </ScrollReveal>
 
                 {/* Content */}
-                <ScrollReveal variant="fadeUp" delay={0.1}>
-                  <div className="lg:col-span-5">
+                <ScrollReveal variant="fadeUp" delay={0.1} className="lg:col-span-5">
+                  <div>
                     <span className="font-serif-display italic text-7xl lg:text-8xl text-gold/30 leading-none block mb-2">
                       ★
                     </span>
