@@ -78,8 +78,8 @@ const Fleet = () => {
               </h1>
               <p className="text-xl text-white/70 mt-4 max-w-2xl">
                 {language === 'ar'
-                  ? 'أسطول حديث من أكثر من ٥٠ شاحنة من أفضل العلامات التجارية العالمية'
-                  : 'A modern fleet of 50+ trucks from the world\'s top brands, ready for any mission'}
+                  ? 'أسطول حديث من أكثر من ١٠٠ شاحنة من أفضل العلامات التجارية العالمية'
+                  : 'A modern fleet of 100+ trucks from the world\'s top brands, ready for any mission'}
               </p>
             </ScrollReveal>
           </div>
