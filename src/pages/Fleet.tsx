@@ -110,7 +110,7 @@ const Fleet = () => {
         {/* Stats */}
         <StatsBar stats={fleetStats} variant="dark" />
 
-        <RoadDivider variant="dark" labelEn="DEPOT · 50+ UNITS READY" labelAr="المستودع · أكثر من ٥٠ وحدة جاهزة" originEn="DEPOT" originAr="المستودع" destinationEn="ON ROUTE" destinationAr="على الطريق" />
+        <RoadDivider variant="dark" labelEn="DEPOT · 100+ UNITS READY" labelAr="المستودع · أكثر من ١٠٠ وحدة جاهزة" originEn="DEPOT" originAr="المستودع" destinationEn="ON ROUTE" destinationAr="على الطريق" />
       </div>
     </PageTransition>
   );
