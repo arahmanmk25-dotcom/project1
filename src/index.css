@@ -650,3 +650,14 @@ input:focus, textarea:focus, select:focus {
 
 /* Make the lightbox always render LTR-safe so RTL doesn't flip the layout */
 .lightbox-ltr { direction: ltr; }
+
+/* Smoother scrolling and motion preferences */
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
