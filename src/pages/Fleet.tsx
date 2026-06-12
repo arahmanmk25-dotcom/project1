@@ -55,7 +55,7 @@ const Fleet = () => {
   ];
 
   const fleetStats = [
-    { value: '50+', label: language === 'ar' ? 'شاحنة' : 'Trucks' },
+    { value: '100+', label: language === 'ar' ? 'شاحنة' : 'Trucks' },
     { value: '30', label: language === 'ar' ? 'أقصى طول حمولة (م)' : 'Max Cargo Length (m)' },
     { value: '200+', label: language === 'ar' ? 'طن قدرة الرفع' : 'Ton Lifting Capacity' },
     { value: '24', label: language === 'ar' ? 'خدمة ٢٤/٧' : '24/7 Service' },
@@ -78,8 +78,8 @@ const Fleet = () => {
               </h1>
               <p className="text-xl text-white/70 mt-4 max-w-2xl">
                 {language === 'ar'
-                  ? 'أسطول حديث من أكثر من ٥٠ شاحنة من أفضل العلامات التجارية العالمية'
-                  : 'A modern fleet of 50+ trucks from the world\'s top brands, ready for any mission'}
+                  ? 'أسطول حديث من أكثر من ١٠٠ شاحنة من أفضل العلامات التجارية العالمية'
+                  : 'A modern fleet of 100+ trucks from the world\'s top brands, ready for any mission'}
               </p>
             </ScrollReveal>
           </div>
@@ -110,7 +110,7 @@ const Fleet = () => {
         {/* Stats */}
         <StatsBar stats={fleetStats} variant="dark" />
 
-        <RoadDivider variant="dark" labelEn="DEPOT · 50+ UNITS READY" labelAr="المستودع · أكثر من ٥٠ وحدة جاهزة" originEn="DEPOT" originAr="المستودع" destinationEn="ON ROUTE" destinationAr="على الطريق" />
+        <RoadDivider variant="dark" labelEn="DEPOT · 100+ UNITS READY" labelAr="المستودع · أكثر من ١٠٠ وحدة جاهزة" originEn="DEPOT" originAr="المستودع" destinationEn="ON ROUTE" destinationAr="على الطريق" />
       </div>
     </PageTransition>
   );
