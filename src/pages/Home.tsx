@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
-import ClientsCarousel from '@/components/home/ClientsCarousel';
+import ClientsGrid from '@/components/home/ClientsGrid';
 import ScrollReveal from '@/components/shared/ScrollReveal';
 import PageTransition from '@/components/shared/PageTransition';
 import HeroTypewriter from '@/components/home/HeroTypewriter';
@@ -226,22 +226,30 @@ const Home = () => {
         <ServicesCards />
 
         {/* Clients */}
-        <section className="py-20 bg-primary overflow-hidden relative">
-          <div className="absolute inset-0 opacity-[0.08] pointer-events-none" style={{ backgroundImage: 'repeating-linear-gradient(45deg, hsl(var(--gold)) 0 1px, transparent 1px 14px)' }} />
+        <section className="py-24 bg-primary overflow-hidden relative">
+          <div className="absolute inset-0 opacity-[0.08] pointer-events-none" style={{ backgroundImage: 'repeating-linear-gradient(45deg, hsl(var(--gold)) 0 1px, transparent 1px 40px)' }} />
           <div className="container mx-auto px-4 relative z-10">
             <ScrollReveal variant="fadeUp">
-              <p className="text-gold/80 font-semibold tracking-widest uppercase text-sm text-center mb-3">
-                {language === 'ar' ? 'شركاؤنا' : 'OUR PARTNERS'}
-              </p>
-              <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-4">{t('work.clientsTitle')}</h2>
-              <p className="text-white/50 text-center mb-10 max-w-xl mx-auto">
-                {language === 'ar'
-                  ? 'نفخر بخدمة أكبر الشركات في المملكة العربية السعودية والمنطقة'
-                  : 'Proud to serve the largest companies in Saudi Arabia and the region'}
-              </p>
+              <div className="text-center mb-16 space-y-4">
+                <div className="flex items-center justify-center gap-4">
+                  <div className="h-px w-8 bg-gold/50" />
+                  <span className="text-gold text-xs font-bold tracking-[0.3em] uppercase">
+                    {language === 'ar' ? 'شركاؤنا' : 'Our Partners'}
+                  </span>
+                  <div className="h-px w-8 bg-gold/50" />
+                </div>
+                <h2 className="text-4xl md:text-5xl font-display italic text-white tracking-tight">
+                  {t('work.clientsTitle')}
+                </h2>
+                <p className="text-white/60 text-base md:text-lg max-w-2xl mx-auto font-light">
+                  {language === 'ar'
+                    ? 'نفخر بخدمة أكبر الشركات في المملكة العربية السعودية والمنطقة'
+                    : 'Proud to serve the largest companies in Saudi Arabia and the region'}
+                </p>
+              </div>
             </ScrollReveal>
           </div>
-          <ClientsCarousel />
+          <ClientsGrid />
         </section>
 
         {/* Road divider between clients and CTA */}
