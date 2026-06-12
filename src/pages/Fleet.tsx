@@ -55,7 +55,7 @@ const Fleet = () => {
   ];
 
   const fleetStats = [
-    { value: '50+', label: language === 'ar' ? 'شاحنة' : 'Trucks' },
+    { value: '100+', label: language === 'ar' ? 'شاحنة' : 'Trucks' },
     { value: '30', label: language === 'ar' ? 'أقصى طول حمولة (م)' : 'Max Cargo Length (m)' },
     { value: '200+', label: language === 'ar' ? 'طن قدرة الرفع' : 'Ton Lifting Capacity' },
     { value: '24', label: language === 'ar' ? 'خدمة ٢٤/٧' : '24/7 Service' },
