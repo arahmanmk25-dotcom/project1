@@ -142,7 +142,7 @@ const Home = () => {
                 transition={{ delay: 0.85, duration: 0.5 }}
               >
                 <span className="hauler-badge">{language === 'ar' ? 'مرخّص · هيئة النقل' : 'Licensed · TGA'}</span>
-                <span className="hauler-badge">{language === 'ar' ? 'أسطول ٥٠+ شاحنة' : 'Fleet · 50+ Trucks'}</span>
+                <span className="hauler-badge">{language === 'ar' ? 'أسطول ١٠٠+ شاحنة' : 'Fleet · 100+ Trucks'}</span>
                 <span className="hauler-badge">{language === 'ar' ? 'تغطية المملكة' : 'KSA-Wide Coverage'}</span>
                 <span className="hauler-badge">{language === 'ar' ? 'منذ ١٩٨٤' : 'Est. 1984'}</span>
               </motion.div>
