@@ -17,7 +17,7 @@ const About = () => {
     { value: '40+', label: t('about.yearsExperience') },
     { value: '5000+', label: t('about.projectsCompleted') },
     { value: '200+', label: t('about.happyClients') },
-    { value: '50+', label: t('about.fleetSize') },
+    { value: '100+', label: t('about.fleetSize') },
   ];
 
   const reasons = [
