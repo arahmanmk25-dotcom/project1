@@ -37,8 +37,8 @@ const About = () => {
   ];
 
   const owners = [
-    { role: language === 'ar' ? 'مالك' : 'Owner', name: language === 'ar' ? 'سعيد القحطاني' : 'Saeed Al-Qahtani' },
     { role: language === 'ar' ? 'مالك' : 'Owner', name: language === 'ar' ? 'هادي القحطاني' : 'Hadi Al-Qahtani' },
+    { role: language === 'ar' ? 'مالك' : 'Owner', name: language === 'ar' ? 'سعيد القحطاني' : 'Saeed Al-Qahtani' },
   ];
 
   const topManagers = [
