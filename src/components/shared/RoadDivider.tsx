@@ -115,10 +115,6 @@ const RoadDivider = ({
                     <rect x="0" y="38" width="104" height="5" fill={fill} />
                     <rect x="5" y="43" width="90" height="3" fill={fill} opacity="0.9" />
                     <path d="M10 46L31 43L52 46L73 43L94 46" stroke={fill} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                    <rect x="38" y="43" width="3" height="13" fill={fill} />
-                    <rect x="50" y="43" width="3" height="13" fill={fill} />
-                    <rect x="35" y="55" width="9" height="2" rx="1" fill={fill} />
-                    <rect x="47" y="55" width="9" height="2" rx="1" fill={fill} />
                     {[8, 28, 58, 88].map((x) => (
                       <rect key={x} x={x} y="35" width="2" height="8" fill={fill} />
                     ))}
@@ -140,7 +136,7 @@ const RoadDivider = ({
                     <rect x="114" y="43" width="40" height="4" fill={fill} />
 
                     {/* Wheels — rear trailer bogie (left/back), mid bogie, and twin tractor axles */}
-                    {[8, 20, 32, 74, 86, 98, 124, 143].map((cx) => (
+                    {[8, 20, 32, 98, 143].map((cx) => (
                       <g key={cx}>
                         <circle cx={cx} cy="49" r="7" fill={fill} />
                         <circle cx={cx} cy="49" r="5.4" fill={tyre} />
