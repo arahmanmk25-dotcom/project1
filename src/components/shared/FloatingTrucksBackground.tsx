@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Truck } from 'lucide-react';
+import PipeTruckIcon from '@/components/shared/PipeTruckIcon';
 
 interface FloatingTruck {
   id: number;
