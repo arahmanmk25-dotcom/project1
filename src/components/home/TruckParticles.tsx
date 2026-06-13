@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Truck } from 'lucide-react';
+import PipeTruckIcon from '@/components/shared/PipeTruckIcon';
 
 interface FloatingTruck {
   id: number;
@@ -47,10 +47,10 @@ const TruckParticles = () => {
             animationDelay: `${truck.delay}s`,
           }}
         >
-          <Truck
+          <PipeTruckIcon
             className="text-gold"
             style={{
-              width: truck.size,
+              width: truck.size * 2,
               height: truck.size,
               opacity: truck.opacity,
               filter: 'drop-shadow(0 0 12px hsl(43 74% 49% / 0.6))',
