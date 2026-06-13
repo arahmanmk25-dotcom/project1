@@ -92,15 +92,24 @@ const RoadDivider = ({
               viewBox="0 0 120 56"
               fill="none"
             >
-              {/* Trailer */}
-              <rect x="2" y="10" width="62" height="30" rx="1" fill={fill} />
-              {/* Trailer ribs */}
-              <line x1="14" y1="12" x2="14" y2="38" stroke={isDark ? 'hsl(132 23% 14% / 0.5)' : 'hsl(47 60% 97% / 0.5)'} strokeWidth="1" />
-              <line x1="26" y1="12" x2="26" y2="38" stroke={isDark ? 'hsl(132 23% 14% / 0.5)' : 'hsl(47 60% 97% / 0.5)'} strokeWidth="1" />
-              <line x1="38" y1="12" x2="38" y2="38" stroke={isDark ? 'hsl(132 23% 14% / 0.5)' : 'hsl(47 60% 97% / 0.5)'} strokeWidth="1" />
-              <line x1="50" y1="12" x2="50" y2="38" stroke={isDark ? 'hsl(132 23% 14% / 0.5)' : 'hsl(47 60% 97% / 0.5)'} strokeWidth="1" />
+              {/* Flatbed deck */}
+              <rect x="2" y="34" width="64" height="6" fill={fill} />
+              {/* Pipe cargo — bottom row (5 pipes) */}
+              <circle cx="8"  cy="28" r="5" fill="none" stroke={fill} strokeWidth="1.5" />
+              <circle cx="19" cy="28" r="5" fill="none" stroke={fill} strokeWidth="1.5" />
+              <circle cx="30" cy="28" r="5" fill="none" stroke={fill} strokeWidth="1.5" />
+              <circle cx="41" cy="28" r="5" fill="none" stroke={fill} strokeWidth="1.5" />
+              <circle cx="52" cy="28" r="5" fill="none" stroke={fill} strokeWidth="1.5" />
+              {/* Pipe cargo — top row (4 pipes nested) */}
+              <circle cx="13.5" cy="19" r="5" fill="none" stroke={fill} strokeWidth="1.5" />
+              <circle cx="24.5" cy="19" r="5" fill="none" stroke={fill} strokeWidth="1.5" />
+              <circle cx="35.5" cy="19" r="5" fill="none" stroke={fill} strokeWidth="1.5" />
+              <circle cx="46.5" cy="19" r="5" fill="none" stroke={fill} strokeWidth="1.5" />
+              {/* Cargo straps */}
+              <line x1="4"  y1="14" x2="4"  y2="34" stroke={fill} strokeWidth="1" opacity="0.7" />
+              <line x1="56" y1="14" x2="56" y2="34" stroke={fill} strokeWidth="1" opacity="0.7" />
               {/* Trailer-cab gap */}
-              <rect x="64" y="26" width="4" height="6" fill={fill} />
+              <rect x="64" y="32" width="4" height="6" fill={fill} />
               {/* Cab body */}
               <path d="M68 18 L92 18 L100 26 L100 40 L68 40 Z" fill={fill} />
               {/* Cab roof curve */}
