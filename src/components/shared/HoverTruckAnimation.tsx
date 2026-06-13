@@ -36,10 +36,10 @@ const HoverTruckAnimation = () => {
             animationDelay: `${truck.delay}s`,
           }}
         >
-          <Truck
+          <PipeTruckIcon
             className="text-gold"
             style={{
-              width: truck.size,
+              width: truck.size * 2,
               height: truck.size,
               opacity: 0.7,
               filter: 'drop-shadow(0 0 6px hsl(43 74% 49% / 0.6))',
