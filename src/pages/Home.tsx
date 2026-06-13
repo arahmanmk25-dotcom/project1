@@ -97,7 +97,7 @@ const Home = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.45 }}
                 >
-                  <p className="font-stencil text-xl md:text-3xl text-primary">
+                  <p className="font-stencil text-base sm:text-xl md:text-3xl text-primary">
                     {language === 'ar' ? 'للنقل الثقيل' : 'BIG MOVERS'}
                   </p>
                 </motion.div>
