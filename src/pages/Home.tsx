@@ -37,7 +37,7 @@ const Home = () => {
 
   const typewriterWords = language === 'ar'
     ? ['النقل الثقيل', 'الرافعات', 'الخدمات اللوجستية', 'نقل البترول']
-    : ['Heavy Transport', 'Crane Services', 'Logistics', 'Petroleum Hauling'];
+    : ['Big Movers', 'Crane Services', 'Logistics', 'Petroleum Hauling'];
 
   return (
     <PageTransition>
