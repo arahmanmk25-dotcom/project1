@@ -84,67 +84,76 @@ const RoadDivider = ({
               }}
             />
 
-            {/* Realistic semi-truck rolling along the road */}
+            {/* Pipe-hauler flatbed truck rolling along the road */}
             <svg
               className="absolute left-0 top-1/2 -translate-y-1/2 animate-road-roll"
-              width="96"
-              height="44"
+              width="104"
+              height="46"
               viewBox="0 0 120 56"
               fill="none"
             >
-              {/* Flatbed deck */}
-              <rect x="2" y="34" width="64" height="4" fill={fill} />
-              {/* Stake posts at ends of deck */}
-              <rect x="2"  y="14" width="2" height="20" fill={fill} />
-              <rect x="64" y="14" width="2" height="20" fill={fill} />
+              {(() => {
+                const seam = isDark ? 'hsl(132 23% 14% / 0.45)' : 'hsl(47 60% 97% / 0.55)';
+                const glass = isDark ? 'hsl(132 23% 14%)' : 'hsl(47 60% 97%)';
+                const bore = isDark ? 'hsl(132 23% 14% / 0.6)' : 'hsl(47 60% 97% / 0.6)';
+                const headlight = isDark ? 'hsl(47 60% 97%)' : 'hsl(38 55% 55%)';
+                return (
+                  <>
+                    {/* Stake posts holding the load (behind pipes) */}
+                    <rect x="4"  y="16" width="1.6" height="22" fill={fill} />
+                    <rect x="22" y="16" width="1.6" height="22" fill={fill} />
+                    <rect x="42" y="16" width="1.6" height="22" fill={fill} />
+                    <rect x="62" y="16" width="1.6" height="22" fill={fill} />
 
-              {/* Pipe cargo — long horizontal cylinders lying along the deck (side view) */}
-              {/* Bottom pipe */}
-              <rect x="4" y="28" width="60" height="6" rx="3" fill="none" stroke={fill} strokeWidth="1.4" />
-              <ellipse cx="63.5" cy="31" rx="1.2" ry="2.6" fill={fill} opacity="0.55" />
-              {/* Middle pipe */}
-              <rect x="4" y="22" width="60" height="6" rx="3" fill="none" stroke={fill} strokeWidth="1.4" />
-              <ellipse cx="63.5" cy="25" rx="1.2" ry="2.6" fill={fill} opacity="0.55" />
-              {/* Top pipe */}
-              <rect x="4" y="16" width="60" height="6" rx="3" fill="none" stroke={fill} strokeWidth="1.4" />
-              <ellipse cx="63.5" cy="19" rx="1.2" ry="2.6" fill={fill} opacity="0.55" />
+                    {/* Flatbed deck */}
+                    <rect x="0" y="37" width="68" height="3" fill={fill} />
 
-              {/* Cargo straps over the stack */}
-              <line x1="14" y1="14" x2="14" y2="34" stroke={fill} strokeWidth="0.9" opacity="0.7" />
-              <line x1="34" y1="14" x2="34" y2="34" stroke={fill} strokeWidth="0.9" opacity="0.7" />
-              <line x1="54" y1="14" x2="54" y2="34" stroke={fill} strokeWidth="0.9" opacity="0.7" />
+                    {/* Pipe cargo — three stacked horizontal cylinders extending past the rear */}
+                    <rect x="-2" y="31" width="70" height="6" rx="3" fill={fill} />
+                    <rect x="-2" y="25" width="70" height="6" rx="3" fill={fill} />
+                    <rect x="-2" y="19" width="70" height="6" rx="3" fill={fill} />
+                    {/* Seam highlights between pipes */}
+                    <line x1="-2" y1="25" x2="68" y2="25" stroke={seam} strokeWidth="0.6" />
+                    <line x1="-2" y1="31" x2="68" y2="31" stroke={seam} strokeWidth="0.6" />
+                    <line x1="-2" y1="37" x2="68" y2="37" stroke={seam} strokeWidth="0.6" />
+                    {/* Pipe bores on the protruding (rear) end */}
+                    <ellipse cx="-2" cy="22" rx="1.4" ry="2.4" fill={bore} />
+                    <ellipse cx="-2" cy="28" rx="1.4" ry="2.4" fill={bore} />
+                    <ellipse cx="-2" cy="34" rx="1.4" ry="2.4" fill={bore} />
 
-              {/* Trailer-cab gap */}
-              <rect x="66" y="32" width="2" height="6" fill={fill} />
-              {/* Cab body */}
-              <path d="M68 18 L92 18 L100 26 L100 40 L68 40 Z" fill={fill} />
-              {/* Cab roof curve */}
-              <path d="M68 18 L70 14 L88 14 L92 18 Z" fill={fill} />
-              {/* Windshield */}
-              <path d="M74 19 L90 19 L96 26 L74 26 Z" fill={isDark ? 'hsl(132 23% 14%)' : 'hsl(47 60% 97%)'} />
-              {/* Side window */}
-              <rect x="69" y="20" width="3" height="5" fill={isDark ? 'hsl(132 23% 14%)' : 'hsl(47 60% 97%)'} />
-              {/* Headlight */}
-              <rect x="98" y="30" width="2" height="3" fill={isDark ? 'hsl(47 60% 97%)' : 'hsl(38 55% 55%)'} />
-              {/* Bumper */}
-              <rect x="68" y="40" width="32" height="2" fill={fill} />
-              {/* Wheel wells */}
-              <circle cx="14" cy="42" r="6" fill={fill} />
-              <circle cx="26" cy="42" r="6" fill={fill} />
-              <circle cx="50" cy="42" r="6" fill={fill} />
-              <circle cx="80" cy="42" r="6" fill={fill} />
-              {/* Tires */}
-              <circle cx="14" cy="42" r="5" fill={isDark ? 'hsl(132 23% 14%)' : 'hsl(132 18% 13%)'} />
-              <circle cx="26" cy="42" r="5" fill={isDark ? 'hsl(132 23% 14%)' : 'hsl(132 18% 13%)'} />
-              <circle cx="50" cy="42" r="5" fill={isDark ? 'hsl(132 23% 14%)' : 'hsl(132 18% 13%)'} />
-              <circle cx="80" cy="42" r="5" fill={isDark ? 'hsl(132 23% 14%)' : 'hsl(132 18% 13%)'} />
-              {/* Hubs */}
-              <circle cx="14" cy="42" r="1.5" fill={fill} />
-              <circle cx="26" cy="42" r="1.5" fill={fill} />
-              <circle cx="50" cy="42" r="1.5" fill={fill} />
-              <circle cx="80" cy="42" r="1.5" fill={fill} />
-              {/* Exhaust stack */}
-              <rect x="89" y="8" width="2" height="10" fill={fill} />
+                    {/* Tractor chassis bridging cab to trailer */}
+                    <rect x="68" y="37" width="6" height="3" fill={fill} />
+
+                    {/* Boxy Scania-style cab on the right */}
+                    <rect x="74" y="16" width="26" height="22" fill={fill} />
+                    {/* Windshield */}
+                    <rect x="78" y="18" width="20" height="9" fill={glass} />
+                    {/* Door line */}
+                    <line x1="86" y1="27" x2="86" y2="37" stroke={seam} strokeWidth="0.6" />
+                    {/* Door handle */}
+                    <rect x="82" y="30" width="2" height="0.6" fill={seam} />
+                    {/* Grille */}
+                    <rect x="98" y="28" width="2" height="7" fill={glass} opacity="0.75" />
+                    {/* Headlight */}
+                    <rect x="98" y="35" width="2" height="2" fill={headlight} />
+                    {/* Side mirror */}
+                    <rect x="76" y="14" width="3" height="2.5" fill={fill} />
+                    {/* Bumper */}
+                    <rect x="72" y="38" width="30" height="2" fill={fill} />
+                    {/* Exhaust stack behind cab */}
+                    <rect x="73" y="8" width="2" height="10" fill={fill} />
+
+                    {/* Wheels — 3 at trailer rear (bogie), 2 under tractor */}
+                    {[8, 18, 28, 78, 94].map((cx) => (
+                      <g key={cx}>
+                        <circle cx={cx} cy="42" r="6" fill={fill} />
+                        <circle cx={cx} cy="42" r="5" fill={isDark ? 'hsl(132 23% 14%)' : 'hsl(132 18% 13%)'} />
+                        <circle cx={cx} cy="42" r="1.6" fill={fill} />
+                      </g>
+                    ))}
+                  </>
+                );
+              })()}
             </svg>
           </div>
 
