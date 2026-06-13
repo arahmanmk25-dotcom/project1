@@ -136,7 +136,7 @@ const RoadDivider = ({
                     <rect x="114" y="43" width="40" height="4" fill={fill} />
 
                     {/* Wheels — rear trailer bogie (left/back), mid bogie, and twin tractor axles */}
-                    {[8, 20, 32, 98, 143].map((cx) => (
+                    {[8, 20, 32, 98, 130, 143].map((cx) => (
                       <g key={cx}>
                         <circle cx={cx} cy="49" r="7" fill={fill} />
                         <circle cx={cx} cy="49" r="5.4" fill={tyre} />
