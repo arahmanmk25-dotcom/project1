@@ -431,7 +431,7 @@ input:focus, textarea:focus, select:focus {
   0%   { transform: translate(-10%, -50%); }
   100% { transform: translate(110vw, -50%); }
 }
-.animate-road-roll { animation: road-roll 24s linear infinite; opacity: 0.7; }
+.animate-road-roll { animation: road-roll 8s linear infinite; opacity: 0.7; }
 
 .crate-corners { position: relative; }
 .crate-corners::before,
