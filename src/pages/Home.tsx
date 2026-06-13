@@ -82,7 +82,7 @@ const Home = () => {
               />
 
               {/* Main woodblock title */}
-              <div className="relative mb-10">
+              <div className="relative mb-10 inline-block">
                 <motion.h1
                   className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-9xl text-primary uppercase leading-none tracking-tighter text-center"
                   initial={{ opacity: 0, y: 24 }}
