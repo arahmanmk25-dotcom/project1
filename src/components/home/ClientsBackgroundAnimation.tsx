@@ -47,10 +47,10 @@ const ClientsBackgroundAnimation = () => {
             animationDelay: `${truck.delay}s`,
           }}
         >
-          <PipeTruckIcon
+          <Truck
             className="text-gold"
             style={{
-              width: truck.size * 2,
+              width: truck.size,
               height: truck.size,
               opacity: truck.opacity,
               filter: 'drop-shadow(0 0 8px hsl(43 74% 49% / 0.5))',
