@@ -93,23 +93,29 @@ const RoadDivider = ({
               fill="none"
             >
               {/* Flatbed deck */}
-              <rect x="2" y="34" width="64" height="6" fill={fill} />
-              {/* Pipe cargo — bottom row (5 pipes) */}
-              <circle cx="8"  cy="28" r="5" fill="none" stroke={fill} strokeWidth="1.5" />
-              <circle cx="19" cy="28" r="5" fill="none" stroke={fill} strokeWidth="1.5" />
-              <circle cx="30" cy="28" r="5" fill="none" stroke={fill} strokeWidth="1.5" />
-              <circle cx="41" cy="28" r="5" fill="none" stroke={fill} strokeWidth="1.5" />
-              <circle cx="52" cy="28" r="5" fill="none" stroke={fill} strokeWidth="1.5" />
-              {/* Pipe cargo — top row (4 pipes nested) */}
-              <circle cx="13.5" cy="19" r="5" fill="none" stroke={fill} strokeWidth="1.5" />
-              <circle cx="24.5" cy="19" r="5" fill="none" stroke={fill} strokeWidth="1.5" />
-              <circle cx="35.5" cy="19" r="5" fill="none" stroke={fill} strokeWidth="1.5" />
-              <circle cx="46.5" cy="19" r="5" fill="none" stroke={fill} strokeWidth="1.5" />
-              {/* Cargo straps */}
-              <line x1="4"  y1="14" x2="4"  y2="34" stroke={fill} strokeWidth="1" opacity="0.7" />
-              <line x1="56" y1="14" x2="56" y2="34" stroke={fill} strokeWidth="1" opacity="0.7" />
+              <rect x="2" y="34" width="64" height="4" fill={fill} />
+              {/* Stake posts at ends of deck */}
+              <rect x="2"  y="14" width="2" height="20" fill={fill} />
+              <rect x="64" y="14" width="2" height="20" fill={fill} />
+
+              {/* Pipe cargo — long horizontal cylinders lying along the deck (side view) */}
+              {/* Bottom pipe */}
+              <rect x="4" y="28" width="60" height="6" rx="3" fill="none" stroke={fill} strokeWidth="1.4" />
+              <ellipse cx="63.5" cy="31" rx="1.2" ry="2.6" fill={fill} opacity="0.55" />
+              {/* Middle pipe */}
+              <rect x="4" y="22" width="60" height="6" rx="3" fill="none" stroke={fill} strokeWidth="1.4" />
+              <ellipse cx="63.5" cy="25" rx="1.2" ry="2.6" fill={fill} opacity="0.55" />
+              {/* Top pipe */}
+              <rect x="4" y="16" width="60" height="6" rx="3" fill="none" stroke={fill} strokeWidth="1.4" />
+              <ellipse cx="63.5" cy="19" rx="1.2" ry="2.6" fill={fill} opacity="0.55" />
+
+              {/* Cargo straps over the stack */}
+              <line x1="14" y1="14" x2="14" y2="34" stroke={fill} strokeWidth="0.9" opacity="0.7" />
+              <line x1="34" y1="14" x2="34" y2="34" stroke={fill} strokeWidth="0.9" opacity="0.7" />
+              <line x1="54" y1="14" x2="54" y2="34" stroke={fill} strokeWidth="0.9" opacity="0.7" />
+
               {/* Trailer-cab gap */}
-              <rect x="64" y="32" width="4" height="6" fill={fill} />
+              <rect x="66" y="32" width="2" height="6" fill={fill} />
               {/* Cab body */}
               <path d="M68 18 L92 18 L100 26 L100 40 L68 40 Z" fill={fill} />
               {/* Cab roof curve */}
