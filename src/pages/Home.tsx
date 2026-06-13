@@ -82,7 +82,7 @@ const Home = () => {
               />
 
               {/* Main woodblock title */}
-              <div className="relative mb-10 inline-block">
+              <div className="relative mb-10 flex flex-col items-center">
                 <motion.h1
                   className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-9xl text-primary uppercase leading-none tracking-tighter text-center"
                   initial={{ opacity: 0, y: 24 }}
@@ -92,7 +92,7 @@ const Home = () => {
                   {language === 'ar' ? 'هافكو' : 'HAFCO'}
                 </motion.h1>
                 <motion.div
-                  className="absolute -bottom-5 left-1/2 -translate-x-1/2 bg-card px-4 py-1 border border-primary whitespace-nowrap"
+                  className="-mt-3 bg-card px-4 py-1 border border-primary whitespace-nowrap"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.45 }}
