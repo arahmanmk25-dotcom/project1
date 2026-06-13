@@ -1,4 +1,4 @@
-import { Truck } from 'lucide-react';
+import PipeTruckIcon from '@/components/shared/PipeTruckIcon';
 
 const HoverTruckAnimation = () => {
   // Fixed positions for trucks to avoid re-renders
