@@ -23,7 +23,7 @@ const PipeTruckIcon = ({ className, style, ...rest }: SVGProps<SVGSVGElement>) =
       {/* Pipe inner shading for depth */}
       <rect x="4" y="17.5" width="72" height="2" rx="1" fill="white" opacity="0.25" />
       {/* Pipe end cap (front) */}
-      <ellipse cx="76" cy="19.5" rx="1.2" cy="3.5" fill="currentColor" opacity="0.7" />
+      <ellipse cx="76" cy="19.5" rx="1.2" ry="3.5" fill="currentColor" opacity="0.7" />
       {/* Pipe hollow opening (back) */}
       <ellipse cx="4" cy="19.5" rx="1.2" ry="3.5" fill="white" opacity="0.4" />
 
