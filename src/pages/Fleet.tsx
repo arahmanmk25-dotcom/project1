@@ -7,24 +7,6 @@ import FleetBrandShowcase, { Brand } from '@/components/fleet/FleetBrandShowcase
 import RoadDivider from '@/components/shared/RoadDivider';
 import SloganBand from '@/components/shared/SloganBand';
 
-// Existing fleet assets
-import fleetHero from '@/assets/trucks/fleet-hero.jpeg';
-import fleet3 from '@/assets/trucks/fleet-3.jpg';
-import fleet4 from '@/assets/trucks/fleet-4.jpg';
-import fleet5 from '@/assets/trucks/fleet-5.jpg';
-import fleet6 from '@/assets/trucks/fleet-6.jpg';
-import fleet7 from '@/assets/trucks/fleet-7.jpg';
-import fleet8 from '@/assets/trucks/fleet-8.jpg';
-import fleet9 from '@/assets/trucks/fleet-9.jpg';
-import fleet11 from '@/assets/trucks/fleet-11.jpg';
-import fleet12 from '@/assets/trucks/fleet-12.jpg';
-import fleet13 from '@/assets/trucks/fleet-13.jpg';
-import fleet14 from '@/assets/trucks/fleet-14.jpg';
-import fleet15 from '@/assets/trucks/fleet-15.jpg';
-import fleet16 from '@/assets/trucks/fleet-16.jpg';
-import fleet17 from '@/assets/trucks/fleet-17.jpg';
-import fleet18 from '@/assets/trucks/fleet-18.jpg';
-
 // New uploaded brand photos
 import actorsBlue from '@/assets/trucks-new/actors-blue.png.asset.json';
 import actrosFace from '@/assets/trucks-new/actros-face.png.asset.json';
@@ -103,9 +85,22 @@ const Fleet = () => {
       models: [{ name: 'G7 440', years: '2024' }],
     },
   ];
-...
+
+  const fleetStats = [
+    { value: '100+', label: language === 'ar' ? 'شاحنة' : 'Trucks' },
+    { value: '4', label: language === 'ar' ? 'علامات عالمية' : 'Global Brands' },
+    { value: '200+', label: language === 'ar' ? 'طن قدرة الرفع' : 'Ton Lifting Capacity' },
+    { value: '24', label: language === 'ar' ? 'خدمة ٢٤/٧' : '24/7 Service' },
+  ];
+
+  return (
+    <PageTransition>
+      <div>
         <section className="relative h-[70vh] min-h-[500px] flex items-end overflow-hidden -mt-16">
-          <HeroSlideshow images={[sitrakWhite.url, sitrakSide.url, actrosFace.url, manFace.url, daewooFace.url]} interval={8000} />
+          <HeroSlideshow
+            images={[sitrakWhite.url, sitrakSide.url, actrosFace.url, manFace.url, daewooFace.url]}
+            interval={8000}
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent" />
           <div className="relative z-10 container mx-auto px-4 pb-16">
             <ScrollReveal variant="fadeUp">
@@ -131,7 +126,6 @@ const Fleet = () => {
           sloganAr="مصنوعة للطريق. موثوقة للحمل."
         />
 
-        {/* Description */}
         <section className="py-16">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
@@ -142,7 +136,6 @@ const Fleet = () => {
           </div>
         </section>
 
-        {/* Brand showcases with subtle alternating background */}
         <div className="bg-gradient-to-b from-background via-secondary/30 to-background">
           {brands.map((brand, i) => (
             <div key={brand.key} className={i % 2 === 1 ? 'bg-secondary/40' : ''}>
@@ -151,7 +144,6 @@ const Fleet = () => {
           ))}
         </div>
 
-        {/* Stats */}
         <StatsBar stats={fleetStats} variant="dark" />
 
         <RoadDivider
