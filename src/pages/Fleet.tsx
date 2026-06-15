@@ -85,7 +85,7 @@ const Fleet = () => {
       taglineEn: 'Modern power, factory-fresh — added to the fleet to expand capacity.',
       taglineAr: 'قوة حديثة من المصنع — أضيفت إلى الأسطول لتوسيع الطاقة الاستيعابية.',
       hero: daewooHero.url,
-      gallery: [daewoo8577.url, fleet17, fleet16],
+      gallery: [daewoo8577.url, fleet17],
       models: [{ name: 'Maximus 4542', years: '2023' }],
     },
     {
