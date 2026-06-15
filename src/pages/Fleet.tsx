@@ -117,7 +117,7 @@ const Fleet = () => {
       <div>
         {/* Hero */}
         <section className="relative h-[70vh] min-h-[500px] flex items-end overflow-hidden -mt-16">
-          <HeroSlideshow images={[fleetHero, sitrak7154.url, mercedesWhite.url, manWhite.url, daewooHero.url]} interval={8000} />
+          <HeroSlideshow images={[sitrak6001Angle.url, sitrak6765Side.url, mercedesWhite.url, manWhite.url, daewooHero.url]} interval={8000} />
           <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent" />
           <div className="relative z-10 container mx-auto px-4 pb-16">
             <ScrollReveal variant="fadeUp">
