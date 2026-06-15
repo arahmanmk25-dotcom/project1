@@ -1,10 +1,11 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Lightbox, useLightbox } from '@/components/ui/lightbox';
 
-import ClientsCarousel from '@/components/home/ClientsCarousel';
+import ClientsGrid from '@/components/home/ClientsGrid';
 import ScrollReveal from '@/components/shared/ScrollReveal';
 import PageTransition from '@/components/shared/PageTransition';
 import HeroSlideshow from '@/components/shared/HeroSlideshow';
+import RoadDivider from '@/components/shared/RoadDivider';
 
 // Work/Projects - new images
 import workImg1 from '@/assets/trucks/work-img-1.jpeg';
@@ -300,27 +301,18 @@ const Work = () => {
           </div>
         </section>
 
-        {/* Clients */}
-        <section className="py-20 bg-primary overflow-hidden relative">
-          <div className="absolute inset-0 opacity-[0.08] pointer-events-none" style={{ backgroundImage: 'repeating-linear-gradient(45deg, hsl(var(--gold)) 0 1px, transparent 1px 14px)' }} />
-          <div className="container mx-auto px-4 relative z-10">
-            <ScrollReveal variant="fadeUp">
-              <p className="text-gold/80 font-semibold tracking-widest uppercase text-sm text-center mb-3">
-                {language === 'ar' ? 'شركاؤنا' : 'OUR PARTNERS'}
-              </p>
-              <h2 className="text-3xl font-bold text-center text-white mb-4">{t('work.clientsTitle')}</h2>
-              <p className="text-white/50 text-center mb-10 max-w-xl mx-auto">
-                {language === 'ar'
-                  ? 'نفخر بخدمة أكبر الشركات في المملكة العربية السعودية والمنطقة'
-                  : 'Proud to serve the largest companies in Saudi Arabia and the region'}
-              </p>
-            </ScrollReveal>
-          </div>
-          <ClientsCarousel />
-        </section>
+        {/* Clients - updated grid */}
+        <ClientsGrid />
 
-        {/* Spacer */}
-        <section className="py-8 bg-secondary" />
+        {/* Animated road divider before footer */}
+        <RoadDivider
+          labelEn="ON THE ROAD"
+          labelAr="على الطريق"
+          originEn="DAMMAM"
+          originAr="الدمام"
+          destinationEn="KSA WIDE"
+          destinationAr="كل المملكة"
+        />
 
         <Lightbox
           images={lightboxImages}
