@@ -301,8 +301,32 @@ const Work = () => {
           </div>
         </section>
 
-        {/* Clients - updated grid */}
-        <ClientsGrid />
+        {/* Clients - styled section matching Home */}
+        <section className="py-24 bg-primary overflow-hidden relative">
+          <div className="absolute inset-0 opacity-[0.08] pointer-events-none" style={{ backgroundImage: 'repeating-linear-gradient(45deg, hsl(var(--gold)) 0 1px, transparent 1px 40px)' }} />
+          <div className="container mx-auto px-4 relative z-10">
+            <ScrollReveal variant="fadeUp">
+              <div className="text-center mb-16 space-y-4">
+                <div className="flex items-center justify-center gap-4">
+                  <div className="h-px w-8 bg-gold/50" />
+                  <span className="text-gold text-xs font-bold tracking-[0.3em] uppercase">
+                    {language === 'ar' ? 'شركاؤنا' : 'Our Partners'}
+                  </span>
+                  <div className="h-px w-8 bg-gold/50" />
+                </div>
+                <h2 className="text-4xl md:text-5xl font-display italic text-white tracking-tight">
+                  {t('work.clientsTitle')}
+                </h2>
+                <p className="text-white/60 text-base md:text-lg max-w-2xl mx-auto font-light">
+                  {language === 'ar'
+                    ? 'نفخر بخدمة أكبر الشركات في المملكة العربية السعودية والمنطقة'
+                    : 'Proud to serve the largest companies in Saudi Arabia and the region'}
+                </p>
+              </div>
+            </ScrollReveal>
+          </div>
+          <ClientsGrid />
+        </section>
 
         {/* Animated road divider before footer */}
         <RoadDivider
