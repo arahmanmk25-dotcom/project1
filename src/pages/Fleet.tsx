@@ -97,7 +97,7 @@ const Fleet = () => {
       taglineEn: 'Our latest investment — a brand-new 2024 fleet ready for any mission.',
       taglineAr: 'أحدث استثماراتنا — أسطول جديد كلياً موديل 2024 جاهز لأي مهمة.',
       hero: sitrak7154.url,
-      gallery: [fleetHero, fleet3, fleet8, fleet11],
+      gallery: [fleetHero],
       models: [{ name: 'G7 440', years: '2024' }],
     },
   ];
