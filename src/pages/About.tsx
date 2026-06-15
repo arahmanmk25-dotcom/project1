@@ -111,8 +111,8 @@ const About = () => {
                 <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8">{t('about.description')}</p>
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   {language === 'ar'
-                    ? 'الشركة مسجلة تحت رقم السجل التجاري 2050042846 ومرخصة للعمل في مجال نقل البضائع بالطرق، وتقدم خدمات نقل ولوجستية احترافية وفقاً للمعايير التنظيمية المعتمدة. نحن فخورون بتاريخنا العريق في خدمة كبرى الشركات في المملكة العربية السعودية منذ أكثر من 40 عاماً.'
-                    : 'The company is registered under Commercial Registration No. 2050042846 and is licensed to operate in the field of Road Freight Transportation, providing professional transportation and logistics services in accordance with approved regulatory standards. We are proud of our rich history serving major companies in Saudi Arabia for over 40 years.'}
+                    ? 'يُجهّز أسطولنا وفريقنا لما يعتبره الآخرون مستحيلاً: أنابيب بترولية بطول ٣٠ متراً، معدات صناعية بوزن مئات الأطنان، وعمليات رفع معقدة بالرافعات. نُجري مسوحات دقيقة للطرق، ونحصل على جميع التصاريح، ونتتبع كل شحنة — لأنه في النقل الثقيل لا مكان للتقديرات.'
+                    : 'Our fleet and team are configured for what others consider impossible: 30-meter petroleum pipes, hundred-ton industrial equipment, and complex multi-crane lifts. Every route is surveyed, every permit is secured, and every delivery is tracked — because in heavy transport, there is no room for approximation.'}
                 </p>
               </ScrollReveal>
             </div>
