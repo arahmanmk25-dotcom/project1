@@ -3,11 +3,11 @@ import ScrollReveal from '@/components/shared/ScrollReveal';
 import PageTransition from '@/components/shared/PageTransition';
 import HeroSlideshow from '@/components/shared/HeroSlideshow';
 import StatsBar from '@/components/home/StatsBar';
-import FleetGallery from '@/components/fleet/FleetGallery';
+import FleetBrandShowcase, { Brand } from '@/components/fleet/FleetBrandShowcase';
 import RoadDivider from '@/components/shared/RoadDivider';
 import SloganBand from '@/components/shared/SloganBand';
 
-// Fleet trucks
+// Existing fleet assets
 import fleetHero from '@/assets/trucks/fleet-hero.jpeg';
 import fleet3 from '@/assets/trucks/fleet-3.jpg';
 import fleet4 from '@/assets/trucks/fleet-4.jpg';
@@ -25,38 +25,86 @@ import fleet16 from '@/assets/trucks/fleet-16.jpg';
 import fleet17 from '@/assets/trucks/fleet-17.jpg';
 import fleet18 from '@/assets/trucks/fleet-18.jpg';
 
+// New uploaded brand photos
+import manWhite from '@/assets/trucks-new/man-white-9319.png.asset.json';
+import manOrange from '@/assets/trucks-new/man-orange-9424.png.asset.json';
+import mercedesWhite from '@/assets/trucks-new/mercedes-white-6646.png.asset.json';
+import mercedesBlue from '@/assets/trucks-new/mercedes-blue-2439.png.asset.json';
+import daewoo8577 from '@/assets/trucks-new/daewoo-8577.png.asset.json';
+import daewooHero from '@/assets/trucks-new/daewoo-hero.jpg.asset.json';
+import sitrak7154 from '@/assets/trucks-new/sitrak-7154.png.asset.json';
+
 const Fleet = () => {
   const { t, language } = useLanguage();
 
-  const fleetImages = [
-    { src: fleetHero, nameEn: 'SITRAK Fleet', nameAr: 'أسطول سيتراك', model: 'C7H', year: '2024', category: 'sitrak' },
-    { src: fleet3, nameEn: 'MAN TGS EfficientLine', nameAr: 'مان TGS إفيشنت لاين', model: 'TGS 18.460', year: '2023', category: 'man' },
-    { src: fleet4, nameEn: 'MAN TGX', nameAr: 'مان TGX', model: 'TGX 18.500', year: '2022', category: 'man' },
-    { src: fleet5, nameEn: 'Mercedes-Benz Actros', nameAr: 'مرسيدس أكتروس', model: '1844', year: '2021', category: 'mercedes' },
-    { src: fleet6, nameEn: 'MAN TGS', nameAr: 'مان TGS', model: 'TGS 18.460', year: '2023', category: 'man' },
-    { src: fleet7, nameEn: 'Mercedes-Benz Actros', nameAr: 'مرسيدس أكتروس', model: '2040', year: '2022', category: 'mercedes' },
-    { src: fleet8, nameEn: 'MAN TGX', nameAr: 'مان TGX', model: 'TGX 18.500', year: '2023', category: 'man' },
-    { src: fleet9, nameEn: 'MAN TGA', nameAr: 'مان TGA', model: 'TGA 18.360', year: '2020', category: 'man' },
-    { src: fleet11, nameEn: 'MAN TGS', nameAr: 'مان TGS', model: 'TGS 18.460', year: '2022', category: 'man' },
-    { src: fleet12, nameEn: 'Mercedes-Benz Actros V8', nameAr: 'مرسيدس أكتروس V8', model: '3354', year: '2021', category: 'mercedes' },
-    { src: fleet13, nameEn: 'Mercedes-Benz Actros', nameAr: 'مرسيدس أكتروس', model: '2655', year: '2020', category: 'mercedes' },
-    { src: fleet14, nameEn: 'Mercedes-Benz Actros', nameAr: 'مرسيدس أكتروس', model: '1844', year: '2021', category: 'mercedes' },
-    { src: fleet15, nameEn: 'Mercedes-Benz Actros', nameAr: 'مرسيدس أكتروس', model: '1844', year: '2020', category: 'mercedes' },
-    { src: fleet16, nameEn: 'Mixed Fleet', nameAr: 'أسطول متنوع', model: 'MAN & Mercedes', year: '2022', category: 'mixed' },
-    { src: fleet17, nameEn: 'DAEWOO Maximus', nameAr: 'دايو ماكسيموس', model: '4542', year: '2023', category: 'daewoo' },
-    { src: fleet18, nameEn: 'Mercedes-Benz Actros', nameAr: 'مرسيدس أكتروس', model: '2040', year: '2022', category: 'mercedes' },
-  ];
-
-  const categories = [
-    { key: 'man', labelEn: 'MAN', labelAr: 'مان' },
-    { key: 'mercedes', labelEn: 'Mercedes-Benz', labelAr: 'مرسيدس' },
-    { key: 'sitrak', labelEn: 'SITRAK', labelAr: 'سيتراك' },
-    { key: 'daewoo', labelEn: 'DAEWOO', labelAr: 'دايو' },
+  const brands: Brand[] = [
+    {
+      key: 'man',
+      nameEn: 'MAN',
+      nameAr: 'مان',
+      originEn: 'Germany · Engineered for Distance',
+      originAr: 'ألمانيا · هندسة للمسافات الطويلة',
+      taglineEn: 'European precision built to outlast the harshest desert routes.',
+      taglineAr: 'دقة أوروبية مصممة لتتحمل أصعب طرق الصحراء.',
+      hero: manWhite.url,
+      gallery: [manOrange.url, fleet3, fleet4, fleet6, fleet8, fleet9, fleet11],
+      models: [
+        { name: 'TGX 18.510', years: '2020' },
+        { name: 'TGX 18.500', years: '2019' },
+        { name: 'TGX 18.470', years: '2021' },
+        { name: 'TGX 18.460', years: '2019' },
+        { name: 'TGS 18.460', years: '2019' },
+        { name: 'TGS 18.420', years: '2019' },
+        { name: 'TGA 18.440', years: '2008' },
+      ],
+    },
+    {
+      key: 'mercedes',
+      nameEn: 'Mercedes-Benz Actros',
+      nameAr: 'مرسيدس-بنز أكتروس',
+      originEn: 'Germany · The Heavyweight Standard',
+      originAr: 'ألمانيا · معيار النقل الثقيل',
+      taglineEn: 'A proven workhorse — the backbone of our long-haul operations.',
+      taglineAr: 'حصان عمل مجرّب — العمود الفقري لعملياتنا على المدى الطويل.',
+      hero: mercedesWhite.url,
+      gallery: [mercedesBlue.url, fleet5, fleet7, fleet12, fleet13, fleet14, fleet15, fleet18],
+      models: [
+        { name: 'Actros 2040', years: '2011' },
+        { name: 'Actros 1846', years: '2010' },
+        { name: 'Actros 1844', years: '2011 · 2016' },
+        { name: 'Actros 1841', years: '2009 · 2010 · 2011' },
+        { name: 'Actros 1836', years: '2009 · 2011' },
+      ],
+    },
+    {
+      key: 'daewoo',
+      nameEn: 'DAEWOO Maximus',
+      nameAr: 'دايو ماكسيموس',
+      originEn: 'South Korea · The New Generation',
+      originAr: 'كوريا الجنوبية · الجيل الجديد',
+      taglineEn: 'Modern power, factory-fresh — added to the fleet to expand capacity.',
+      taglineAr: 'قوة حديثة من المصنع — أضيفت إلى الأسطول لتوسيع الطاقة الاستيعابية.',
+      hero: daewooHero.url,
+      gallery: [daewoo8577.url, fleet17, fleet16],
+      models: [{ name: 'Maximus 4542', years: '2023' }],
+    },
+    {
+      key: 'sitrak',
+      nameEn: 'SITRAK G7',
+      nameAr: 'سيتراك G7',
+      originEn: 'China · CNHTC · Newest Addition',
+      originAr: 'الصين · CNHTC · أحدث الإضافات',
+      taglineEn: 'Our latest investment — a brand-new 2024 fleet ready for any mission.',
+      taglineAr: 'أحدث استثماراتنا — أسطول جديد كلياً موديل 2024 جاهز لأي مهمة.',
+      hero: sitrak7154.url,
+      gallery: [fleetHero, fleet3, fleet8, fleet11],
+      models: [{ name: 'G7 440', years: '2024' }],
+    },
   ];
 
   const fleetStats = [
     { value: '100+', label: language === 'ar' ? 'شاحنة' : 'Trucks' },
-    { value: '30', label: language === 'ar' ? 'أقصى طول حمولة (م)' : 'Max Cargo Length (m)' },
+    { value: '4', label: language === 'ar' ? 'علامات عالمية' : 'Global Brands' },
     { value: '200+', label: language === 'ar' ? 'طن قدرة الرفع' : 'Ton Lifting Capacity' },
     { value: '24', label: language === 'ar' ? 'خدمة ٢٤/٧' : '24/7 Service' },
   ];
@@ -64,9 +112,9 @@ const Fleet = () => {
   return (
     <PageTransition>
       <div>
-        {/* Hero - Full viewport editorial */}
+        {/* Hero */}
         <section className="relative h-[70vh] min-h-[500px] flex items-end overflow-hidden -mt-16">
-          <HeroSlideshow images={[fleetHero, fleet3, fleet5, fleet7, fleet9, fleet12]} interval={8000} />
+          <HeroSlideshow images={[fleetHero, sitrak7154.url, mercedesWhite.url, manWhite.url, daewooHero.url]} interval={8000} />
           <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent" />
           <div className="relative z-10 container mx-auto px-4 pb-16">
             <ScrollReveal variant="fadeUp">
@@ -78,14 +126,13 @@ const Fleet = () => {
               </h1>
               <p className="text-xl text-white/70 mt-4 max-w-2xl">
                 {language === 'ar'
-                  ? 'أسطول حديث من أكثر من ١٠٠ شاحنة من أفضل العلامات التجارية العالمية'
-                  : 'A modern fleet of 100+ trucks from the world\'s top brands, ready for any mission'}
+                  ? 'أربع علامات عالمية، أكثر من ١٠٠ شاحنة، أسطول واحد جاهز دائماً.'
+                  : 'Four world-class brands, 100+ trucks, one fleet always ready.'}
               </p>
             </ScrollReveal>
           </div>
         </section>
 
-        {/* Slogan */}
         <SloganBand
           eyebrowEn="THE FLEET"
           eyebrowAr="الأسطول"
@@ -96,7 +143,7 @@ const Fleet = () => {
         {/* Description */}
         <section className="py-16">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-4xl mx-auto text-center">
               <ScrollReveal variant="fadeUp">
                 <p className="text-xl text-muted-foreground leading-relaxed">{t('fleet.description')}</p>
               </ScrollReveal>
@@ -104,13 +151,27 @@ const Fleet = () => {
           </div>
         </section>
 
-        {/* Interactive Fleet Gallery */}
-        <FleetGallery items={fleetImages} categories={categories} />
+        {/* Brand showcases with subtle alternating background */}
+        <div className="bg-gradient-to-b from-background via-secondary/30 to-background">
+          {brands.map((brand, i) => (
+            <div key={brand.key} className={i % 2 === 1 ? 'bg-secondary/40' : ''}>
+              <FleetBrandShowcase brand={brand} index={i} />
+            </div>
+          ))}
+        </div>
 
         {/* Stats */}
         <StatsBar stats={fleetStats} variant="dark" />
 
-        <RoadDivider variant="dark" labelEn="DEPOT · 100+ UNITS READY" labelAr="المستودع · أكثر من ١٠٠ وحدة جاهزة" originEn="DEPOT" originAr="المستودع" destinationEn="ON ROUTE" destinationAr="على الطريق" />
+        <RoadDivider
+          variant="dark"
+          labelEn="DEPOT · 100+ UNITS READY"
+          labelAr="المستودع · أكثر من ١٠٠ وحدة جاهزة"
+          originEn="DEPOT"
+          originAr="المستودع"
+          destinationEn="ON ROUTE"
+          destinationAr="على الطريق"
+        />
       </div>
     </PageTransition>
   );
