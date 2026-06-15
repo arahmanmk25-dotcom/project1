@@ -7,36 +7,16 @@ import FleetBrandShowcase, { Brand } from '@/components/fleet/FleetBrandShowcase
 import RoadDivider from '@/components/shared/RoadDivider';
 import SloganBand from '@/components/shared/SloganBand';
 
-// Existing fleet assets
-import fleetHero from '@/assets/trucks/fleet-hero.jpeg';
-import fleet3 from '@/assets/trucks/fleet-3.jpg';
-import fleet4 from '@/assets/trucks/fleet-4.jpg';
-import fleet5 from '@/assets/trucks/fleet-5.jpg';
-import fleet6 from '@/assets/trucks/fleet-6.jpg';
-import fleet7 from '@/assets/trucks/fleet-7.jpg';
-import fleet8 from '@/assets/trucks/fleet-8.jpg';
-import fleet9 from '@/assets/trucks/fleet-9.jpg';
-import fleet11 from '@/assets/trucks/fleet-11.jpg';
-import fleet12 from '@/assets/trucks/fleet-12.jpg';
-import fleet13 from '@/assets/trucks/fleet-13.jpg';
-import fleet14 from '@/assets/trucks/fleet-14.jpg';
-import fleet15 from '@/assets/trucks/fleet-15.jpg';
-import fleet16 from '@/assets/trucks/fleet-16.jpg';
-import fleet17 from '@/assets/trucks/fleet-17.jpg';
-import fleet18 from '@/assets/trucks/fleet-18.jpg';
-
 // New uploaded brand photos
-import manWhite from '@/assets/trucks-new/man-white-9319.png.asset.json';
-import manOrange from '@/assets/trucks-new/man-orange-9424.png.asset.json';
-import mercedesWhite from '@/assets/trucks-new/mercedes-white-6646.png.asset.json';
-import mercedesBlue from '@/assets/trucks-new/mercedes-blue-2439.png.asset.json';
-import daewoo8577 from '@/assets/trucks-new/daewoo-8577.png.asset.json';
-import daewooHero from '@/assets/trucks-new/daewoo-hero.jpg.asset.json';
-import sitrak7154 from '@/assets/trucks-new/sitrak-7154.png.asset.json';
-import sitrak6765Front from '@/assets/trucks-new/sitrak-6765-front.png.asset.json';
-import sitrak6765Side from '@/assets/trucks-new/sitrak-6765-side.png.asset.json';
-import sitrak6001Angle from '@/assets/trucks-new/sitrak-6001-angle.png.asset.json';
-import daewoo4542Pipes from '@/assets/trucks-new/daewoo-4542-pipes.png.asset.json';
+import actorsBlue from '@/assets/trucks-new/actors-blue.png.asset.json';
+import actrosFace from '@/assets/trucks-new/actros-face.png.asset.json';
+import daewooFace from '@/assets/trucks-new/daewoo-face.png.asset.json';
+import manFace from '@/assets/trucks-new/man-face.png.asset.json';
+import manSideFace from '@/assets/trucks-new/man-side-face.png.asset.json';
+import redManSide from '@/assets/trucks-new/red-man-side.png.asset.json';
+import sitrakFront from '@/assets/trucks-new/sitrak-front.png.asset.json';
+import sitrakSide from '@/assets/trucks-new/sitrak-side.png.asset.json';
+import sitrakWhite from '@/assets/trucks-new/sitrak-white.png.asset.json';
 
 const Fleet = () => {
   const { t, language } = useLanguage();
@@ -50,8 +30,8 @@ const Fleet = () => {
       originAr: 'ألمانيا · هندسة للمسافات الطويلة',
       taglineEn: 'European precision built to outlast the harshest desert routes.',
       taglineAr: 'دقة أوروبية مصممة لتتحمل أصعب طرق الصحراء.',
-      hero: manWhite.url,
-      gallery: [manOrange.url, fleet3, fleet4, fleet6, fleet8, fleet9, fleet11],
+      hero: manFace.url,
+      gallery: [manSideFace.url, redManSide.url],
       models: [
         { name: 'TGX 18.510', years: '2020' },
         { name: 'TGX 18.500', years: '2019' },
@@ -70,8 +50,8 @@ const Fleet = () => {
       originAr: 'ألمانيا · معيار النقل الثقيل',
       taglineEn: 'A proven workhorse — the backbone of our long-haul operations.',
       taglineAr: 'حصان عمل مجرّب — العمود الفقري لعملياتنا على المدى الطويل.',
-      hero: mercedesWhite.url,
-      gallery: [mercedesBlue.url, fleet5, fleet7, fleet12, fleet13, fleet14, fleet15, fleet18],
+      hero: actrosFace.url,
+      gallery: [actorsBlue.url],
       models: [
         { name: 'Actros 2040', years: '2011' },
         { name: 'Actros 1846', years: '2010' },
@@ -88,8 +68,8 @@ const Fleet = () => {
       originAr: 'كوريا الجنوبية · الجيل الجديد',
       taglineEn: 'Modern power, factory-fresh — added to the fleet to expand capacity.',
       taglineAr: 'قوة حديثة من المصنع — أضيفت إلى الأسطول لتوسيع الطاقة الاستيعابية.',
-      hero: daewooHero.url,
-      gallery: [daewoo8577.url, daewoo4542Pipes.url],
+      hero: daewooFace.url,
+      gallery: [],
       models: [{ name: 'Maximus 4542', years: '2023' }],
     },
     {
@@ -100,8 +80,8 @@ const Fleet = () => {
       originAr: 'الصين · CNHTC · أحدث الإضافات',
       taglineEn: 'Our latest investment — a brand-new 2024 fleet ready for any mission.',
       taglineAr: 'أحدث استثماراتنا — أسطول جديد كلياً موديل 2024 جاهز لأي مهمة.',
-      hero: sitrak6001Angle.url,
-      gallery: [sitrak6765Front.url, sitrak6765Side.url, sitrak7154.url, fleetHero],
+      hero: sitrakWhite.url,
+      gallery: [sitrakFront.url, sitrakSide.url],
       models: [{ name: 'G7 440', years: '2024' }],
     },
   ];
@@ -116,9 +96,11 @@ const Fleet = () => {
   return (
     <PageTransition>
       <div>
-        {/* Hero */}
         <section className="relative h-[70vh] min-h-[500px] flex items-end overflow-hidden -mt-16">
-          <HeroSlideshow images={[sitrak6001Angle.url, sitrak6765Side.url, mercedesWhite.url, manWhite.url, daewooHero.url]} interval={8000} />
+          <HeroSlideshow
+            images={[sitrakWhite.url, sitrakSide.url, actrosFace.url, manFace.url, daewooFace.url]}
+            interval={8000}
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent" />
           <div className="relative z-10 container mx-auto px-4 pb-16">
             <ScrollReveal variant="fadeUp">
@@ -144,7 +126,6 @@ const Fleet = () => {
           sloganAr="مصنوعة للطريق. موثوقة للحمل."
         />
 
-        {/* Description */}
         <section className="py-16">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
@@ -155,7 +136,6 @@ const Fleet = () => {
           </div>
         </section>
 
-        {/* Brand showcases with subtle alternating background */}
         <div className="bg-gradient-to-b from-background via-secondary/30 to-background">
           {brands.map((brand, i) => (
             <div key={brand.key} className={i % 2 === 1 ? 'bg-secondary/40' : ''}>
@@ -164,7 +144,6 @@ const Fleet = () => {
           ))}
         </div>
 
-        {/* Stats */}
         <StatsBar stats={fleetStats} variant="dark" />
 
         <RoadDivider
