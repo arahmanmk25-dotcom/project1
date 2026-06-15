@@ -26,17 +26,13 @@ import fleet17 from '@/assets/trucks/fleet-17.jpg';
 import fleet18 from '@/assets/trucks/fleet-18.jpg';
 
 // New uploaded brand photos
-import manWhite from '@/assets/trucks-new/man-white-9319.png.asset.json';
-import manOrange from '@/assets/trucks-new/man-orange-9424.png.asset.json';
-import mercedesWhite from '@/assets/trucks-new/mercedes-white-6646.png.asset.json';
-import mercedesBlue from '@/assets/trucks-new/mercedes-blue-2439.png.asset.json';
-import daewoo8577 from '@/assets/trucks-new/daewoo-8577.png.asset.json';
-import daewooHero from '@/assets/trucks-new/daewoo-hero.jpg.asset.json';
-import sitrak7154 from '@/assets/trucks-new/sitrak-7154.png.asset.json';
-import sitrak6765Front from '@/assets/trucks-new/sitrak-6765-front.png.asset.json';
-import sitrak6765Side from '@/assets/trucks-new/sitrak-6765-side.png.asset.json';
-import sitrak6001Angle from '@/assets/trucks-new/sitrak-6001-angle.png.asset.json';
-import daewoo4542Pipes from '@/assets/trucks-new/daewoo-4542-pipes.png.asset.json';
+import manWhiteBlurred from '@/assets/trucks-new/man-white-blurred.png.asset.json';
+import manRedBlurred from '@/assets/trucks-new/man-red-blurred.png.asset.json';
+import mercedesWhiteBlurred from '@/assets/trucks-new/mercedes-white-blurred.png.asset.json';
+import mercedesBlueBlurred from '@/assets/trucks-new/mercedes-blue-blurred.png.asset.json';
+import daewooFaceBlurred from '@/assets/trucks-new/daewoo-face-blurred.png.asset.json';
+import sitrakFrontBlurred from '@/assets/trucks-new/sitrak-front-blurred.png.asset.json';
+import sitrakSideBlurred from '@/assets/trucks-new/sitrak-side-blurred.png.asset.json';
 
 const Fleet = () => {
   const { t, language } = useLanguage();
@@ -50,8 +46,8 @@ const Fleet = () => {
       originAr: 'ألمانيا · هندسة للمسافات الطويلة',
       taglineEn: 'European precision built to outlast the harshest desert routes.',
       taglineAr: 'دقة أوروبية مصممة لتتحمل أصعب طرق الصحراء.',
-      hero: manWhite.url,
-      gallery: [manOrange.url, fleet3, fleet4, fleet6, fleet8, fleet9, fleet11],
+      hero: manWhiteBlurred.url,
+      gallery: [manRedBlurred.url, fleet3, fleet4, fleet6, fleet8, fleet9, fleet11],
       models: [
         { name: 'TGX 18.510', years: '2020' },
         { name: 'TGX 18.500', years: '2019' },
@@ -70,8 +66,8 @@ const Fleet = () => {
       originAr: 'ألمانيا · معيار النقل الثقيل',
       taglineEn: 'A proven workhorse — the backbone of our long-haul operations.',
       taglineAr: 'حصان عمل مجرّب — العمود الفقري لعملياتنا على المدى الطويل.',
-      hero: mercedesWhite.url,
-      gallery: [mercedesBlue.url, fleet5, fleet7, fleet12, fleet13, fleet14, fleet15, fleet18],
+      hero: mercedesWhiteBlurred.url,
+      gallery: [mercedesBlueBlurred.url, fleet5, fleet7, fleet12, fleet13, fleet14, fleet15, fleet18],
       models: [
         { name: 'Actros 2040', years: '2011' },
         { name: 'Actros 1846', years: '2010' },
@@ -88,8 +84,8 @@ const Fleet = () => {
       originAr: 'كوريا الجنوبية · الجيل الجديد',
       taglineEn: 'Modern power, factory-fresh — added to the fleet to expand capacity.',
       taglineAr: 'قوة حديثة من المصنع — أضيفت إلى الأسطول لتوسيع الطاقة الاستيعابية.',
-      hero: daewooHero.url,
-      gallery: [daewoo8577.url, daewoo4542Pipes.url],
+      hero: daewooFaceBlurred.url,
+      gallery: [daewooFaceBlurred.url, fleet17],
       models: [{ name: 'Maximus 4542', years: '2023' }],
     },
     {
@@ -100,8 +96,8 @@ const Fleet = () => {
       originAr: 'الصين · CNHTC · أحدث الإضافات',
       taglineEn: 'Our latest investment — a brand-new 2024 fleet ready for any mission.',
       taglineAr: 'أحدث استثماراتنا — أسطول جديد كلياً موديل 2024 جاهز لأي مهمة.',
-      hero: sitrak6001Angle.url,
-      gallery: [sitrak6765Front.url, sitrak6765Side.url, sitrak7154.url, fleetHero],
+      hero: sitrakSideBlurred.url,
+      gallery: [sitrakFrontBlurred.url, sitrakSideBlurred.url, fleetHero],
       models: [{ name: 'G7 440', years: '2024' }],
     },
   ];
@@ -118,7 +114,7 @@ const Fleet = () => {
       <div>
         {/* Hero */}
         <section className="relative h-[70vh] min-h-[500px] flex items-end overflow-hidden -mt-16">
-          <HeroSlideshow images={[sitrak6001Angle.url, sitrak6765Side.url, mercedesWhite.url, manWhite.url, daewooHero.url]} interval={8000} />
+          <HeroSlideshow images={[sitrakSideBlurred.url, sitrakFrontBlurred.url, mercedesWhiteBlurred.url, manWhiteBlurred.url, daewooFaceBlurred.url]} interval={8000} />
           <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent" />
           <div className="relative z-10 container mx-auto px-4 pb-16">
             <ScrollReveal variant="fadeUp">
