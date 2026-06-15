@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Lightbox, useLightbox } from '@/components/ui/lightbox';
 
@@ -28,126 +27,193 @@ interface Props {
 
 const FleetBrandShowcase = ({ brand, index }: Props) => {
   const { language } = useLanguage();
+  const isAr = language === 'ar';
   const reverse = index % 2 === 1;
   const { isOpen, currentIndex, openLightbox, closeLightbox, navigate } = useLightbox();
 
   const allImages = [brand.hero, ...brand.gallery];
   const lightboxImages = allImages.map((src) => ({
     src,
-    title: language === 'ar' ? brand.nameAr : brand.nameEn,
+    title: isAr ? brand.nameAr : brand.nameEn,
   }));
+
+  // 3 thumbnails + 1 "+N more" tile
+  const thumbs = brand.gallery.slice(0, 3);
+  const extraCount = Math.max(0, allImages.length - 4);
 
   return (
     <section className="py-20 md:py-28 relative overflow-hidden">
       {/* Brand index watermark */}
       <div
-        className={`absolute top-8 ${reverse ? 'left-4' : 'right-4'} text-[180px] md:text-[240px] font-bold text-primary/[0.03] leading-none pointer-events-none select-none`}
+        className={`absolute top-8 ${reverse ? 'right-4' : 'left-4'} text-[180px] md:text-[240px] font-bold text-primary/[0.04] leading-none pointer-events-none select-none`}
         style={{ fontFamily: "'Playfair Display', serif" }}
       >
-        0{index + 1}
+        {String(index + 1).padStart(2, '0')}
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className={`grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center ${reverse ? 'lg:flex-row-reverse' : ''}`}>
-          {/* Hero image */}
-          <motion.div
-            initial={{ opacity: 0, x: reverse ? 60 : -60 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className={`lg:col-span-7 ${reverse ? 'lg:order-2' : ''}`}
-          >
-            <div
-              className="relative aspect-[4/3] overflow-hidden cursor-pointer group rounded-sm"
-              onClick={() => openLightbox(0)}
-            >
-              <img
-                src={brand.hero}
-                alt={language === 'ar' ? brand.nameAr : brand.nameEn}
-                className="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-105"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent" />
-              {/* Frame */}
-              <div className="absolute inset-3 border border-gold/30 pointer-events-none" />
-            </div>
-
-            {/* Gallery strip */}
-            <div className="mt-4 grid grid-cols-4 gap-3">
-              {brand.gallery.slice(0, 4).map((src, i) => (
-                <button
-                  key={i}
-                  type="button"
-                  onClick={() => openLightbox(i + 1)}
-                  className="relative aspect-square overflow-hidden group rounded-sm"
-                >
-                  <img
-                    src={src}
-                    alt=""
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition-colors" />
-                </button>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Content */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+          {/* CONTENT COLUMN */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className={`lg:col-span-5 ${reverse ? 'lg:order-1' : ''}`}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className={`lg:col-span-5 flex flex-col space-y-10 ${reverse ? 'lg:order-2' : ''}`}
           >
-            <div className="flex items-center gap-3 mb-4">
-              <span className="text-xs tracking-[0.3em] uppercase text-gold font-semibold">
-                {language === 'ar' ? `العلامة ${String(index + 1).padStart(2, '0')}` : `Brand ${String(index + 1).padStart(2, '0')}`}
-              </span>
-              <span className="h-px flex-1 bg-gold/40" />
-            </div>
+            {/* Header */}
+            <header className="space-y-4">
+              <div className="flex items-center gap-4 text-gold font-semibold tracking-[0.25em] text-xs uppercase">
+                <span className="h-px w-10 bg-gold" />
+                <span>{isAr ? brand.originAr : brand.originEn}</span>
+              </div>
 
-            <h2
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary leading-none mb-3"
-              style={{ fontFamily: language === 'ar' ? "'HafcoDigits', 'Amiri', serif" : "'HafcoDigits', 'Playfair Display', serif" }}
-            >
-              {language === 'ar' ? brand.nameAr : brand.nameEn}
-            </h2>
+              <h2
+                className="text-5xl md:text-6xl lg:text-7xl text-primary leading-[1.05]"
+                style={{ fontFamily: isAr ? "'Amiri', serif" : "'Playfair Display', serif" }}
+              >
+                {isAr ? brand.nameAr : brand.nameEn}
+              </h2>
 
-            <p className="text-sm tracking-[0.2em] uppercase text-muted-foreground mb-5">
-              {language === 'ar' ? brand.originAr : brand.originEn}
-            </p>
+              <div className="flex justify-between items-center py-2">
+                <p
+                  className="text-primary/70 text-xl"
+                  style={{ fontFamily: isAr ? "'Playfair Display', serif" : "'Amiri', serif" }}
+                  dir={isAr ? 'ltr' : 'rtl'}
+                >
+                  {isAr ? brand.nameEn : brand.nameAr}
+                </p>
+                <span className="h-px flex-1 mx-4 bg-primary/10" />
+              </div>
 
-            <p className="text-lg text-foreground/80 leading-relaxed mb-8 italic font-serif-display">
-              "{language === 'ar' ? brand.taglineAr : brand.taglineEn}"
-            </p>
-
-            {/* Models list */}
-            <div className="border-t border-gold/30 pt-6">
-              <p className="text-xs tracking-[0.3em] uppercase text-gold mb-4 font-semibold">
-                {language === 'ar' ? 'الطرازات في الأسطول' : 'Models in Fleet'}
+              <p
+                className="text-primary/80 italic text-lg md:text-xl leading-relaxed pl-6 border-l-2 border-gold rtl:pl-0 rtl:pr-6 rtl:border-l-0 rtl:border-r-2"
+                style={{ fontFamily: "'Playfair Display', serif" }}
+              >
+                "{isAr ? brand.taglineAr : brand.taglineEn}"
               </p>
-              <ul className="space-y-3">
+            </header>
+
+            {/* Models Inventory Ledger */}
+            <div className="bg-white border border-primary/10 p-6 md:p-8 shadow-xl shadow-primary/5">
+              <div className="flex justify-between items-baseline border-b-2 border-primary pb-4 mb-6">
+                <h3 className="font-semibold uppercase tracking-[0.25em] text-sm text-primary">
+                  {isAr ? 'الطرازات في الأسطول' : 'Models in Fleet'}
+                </h3>
+                <span className="text-gold text-[10px] font-bold uppercase tracking-widest">
+                  {isAr ? 'الأسطول ٢٠٢٤' : 'Inventory · 2024'}
+                </span>
+              </div>
+
+              <ul className="space-y-5">
                 {brand.models.map((m, i) => (
                   <motion.li
-                    key={m.name}
-                    initial={{ opacity: 0, x: -20 }}
+                    key={m.name + i}
+                    initial={{ opacity: 0, x: -16 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: 0.3 + i * 0.06 }}
-                    className="flex items-baseline justify-between gap-4 group"
+                    transition={{ duration: 0.4, delay: 0.2 + i * 0.05 }}
+                    className="flex items-end gap-2"
                   >
-                    <span className="font-semibold text-foreground tracking-wide group-hover:text-primary transition-colors">
+                    <span className="text-primary font-semibold text-base md:text-lg whitespace-nowrap">
                       {m.name}
                     </span>
-                    <span className="flex-1 border-b border-dotted border-gold/30 translate-y-[-4px]" />
-                    <span className="text-sm tracking-[0.15em] text-gold font-semibold whitespace-nowrap">
+                    <span className="flex-1 border-b border-dotted border-primary/30 mb-1.5" />
+                    <span
+                      className="text-gold italic text-lg md:text-xl whitespace-nowrap"
+                      style={{ fontFamily: "'Playfair Display', serif" }}
+                    >
                       {m.years}
                     </span>
                   </motion.li>
                 ))}
               </ul>
+            </div>
+          </motion.div>
+
+          {/* VISUAL COLUMN */}
+          <motion.div
+            initial={{ opacity: 0, x: reverse ? -60 : 60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className={`lg:col-span-7 space-y-6 ${reverse ? 'lg:order-1' : ''}`}
+          >
+            {/* Hero frame */}
+            <div className="relative group">
+              <div className="absolute -inset-4 border border-gold/30 translate-x-2 translate-y-2 pointer-events-none transition-transform duration-500 group-hover:translate-x-0 group-hover:translate-y-0" />
+              <button
+                type="button"
+                onClick={() => openLightbox(0)}
+                className="relative block w-full aspect-[4/3] overflow-hidden bg-neutral-200 cursor-pointer"
+              >
+                <img
+                  src={brand.hero}
+                  alt={isAr ? brand.nameAr : brand.nameEn}
+                  loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent" />
+              </button>
+
+              <div className="absolute top-0 right-0 bg-background px-5 py-3 flex flex-col items-center justify-center border-b border-l border-primary/10">
+                <span
+                  className="text-primary italic text-3xl leading-none"
+                  style={{ fontFamily: "'Playfair Display', serif" }}
+                >
+                  100+
+                </span>
+                <span className="text-primary/60 text-[10px] uppercase tracking-widest mt-1">
+                  {isAr ? 'وحدة جاهزة' : 'Units Ready'}
+                </span>
+              </div>
+            </div>
+
+            {/* Thumb strip */}
+            <div className="grid grid-cols-4 gap-3 md:gap-4">
+              {thumbs.map((src, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => openLightbox(i + 1)}
+                  className="relative aspect-[4/5] overflow-hidden border border-primary/10 group"
+                >
+                  <img
+                    src={src}
+                    alt=""
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/15 transition-colors" />
+                </button>
+              ))}
+
+              {/* +N gallery tile */}
+              <button
+                type="button"
+                onClick={() => openLightbox(Math.min(4, allImages.length - 1))}
+                className="relative aspect-[4/5] bg-primary flex items-center justify-center overflow-hidden group cursor-pointer"
+              >
+                {brand.gallery[3] && (
+                  <img
+                    src={brand.gallery[3]}
+                    alt=""
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover opacity-25 group-hover:opacity-40 transition-opacity"
+                  />
+                )}
+                <div className="relative z-10 text-center px-2">
+                  <span
+                    className="block text-gold italic text-3xl leading-none"
+                    style={{ fontFamily: "'Playfair Display', serif" }}
+                  >
+                    {extraCount > 0 ? `+${extraCount}` : 'View'}
+                  </span>
+                  <span className="block text-background text-[10px] uppercase tracking-widest mt-1">
+                    {isAr ? 'المعرض' : 'Gallery'}
+                  </span>
+                </div>
+              </button>
             </div>
           </motion.div>
         </div>
