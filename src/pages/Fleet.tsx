@@ -42,8 +42,8 @@ const Fleet = () => {
     { src: fleet13, nameEn: 'Mercedes-Benz Actros', nameAr: 'مرسيدس أكتروس', model: '2655', year: '2020', category: 'mercedes' },
     { src: fleet14, nameEn: 'Mercedes-Benz Actros', nameAr: 'مرسيدس أكتروس', model: '1844', year: '2021', category: 'mercedes' },
     { src: fleet15, nameEn: 'Mercedes-Benz Actros', nameAr: 'مرسيدس أكتروس', model: '1844', year: '2020', category: 'mercedes' },
-    { src: fleet16, nameEn: 'Mixed Fleet', nameAr: 'أسطول متنوع', model: 'MAN & Mercedes', year: '2022', category: 'other' },
-    { src: fleet17, nameEn: 'DAEWOO Maximus', nameAr: 'دايو ماكسيموس', model: '4542', year: '2023', category: 'other' },
+    { src: fleet16, nameEn: 'Mixed Fleet', nameAr: 'أسطول متنوع', model: 'MAN & Mercedes', year: '2022', category: 'mixed' },
+    { src: fleet17, nameEn: 'DAEWOO Maximus', nameAr: 'دايو ماكسيموس', model: '4542', year: '2023', category: 'daewoo' },
     { src: fleet18, nameEn: 'Mercedes-Benz Actros', nameAr: 'مرسيدس أكتروس', model: '2040', year: '2022', category: 'mercedes' },
   ];
 
@@ -51,7 +51,7 @@ const Fleet = () => {
     { key: 'man', labelEn: 'MAN', labelAr: 'مان' },
     { key: 'mercedes', labelEn: 'Mercedes-Benz', labelAr: 'مرسيدس' },
     { key: 'sitrak', labelEn: 'SITRAK', labelAr: 'سيتراك' },
-    { key: 'other', labelEn: 'Other', labelAr: 'أخرى' },
+    { key: 'daewoo', labelEn: 'DAEWOO', labelAr: 'دايو' },
   ];
 
   const fleetStats = [
