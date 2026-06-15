@@ -89,7 +89,7 @@ const ServicesCards = () => {
                         {service.desc}
                       </p>
                       <div className="mt-4 flex items-center justify-center gap-1.5 text-gold font-semibold text-xs tracking-[0.25em] uppercase opacity-70 group-hover:opacity-100 transition">
-                        {language === 'ar' ? 'اعرف المزيد' : 'Learn More'}
+                        {language === 'ar' ? 'اطلب عرض سعر' : 'Get a Quote'}
                         <ArrowRight className="h-3.5 w-3.5" />
                       </div>
                     </div>
