@@ -11,6 +11,7 @@ import truck9 from '@/assets/trucks/truck-9.jpeg';
 import ScrollReveal from '@/components/shared/ScrollReveal';
 import PageTransition from '@/components/shared/PageTransition';
 import HeroSlideshow from '@/components/shared/HeroSlideshow';
+import RoadDivider from '@/components/shared/RoadDivider';
 
 
 const Services = () => {
@@ -163,8 +164,16 @@ const Services = () => {
           </div>
         </section>
 
-        {/* Spacer to separate from footer */}
-        <section className="py-8 bg-secondary" />
+        {/* Animated road divider before footer */}
+        <RoadDivider
+          labelEn="ON THE ROAD"
+          labelAr="على الطريق"
+          originEn="DAMMAM"
+          originAr="الدمام"
+          destinationEn="KSA WIDE"
+          destinationAr="كل المملكة"
+        />
+
       </div>
     </PageTransition>
   );
