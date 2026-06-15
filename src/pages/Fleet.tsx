@@ -36,6 +36,7 @@ import sitrak7154 from '@/assets/trucks-new/sitrak-7154.png.asset.json';
 import sitrak6765Front from '@/assets/trucks-new/sitrak-6765-front.png.asset.json';
 import sitrak6765Side from '@/assets/trucks-new/sitrak-6765-side.png.asset.json';
 import sitrak6001Angle from '@/assets/trucks-new/sitrak-6001-angle.png.asset.json';
+import daewoo4542Pipes from '@/assets/trucks-new/daewoo-4542-pipes.png.asset.json';
 
 const Fleet = () => {
   const { t, language } = useLanguage();
@@ -88,7 +89,7 @@ const Fleet = () => {
       taglineEn: 'Modern power, factory-fresh — added to the fleet to expand capacity.',
       taglineAr: 'قوة حديثة من المصنع — أضيفت إلى الأسطول لتوسيع الطاقة الاستيعابية.',
       hero: daewooHero.url,
-      gallery: [daewoo8577.url, fleet17],
+      gallery: [daewoo8577.url, daewoo4542Pipes.url],
       models: [{ name: 'Maximus 4542', years: '2023' }],
     },
     {
