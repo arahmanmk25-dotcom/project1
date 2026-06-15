@@ -33,6 +33,9 @@ import mercedesBlue from '@/assets/trucks-new/mercedes-blue-2439.png.asset.json'
 import daewoo8577 from '@/assets/trucks-new/daewoo-8577.png.asset.json';
 import daewooHero from '@/assets/trucks-new/daewoo-hero.jpg.asset.json';
 import sitrak7154 from '@/assets/trucks-new/sitrak-7154.png.asset.json';
+import sitrak6765Front from '@/assets/trucks-new/sitrak-6765-front.png.asset.json';
+import sitrak6765Side from '@/assets/trucks-new/sitrak-6765-side.png.asset.json';
+import sitrak6001Angle from '@/assets/trucks-new/sitrak-6001-angle.png.asset.json';
 
 const Fleet = () => {
   const { t, language } = useLanguage();
@@ -96,8 +99,8 @@ const Fleet = () => {
       originAr: 'الصين · CNHTC · أحدث الإضافات',
       taglineEn: 'Our latest investment — a brand-new 2024 fleet ready for any mission.',
       taglineAr: 'أحدث استثماراتنا — أسطول جديد كلياً موديل 2024 جاهز لأي مهمة.',
-      hero: sitrak7154.url,
-      gallery: [fleetHero],
+      hero: sitrak6001Angle.url,
+      gallery: [sitrak6765Front.url, sitrak6765Side.url, sitrak7154.url, fleetHero],
       models: [{ name: 'G7 440', years: '2024' }],
     },
   ];
@@ -114,7 +117,7 @@ const Fleet = () => {
       <div>
         {/* Hero */}
         <section className="relative h-[70vh] min-h-[500px] flex items-end overflow-hidden -mt-16">
-          <HeroSlideshow images={[fleetHero, sitrak7154.url, mercedesWhite.url, manWhite.url, daewooHero.url]} interval={8000} />
+          <HeroSlideshow images={[sitrak6001Angle.url, sitrak6765Side.url, mercedesWhite.url, manWhite.url, daewooHero.url]} interval={8000} />
           <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent" />
           <div className="relative z-10 container mx-auto px-4 pb-16">
             <ScrollReveal variant="fadeUp">
