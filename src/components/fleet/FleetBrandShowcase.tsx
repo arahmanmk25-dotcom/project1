@@ -142,12 +142,11 @@ const FleetBrandShowcase = ({ brand, index }: Props) => {
             className={`lg:col-span-7 space-y-5 ${reverse ? 'lg:order-1' : ''}`}
           >
             <div className="relative group">
-              <div className="absolute -inset-3 border border-gold/30 translate-x-2 translate-y-2 pointer-events-none transition-transform duration-500 group-hover:translate-x-0 group-hover:translate-y-0" />
-              <div className="absolute -inset-1 bg-background border border-primary/10 pointer-events-none" />
+              <div className="absolute -inset-4 border border-gold/30 translate-x-2 translate-y-2 pointer-events-none transition-transform duration-500 group-hover:translate-x-0 group-hover:translate-y-0" />
               <button
                 type="button"
                 onClick={() => openLightbox(0)}
-                className="relative block w-full aspect-[16/10] md:aspect-[4/3] overflow-hidden bg-secondary cursor-pointer"
+                className="relative block w-full aspect-[4/3] overflow-hidden bg-secondary cursor-pointer"
                 aria-label={isAr ? `افتح صورة ${brand.nameAr}` : `Open ${brand.nameEn} image`}
               >
                 <img
